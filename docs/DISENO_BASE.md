@@ -556,16 +556,16 @@ Mezcla de MIR4 y Lineage 2.
 | Piedra | Cómo se obtiene | Requisitos |
 |---|---|---|
 | **General** | **Caza** (botín de mobs) | — |
-| **Potenciada** | Fabricación por cualquier profesión principal (1–6) | Piedras generales + un objeto de sastre, peletero, herrero o joyero (1–4) + oro |
-| **Pacificada** | Fabricación por cualquier profesión principal (1–6) | Piedras generales + un objeto de sastre, peletero, herrero o joyero (1–4) + oro |
-| **Santificada** | Fabricación **exclusiva del inventor** | Piedras generales + potenciadas + pacificadas + oro |
+| **Potenciada** | Fabricación por cualquier profesión principal (1–6) | Piedras generales + un objeto de sastre, peletero, herrero o joyero (1–4) + **cristales** + oro |
+| **Pacificada** | Fabricación por cualquier profesión principal (1–6) | Piedras generales + un objeto de sastre, peletero, herrero o joyero (1–4) + **cristales** + oro |
+| **Santificada** | Fabricación **exclusiva del inventor** | Piedras generales + potenciadas + pacificadas + oro (sin cristales) |
 
 Las profesiones secundarias no fabrican piedras.
 
 **Destrucción con residuo (cambio respecto a MIR4, idea de Lineage 2)**
 - Cuando un objeto se destruye deja **cristales de su misma calidad** (un objeto raro deja cristales raros).
 - La **cantidad** de cristales aumenta con el nivel de desarrollo que tenía (un +9 deja más que un +6).
-- Los cristales son componentes de la profesión de **encantamiento**: con ellos y componentes exclusivos de la profesión se **fabrican piedras de desarrollo de esa misma calidad**. Para piedras cósmicas hacen falta cristales cósmicos, es decir, objetos cósmicos destruidos.
+- Los cristales son un componente de las piedras **potenciadas** y **pacificadas** de su misma calidad. Para piedras cósmicas hacen falta cristales cósmicos, es decir, objetos cósmicos destruidos.
 - Así la destrucción alimenta la economía de las profesiones en vez de ser una pérdida total.
 
 **Pendiente de configurar**: las probabilidades de cada salto y de cada piedra.
@@ -637,7 +637,7 @@ Queda para más adelante:
 
 **Temas base por definir**
 - Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; banco: número total de pestañas y espacios por pestaña; precios de pestañas y casillas de pago (se calcularán a partir del oro que genera un personaje por día); ¿límite de misiones activas a la vez?
-- Desarrollo de objeto: multiplicador de oro de cada piedra; tabla de cristales por calidad y nivel (+5 a +10); papel exacto de los cristales en la fabricación de piedras; cristales exactos por nivel.
+- Desarrollo de objeto: multiplicador de oro de cada piedra; tabla de cristales por calidad y nivel (+5 a +10); cristales exactos por nivel.
 - Consumibles y otros objetos.
 - Monedas: ¿100 plata = 1 oro?, monedas especiales.
 - Ambientación y estilo artístico.
