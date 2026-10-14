@@ -222,8 +222,12 @@ Es la primera clasificación de todo objeto.
 | Fabricación | Profesiones, combinación de insignias |
 | Compra a NPC | Comerciantes |
 | Logros | Recompensas por cumplir objetivos |
+| Recolección | Minerales, plantas, madera, pesca |
+| Eventos | Recompensas de eventos temporales o de temporada |
+| PvP | Recompensas de arenas y zonas PvP |
+| Cofres del mundo | Cofres y objetos interactivos |
 
-*Fuentes candidatas por confirmar: recolección, eventos, PvP, cofres del mundo.* El comercio entre jugadores y el mercado no crean objetos, solo los mueven, así que no son una fuente.
+El comercio entre jugadores y el mercado no crean objetos, solo los mueven, así que no son una fuente.
 
 #### Calidad
 
@@ -246,14 +250,35 @@ La calidad máxima disponible sube con cada temporada:
 | 3 | 40–60 | Épico |
 | Siguientes expansiones | — | Legendario, Mítico, Cósmico |
 
-#### Tipos de armadura
+#### Tipos de armadura (decidido)
 
-Tres tipos: **tela**, **cuero** y **placas**.
+Solo tres tipos: **tela**, **cuero** y **placas** (sin malla). Regla para asignar el tipo a cualquier clase, actual o futura:
 
-- Niveles 1–20: solo **tela** o **cuero**.
-- Desde el nivel 20: según la especialización, **cuero** o **placas** (¿y tela para las clases mágicas?).
-- **Cualquier personaje puede llevar cualquier tipo**, pero cada clase tiene un tipo propio que le da una **bonificación de especialización en armadura** (por ejemplo, +1 % de agilidad al llevar cuero siendo de una especialización de cuero). Si lleva otro tipo, pierde la bonificación.
+| Tipo | Quién lo usa | Concepto |
+|---|---|---|
+| **Tela** | Clases de **daño mágico** | Magos, invocadores, sanadores mágicos |
+| **Placas** | Clases físicas **de primera línea** | Tanques y luchadores que aguantan al frente pegando (bruisers, gladiadores) |
+| **Cuero** | Clases físicas **que evitan el combate directo** | Arqueros, pícaros, asesinos: golpear rápido y desaparecer |
+
+- **Niveles 1–20**: clases mágicas en tela y clases físicas en cuero (las placas llegan con las especializaciones).
+- **Cualquier personaje puede llevar cualquier tipo**, pero el tipo propio de su clase le da una **bonificación de especialización en armadura** (por ejemplo, +1 % de agilidad con cuero). Con otro tipo la pierde.
 - La armadura individual del botín (3.7) cae siempre del tipo propio de la clase del personaje.
+- Bonificaciones por conjunto o por pieza: se definirán junto con los objetos y las estadísticas.
+
+**Propuesta de asignación según el árbol de clases** (aplicando la regla; por revisar):
+
+| Base (1–20) | Especialización 1 (20–40) | Especialización final (40–60) |
+|---|---|---|
+| Luchador — cuero | Dos manos — placas | Lancero — placas · Guerrero — placas |
+| | Espadas duales — **?** | Gladiador — placas · Danzador — cuero |
+| | Tanque — placas | Paladín — placas · Guardián — placas |
+| Asesino — cuero | Daguero — cuero | Sutileza — cuero · Sanguinario — cuero |
+| | Cazarrecompensas — cuero | Asesino — cuero · Mutilador — cuero |
+| Combatiente — cuero | Frenético — placas | Berserker — placas |
+| | Recolector — **?** | Carroñero — **?** · Explorador — cuero |
+| Atacante a distancia — cuero | Arquero — cuero | Ballestero, Cazador, Francotirador — cuero |
+| Mago — tela | Hechicero, Chamán — tela | Piromántico, Arcanista, Elementalista, Brujo, Alquimista — tela |
+| Invocador — tela | Encantador — tela | Sacerdote, Conjurador, Nigromante, Bardo, Monje — tela |
 
 #### Equipo
 
@@ -301,8 +326,7 @@ Queda para más adelante:
 
 ## 7. Preguntas abiertas
 
-- **Objetos — fuentes**: ¿añadir recolección, eventos, PvP y cofres del mundo?
-- **Objetos — armadura**: qué clase base usa tela y cuál cuero en la Temporada 1; si las clases mágicas siguen con tela desde el nivel 20; si la bonificación exige llevar todas las piezas del tipo propio o se gana por pieza.
+- **Objetos — armadura**: casos dudosos de la asignación (Espadas duales, Recolector, Carroñero) y si el tipo de armadura puede cambiar entre la especialización 1 y la final.
 - **Orden de prioridad** en la rotación de objetos compartidos (¿profesión → códice → basura?).
 - **Códice**: capítulo propio más adelante (fabricación, mejora, niveles de entradas).
 - **Estadísticas**: capítulo propio más adelante (peso de cada estadística por clase, PvE vs. PvP).
