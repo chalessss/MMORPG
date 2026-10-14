@@ -478,7 +478,7 @@ Mezcla de MIR4 y Lineage 2.
 | +9 → +10 | 22 % | Sí |
 
 - La tabla es **la misma para todas las calidades** (común igual que cósmico).
-- **Coste de cada intento**: piedra de desarrollo + **oro**. Se paga siempre, salga bien o mal.
+- **Coste de cada intento**: piedra de desarrollo + **oro**. Se paga siempre, salga bien o mal. El oro **no cambia con el nivel** de mejora; cambia según el **tipo de piedra**, como múltiplo del coste de la general (ejemplo: general 3 de oro, santificada 12 = ×4). Tabla de multiplicadores: pendiente.
 - **Zona segura (hasta +5)**: un objeto **nunca se rompe**; si falla, se queda en su nivel y solo se pierden la piedra y el oro.
 - **Zona de peligro (de +5 a +10)**: si falla, **el objeto se destruye** (probabilidad de destrucción = 100 % − éxito).
 - **Bonificación de mejora**: códices, recompensas y otras fuentes suman puntos a la probabilidad de éxito, con un **máximo de +6 puntos** en cualquier salto. Ejemplos: +5 → +6 pasa como mucho de 42 % a **48 %** (destrucción mínima 52 %); +6 → +7, de 35 % a **41 %** (destrucción mínima 59 %). Ningún salto de la zona de peligro llega a ser seguro.
@@ -560,7 +560,7 @@ Queda para más adelante:
 
 **Temas base por definir**
 - Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; banco: número total de pestañas y espacios por pestaña; precios de pestañas y casillas de pago (se calcularán a partir del oro que genera un personaje por día); ¿límite de misiones activas a la vez?
-- Mejora de equipo: oro por intento según el nivel; piedra potenciada (probabilidades, si puede destruir en la zona segura, si puede saltar a la zona de peligro); piedra pacificada (¿100 %?); origen de cada piedra; cristales exactos por nivel.
+- Mejora de equipo: multiplicador de oro de cada piedra; piedra potenciada (probabilidades, si puede destruir en la zona segura, si puede saltar a la zona de peligro); piedra pacificada (¿100 %?); origen de cada piedra; cristales exactos por nivel.
 - Consumibles y otros objetos.
 - Monedas: ¿100 plata = 1 oro?, monedas especiales.
 - Ambientación y estilo artístico.
