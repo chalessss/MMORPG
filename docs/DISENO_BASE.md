@@ -445,6 +445,23 @@ Máximo total: 9 bolsas.
 - Comodidades: buscador, botón de organizar y botón **"Depositar todos los componentes"**.
 - **Banco de tropa** (compartido entre los personajes de la cuenta): la pestaña existe pero se desbloquea en el **nivel 60**, cuando llega el contenido para varios personajes en la cuenta (por ejemplo, clases especiales que se añadan más adelante).
 
+### 3.18 Mejora de equipo (en curso)
+
+Mezcla de MIR4 y Lineage 2.
+
+- Niveles de mejora de **+1 a +10**. El máximo es **+10** y **nunca cambia** (ni con nuevas temporadas).
+- Intentar mejorar un objeto a +10 está **bloqueado**: el sistema avisa "No es posible realizar más mejoras en este equipo".
+
+**Referencia (MIR4)**:
+- Coste por intento: piedra de mejora (de la calidad del objeto) + otro material (Darksteel) + moneda.
+- Muestra la **probabilidad de éxito**, el nivel actual → siguiente y el cambio de poder.
+- **Zona segura** (niveles bajos): si falla, el objeto no baja de nivel.
+- **Zona de peligro** (niveles altos): si falla, **el objeto se destruye**.
+- Estadística de **bonificación de probabilidad de mejora**; la probabilidad nunca supera el 100 %.
+- Botón de **mejora automática**.
+
+*Cambios respecto a MIR4: por definir con el usuario.*
+
 ## 4. Sistemas principales
 
 Lo que hace funcionar a las entidades anteriores. Se desarrollan por fases según la hoja de ruta.
@@ -495,7 +512,7 @@ Queda para más adelante:
 - **Profesiones**: lista de principales y secundarias.
 
 **Temas base por definir**
-- Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; banco: número total de pestañas, espacios por pestaña y precio de las adicionales; ¿límite de misiones activas a la vez?
+- Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; banco: número total de pestañas y espacios por pestaña; precios de pestañas y casillas de pago (se calcularán a partir del oro que genera un personaje por día); ¿límite de misiones activas a la vez?
 - Mejora de equipo (+N).
 - Consumibles y otros objetos.
 - Monedas: ¿100 plata = 1 oro?, monedas especiales.
