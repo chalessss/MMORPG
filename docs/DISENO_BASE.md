@@ -392,6 +392,8 @@ Objetivo: que el inventario **nunca sea una fuente de frustración** (llenarse d
 - **Desbordamiento**: si una bolsa especial está llena, lo que llega va a la **bolsa general**. **Nunca se pierde un objeto** por falta de espacio en una bolsa especial.
 - Ventaja: inventario ordenado, y es imposible vender por accidente los materiales.
 
+**Objetos de misión — "bolsa invisible"**: no ocupan espacio ni se muestran en el inventario. Solo se ven como progreso en el **registro de misiones** (por ejemplo, "Pieles de lobo 3/5"). Se eliminan al completar o abandonar la misión. Así nadie se bloquea por tener el inventario lleno, y quien acepte muchas misiones sin terminarlas no acumula miles de objetos visibles.
+
 **Tamaño de las pilas**: lo define **cada objeto** al crearlo, según su calidad y lo frecuente que sea. Los objetos muy abundantes (por ejemplo, insignias del códice, de las que se acumulan 10.000–20.000) tienen pilas muy grandes para no ocupar espacio.
 
 **De dónde salen las bolsas**:
@@ -457,7 +459,7 @@ Queda para más adelante:
 - **Profesiones**: lista de principales y secundarias.
 
 **Temas base por definir**
-- Inventario: espacio inicial de cada bolsa; diseño de la venta rápida (captura de MIR4); dónde van los objetos de misión; tamaño del banco.
+- Inventario: espacio inicial de cada bolsa; ¿límite de misiones activas a la vez?; diseño de la venta rápida (captura de MIR4); tamaño del banco.
 - Mejora de equipo (+N).
 - Consumibles y otros objetos.
 - Monedas: ¿100 plata = 1 oro?, monedas especiales.
