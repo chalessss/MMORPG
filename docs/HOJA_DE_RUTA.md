@@ -1,0 +1,104 @@
+# Hoja de ruta
+
+Documento vivo: se actualiza a medida que se toman decisiones. Las fechas y duraciones son orientativas y se ajustarán con datos reales de los jugadores después del lanzamiento.
+
+## Visión
+
+MMORPG en Unity donde el **personaje es el centro**: empieza sencillo y evoluciona a lo largo de temporadas mediante especializaciones (estilo Lineage 2). Además de subir de nivel, el jugador tiene otras cosas que hacer (estilo World of Warcraft): profesiones, subclases y contenido PvE y PvP.
+
+## Modelo de temporadas
+
+| Temporada | Niveles | Elección del jugador |
+|---|---|---|
+| 1 | 1–20 | Arquetipo (Físico / Mágico) + clase base (6 clases) |
+| 2 | 20–40 | Especialización 1 |
+| 3 | 40–60 | Especialización final (~19 clases) |
+
+- Cada temporada es un lanzamiento de contenido. Su duración **no es fija**: se decidirá según cuánto tarden los jugadores en llegar al nivel máximo y cuánto contenido adicional haya.
+- Cada temporada debe tener actividades en su nivel máximo (endgame), no solo subida de nivel.
+- El sistema técnico soporta los 60 niveles desde el inicio; abrir una temporada es cambiar configuración/datos.
+
+## Principio técnico clave
+
+La lógica del juego (estadísticas, fórmulas, habilidades, progresión) se escribe en **C# puro, separada de lo visual de Unity**. Así:
+- se puede probar sin abrir escenas,
+- el mismo código podrá ejecutarse en el servidor cuando llegue el multijugador,
+- los valores de balance se cargan desde datos (la hoja de cálculo), no desde el código.
+
+---
+
+## Fase 0 — Fundamentos y decisiones
+
+- [x] Motor: Unity
+- [x] Modelo de progresión por temporadas
+- [x] Hoja de datos de diseño (Google Sheets)
+- [ ] 2D o 3D, tipo de cámara
+- [ ] Plataforma objetivo (PC / móvil / ambos)
+- [ ] Ambientación y estilo artístico
+- [ ] Versión de Unity y estructura inicial del proyecto en el repositorio
+
+## Fase 1 — Sistema de personajes (foco actual)
+
+Objetivo: tener personajes completos a nivel de datos y reglas, aunque visualmente sean básicos.
+
+- [ ] Modelo de datos: arquetipo → clase base → especialización 1 → especialización final
+- [ ] Estadísticas principales (STR / INT / AGI) y derivadas (vida, maná, daño, crítico, defensas…)
+- [ ] Estadísticas neutrales (evasión, precisión, CDR, PvP, caída de objetos…)
+- [ ] Recursos: MP + recurso secundario por clase (Ira, Energía, Foco, Iluminación)
+- [ ] Niveles, experiencia y crecimiento de estadísticas por nivel
+- [ ] Sistema de habilidades (activas / pasivas, enfriamiento, lanzamiento, alcance, coste)
+- [ ] Fórmulas de daño y defensa
+- [ ] Armas y su influencia (velocidad de ataque, tipo de arma por clase)
+- [ ] Importación de datos desde la hoja de cálculo a Unity
+- [ ] Pruebas automáticas de las fórmulas
+- [ ] Escena de prueba: crear un personaje, subirlo de nivel y atacar a un muñeco de entrenamiento
+
+## Fase 2 — Mundo y combate PvE básico
+
+- [ ] Movimiento, cámara y controles
+- [ ] Enemigos con IA básica
+- [ ] Combate en tiempo real usando el sistema de la Fase 1
+- [ ] Experiencia por enemigos, botín básico
+- [ ] Equipo e inventario
+
+## Fase 3 — Multijugador
+
+- [ ] Elegir solución de red (servidor autoritativo)
+- [ ] Varios jugadores viéndose y moviéndose en el mismo mundo
+- [ ] Combate sincronizado
+- [ ] Cuentas de usuario y guardado de personajes en base de datos
+
+## Fase 4 — Contenido de la Temporada 1
+
+- [ ] Zonas para niveles 1–20
+- [ ] NPCs y misiones
+- [ ] Mazmorras y jefes
+- [ ] Equipo y objetos de la temporada
+
+## Fase 5 — Sistemas sociales y endgame
+
+- [ ] Profesiones (recolección y crafteo)
+- [ ] Subclases (por definir)
+- [ ] Grupos, clanes y chat
+- [ ] PvP (duelos, arenas, zonas PvP)
+- [ ] Comercio y economía entre jugadores
+
+## Fase 6 — Pruebas y lanzamiento de la Temporada 1
+
+- [ ] Alfa cerrada
+- [ ] Balance con datos reales
+- [ ] Beta
+- [ ] Lanzamiento
+
+## Después del lanzamiento
+
+- Temporada 2 (niveles 20–40, especializaciones)
+- Temporada 3 (niveles 40–60, especializaciones finales)
+- Parches de contenido entre temporadas
+
+---
+
+## Decisiones pendientes
+
+- Datos de la hoja: estadísticas base que no coinciden entre tablas, fórmula de "Stat final" que suma el nivel dos veces, nombres de habilidades desplazados, modelo de estadísticas (STR/INT/AGI vs. 7 estadísticas).
+- Qué significa exactamente "subclase" en este juego.

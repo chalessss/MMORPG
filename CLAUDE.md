@@ -18,7 +18,9 @@ Contexto del proyecto para Claude. Léelo al iniciar cada sesión.
 
 ## Progresión por temporadas (decidido)
 
-Estilo Lineage 2: el personaje evoluciona eligiendo especializaciones. Cada temporada es un **lanzamiento de contenido** separado en el tiempo (orientativo: ~1 año por temporada), para evitar la carrera al nivel máximo.
+Estilo Lineage 2: el personaje evoluciona eligiendo especializaciones. Cada temporada es un **lanzamiento de contenido** separado en el tiempo, para evitar la carrera al nivel máximo. La duración **no es fija**: se decidirá tras el lanzamiento según el ritmo de los jugadores y el contenido disponible. Además de subir de nivel habrá profesiones, subclases y contenido PvE/PvP (estilo WoW).
+
+La hoja de ruta completa está en `docs/HOJA_DE_RUTA.md`: mantenerla actualizada al cerrar tareas o tomar decisiones.
 
 | Temporada | Niveles | Elección | Clases |
 |---|---|---|---|
