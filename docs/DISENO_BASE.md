@@ -129,7 +129,8 @@ Cada mob tiene una **tabla de botín** con dos partes. Ejemplo, un lobo:
 |---|---|---|---|
 | **Fijo** | Experiencia | Cantidad exacta | Repartida según contribución |
 | **Fijo** | Moneda | Cantidad exacta | Repartida según contribución |
-| **Variable** | Armaduras / equipo | % (p. ej. 30 %) | **Individual**: según el personaje |
+| **Variable** | Armaduras del grupo | % | Para el grupo (reparto por definir) |
+| **Variable** | Armaduras individuales | % (p. ej. 30 %) | **Individual**: según el personaje |
 | **Variable** | Objetos de misión | % | **Individual**: solo a quien tenga la misión activa |
 | **Variable** | Objetos de profesión | % | Para todos por igual (rotación) |
 | **Variable** | Objetos de códice | % | Para todos por igual (rotación) |
@@ -141,11 +142,22 @@ Los valores concretos de cada mob se definirán más adelante en las tablas de d
 
 **No existe "el primero que golpea se lo queda"** (sin mobs "grises" estilo WoW). La **contribución** es el **daño efectivo** hecho al mob: si el mob tiene 500 de vida y el golpe final es de 5.000, cuentan 500.
 
-**Entre jugadores o grupos distintos** que atacan al mismo mob:
-- **Experiencia**: exactamente proporcional al daño. Mob de 300 XP: quien hizo el 20 % recibe 60, quien hizo el 80 % recibe 240.
-- **Moneda**: proporcional al daño, en la unidad mínima (cobre). Lo que no llegue a 1 cobre se pierde.
-- **Objetos compartidos** (profesión, códice, basura): cada objeto tira su probabilidad de caer; si cae, se sortea con la contribución como probabilidad (85 % de daño → 85 % de opciones).
-- Un **grupo cuenta como una sola unidad** frente a otros jugadores o grupos (clave en jefes de mundo y de banda).
+**Entre jugadores o grupos distintos** que atacan al mismo mob, **todo** se reparte según la contribución, incluidas las armaduras individuales. Ejemplo: el grupo 1 hace el 80 % del daño y el grupo 2 el 20 %:
+
+| | Grupo 1 (80 % del daño) | Grupo 2 (20 % del daño) |
+|---|---|---|
+| Fijos (experiencia, moneda) | 80 % | 20 % |
+| Armaduras del grupo | 80 % de probabilidad | 20 % de probabilidad |
+| Armaduras individuales | 80 % de probabilidad | 20 % de probabilidad |
+| Objetos de misión | 80 % de probabilidad | 20 % de probabilidad |
+| Objetos de profesión | 80 % de probabilidad | 20 % de probabilidad |
+| Objetos de códice | 80 % de probabilidad | 20 % de probabilidad |
+| "Basura" | 80 % de probabilidad | 20 % de probabilidad |
+
+- **Fijos**: reparto exacto. Mob de 300 XP: 240 para el grupo 1 y 60 para el grupo 2. La moneda se reparte en la unidad mínima (cobre); lo que no llegue a 1 cobre se pierde.
+- **Variables**: cada objeto tira su probabilidad de caer; si cae, un marcador interno decide a qué unidad (jugador o grupo) va, con la contribución como probabilidad.
+- Un **grupo cuenta como una sola unidad**; un jugador sin grupo es una unidad propia. Funciona igual en mobs normales y en jefes de mundo o de banda.
+- Solo cuenta el **daño efectivo**: si el mob tiene 500 de vida y el golpe final es de 5.000, cuentan 500.
 - **Sin contribución mínima** y **sin penalización por diferencia de nivel**: los materiales valiosos solo los dan mobs de nivel alto.
 
 **Moneda**: cobre, plata y oro; 100 cobre = 1 plata (100 plata = 1 oro, por confirmar).
@@ -173,7 +185,8 @@ El juego está pensado para **jugarse en grupo**: jugar acompañado siempre debe
 
 - **Experiencia y moneda**: a partes iguales entre los miembros, más el bonus de grupo.
 - **Objetos compartidos — rotación** (profesión, códice, basura): cada objeto que cae se asigna **al azar** entre los miembros que aún no han recibido nada; quien recibe uno queda excluido hasta que todos hayan recibido, y entonces la rotación se reinicia. A la larga todos reciben más o menos lo mismo.
-- **Armaduras / equipo — botín personal**: cada miembro tira **su propia probabilidad** (p. ej. 30 %). Solo puede caerle equipo que **su personaje puede usar** (un guerrero no recibe tela). Un mob puede dar varias piezas, una por cada miembro al que le salga la tirada. Para conseguir otros tipos de equipo (por ejemplo, para el códice) hay que comerciar con otros jugadores o usar el mercado.
+- **Armaduras del grupo**: caen para el grupo; reparto interno por definir.
+- **Armaduras individuales — botín personal**: cada miembro tira **su propia probabilidad** (p. ej. 30 %). Solo puede caerle equipo que **su personaje puede usar** (un guerrero no recibe tela). Un mob puede dar varias piezas, una por cada miembro al que le salga la tirada. Otros tipos de equipo se consiguen comerciando o en el mercado.
 - **Objetos de misión — individuales**: solo los recibe quien tiene la misión activa, con su propia probabilidad. Una misión debe tardar **lo mismo solo que en grupo** (en grupo se matan más mobs, pero cada uno necesita sus propios objetos), para no castigar a quien juega solo.
 
 ### 3.10 Roles (decidido)
@@ -182,19 +195,18 @@ El juego está pensado para **jugarse en grupo**: jugar acompañado siempre debe
 - En grupo, cada especialización es más eficiente en su rol: el tanque aguanta y atrae a los mobs, el sanador cura, el DPS hace daño.
 - Habrá zonas pensadas para grupos (por ejemplo, muchos mobs agresivos) donde un tanque y un sanador hacen que subir de nivel sea mucho más rápido.
 
-### 3.11 Códice (decidido, estilo MIR4)
+### 3.11 Códice (estilo MIR4 — detalle en un capítulo propio más adelante)
 
-Sistema de colección que da **estadísticas permanentes a la cuenta**. Es una vía de progresión a largo plazo, aparte del nivel y del equipo.
+Sistema de colección que da **estadísticas permanentes a la cuenta**. Por ahora solo se fija lo básico:
 
-**Ciclo completo:**
+- **Los mobs sueltan insignias**, el material del códice (objetos de códice en la tabla de botín). Cada zona tiene las suyas.
+- Con las insignias se **fabrican** objetos de códice, que se **mejoran** y se **registran**. Fabricación, mejora y niveles de las entradas: por definir.
+- **Registro**: el objeto **se consume** y desaparece del inventario; queda registrado en la cuenta. Cada línea del códice necesita sus objetos concretos: un objeto no cubre varias líneas.
+- **Códice de armaduras**: las armaduras sobrantes o sustituidas también se registran, en vez de venderse por poco. Cuando el códice está completo, las armaduras de más se mejoran y se venden en el mercado.
+- **Bonificaciones de cuenta**: se mantienen al cambiar de subclase (el códice de ataque mágico sigue sirviendo si un guerrero pasa a mago).
+- **Todas las estadísticas suman para todas las clases**, a diferencia de MIR4: el ataque mágico también ayuda a un guerrero, pero mucho menos que a un mago. Se definirá en el capítulo de estadísticas.
 
-1. **Material de códice ("insignias")**: lo sueltan mobs de **zonas concretas** (cada zona o mazmorra tiene su propio material). Tiene **grados** (común, poco común, raro, épico…), se puede **combinar** (varios de un grado → uno del grado superior), está **ligado** (no se comercia; solo se vende a la tienda) y se acumula en grandes cantidades.
-2. **Fabricación de objetos de códice**: con material + moneda se fabrican objetos especiales (por ejemplo, casco, capa, cofre… del "Desafiante de X"). Hay una versión de cada objeto por grado. Ejemplo: 10 insignias de la zona + 400 de moneda + 200 de otro recurso → casco de códice poco común.
-3. **Mejora**: los objetos deben mejorarse hasta un nivel mínimo (por ejemplo, +2) para poder registrarse.
-4. **Registro**: cada **entrada del códice** pide un conjunto concreto de objetos (por ejemplo, 3) mejorados. Al completarla, da una bonificación fija (por ejemplo, "Fuerza para romperlo todo [1]": ataque físico +20).
-5. **Efectos totales**: las bonificaciones de todas las entradas completadas se suman (ataque físico/mágico, defensa física/mágica, precisión, evasión, crítico, evasión de crítico, % de daño crítico, reducción de daño crítico…).
-
-Interfaz: lista de entradas con los objetos que pide cada una, filtros por nivel de mejora y por grado, panel de efectos totales, botón de registro automático.
+Inspiración (MIR4): material por zona con grados, combinable y ligado → objeto de códice (material + moneda) → mejora (p. ej. +2) → entrada que pide un conjunto de objetos → bonificación fija → efectos totales sumados.
 
 ## 4. Sistemas principales
 
@@ -238,10 +250,10 @@ Queda para más adelante:
 
 ## 7. Preguntas abiertas
 
-- **Códice**: ¿los objetos se consumen al registrarse? ¿Cómo se mejoran (materiales, probabilidad de fallo)? ¿Las entradas tienen niveles ([1], [2]…) que piden objetos de mayor grado? ¿Las armaduras normales también se pueden registrar, o solo los objetos fabricados con insignias? ¿Las bonificaciones cuentan también en PvP?
-- **Botín personal de equipo fuera de grupo**: si dos jugadores sin grupo matan juntos un mob, ¿cada uno tira su probabilidad de equipo, o esa probabilidad se ajusta según su contribución?
-- **Equipo personal**: ¿se puede comerciar o queda ligado al personaje?
+- **Armaduras del grupo vs. individuales**: cómo se reparte la armadura del grupo entre sus miembros, y cómo se combina la armadura individual con el % de contribución entre grupos.
 - **Orden de prioridad** en la rotación de objetos compartidos (¿profesión → códice → basura?).
+- **Códice**: capítulo propio más adelante (fabricación, mejora, niveles de entradas).
+- **Estadísticas**: capítulo propio más adelante (peso de cada estadística por clase, PvE vs. PvP).
 - **Bonus de moneda** por tamaño de grupo: valores.
 - **Bandas**: reglas de reparto de experiencia, moneda y botín.
 - **Vetas enriquecidas**: ¿las 4–5 recolecciones son por jugador o el total compartido entre todos? ¿La cuenta atrás empieza siempre en el primer golpe?
