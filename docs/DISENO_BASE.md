@@ -362,6 +362,7 @@ Dos grupos: **equipo** (ropa y armas) y **joyería**, con **8 ranuras cada uno**
 
 - **PvP abierto solo en ciertas zonas**: hay **zonas seguras** (sin combate entre jugadores) y **zonas peligrosas** (PvP libre). Un único tipo de servidor; sin servidores separados PvE y PvP.
 - Cada jugador decide si entra a las zonas peligrosas a pelear por recursos.
+- **PvP en campo abierto, estilo Lineage 2** (no solo en campos de batalla como WoW): grupos y clanes pelean por **controlar territorios** y sus recursos. Morir en PvP también quita experiencia, lo que hace que controlar una zona importe.
 - Las zonas PvP dan **botín especializado en PvP** (objetos que mejoran estadísticas PvP); las zonas PvE dan botín enfocado al PvE.
 
 ### 3.15 Profesiones (decidido, estilo WoW)
@@ -615,10 +616,16 @@ Lista corta a propósito: no se quiere que el jugador necesite 30 consumibles di
   - ser **revivido por otro jugador** (habilidad), o
   - **revivirse a sí mismo** con una habilidad o un objeto.
 - Si no, el sistema lo lleva automáticamente al **punto de reaparición del centro de la ciudad más cercana**, con la vida completa.
-- **Pérdida de experiencia**: morir hace perder una cantidad de experiencia.
-  - **3 recuperaciones gratis al día** de la experiencia perdida.
+- **Pérdida de experiencia**: cada muerte quita el **5 %** de experiencia, **también en PvP**.
+  - **3 recuperaciones gratis al día**, que devuelven el **100 %** de la experiencia perdida.
   - A partir de ahí, se puede recuperar **pagando cobre**, pero solo una parte (85–90 %).
   - **Nivel 60 / juego avanzado**: habrá **papiros** comprables que restablecen la experiencia perdida, pensados para eventos de muertes masivas (por ejemplo, 30–50 muertes en un fin de semana).
+
+- **Perder objetos al morir (juego avanzado, por definir)**: estilo Lineage 2 con **karma**.
+  - Cada jugador puede **asegurar** algunas piezas (por ejemplo, 6–7 de sus 16 ranuras) que nunca se pueden soltar.
+  - Una condición (el **karma**) habilita que al morir se suelten equipo, oro, componentes, ropa puesta u objetos del inventario.
+  - Objetivo adicional: que a los bots que farmean 24/7 les salga caro, porque valga la pena matarlos.
+  - *A resolver*: en Lineage 2, el karma lo gana quien mata a jugadores que no se defienden, y es **él** quien suelta objetos. Un bot que solo farmea no tendría karma, así que matarlo no le haría soltar nada. Hay que encajar ambas ideas (por ejemplo, una probabilidad de soltar componentes recolectados al morir en zonas PvP, aparte del karma).
 
 ## 4. Sistemas principales
 
@@ -663,7 +670,7 @@ Queda para más adelante:
 ## 7. Preguntas abiertas
 
 **Pendientes para más adelante**
-- **Muerte**: cuánta experiencia se pierde; si las 3 recuperaciones gratis devuelven el 100 %; si morir en PvP también quita experiencia; si se pueden perder objetos al morir.
+- **Muerte y karma**: sistema de karma y pérdida de objetos (juego avanzado).
 - **Profesiones**: valores de la curva de oro por cambio; si una subclase de Recolector (nivel 60) da acceso al inventor.
 - **Bonus de moneda** por tamaño de grupo: valores.
 - **Bandas** (se desbloquean en el nivel 40 o 60): reglas de reparto de experiencia, moneda y botín.
