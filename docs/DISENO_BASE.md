@@ -460,7 +460,28 @@ Mezcla de MIR4 y Lineage 2.
 - Estadística de **bonificación de probabilidad de mejora**; la probabilidad nunca supera el 100 %.
 - Botón de **mejora automática**.
 
-*Cambios respecto a MIR4: por definir con el usuario.*
+#### Sistema decidido
+
+**Zonas**
+- **Zona segura (hasta +5)**: si falla, el objeto no se destruye. Ejemplo: +4 → +5 con ~50 % de éxito.
+- **Zona de peligro (de +5 a +10)**: si falla, el objeto **se destruye**. Ejemplo: +5 → +6 con ~40 % de éxito.
+- La probabilidad de cada salto (+5 → +6, +6 → +7…) es un dato configurable.
+
+**Piedras de mejora** (por color)
+
+| Piedra | Efecto |
+|---|---|
+| **Roja** (normal) | Sube **+1** si tiene éxito. Sigue las reglas de zona segura / zona de peligro. |
+| **Amarilla** (mística) | Sube un valor **aleatorio de +1 a +4** con un solo uso. Ejemplo desde +4: +1 (60 %), +2 (30 %), +3 (8 %), +4 (1 %), destrucción (1 %). |
+| **Morada** | **Baja +1** el nivel actual. Uso típico: si la amarilla dejó el objeto en +5, se baja a +4 (zona segura) para volver a intentar un salto grande. |
+| **Negra** (prevención de destrucción) | Intento con la misma probabilidad, pero si falla **solo se gasta la piedra**: el objeto no se destruye. |
+
+**Destrucción con residuo (cambio respecto a MIR4, idea de Lineage 2)**
+- Cuando un objeto se destruye no se pierde todo: deja un **residuo** (cristales, polvo…).
+- Ese residuo es componente de la profesión de **encantamiento**: los encantadores lo usan, junto con componentes exclusivos de su profesión, para **fabricar piedras de mejora** (por ejemplo, las amarillas).
+- Así la destrucción alimenta la economía de las profesiones en vez de ser una pérdida total.
+
+**Pendiente de configurar**: las probabilidades de cada salto y de cada piedra.
 
 ## 4. Sistemas principales
 
@@ -513,7 +534,7 @@ Queda para más adelante:
 
 **Temas base por definir**
 - Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; banco: número total de pestañas y espacios por pestaña; precios de pestañas y casillas de pago (se calcularán a partir del oro que genera un personaje por día); ¿límite de misiones activas a la vez?
-- Mejora de equipo (+N).
+- Mejora de equipo: probabilidades por nivel; origen de cada piedra; cantidad de residuo; si las piedras son por calidad de objeto; si la morada y la negra tienen otras condiciones.
 - Consumibles y otros objetos.
 - Monedas: ¿100 plata = 1 oro?, monedas especiales.
 - Ambientación y estilo artístico.
