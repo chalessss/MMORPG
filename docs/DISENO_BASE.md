@@ -437,7 +437,13 @@ Máximo total: 9 bolsas.
 - **Bloqueo de objetos**: el jugador puede bloquear cualquier objeto (candado) para que nunca entre en la venta rápida.
 - *Propuestas por confirmar*: filtro por categoría (basura, equipo, componentes…); que la selección automática **excluya el equipo que aún falta registrar en el códice**; mostrar el total de moneda antes de confirmar.
 
-**Banco**: sí habrá banco para guardar objetos. El **banco compartido entre personajes de la cuenta** se desbloquea en el **nivel 60**.
+**Banco** (referencia: WoW):
+- **Banco personal**: uno por personaje, organizado en **pestañas**.
+  - **Pestaña 1 — general**: guarda cualquier tipo de objeto.
+  - **Pestaña 2 — componentes**: solo componentes.
+  - **Pestañas adicionales**: se compran (como las casillas de bolsa) y, al desbloquearlas, el jugador decide si quedan abiertas a todo o asignadas a un tipo de objeto.
+- Comodidades: buscador, botón de organizar y botón **"Depositar todos los componentes"**.
+- **Banco de tropa** (compartido entre los personajes de la cuenta): la pestaña existe pero se desbloquea en el **nivel 60**, cuando llega el contenido para varios personajes en la cuenta (por ejemplo, clases especiales que se añadan más adelante).
 
 ## 4. Sistemas principales
 
@@ -489,7 +495,7 @@ Queda para más adelante:
 - **Profesiones**: lista de principales y secundarias.
 
 **Temas base por definir**
-- Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; espacio y ampliación del banco; ¿límite de misiones activas a la vez?
+- Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; banco: número total de pestañas, espacios por pestaña y precio de las adicionales; ¿límite de misiones activas a la vez?
 - Mejora de equipo (+N).
 - Consumibles y otros objetos.
 - Monedas: ¿100 plata = 1 oro?, monedas especiales.
