@@ -375,6 +375,21 @@ Dos grupos: **equipo** (ropa y armas) y **joyería**, con **8 ranuras cada uno**
 - **Solo terrestres** (sin monturas voladoras).
 - Todas funcionan igual: el personaje se sube y gana velocidad de movimiento. Lo que cambia es la **apariencia** (caballos, bicicletas, motos…).
 
+### 3.17 Inventario (en curso)
+
+Objetivo: que el inventario **nunca sea una fuente de frustración** (llenarse de objetos inútiles, tener que volver a la base a vender).
+
+**Venta directa desde el inventario** (estilo MIR4): se selecciona el objeto y se vende, sin NPC. Ir a un NPC solo tiene sentido para **intercambiar** objetos por otra cosa, no para venderlos por moneda.
+
+**Bolsas separadas por tipo**: además del inventario general, hay **casillas especiales** para bolsas de un tipo concreto. Los objetos de ese tipo van **automáticamente** a su bolsa.
+- Ejemplo: la **bolsa de materiales de profesión** guarda todo lo que se recolecta o cae para profesiones.
+- Ventajas: inventario ordenado, y es imposible vender por accidente los materiales de profesión.
+
+**Desbloqueo progresivo, ligado a la introducción del juego**:
+- Niveles 1–3: los mobs solo dan **experiencia y cobre**; el jugador aprende lo básico sin llenar el inventario.
+- Al llegar al nivel 3, un NPC de misión presenta las **profesiones** y desbloquea la **casilla para la bolsa de materiales de profesión**.
+- Al avanzar en el juego se desbloquean **más casillas** y se consiguen **mejores bolsas** (más espacio).
+
 ## 4. Sistemas principales
 
 Lo que hace funcionar a las entidades anteriores. Se desarrollan por fases según la hoja de ruta.
@@ -425,7 +440,7 @@ Queda para más adelante:
 - **Profesiones**: lista de principales y secundarias.
 
 **Temas base por definir**
-- Inventario y banco (incluye tamaño de las pilas).
+- Inventario: tipos de bolsa especial, de dónde salen las bolsas, espacio inicial, venta rápida; banco; tamaño de las pilas.
 - Mejora de equipo (+N).
 - Consumibles y otros objetos.
 - Monedas: ¿100 plata = 1 oro?, monedas especiales.
