@@ -75,7 +75,7 @@ No combaten (o solo se defienden). El jugador habla o comercia con ellos.
 | Entrenador de profesión | Enseña y sube de rango las profesiones |
 | Banquero / almacén | Guarda objetos del jugador |
 | Transporte | Viaje rápido entre zonas (teletransporte, monturas) |
-| Herrero / mejora | Repara y mejora equipo |
+| Herrero | Repara equipo |
 | Guardia | Protege ciudades; puede combatir |
 | Ambiental | Da vida al mundo (diálogos sueltos, sin función) |
 
@@ -351,7 +351,7 @@ Dos grupos: **equipo** (ropa y armas) y **joyería**, con **8 ranuras cada uno**
 - **Desbloqueo de apariencias**: al obtener un objeto por cualquier vía (botín, mercado, intercambio, recompensa…) se desbloquea su apariencia para el personaje. Prestarse objetos para conseguir la apariencia y devolverlos está permitido. También habrá apariencias de eventos.
 - **Transfiguración**: la apariencia de una pieza se puede cambiar por otra. Sirve también para cosméticos de eventos (por ejemplo, transformar la tiara en un sombrero de vaquero).
 
-**Referencia de interfaz (MIR4)**: pantalla de personaje con pestañas separadas para equipo y joyería; las ranuras rodean al modelo 3D y cada una muestra su calidad (color), grado (I, II, III…) y nivel de mejora (+5, +6…).
+**Referencia de interfaz (MIR4)**: pantalla de personaje con pestañas separadas para equipo y joyería; las ranuras rodean al modelo 3D y cada una muestra su calidad (color), grado (I, II, III…) y nivel de desarrollo (+5, +6…).
 
 ### 3.13 Comercio entre jugadores (decidido)
 
@@ -445,26 +445,27 @@ Máximo total: 9 bolsas.
 - Comodidades: buscador, botón de organizar y botón **"Depositar todos los componentes"**.
 - **Banco de tropa** (compartido entre los personajes de la cuenta): la pestaña existe pero se desbloquea en el **nivel 60**, cuando llega el contenido para varios personajes en la cuenta (por ejemplo, clases especiales que se añadan más adelante).
 
-### 3.18 Mejora de equipo (en curso)
+### 3.18 Desarrollo de objeto (+1 a +10)
 
 Mezcla de MIR4 y Lineage 2.
 
-- Niveles de mejora de **+1 a +10**. El máximo es **+10** y **nunca cambia** (ni con nuevas temporadas).
-- Intentar mejorar un objeto a +10 está **bloqueado**: el sistema avisa "No es posible realizar más mejoras en este equipo".
+- **Terminología**: el sistema de subir un objeto de +1 a +10 se llama **desarrollo**, no "encantamiento" ni "mejora". El **encantamiento** es otro sistema (sección 3.19).
+- Niveles de desarrollo de **+1 a +10**. El máximo es **+10** y **nunca cambia** (ni con nuevas temporadas).
+- Intentar desarrollar un objeto a +10 está **bloqueado**: el sistema avisa "No es posible desarrollar más este equipo".
 
 **Referencia (MIR4)**:
-- Coste por intento: piedra de mejora (de la calidad del objeto) + otro material (Darksteel) + moneda.
+- Coste por intento: piedra de desarrollo (de la calidad del objeto) + otro material (Darksteel) + moneda.
 - Muestra la **probabilidad de éxito**, el nivel actual → siguiente y el cambio de poder.
 - **Zona segura** (niveles bajos): si falla, el objeto no baja de nivel.
 - **Zona de peligro** (niveles altos): si falla, **el objeto se destruye**.
-- Estadística de **bonificación de probabilidad de mejora**; la probabilidad nunca supera el 100 %.
-- Botón de **mejora automática**.
+- Estadística de **bonificación de probabilidad de desarrollo**; la probabilidad nunca supera el 100 %.
+- Botón de **desarrollo automático**.
 
 #### Sistema decidido
 
 **Zonas y probabilidades (piedra general)**
 
-| Mejora | Éxito | ¿Se destruye si falla? |
+| Desarrollo | Éxito | ¿Se destruye si falla? |
 |---|---|---|
 | +0 → +1 | 100 % | No |
 | +1 → +2 | 100 % | No |
@@ -478,10 +479,10 @@ Mezcla de MIR4 y Lineage 2.
 | +9 → +10 | 22 % | Sí |
 
 - La tabla es **la misma para todas las calidades** (común igual que cósmico).
-- **Coste de cada intento**: piedra de desarrollo + **oro**. Se paga siempre, salga bien o mal. El oro **no cambia con el nivel** de mejora; cambia según el **tipo de piedra**, como múltiplo del coste de la general (ejemplo: general 3 de oro, santificada 12 = ×4). Tabla de multiplicadores: pendiente.
+- **Coste de cada intento**: piedra de desarrollo + **oro**. Se paga siempre, salga bien o mal. El oro **no cambia con el nivel** de desarrollo; cambia según el **tipo de piedra**, como múltiplo del coste de la general (ejemplo: general 3 de oro, santificada 12 = ×4). Tabla de multiplicadores: pendiente.
 - **Zona segura (hasta +5)**: un objeto **nunca se rompe**; si falla, se queda en su nivel y solo se pierden la piedra y el oro.
 - **Zona de peligro (de +5 a +10)**: si falla, **el objeto se destruye** (probabilidad de destrucción = 100 % − éxito).
-- **Bonificación de mejora**: códices, recompensas y otras fuentes suman puntos a la probabilidad de éxito, con un **máximo de +6 puntos** en cualquier salto. Ejemplos: +5 → +6 pasa como mucho de 42 % a **48 %** (destrucción mínima 52 %); +6 → +7, de 35 % a **41 %** (destrucción mínima 59 %). Ningún salto de la zona de peligro llega a ser seguro.
+- **Bonificación de desarrollo**: códices, recompensas y otras fuentes suman puntos a la probabilidad de éxito, con un **máximo de +6 puntos** en cualquier salto. Ejemplos: +5 → +6 pasa como mucho de 42 % a **48 %** (destrucción mínima 52 %); +6 → +7, de 35 % a **41 %** (destrucción mínima 59 %). Ningún salto de la zona de peligro llega a ser seguro.
 
 **Piedras de desarrollo** (nombres y colores definitivos)
 
@@ -512,7 +513,7 @@ Mezcla de MIR4 y Lineage 2.
 | +8 | 32 % | Sí |
 | +9 | 28 % | Sí |
 
-- La **bonificación de mejora** (máx. +6 puntos) también se suma a la potenciada (por ejemplo, +5: 48 % → hasta 54 %). En general, la bonificación se suma a la probabilidad base de **cualquier** piedra.
+- La **bonificación de desarrollo** (máx. +6 puntos) también se suma a la potenciada (por ejemplo, +5: 48 % → hasta 54 %). En general, la bonificación se suma a la probabilidad base de **cualquier** piedra.
 - Las probabilidades son **mayores que las de la general a propósito** (+2 y +3, y +6 puntos desde +5): la potenciada es más difícil de conseguir y de fabricar. No es la opción más eficiente en coste, pero mejora las opciones.
 - **Si tiene éxito**: el objeto sube el salto obtenido en el paso 1. **Nunca pasa de +10**: si el salto lo supera, el objeto queda en +10 y el resto se pierde.
 - **Si falla en zona segura** (nivel actual hasta +4): no cambia nada; no hay cristales porque el objeto no se rompe.
@@ -537,19 +538,29 @@ Mezcla de MIR4 y Lineage 2.
 | +8 | 34 % |
 | +9 | 30 % |
 
-(La potenciada + 2 puntos. La bonificación de mejora, máx. +6, también se suma.)
+(La potenciada + 2 puntos. La bonificación de desarrollo, máx. +6, también se suma.)
 
 **Destrucción con residuo (cambio respecto a MIR4, idea de Lineage 2)**
 - Cuando un objeto se destruye deja **cristales de su misma calidad** (un objeto raro deja cristales raros).
-- La **cantidad** de cristales aumenta con el nivel de mejora que tenía (un +9 deja más que un +6).
+- La **cantidad** de cristales aumenta con el nivel de desarrollo que tenía (un +9 deja más que un +6).
 - Los cristales son componentes de la profesión de **encantamiento**: con ellos y componentes exclusivos de la profesión se **fabrican piedras de desarrollo de esa misma calidad**. Para piedras cósmicas hacen falta cristales cósmicos, es decir, objetos cósmicos destruidos.
 - Así la destrucción alimenta la economía de las profesiones en vez de ser una pérdida total.
 
 **Pendiente de configurar**: las probabilidades de cada salto y de cada piedra.
 
-### 3.19 Oro y economía (en curso)
+### 3.19 Encantamiento (en curso)
 
-- El **oro es la moneda principal** y se usa para todo (mejoras, ampliaciones, comisiones de comercio, compras…).
+Sistema distinto del desarrollo: **añade estadísticas adicionales** a equipo y joyería, en lugar de potenciar las estadísticas base.
+
+- Se aplica con un objeto consumible (por ejemplo, un **papiro de encantamiento**).
+- Las estadísticas se eligen **al azar de todo el conjunto de estadísticas** del juego (ataque físico o mágico, defensa, resistencias, precisión…).
+- La **cantidad de estadísticas** (3, 4, 5…) depende de la **calidad del objeto** y del **nivel de la profesión de encantamiento** de quien encanta.
+- Referencia (MIR4): bloque "Propiedades adicionales" del objeto, con cada estadística extra y su grado.
+- Detalle (grados de cada estadística, valores, si se puede volver a encantar o fijar estadísticas): más adelante, junto con el capítulo de estadísticas.
+
+### 3.20 Oro y economía (en curso)
+
+- El **oro es la moneda principal** y se usa para todo (desarrollo, encantamiento, ampliaciones, comisiones de comercio, compras…).
 - **Oro comprable con dinero real, estilo ficha de WoW**: se compra con dinero real un objeto que se vende a otros jugadores en el mercado a cambio de oro. El oro no se crea de la nada: pasa de un jugador a otro, y combate la venta ilegal de oro y a los bots.
 - Detalles (valores, ficha, monedas especiales): en el tema de monedas.
 
@@ -562,7 +573,7 @@ Lo que hace funcionar a las entidades anteriores. Se desarrollan por fases segú
 | Combate | Daño, defensa, crítico, evasión, aggro, muerte y resurrección |
 | Progresión | Niveles, experiencia, especializaciones, subclases, temporadas |
 | Habilidades | Activas y pasivas, enfriamientos, costes, efectos (buffs/debuffs) |
-| Objetos y equipo | Armas, armaduras, rarezas, mejoras |
+| Objetos y equipo | Armas, armaduras, rarezas, desarrollo (+N), encantamiento |
 | Inventario y banco | Guardar y gestionar objetos |
 | Profesiones | Recolección y fabricación |
 | Misiones | Misiones de historia, secundarias, diarias |
@@ -604,7 +615,7 @@ Queda para más adelante:
 
 **Temas base por definir**
 - Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; banco: número total de pestañas y espacios por pestaña; precios de pestañas y casillas de pago (se calcularán a partir del oro que genera un personaje por día); ¿límite de misiones activas a la vez?
-- Mejora de equipo: multiplicador de oro de cada piedra; tabla de cristales por calidad y nivel (+5 a +10); origen de cada piedra; cristales exactos por nivel.
+- Desarrollo de objeto: multiplicador de oro de cada piedra; tabla de cristales por calidad y nivel (+5 a +10); origen de cada piedra; cristales exactos por nivel.
 - Consumibles y otros objetos.
 - Monedas: ¿100 plata = 1 oro?, monedas especiales.
 - Ambientación y estilo artístico.
