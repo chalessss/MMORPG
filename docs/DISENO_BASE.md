@@ -489,7 +489,7 @@ Queda para más adelante:
 - **Profesiones**: lista de principales y secundarias.
 
 **Temas base por definir**
-- Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; espacio y ampliación del banco; ¿límite de misiones activas a la vez?; tamaño del banco.
+- Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; espacio y ampliación del banco; ¿límite de misiones activas a la vez?
 - Mejora de equipo (+N).
 - Consumibles y otros objetos.
 - Monedas: ¿100 plata = 1 oro?, monedas especiales.
