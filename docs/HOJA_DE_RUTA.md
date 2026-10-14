@@ -110,5 +110,4 @@ Objetivo: tener personajes completos a nivel de datos y reglas, aunque visualmen
 
 ## Decisiones pendientes
 
-- Datos de la hoja: estadísticas base que no coinciden entre tablas, fórmula de "Stat final" que suma el nivel dos veces, nombres de habilidades desplazados, modelo de estadísticas (STR/INT/AGI vs. 7 estadísticas).
-- Reglas de las subclases: si la subclase comparte el nivel del personaje o tiene el suyo propio, desde qué nivel se desbloquea, qué se comparte entre clases (equipo, profesiones, inventario) y si hay límite de subclases.
+La lista viva de preguntas abiertas está en `docs/DISENO_BASE.md`, sección 7.

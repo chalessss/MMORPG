@@ -14,7 +14,7 @@ Contexto del proyecto para Claude. Léelo al iniciar cada sesión.
 - **Motor:** Unreal Engine 5.5.4. Lógica de juego en **C++** (sistemas, estadísticas, fórmulas, red); Blueprints solo para lo visual y prototipos rápidos. Estadísticas y habilidades con el **Gameplay Ability System (GAS)**. Los `.uasset`/`.umap` son binarios: usar **Git LFS** y no editarlos desde Claude.
 - Ideas previas: sistema de personajes con estadísticas (vida, daño, armadura) y sus escalados.
 - **3D**, solo **PC** (teclado y ratón). Cámara elevada por defecto, ajustable estilo WoW (zoom, rotación, inclinación).
-- **Subclases:** un personaje puede tener varias clases y cambiar entre ellas sin crear otro personaje ni volver a subir desde cero. El modelo de datos del personaje debe soportarlo desde el inicio.
+- **Subclases:** un personaje puede tener varias clases y cambiar entre ellas sin crear otro personaje ni volver a subir desde cero. Se desbloquean en el nivel 60, pero el modelo de datos del personaje debe soportarlo desde el inicio.
 - Pendiente de definir: ambientación y estilo artístico.
 - Datos de diseño en Google Sheets "Organizando la Base de Datos del Juego" (ID `1uhGfmeDtatEYMx7jZ2251bmSZtDjxfwNCl5PHncEjNM`): árbol de clases, estadísticas, habilidades y armas. Leerla vía conector de Google Drive (exportar a .xlsx conserva las fórmulas).
 

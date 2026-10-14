@@ -33,7 +33,7 @@ Entidades del mundo
 Los controla una persona.
 
 - Arquetipo (Físico / Mágico) → clase base → especialización 1 → especialización final.
-- Varias **subclases** por personaje, cada una con su propio progreso.
+- Varias **subclases** por personaje, cada una con su propio progreso. Se desbloquean en el **nivel 60** (del 1 al 40 se aprende a jugar bien la clase; del 40 al 60 se sube rápido). Reglas detalladas: más adelante.
 - Estadísticas principales (STR / INT / AGI), derivadas y neutrales.
 - Recursos: vida, MP y un recurso secundario según la clase (Ira, Energía, Foco, Iluminación).
 - Habilidades, equipo, inventario, profesiones, misiones y reputación.
@@ -107,9 +107,9 @@ Hay **dos sistemas de recolección** (decidido):
 
 #### B. Vetas enriquecidas (estilo WoW)
 
-- Versión especial y escasa de un recurso (por ejemplo, "veta de cobre enriquecida"): **materiales mejores y en mayor cantidad**, pero **pocas recolecciones** (4–5).
-- **Compartidas**: cualquier jugador cercano puede recolectarla a la vez.
-- Al primer golpe empieza una **cuenta atrás** (por ejemplo, 15 s); al terminar, la veta desaparece y nadie más puede recolectarla.
+- Versión especial y escasa de un recurso (por ejemplo, "veta de cobre enriquecida"): **materiales mejores y en mayor cantidad**, pero **pocas cargas** (por ejemplo, 10).
+- **Compartidas y por jugador**: cualquier jugador cercano puede recolectarla a la vez, y **cada jugador** puede sacar todas las cargas de la veta (si llegan 30 personas, las 30 recolectan).
+- La **cuenta atrás** (por ejemplo, 15 s) empieza en el **primer golpe** de cualquier jugador; al terminar, la veta desaparece para todos.
 - **Aparición aleatoria** entre muchos puntos posibles de la zona (por ejemplo, 70 puntos posibles, máximo 10 vetas activas a la vez, reaparición cada ~5 min).
 - Objetivo: que los jugadores aprendan los puntos, creen rutas de recolección y avisen a sus amigos para recolectar juntos.
 
@@ -187,7 +187,8 @@ El juego está pensado para **jugarse en grupo**: jugar acompañado siempre debe
 #### Reparto dentro del grupo
 
 - **Experiencia y moneda**: a partes iguales entre los miembros, más el bonus de grupo.
-- **Objetos compartidos — rotación** (profesión, códice, basura): cada objeto que cae se asigna **al azar** entre los miembros que aún no han recibido nada; quien recibe uno queda excluido hasta que todos hayan recibido, y entonces la rotación se reinicia. A la larga todos reciben más o menos lo mismo.
+- **Objetos compartidos — rotación**: cada objeto que cae se asigna **al azar** entre los miembros que aún no han recibido nada; quien recibe uno queda excluido hasta que todos hayan recibido, y entonces la rotación se reinicia. A la larga todos reciben más o menos lo mismo.
+- **Orden de prioridad del botín** (de mayor a menor): **armaduras → objetos de misión → objetos de profesión → objetos de códice → basura**. Se reparten en ese orden; quien recibe un objeto de una prioridad queda excluido de las siguientes (por ejemplo, quien recibe armadura ya no recibe objeto de misión, pero sí puede recibir profesión, códice o basura en otra vuelta). *Por confirmar cómo encaja con la armadura individual y los objetos de misión, que son personales.*
 - **Armaduras individuales — botín personal**: cada miembro tira **su propia probabilidad** (ajustada por la contribución de su grupo). Solo puede caerle equipo **de su propia clase**. Un mob puede dar varias piezas, una por cada miembro al que le salga la tirada. Es la fuente principal para el códice de la propia clase.
 - **Armaduras del grupo — botín aleatorio**: probabilidad baja de que caiga una armadura de **cualquier clase**, asignada a **un miembro al azar**. Permite conseguir armaduras de clases que no hay en el grupo (por ejemplo, de mago en un grupo sin magos) para los códices de otras clases. También se pueden comerciar o vender en el mercado.
 - **Objetos de misión — individuales**: solo los recibe quien tiene la misión activa, con su propia probabilidad. Una misión debe tardar **lo mismo solo que en grupo** (en grupo se matan más mobs, pero cada uno necesita sus propios objetos), para no castigar a quien juega solo.
@@ -306,14 +307,38 @@ Dos grupos: **equipo** (ropa y armas) y **joyería**, con **8 ranuras cada uno**
 | Joyería | Brazalete 2 | No | Sí | Nivel 41 |
 
 - 16 ranuras en total: 8 hasta el nivel 40 y 8 más desde el 41.
+- **Joyería duplicada**: no se pueden llevar dos piezas idénticas (dos anillos, aretes o brazaletes iguales). Cada pieza de joyería tiene **estadísticas aleatorias** dentro de unos rangos (mínimo y máximo por estadística), así que cada pieza es única. Más adelante habrá **conjuntos** (por ejemplo, el del "Furioso") con bonificaciones por llevar varias piezas.
 - **Arma secundaria**: la ranura está abierta desde el nivel 1 por simetría, pero las armas secundarias (escudo, carcaj, frasco, libro…) solo caen desde el nivel 21, con la primera especialización.
 - Piezas con tipo de armadura: pecho y pantalón (nivel 1–40); guantes y botas (desde el 41).
 - Solo **pecho, guantes, pantalón y botas** tienen tipo de armadura: son las piezas que cuentan para la bonificación de especialización en armadura.
 - **Sin casco ni hombreras**, a propósito: muchos jugadores ocultan el casco para lucir la cara que personalizaron. La cabeza queda despejada; la **tiara** es la pieza de cabeza (pequeña, no tapa el rostro).
 - **Todas las ranuras tienen apariencia**, joyería incluida: los jugadores detallistas pueden coordinar colores (por ejemplo, joyería de amatista azul a juego con un conjunto azul).
+- **Desbloqueo de apariencias**: al obtener un objeto por cualquier vía (botín, mercado, intercambio, recompensa…) se desbloquea su apariencia para el personaje. Prestarse objetos para conseguir la apariencia y devolverlos está permitido. También habrá apariencias de eventos.
 - **Transfiguración**: la apariencia de una pieza se puede cambiar por otra. Sirve también para cosméticos de eventos (por ejemplo, transformar la tiara en un sombrero de vaquero).
 
 **Referencia de interfaz (MIR4)**: pantalla de personaje con pestañas separadas para equipo y joyería; las ranuras rodean al modelo 3D y cada una muestra su calidad (color), grado (I, II, III…) y nivel de mejora (+5, +6…).
+
+### 3.13 Comercio entre jugadores (decidido)
+
+- Los intercambios directos entre jugadores **siempre cobran una comisión en oro**: no se pueden pasar objetos gratis.
+- El mercado y el comercio no crean objetos, solo los mueven (ver Fuentes en 3.12).
+
+### 3.14 PvP (decidido)
+
+- **PvP abierto solo en ciertas zonas**: hay **zonas seguras** (sin combate entre jugadores) y **zonas peligrosas** (PvP libre). Un único tipo de servidor; sin servidores separados PvE y PvP.
+- Cada jugador decide si entra a las zonas peligrosas a pelear por recursos.
+- Las zonas PvP dan **botín especializado en PvP** (objetos que mejoran estadísticas PvP); las zonas PvE dan botín enfocado al PvE.
+
+### 3.15 Profesiones (decidido, estilo WoW)
+
+- **Todas las profesiones disponibles desde el nivel 1** (Temporada 1 incluida).
+- **2 profesiones principales** por personaje y **todas las secundarias** que se quieran.
+- Lista y detalle de profesiones: capítulo propio más adelante (base WoW, con ajustes de Lineage 2 u otros juegos).
+
+### 3.16 Monturas (decidido)
+
+- **Solo terrestres** (sin monturas voladoras).
+- Todas funcionan igual: el personaje se sube y gana velocidad de movimiento. Lo que cambia es la **apariencia** (caballos, bicicletas, motos…).
 
 ## 4. Sistemas principales
 
@@ -357,15 +382,24 @@ Queda para más adelante:
 
 ## 7. Preguntas abiertas
 
-- **Por temporada** (al diseñar su contenido): tipo de armadura de cada especialización y casos dudosos (Espadas duales, Recolector, Carroñero, Mutilador); si el tipo puede cambiar entre la especialización 1 y la final.
-- **Ranuras**: ¿se pueden llevar dos piezas idénticas en anillo, arete y brazalete? ¿Cómo se obtienen las apariencias (colección de la cuenta al conseguir cada pieza, estilo WoW; cosméticos de eventos; tienda)?
-- **Orden de prioridad** en la rotación de objetos compartidos (¿profesión → códice → basura?).
-- **Códice**: capítulo propio más adelante (fabricación, mejora, niveles de entradas).
-- **Estadísticas**: capítulo propio más adelante (peso de cada estadística por clase, PvE vs. PvP).
+**Por confirmar ahora**
+- **Prioridad del botín**: si la armadura individual (personal) y los objetos de misión (personales) también excluyen de las categorías siguientes. Si recibir armadura impide recibir el objeto de misión, la misión iría más lenta en grupo que solo, lo que contradice la regla de que debe tardar lo mismo.
+
+**Pendientes para más adelante**
 - **Bonus de moneda** por tamaño de grupo: valores.
-- **Bandas**: reglas de reparto de experiencia, moneda y botín.
-- **Vetas enriquecidas**: ¿las 4–5 recolecciones son por jugador o el total compartido entre todos? ¿La cuenta atrás empieza siempre en el primer golpe?
-- **Moneda**: ¿100 plata = 1 oro?
-- ¿El **PvP** es libre en todo el mapa (con penalizaciones, estilo Lineage 2) o solo en zonas y modos concretos?
-- ¿Qué **profesiones** entran en la Temporada 1 y cuántas puede tener cada personaje?
-- ¿Habrá **monturas** desde la Temporada 1?
+- **Bandas** (se desbloquean en el nivel 40 o 60): reglas de reparto de experiencia, moneda y botín.
+- **Subclases** (desde el nivel 60): nivel de cada subclase, qué se comparte, límite de subclases.
+- **Comercio**: valor de la comisión; si el mercado también cobra comisión.
+- **Profesiones**: lista de principales y secundarias.
+
+**Temas base por definir**
+- Inventario y banco (incluye tamaño de las pilas).
+- Mejora de equipo (+N).
+- Consumibles y otros objetos.
+- Monedas: ¿100 plata = 1 oro?, monedas especiales.
+- Ambientación y estilo artístico.
+
+**Capítulos propios**
+- **Estadísticas**: peso de cada estadística por clase, PvE vs. PvP; revisar la hoja (valores base que no coinciden, fórmula que suma el nivel dos veces, nombres de habilidades desplazados, modelo de estadísticas).
+- **Códice**: fabricación, mejora, niveles de entradas.
+- **Contenido por temporada**: tipo de armadura de cada especialización y casos dudosos (Espadas duales, Recolector, Carroñero, Mutilador); si el tipo puede cambiar entre la especialización 1 y la final.
