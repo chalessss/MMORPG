@@ -713,9 +713,12 @@ Queda para más adelante:
 - Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; banco: número total de pestañas y espacios por pestaña; precios de pestañas y casillas de pago (se calcularán a partir del oro que genera un personaje por día); ¿límite de misiones activas a la vez?
 - Desarrollo de objeto: multiplicador de oro de cada piedra; tabla de cristales por calidad y nivel (+5 a +10); cristales exactos por nivel.
 - Monedas: qué sistemas de progreso con temporizador habrá; qué se vende en la tienda de moneda premium; canjes de honor y valor.
-- Ambientación y estilo artístico.
+
+**Para el final**
+- **Ambientación y estilo artístico**: se decide cuando el juego ya se pueda jugar con modelos genéricos; el estilo gráfico se adaptará a la historia.
 
 **Capítulos propios**
+- **Sistemas de juego** (siguiente): sistemas tomados de otros juegos que marcarán a qué deben apuntar las estadísticas.
 - **Estadísticas**: peso de cada estadística por clase, PvE vs. PvP; revisar la hoja (valores base que no coinciden, fórmula que suma el nivel dos veces, nombres de habilidades desplazados, modelo de estadísticas).
 - **Códice**: fabricación, mejora, niveles de entradas.
 - **Contenido por temporada**: tipo de armadura de cada especialización y casos dudosos (Espadas duales, Recolector, Carroñero, Mutilador); si el tipo puede cambiar entre la especialización 1 y la final.

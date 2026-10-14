@@ -40,7 +40,7 @@ Estadísticas, habilidades, enfriamientos y efectos se construyen sobre el **Gam
 - [x] Concepto de subclases (ver Fase 1)
 - [x] Empezar el proyecto desde cero
 - [ ] Diseño base: entidades y sistemas del juego (`docs/DISENO_BASE.md`) — borrador hecho, faltan preguntas abiertas
-- [ ] Ambientación y estilo artístico
+- [ ] Ambientación y estilo artístico — pospuesto: se decide cuando el juego sea jugable con modelos genéricos
 - [ ] Proyecto de Unreal **con C++** en el repositorio, con Git LFS para los archivos binarios
 
 **Por qué solo PC:** controles e interfaz pensados para teclado y ratón sin compromisos; el rendimiento no queda limitado por los móviles; menos frente de bots (granjas de móviles / emuladores); alcance de desarrollo más manejable. Se mantiene la lógica separada del motor para no cerrar la puerta a otras plataformas en el futuro.
