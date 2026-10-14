@@ -381,14 +381,31 @@ Objetivo: que el inventario **nunca sea una fuente de frustración** (llenarse d
 
 **Venta directa desde el inventario** (estilo MIR4): se selecciona el objeto y se vende, sin NPC. Ir a un NPC solo tiene sentido para **intercambiar** objetos por otra cosa, no para venderlos por moneda.
 
-**Bolsas separadas por tipo**: además del inventario general, hay **casillas especiales** para bolsas de un tipo concreto. Los objetos de ese tipo van **automáticamente** a su bolsa.
-- Ejemplo: la **bolsa de materiales de profesión** guarda todo lo que se recolecta o cae para profesiones.
-- Ventajas: inventario ordenado, y es imposible vender por accidente los materiales de profesión.
+**Bolsas**: un inventario **general** y **dos bolsas especiales**, cada una en su propia casilla.
+
+| Bolsa | Qué guarda | Cómo se llena |
+|---|---|---|
+| **General** | Equipo, basura y todo lo que no cabe en las especiales | Automático |
+| **Materiales** | Todo lo que sirve para fabricar: materiales de profesión, objetos de códice (insignias), otros materiales | Automático |
+| **Consumibles** | Pociones de vida y de maná, elixires, comidas | **El jugador decide** qué pone en cada espacio (por ejemplo, de 10 espacios: 6 de pociones, 2 de comida, 1 de elixir y 1 libre) |
+
+- **Desbordamiento**: si una bolsa especial está llena, lo que llega va a la **bolsa general**. **Nunca se pierde un objeto** por falta de espacio en una bolsa especial.
+- Ventaja: inventario ordenado, y es imposible vender por accidente los materiales.
+
+**Tamaño de las pilas**: lo define **cada objeto** al crearlo, según su calidad y lo frecuente que sea. Los objetos muy abundantes (por ejemplo, insignias del códice, de las que se acumulan 10.000–20.000) tienen pilas muy grandes para no ocupar espacio.
+
+**De dónde salen las bolsas**:
+- La fuente principal son las **profesiones**: cada profesión puede fabricar una bolsa mayor usando **solo sus propios materiales** (el desollador con materiales de desuello, el encantador con materiales de encantamiento…). Así cualquier jugador que suba una profesión puede hacerse una bolsa.
+- Los jugadores **especializados en profesiones** pueden fabricar bolsas un poco más grandes (por ejemplo, de 34 a 36 o 38 espacios): una ventaja pequeña, no abismal.
 
 **Desbloqueo progresivo, ligado a la introducción del juego**:
 - Niveles 1–3: los mobs solo dan **experiencia y cobre**; el jugador aprende lo básico sin llenar el inventario.
-- Al llegar al nivel 3, un NPC de misión presenta las **profesiones** y desbloquea la **casilla para la bolsa de materiales de profesión**.
-- Al avanzar en el juego se desbloquean **más casillas** y se consiguen **mejores bolsas** (más espacio).
+- Al llegar al nivel 3, un NPC de misión presenta las **profesiones** y desbloquea la **casilla de la bolsa de materiales**.
+- Al avanzar en el juego se desbloquean **más casillas** y se consiguen **mejores bolsas**.
+
+**Venta rápida**: habrá venta rápida con selección de objetos (referencia: la de MIR4; el usuario enviará captura).
+
+**Banco**: sí habrá banco para guardar objetos. El **banco compartido entre personajes de la cuenta** se desbloquea en el **nivel 60**.
 
 ## 4. Sistemas principales
 
@@ -440,7 +457,7 @@ Queda para más adelante:
 - **Profesiones**: lista de principales y secundarias.
 
 **Temas base por definir**
-- Inventario: tipos de bolsa especial, de dónde salen las bolsas, espacio inicial, venta rápida; banco; tamaño de las pilas.
+- Inventario: espacio inicial de cada bolsa; diseño de la venta rápida (captura de MIR4); dónde van los objetos de misión; tamaño del banco.
 - Mejora de equipo (+N).
 - Consumibles y otros objetos.
 - Monedas: ¿100 plata = 1 oro?, monedas especiales.
