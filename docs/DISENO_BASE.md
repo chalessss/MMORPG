@@ -206,6 +206,7 @@ El juego está pensado para **jugarse en grupo**: jugar acompañado siempre debe
 2. Se recorren los objetos caídos en orden de prioridad. Cada uno se entrega **al azar** a un miembro **no excluido**.
    - **Excepción — armaduras individuales**: no se sortean. **Cada miembro no excluido** tira su propia probabilidad, y todos los que acierten reciben una (del tipo de su clase). Pueden caer varias en una muerte.
    - **Nadie recibe dos armaduras en la misma muerte**: quien recibió la armadura del grupo no tira por la individual.
+   - **Excepción — objetos de misión**: quedan **fuera del sorteo de rotación**. Solo pueden ir a miembros que tienen la misión activa y aún necesitan el objeto (al azar entre ellos), **sin importar la exclusión**, y recibirlo no excluye de lo que sigue. Un objeto de misión nunca se pierde por la rotación.
 3. Quien recibe un objeto queda **excluido** de los siguientes.
 4. Cuando los 5 miembros han recibido algo, la exclusión se reinicia y todos vuelven a estar habilitados.
 5. Termina cuando no quedan objetos.
@@ -225,7 +226,7 @@ armadura del grupo → jugador 3 · los jugadores 1, 2, 4 y 5 tiran su armadura 
 
 - **Armaduras del grupo**: probabilidad baja; armadura de **cualquier clase**. Permite conseguir armaduras de clases que no hay en el grupo (por ejemplo, de mago en un grupo sin magos) para los códices de otras clases. Se pueden comerciar o vender en el mercado.
 - **Armaduras individuales**: siempre del tipo propio de la clase de quien la recibe. Su probabilidad se ajusta por la contribución del grupo (3.8). Es la fuente principal para el códice de la propia clase.
-- **Objetos de misión**: en cada muerte cae como máximo uno para el grupo, así que una misión tarda **lo mismo sola que en grupo** (en grupo se necesitan más objetos, pero se matan más mobs).
+- **Objetos de misión**: en cada muerte cae como máximo uno para el grupo, así que una misión tarda **lo mismo sola que en grupo** (en grupo se necesitan más objetos, pero se matan más mobs). Si nadie del grupo necesita el objeto, no cae.
 
 ### 3.10 Roles (decidido)
 
@@ -415,9 +416,6 @@ Queda para más adelante:
 - Subasta y economía avanzada.
 
 ## 7. Preguntas abiertas
-
-**Por confirmar ahora**
-- **Objetos de misión**: ¿solo pueden recibirlos los miembros que tienen la misión activa y aún la necesitan? Si el único que la necesita está excluido en esa vuelta, ¿lo recibe igual o se pierde?
 
 **Pendientes para más adelante**
 - **Bonus de moneda** por tamaño de grupo: valores.
