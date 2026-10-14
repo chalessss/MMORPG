@@ -129,8 +129,8 @@ Cada mob tiene una **tabla de botín** con dos partes. Ejemplo, un lobo:
 |---|---|---|---|
 | **Fijo** | Experiencia | Cantidad exacta | Repartida según contribución |
 | **Fijo** | Moneda | Cantidad exacta | Repartida según contribución |
-| **Variable** | Armaduras del grupo | % | Para el grupo (reparto por definir) |
-| **Variable** | Armaduras individuales | % (p. ej. 30 %) | **Individual**: según el personaje |
+| **Variable** | Armaduras del grupo | % (baja) | Para el grupo: armadura de **cualquier clase**, a un miembro al azar |
+| **Variable** | Armaduras individuales | % (p. ej. 30 %) | **Individual**: solo de la clase del personaje |
 | **Variable** | Objetos de misión | % | **Individual**: solo a quien tenga la misión activa |
 | **Variable** | Objetos de profesión | % | Para todos por igual (rotación) |
 | **Variable** | Objetos de códice | % | Para todos por igual (rotación) |
@@ -148,7 +148,7 @@ Los valores concretos de cada mob se definirán más adelante en las tablas de d
 |---|---|---|
 | Fijos (experiencia, moneda) | 80 % | 20 % |
 | Armaduras del grupo | 80 % de probabilidad | 20 % de probabilidad |
-| Armaduras individuales | 80 % de probabilidad | 20 % de probabilidad |
+| Armaduras individuales | Cada miembro: su % × 0,8 | Cada miembro: su % × 0,2 |
 | Objetos de misión | 80 % de probabilidad | 20 % de probabilidad |
 | Objetos de profesión | 80 % de probabilidad | 20 % de probabilidad |
 | Objetos de códice | 80 % de probabilidad | 20 % de probabilidad |
@@ -156,6 +156,7 @@ Los valores concretos de cada mob se definirán más adelante en las tablas de d
 
 - **Fijos**: reparto exacto. Mob de 300 XP: 240 para el grupo 1 y 60 para el grupo 2. La moneda se reparte en la unidad mínima (cobre); lo que no llegue a 1 cobre se pierde.
 - **Variables**: cada objeto tira su probabilidad de caer; si cae, un marcador interno decide a qué unidad (jugador o grupo) va, con la contribución como probabilidad.
+- **Excepción — armaduras individuales**: cada jugador tira su propia probabilidad multiplicada por la contribución de su unidad. Con un 30 % base: en el grupo 1 (80 %) cada miembro tiene 24 %; en el grupo 2 (20 %), 6 %.
 - Un **grupo cuenta como una sola unidad**; un jugador sin grupo es una unidad propia. Funciona igual en mobs normales y en jefes de mundo o de banda.
 - Solo cuenta el **daño efectivo**: si el mob tiene 500 de vida y el golpe final es de 5.000, cuentan 500.
 - **Sin contribución mínima** y **sin penalización por diferencia de nivel**: los materiales valiosos solo los dan mobs de nivel alto.
@@ -185,8 +186,8 @@ El juego está pensado para **jugarse en grupo**: jugar acompañado siempre debe
 
 - **Experiencia y moneda**: a partes iguales entre los miembros, más el bonus de grupo.
 - **Objetos compartidos — rotación** (profesión, códice, basura): cada objeto que cae se asigna **al azar** entre los miembros que aún no han recibido nada; quien recibe uno queda excluido hasta que todos hayan recibido, y entonces la rotación se reinicia. A la larga todos reciben más o menos lo mismo.
-- **Armaduras del grupo**: caen para el grupo; reparto interno por definir.
-- **Armaduras individuales — botín personal**: cada miembro tira **su propia probabilidad** (p. ej. 30 %). Solo puede caerle equipo que **su personaje puede usar** (un guerrero no recibe tela). Un mob puede dar varias piezas, una por cada miembro al que le salga la tirada. Otros tipos de equipo se consiguen comerciando o en el mercado.
+- **Armaduras individuales — botín personal**: cada miembro tira **su propia probabilidad** (ajustada por la contribución de su grupo). Solo puede caerle equipo **de su propia clase**. Un mob puede dar varias piezas, una por cada miembro al que le salga la tirada. Es la fuente principal para el códice de la propia clase.
+- **Armaduras del grupo — botín aleatorio**: probabilidad baja de que caiga una armadura de **cualquier clase**, asignada a **un miembro al azar**. Permite conseguir armaduras de clases que no hay en el grupo (por ejemplo, de mago en un grupo sin magos) para los códices de otras clases. También se pueden comerciar o vender en el mercado.
 - **Objetos de misión — individuales**: solo los recibe quien tiene la misión activa, con su propia probabilidad. Una misión debe tardar **lo mismo solo que en grupo** (en grupo se matan más mobs, pero cada uno necesita sus propios objetos), para no castigar a quien juega solo.
 
 ### 3.10 Roles (decidido)
@@ -250,7 +251,6 @@ Queda para más adelante:
 
 ## 7. Preguntas abiertas
 
-- **Armaduras del grupo vs. individuales**: cómo se reparte la armadura del grupo entre sus miembros, y cómo se combina la armadura individual con el % de contribución entre grupos.
 - **Orden de prioridad** en la rotación de objetos compartidos (¿profesión → códice → basura?).
 - **Códice**: capítulo propio más adelante (fabricación, mejora, niveles de entradas).
 - **Estadísticas**: capítulo propio más adelante (peso de cada estadística por clase, PvE vs. PvP).
