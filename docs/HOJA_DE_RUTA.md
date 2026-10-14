@@ -91,6 +91,7 @@ Objetivo: tener personajes completos a nivel de datos y reglas, aunque visualmen
 - [ ] Grupos, clanes y chat
 - [ ] PvP (duelos, arenas, zonas PvP)
 - [ ] Comercio y economía entre jugadores
+- [ ] Códice (material por zona, fabricación, mejora, registro, bonificaciones de cuenta)
 
 ## Fase 6 — Pruebas y lanzamiento de la Temporada 1
 

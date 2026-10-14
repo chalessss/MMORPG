@@ -182,6 +182,20 @@ El juego está pensado para **jugarse en grupo**: jugar acompañado siempre debe
 - En grupo, cada especialización es más eficiente en su rol: el tanque aguanta y atrae a los mobs, el sanador cura, el DPS hace daño.
 - Habrá zonas pensadas para grupos (por ejemplo, muchos mobs agresivos) donde un tanque y un sanador hacen que subir de nivel sea mucho más rápido.
 
+### 3.11 Códice (decidido, estilo MIR4)
+
+Sistema de colección que da **estadísticas permanentes a la cuenta**. Es una vía de progresión a largo plazo, aparte del nivel y del equipo.
+
+**Ciclo completo:**
+
+1. **Material de códice ("insignias")**: lo sueltan mobs de **zonas concretas** (cada zona o mazmorra tiene su propio material). Tiene **grados** (común, poco común, raro, épico…), se puede **combinar** (varios de un grado → uno del grado superior), está **ligado** (no se comercia; solo se vende a la tienda) y se acumula en grandes cantidades.
+2. **Fabricación de objetos de códice**: con material + moneda se fabrican objetos especiales (por ejemplo, casco, capa, cofre… del "Desafiante de X"). Hay una versión de cada objeto por grado. Ejemplo: 10 insignias de la zona + 400 de moneda + 200 de otro recurso → casco de códice poco común.
+3. **Mejora**: los objetos deben mejorarse hasta un nivel mínimo (por ejemplo, +2) para poder registrarse.
+4. **Registro**: cada **entrada del códice** pide un conjunto concreto de objetos (por ejemplo, 3) mejorados. Al completarla, da una bonificación fija (por ejemplo, "Fuerza para romperlo todo [1]": ataque físico +20).
+5. **Efectos totales**: las bonificaciones de todas las entradas completadas se suman (ataque físico/mágico, defensa física/mágica, precisión, evasión, crítico, evasión de crítico, % de daño crítico, reducción de daño crítico…).
+
+Interfaz: lista de entradas con los objetos que pide cada una, filtros por nivel de mejora y por grado, panel de efectos totales, botón de registro automático.
+
 ## 4. Sistemas principales
 
 Lo que hace funcionar a las entidades anteriores. Se desarrollan por fases según la hoja de ruta.
@@ -224,7 +238,7 @@ Queda para más adelante:
 
 ## 7. Preguntas abiertas
 
-- **Códice**: ¿qué es exactamente? (¿un sistema de colección donde se registran objetos a cambio de bonificaciones permanentes, estilo MIR4?)
+- **Códice**: ¿los objetos se consumen al registrarse? ¿Cómo se mejoran (materiales, probabilidad de fallo)? ¿Las entradas tienen niveles ([1], [2]…) que piden objetos de mayor grado? ¿Las armaduras normales también se pueden registrar, o solo los objetos fabricados con insignias? ¿Las bonificaciones cuentan también en PvP?
 - **Botín personal de equipo fuera de grupo**: si dos jugadores sin grupo matan juntos un mob, ¿cada uno tira su probabilidad de equipo, o esa probabilidad se ajusta según su contribución?
 - **Equipo personal**: ¿se puede comerciar o queda ligado al personaje?
 - **Orden de prioridad** en la rotación de objetos compartidos (¿profesión → códice → basura?).
