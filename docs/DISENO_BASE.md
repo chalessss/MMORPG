@@ -506,15 +506,17 @@ Mezcla de MIR4 y Lineage 2.
 | +2 | 100 % | No |
 | +3 | 75 % | No |
 | +4 | 49 % | No |
-| +5 | 42 % | Sí |
-| +6 | 35 % | Sí |
-| +7 | 30 % | Sí |
-| +8 | 26 % | Sí |
-| +9 | 22 % | Sí |
+| +5 | 48 % | Sí |
+| +6 | 41 % | Sí |
+| +7 | 36 % | Sí |
+| +8 | 32 % | Sí |
+| +9 | 28 % | Sí |
 
-- **Si tiene éxito**: el objeto sube el salto obtenido en el paso 1.
+- Las probabilidades son **mayores que las de la general a propósito** (+2 y +3, y +6 puntos desde +5): la potenciada es más difícil de conseguir y de fabricar. No es la opción más eficiente en coste, pero mejora las opciones.
+- **Si tiene éxito**: el objeto sube el salto obtenido en el paso 1. **Nunca pasa de +10**: si el salto lo supera, el objeto queda en +10 y el resto se pierde.
 - **Si falla en zona segura** (nivel actual hasta +4): no cambia nada; no hay cristales porque el objeto no se rompe.
-- **Si falla en zona de peligro** (nivel actual +5 o más): el objeto se destruye. La cantidad de cristales se calcula con el nivel actual + el salto que habría obtenido (es decir, el nivel al que habría llegado).
+- **Si falla en zona de peligro** (nivel actual +5 o más): el objeto se destruye. Los cristales se calculan con el **nivel al que habría llegado**: los cristales de su nivel actual más los correspondientes al salto. Ejemplo: un +5 da 100 cristales al romperse; si la potenciada sacó +3 y falla, da los cristales de un +8.
+- **Atajo seguro (intencionado)**: desde +4 la potenciada puede saltar hasta +8 o +9 sin riesgo; si el salto es pequeño, la pacificada devuelve el objeto a +4 para reintentar. Es caro a propósito: obliga a gastar muchas piedras potenciadas y pacificadas, y eso consume recursos de la economía.
 
 **Destrucción con residuo (cambio respecto a MIR4, idea de Lineage 2)**
 - Cuando un objeto se destruye deja **cristales de su misma calidad** (un objeto raro deja cristales raros).
@@ -581,7 +583,7 @@ Queda para más adelante:
 
 **Temas base por definir**
 - Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; banco: número total de pestañas y espacios por pestaña; precios de pestañas y casillas de pago (se calcularán a partir del oro que genera un personaje por día); ¿límite de misiones activas a la vez?
-- Mejora de equipo: multiplicador de oro de cada piedra; piedra potenciada (salto que supera +10; diferencia con la tabla de la general en +2 y +3; qué es el "valor de encantamiento base" en el cálculo de cristales); piedra pacificada (¿100 %?); origen de cada piedra; cristales exactos por nivel.
+- Mejora de equipo: multiplicador de oro de cada piedra; tabla de cristales por calidad y nivel (+5 a +10); si la bonificación de mejora (+6 máx.) también se suma a la potenciada; piedra pacificada (¿100 %?); origen de cada piedra; cristales exactos por nivel.
 - Consumibles y otros objetos.
 - Monedas: ¿100 plata = 1 oro?, monedas especiales.
 - Ambientación y estilo artístico.
