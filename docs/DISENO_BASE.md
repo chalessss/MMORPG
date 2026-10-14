@@ -519,6 +519,11 @@ Mezcla de MIR4 y Lineage 2.
 - **Si falla en zona de peligro** (nivel actual +5 o más): el objeto se destruye. Los cristales se calculan con el **nivel al que habría llegado**: los cristales de su nivel actual más los correspondientes al salto. Ejemplo: un +5 da 100 cristales al romperse; si la potenciada sacó +3 y falla, da los cristales de un +8.
 - **Atajo seguro (intencionado)**: desde +4 la potenciada puede saltar hasta +8 o +9 sin riesgo; si el salto es pequeño, la pacificada devuelve el objeto a +4 para reintentar. Es caro a propósito: obliga a gastar muchas piedras potenciadas y pacificadas, y eso consume recursos de la economía.
 
+**Piedra pacificada (amarilla)**
+
+- Baja **−1** el nivel con **100 % de éxito**, desde cualquier nivel (+1 a +10).
+- No se puede usar en objetos a **+0**.
+
 **Destrucción con residuo (cambio respecto a MIR4, idea de Lineage 2)**
 - Cuando un objeto se destruye deja **cristales de su misma calidad** (un objeto raro deja cristales raros).
 - La **cantidad** de cristales aumenta con el nivel de mejora que tenía (un +9 deja más que un +6).
@@ -584,7 +589,7 @@ Queda para más adelante:
 
 **Temas base por definir**
 - Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; banco: número total de pestañas y espacios por pestaña; precios de pestañas y casillas de pago (se calcularán a partir del oro que genera un personaje por día); ¿límite de misiones activas a la vez?
-- Mejora de equipo: multiplicador de oro de cada piedra; tabla de cristales por calidad y nivel (+5 a +10); piedra pacificada (¿100 %?); origen de cada piedra; cristales exactos por nivel.
+- Mejora de equipo: multiplicador de oro de cada piedra; tabla de cristales por calidad y nivel (+5 a +10); origen de cada piedra; cristales exactos por nivel.
 - Consumibles y otros objetos.
 - Monedas: ¿100 plata = 1 oro?, monedas especiales.
 - Ambientación y estilo artístico.
