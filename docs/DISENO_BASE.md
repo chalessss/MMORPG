@@ -598,12 +598,24 @@ Sistema distinto del desarrollo: **añade estadísticas adicionales** a equipo y
 | Plata | 100 cobres | Comprar en NPC o mercado |
 | Oro | 100 platas | Comprar en NPC o mercado |
 | Lingote | 1.000 oros | Objeto que se descompone en oro |
-| Aceleración | — | Reduce X segundos el tiempo de una mejora o una caja |
-| Energía | — | Material necesario para mejorar el personaje |
+| Aceleración | — | Reduce el tiempo de espera de mejoras con temporizador y cofres (p. ej., cada punto = 10 s) |
+| Energía | — | Recurso que se recolecta (como un mineral o una hierba); junto con cobre/oro mejora los sistemas de progreso del personaje |
 | Monedas de clan | — | Se canjean por recursos en la tienda del clan |
 | Karma | — | Puntos que se obtienen al matar personajes en zonas no PvP |
 
 - Valores de la ficha de oro: por definir.
+- **No se implementa** un recurso tipo Darksteel de MIR4 (mineral masivo de zonas concretas): puede hundir la economía.
+- Otras monedas de juego medio y avanzado: más adelante.
+
+**Referencia (MIR4)**: panel de monedas del menú del juego con oro, *mileage* (moneda que se recibe por gastar dinero real), cobre, energía, monedas de clan, aceleraciones, etc.
+
+### Sistemas de progreso del personaje con temporizador (por definir)
+
+Inspirados en MIR4 (conquista, constitución, fuerza interior): sistemas que mejoran al personaje consumiendo **oro/cobre + energía** y que pueden tardar en completarse.
+- Ejemplo de MIR4: subir la **conquista** de 3 a 4 cuesta oro y energía y tarda **dos semanas**; al terminar desbloquea mejoras (más puntos de ataque, nuevas funciones según el "edificio" mejorado, e incluso rangos de nivel).
+- También hay **cofres con temporizador** (por ejemplo, 60 minutos para abrirse).
+- La **aceleración** reduce esos tiempos.
+- Qué sistemas existirán y qué desbloquean: por definir (relacionado con el capítulo de estadísticas y con las temporadas).
 
 ### 3.21 Consumibles (decidido)
 
@@ -695,7 +707,7 @@ Queda para más adelante:
 **Temas base por definir**
 - Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; banco: número total de pestañas y espacios por pestaña; precios de pestañas y casillas de pago (se calcularán a partir del oro que genera un personaje por día); ¿límite de misiones activas a la vez?
 - Desarrollo de objeto: multiplicador de oro de cada piedra; tabla de cristales por calidad y nivel (+5 a +10); cristales exactos por nivel.
-- Monedas: qué tiene tiempos de espera (para la aceleración); qué es "mejorar el personaje" con energía; si en zonas no PvP se puede atacar a otros jugadores (karma); monedas adicionales propuestas (PvP, eventos, mazmorras, tienda de cosméticos).
+- Monedas: qué sistemas de progreso con temporizador habrá; moneda premium tipo *mileage*; si en zonas no PvP se puede atacar a otros jugadores (karma); monedas adicionales propuestas (PvP, eventos, mazmorras, tienda de cosméticos).
 - Ambientación y estilo artístico.
 
 **Capítulos propios**
