@@ -36,12 +36,10 @@ Implicaciones técnicas:
 - Prever mecánicas de "catch-up" para jugadores que lleguen en temporadas posteriores.
 - **Primera versión del juego = Temporada 1** únicamente.
 
-## Plan de trabajo por fases
+## Documentación
 
-1. **Documento de diseño corto** (1–2 páginas): qué es el juego y qué entra en la primera versión.
-2. **Estructura del proyecto**: tecnología y organización de carpetas (cliente, servidor, código compartido).
-3. **Prototipo mínimo**: personaje moviéndose en un mapa y dos jugadores viéndose en tiempo real.
-4. **Sistemas incrementales**, uno a la vez: combate, inventario, misiones, cuentas, base de datos…
+- `docs/HOJA_DE_RUTA.md`: fases del proyecto y decisiones pendientes.
+- `docs/DISENO_BASE.md`: qué existe en el juego (personajes, mobs, jefes, NPCs, recursos, objetos) y sistemas principales.
 
 Mantener cada fase pequeña y funcional antes de pasar a la siguiente. Datos de balance (estadísticas, escalados) preferiblemente fuera del código (DataTables de Unreal importadas desde CSV/JSON) para poder ajustarlos sin programar.
 

@@ -38,6 +38,8 @@ Estadísticas, habilidades, enfriamientos y efectos se construyen sobre el **Gam
 - [x] Cámara: vista elevada por defecto, ajustable libremente estilo WoW (zoom, rotación, inclinación) para tener visión amplia en PvP
 - [x] Plataforma: **solo PC** (ver justificación abajo)
 - [x] Concepto de subclases (ver Fase 1)
+- [x] Empezar el proyecto desde cero
+- [ ] Diseño base: entidades y sistemas del juego (`docs/DISENO_BASE.md`) — borrador hecho, faltan preguntas abiertas
 - [ ] Ambientación y estilo artístico
 - [ ] Proyecto de Unreal **con C++** en el repositorio, con Git LFS para los archivos binarios
 
