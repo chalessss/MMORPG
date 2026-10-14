@@ -288,11 +288,11 @@ Dos grupos: **equipo** (ropa y armas) y **joyería**, con **8 ranuras cada uno**
 |---|---|---|---|---|
 | Equipo | Arma | No | Sí | Nivel 1 |
 | Equipo | Pecho | **Sí** | Sí | Nivel 1 |
-| Equipo | Cintura | No | Sí | Nivel 1 |
-| Equipo | Botas | **Sí** | Sí | Nivel 1 |
-| Equipo | Guantes | **Sí** | Sí | Nivel 41 *(por confirmar)* |
-| Equipo | Pantalón | **Sí** | Sí | Nivel 41 *(por confirmar)* |
-| Equipo | Arma secundaria | No (depende de la clase) | Sí | Nivel 41 *(por confirmar)* |
+| Equipo | Arma secundaria | No (depende de la clase) | Sí | Nivel 1 (objetos desde el nivel 21) |
+| Equipo | Pantalón | **Sí** | Sí | Nivel 1 |
+| Equipo | Guantes | **Sí** | Sí | Nivel 41 |
+| Equipo | Botas | **Sí** | Sí | Nivel 41 |
+| Equipo | Cintura | No | Sí | Nivel 41 |
 | Equipo | Espalda | No | Sí | Nivel 41 |
 | Joyería | Collar | No | Sí | Nivel 1 |
 | Joyería | Anillo | No | Sí | Nivel 1 |
@@ -304,6 +304,8 @@ Dos grupos: **equipo** (ropa y armas) y **joyería**, con **8 ranuras cada uno**
 | Joyería | Brazalete 2 | No | Sí | Nivel 41 |
 
 - 16 ranuras en total: 8 hasta el nivel 40 y 8 más desde el 41.
+- **Arma secundaria**: la ranura está abierta desde el nivel 1 por simetría, pero las armas secundarias (escudo, carcaj, frasco, libro…) solo caen desde el nivel 21, con la primera especialización.
+- Piezas con tipo de armadura: pecho y pantalón (nivel 1–40); guantes y botas (desde el 41).
 - Solo **pecho, guantes, pantalón y botas** tienen tipo de armadura: son las piezas que cuentan para la bonificación de especialización en armadura.
 - **Sin casco ni hombreras**, a propósito: muchos jugadores ocultan el casco para lucir la cara que personalizaron. La cabeza queda despejada; la **tiara** es la pieza de cabeza (pequeña, no tapa el rostro).
 - **Todas las ranuras tienen apariencia**, joyería incluida: los jugadores detallistas pueden coordinar colores (por ejemplo, joyería de amatista azul a juego con un conjunto azul).
