@@ -405,7 +405,12 @@ Objetivo: que el inventario **nunca sea una fuente de frustración** (llenarse d
 - Al llegar al nivel 3, un NPC de misión presenta las **profesiones** y desbloquea la **casilla de la bolsa de materiales**.
 - Al avanzar en el juego se desbloquean **más casillas** y se consiguen **mejores bolsas**.
 
-**Venta rápida**: habrá venta rápida con selección de objetos (referencia: la de MIR4; el usuario enviará captura).
+**Venta rápida** (referencia: MIR4):
+- Panel de **lista de venta** junto al inventario: muestra cuántos objetos van seleccionados y permite elegir la cantidad a vender de cada pila.
+- **Filtros de selección automática**: por calidad (común, poco común, raro…) y si se incluyen o no objetos comerciables.
+- Botones: **selección automática** (aplica los filtros), **reiniciar** y **vender**.
+- **Bloqueo de objetos**: el jugador puede bloquear cualquier objeto (candado) para que nunca entre en la venta rápida.
+- *Propuestas por confirmar*: filtro por categoría (basura, equipo, materiales…); que la selección automática **excluya el equipo que aún falta registrar en el códice**; mostrar el total de moneda antes de confirmar.
 
 **Banco**: sí habrá banco para guardar objetos. El **banco compartido entre personajes de la cuenta** se desbloquea en el **nivel 60**.
 
@@ -459,7 +464,7 @@ Queda para más adelante:
 - **Profesiones**: lista de principales y secundarias.
 
 **Temas base por definir**
-- Inventario: espacio inicial de cada bolsa; ¿límite de misiones activas a la vez?; diseño de la venta rápida (captura de MIR4); tamaño del banco.
+- Inventario: espacio inicial de cada bolsa; ¿límite de misiones activas a la vez?; tamaño del banco.
 - Mejora de equipo (+N).
 - Consumibles y otros objetos.
 - Monedas: ¿100 plata = 1 oro?, monedas especiales.
