@@ -13,7 +13,9 @@ Contexto del proyecto para Claude. Léelo al iniciar cada sesión.
 - Videojuego tipo **MMORPG / RPG online**, empezando prácticamente desde cero.
 - **Motor:** Unity (C#).
 - Ideas previas: sistema de personajes con estadísticas (vida, daño, armadura) y sus escalados.
-- Pendiente de definir: 2D o 3D, plataforma (PC / móvil), ambientación.
+- **3D**, solo **PC** (teclado y ratón). Cámara elevada por defecto, ajustable estilo WoW (zoom, rotación, inclinación).
+- **Subclases:** un personaje puede tener varias clases y cambiar entre ellas sin crear otro personaje ni volver a subir desde cero. El modelo de datos del personaje debe soportarlo desde el inicio.
+- Pendiente de definir: ambientación y estilo artístico.
 - Datos de diseño en Google Sheets "Organizando la Base de Datos del Juego" (ID `1uhGfmeDtatEYMx7jZ2251bmSZtDjxfwNCl5PHncEjNM`): árbol de clases, estadísticas, habilidades y armas. Leerla vía conector de Google Drive (exportar a .xlsx conserva las fórmulas).
 
 ## Progresión por temporadas (decidido)

@@ -32,16 +32,21 @@ La lógica del juego (estadísticas, fórmulas, habilidades, progresión) se esc
 - [x] Motor: Unity
 - [x] Modelo de progresión por temporadas
 - [x] Hoja de datos de diseño (Google Sheets)
-- [ ] 2D o 3D, tipo de cámara
-- [ ] Plataforma objetivo (PC / móvil / ambos)
+- [x] Juego en **3D**
+- [x] Cámara: vista elevada por defecto, ajustable libremente estilo WoW (zoom, rotación, inclinación) para tener visión amplia en PvP
+- [x] Plataforma: **solo PC** (ver justificación abajo)
+- [x] Concepto de subclases (ver Fase 1)
 - [ ] Ambientación y estilo artístico
-- [ ] Versión de Unity y estructura inicial del proyecto en el repositorio
+- [ ] Versión de Unity (recomendado: última LTS de Unity 6 con URP) y estructura inicial del proyecto en el repositorio
+
+**Por qué solo PC:** controles e interfaz pensados para teclado y ratón sin compromisos; el rendimiento no queda limitado por los móviles; menos frente de bots (granjas de móviles / emuladores); alcance de desarrollo más manejable. Se mantiene la lógica separada del motor para no cerrar la puerta a otras plataformas en el futuro.
 
 ## Fase 1 — Sistema de personajes (foco actual)
 
 Objetivo: tener personajes completos a nivel de datos y reglas, aunque visualmente sean básicos.
 
 - [ ] Modelo de datos: arquetipo → clase base → especialización 1 → especialización final
+- [ ] Subclases: un mismo personaje puede tener varias clases y cambiar entre ellas sin crear otro personaje ni empezar de cero (el modelo de datos debe soportarlo desde el inicio, aunque la función se active más adelante)
 - [ ] Estadísticas principales (STR / INT / AGI) y derivadas (vida, maná, daño, crítico, defensas…)
 - [ ] Estadísticas neutrales (evasión, precisión, CDR, PvP, caída de objetos…)
 - [ ] Recursos: MP + recurso secundario por clase (Ira, Energía, Foco, Iluminación)
@@ -78,7 +83,7 @@ Objetivo: tener personajes completos a nivel de datos y reglas, aunque visualmen
 ## Fase 5 — Sistemas sociales y endgame
 
 - [ ] Profesiones (recolección y crafteo)
-- [ ] Subclases (por definir)
+- [ ] Subclases: activación y reglas para los jugadores
 - [ ] Grupos, clanes y chat
 - [ ] PvP (duelos, arenas, zonas PvP)
 - [ ] Comercio y economía entre jugadores
@@ -101,4 +106,4 @@ Objetivo: tener personajes completos a nivel de datos y reglas, aunque visualmen
 ## Decisiones pendientes
 
 - Datos de la hoja: estadísticas base que no coinciden entre tablas, fórmula de "Stat final" que suma el nivel dos veces, nombres de habilidades desplazados, modelo de estadísticas (STR/INT/AGI vs. 7 estadísticas).
-- Qué significa exactamente "subclase" en este juego.
+- Reglas de las subclases: si la subclase comparte el nivel del personaje o tiene el suyo propio, desde qué nivel se desbloquea, qué se comparte entre clases (equipo, profesiones, inventario) y si hay límite de subclases.
