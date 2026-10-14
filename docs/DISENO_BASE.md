@@ -605,6 +605,7 @@ Lista corta a propósito: no se quiere que el jugador necesite 30 consumibles di
 | Cocina | Elixir ofensivo | Da una estadística ofensiva base |
 | Cocina | Comida | Da vida/maná máximos + 2 estadísticas secundarias base |
 
+- Las **pociones tienen enfriamiento** (tiempo de espera entre usos), para que en PvP no gane quien más pociones lleve. Duración: por definir.
 - Los productos de **cocina** mejoran con el nivel de la profesión. Según el ingrediente (pescado, carne, planta…) dan una estadística u otra (fuerza, agilidad, intelecto, crítico, regeneración de maná, bloqueo…). Detalle: después del capítulo de estadísticas.
 
 ## 4. Sistemas principales
@@ -650,6 +651,7 @@ Queda para más adelante:
 ## 7. Preguntas abiertas
 
 **Pendientes para más adelante**
+- **Consumibles**: si la piedra de hogar se gasta o es reutilizable con enfriamiento; resurrección (consumible o punto fijo); pergamino de experiencia como recompensa (opcional); si piedras de desarrollo y papiros van en la bolsa de componentes.
 - **Profesiones**: valores de la curva de oro por cambio; si una subclase de Recolector (nivel 60) da acceso al inventor.
 - **Bonus de moneda** por tamaño de grupo: valores.
 - **Bandas** (se desbloquean en el nivel 40 o 60): reglas de reparto de experiencia, moneda y botín.
