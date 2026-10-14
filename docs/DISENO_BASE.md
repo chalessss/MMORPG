@@ -209,6 +209,56 @@ Sistema de colección que da **estadísticas permanentes a la cuenta**. Por ahor
 
 Inspiración (MIR4): material por zona con grados, combinable y ligado → objeto de códice (material + moneda) → mejora (p. ej. +2) → entrada que pide un conjunto de objetos → bonificación fija → efectos totales sumados.
 
+### 3.12 Objetos: clasificación (en curso)
+
+#### Fuente (de dónde sale un objeto)
+
+Es la primera clasificación de todo objeto.
+
+| Fuente | Ejemplos |
+|---|---|
+| Caza | Botín de mobs y jefes |
+| Misión | Recompensas de misiones |
+| Fabricación | Profesiones, combinación de insignias |
+| Compra a NPC | Comerciantes |
+| Logros | Recompensas por cumplir objetivos |
+
+*Fuentes candidatas por confirmar: recolección, eventos, PvP, cofres del mundo.* El comercio entre jugadores y el mercado no crean objetos, solo los mueven, así que no son una fuente.
+
+#### Calidad
+
+| Calidad | Color |
+|---|---|
+| Común | Gris |
+| Poco común | Verde |
+| Raro | Azul |
+| Épico | Rojo |
+| Legendario | Amarillo |
+| Mítico | Morado |
+| Cósmico | Cian |
+
+La calidad máxima disponible sube con cada temporada:
+
+| Temporada | Niveles | Calidad máxima |
+|---|---|---|
+| 1 | 1–20 | Poco común |
+| 2 | 20–40 | Raro |
+| 3 | 40–60 | Épico |
+| Siguientes expansiones | — | Legendario, Mítico, Cósmico |
+
+#### Tipos de armadura
+
+Tres tipos: **tela**, **cuero** y **placas**.
+
+- Niveles 1–20: solo **tela** o **cuero**.
+- Desde el nivel 20: según la especialización, **cuero** o **placas** (¿y tela para las clases mágicas?).
+- **Cualquier personaje puede llevar cualquier tipo**, pero cada clase tiene un tipo propio que le da una **bonificación de especialización en armadura** (por ejemplo, +1 % de agilidad al llevar cuero siendo de una especialización de cuero). Si lleva otro tipo, pierde la bonificación.
+- La armadura individual del botín (3.7) cae siempre del tipo propio de la clase del personaje.
+
+#### Equipo
+
+Habrá dos diferenciaciones de equipo (por definir).
+
 ## 4. Sistemas principales
 
 Lo que hace funcionar a las entidades anteriores. Se desarrollan por fases según la hoja de ruta.
@@ -251,6 +301,8 @@ Queda para más adelante:
 
 ## 7. Preguntas abiertas
 
+- **Objetos — fuentes**: ¿añadir recolección, eventos, PvP y cofres del mundo?
+- **Objetos — armadura**: qué clase base usa tela y cuál cuero en la Temporada 1; si las clases mágicas siguen con tela desde el nivel 20; si la bonificación exige llevar todas las piezas del tipo propio o se gana por pieza.
 - **Orden de prioridad** en la rotación de objetos compartidos (¿profesión → códice → basura?).
 - **Códice**: capítulo propio más adelante (fabricación, mejora, niveles de entradas).
 - **Estadísticas**: capítulo propio más adelante (peso de cada estadística por clase, PvE vs. PvP).
