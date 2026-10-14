@@ -109,7 +109,8 @@ Hay **dos sistemas de recolección** (decidido):
 
 - Versión especial y escasa de un recurso (por ejemplo, "veta de cobre enriquecida"): **materiales mejores y en mayor cantidad**, pero **pocas cargas** (por ejemplo, 10).
 - **Compartidas y por jugador**: cualquier jugador cercano puede recolectarla a la vez, y **cada jugador** puede sacar todas las cargas de la veta (si llegan 30 personas, las 30 recolectan).
-- La **cuenta atrás** (por ejemplo, 15 s) empieza en el **primer golpe** de cualquier jugador; al terminar, la veta desaparece para todos.
+- La **cuenta atrás** (por ejemplo, **1 minuto**) empieza en el **primer golpe** de cualquier jugador. Durante ese minuto todos pueden recolectar; al terminar, la veta desaparece para todos. **Agotar las cargas no la hace desaparecer**: solo el tiempo.
+- Cada golpe tarda un tiempo (por ejemplo, 2 s por carga).
 - **Aparición aleatoria** entre muchos puntos posibles de la zona (por ejemplo, 70 puntos posibles, máximo 10 vetas activas a la vez, reaparición cada ~5 min).
 - Objetivo: que los jugadores aprendan los puntos, creen rutas de recolección y avisen a sus amigos para recolectar juntos.
 
