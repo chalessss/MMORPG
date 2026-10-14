@@ -4,7 +4,7 @@ Documento vivo: se actualiza a medida que se toman decisiones. Las fechas y dura
 
 ## Visión
 
-MMORPG en Unity donde el **personaje es el centro**: empieza sencillo y evoluciona a lo largo de temporadas mediante especializaciones (estilo Lineage 2). Además de subir de nivel, el jugador tiene otras cosas que hacer (estilo World of Warcraft): profesiones, subclases y contenido PvE y PvP.
+MMORPG en Unreal Engine 5 donde el **personaje es el centro**: empieza sencillo y evoluciona a lo largo de temporadas mediante especializaciones (estilo Lineage 2). Además de subir de nivel, el jugador tiene otras cosas que hacer (estilo World of Warcraft): profesiones, subclases y contenido PvE y PvP.
 
 ## Modelo de temporadas
 
@@ -20,16 +20,18 @@ MMORPG en Unity donde el **personaje es el centro**: empieza sencillo y evolucio
 
 ## Principio técnico clave
 
-La lógica del juego (estadísticas, fórmulas, habilidades, progresión) se escribe en **C# puro, separada de lo visual de Unity**. Así:
-- se puede probar sin abrir escenas,
-- el mismo código podrá ejecutarse en el servidor cuando llegue el multijugador,
-- los valores de balance se cargan desde datos (la hoja de cálculo), no desde el código.
+La lógica del juego (estadísticas, fórmulas, habilidades, progresión) se escribe en **C++**, separada de lo visual (Blueprints, animaciones, modelos). Así:
+- se ejecuta en el servidor desde el principio (Unreal tiene red y servidor dedicado integrados): el servidor decide, el cliente muestra,
+- se puede probar con pruebas automáticas,
+- los valores de balance se cargan desde datos (la hoja de cálculo → DataTables de Unreal), no desde el código.
+
+Estadísticas, habilidades, enfriamientos y efectos se construyen sobre el **Gameplay Ability System (GAS)** de Unreal, que ya resuelve buena parte de lo que necesita un RPG en red.
 
 ---
 
 ## Fase 0 — Fundamentos y decisiones
 
-- [x] Motor: Unity
+- [x] Motor: Unreal Engine 5.5.4
 - [x] Modelo de progresión por temporadas
 - [x] Hoja de datos de diseño (Google Sheets)
 - [x] Juego en **3D**
@@ -37,7 +39,7 @@ La lógica del juego (estadísticas, fórmulas, habilidades, progresión) se esc
 - [x] Plataforma: **solo PC** (ver justificación abajo)
 - [x] Concepto de subclases (ver Fase 1)
 - [ ] Ambientación y estilo artístico
-- [ ] Versión de Unity (recomendado: última LTS de Unity 6 con URP) y estructura inicial del proyecto en el repositorio
+- [ ] Proyecto de Unreal **con C++** en el repositorio, con Git LFS para los archivos binarios
 
 **Por qué solo PC:** controles e interfaz pensados para teclado y ratón sin compromisos; el rendimiento no queda limitado por los móviles; menos frente de bots (granjas de móviles / emuladores); alcance de desarrollo más manejable. Se mantiene la lógica separada del motor para no cerrar la puerta a otras plataformas en el futuro.
 
@@ -54,7 +56,7 @@ Objetivo: tener personajes completos a nivel de datos y reglas, aunque visualmen
 - [ ] Sistema de habilidades (activas / pasivas, enfriamiento, lanzamiento, alcance, coste)
 - [ ] Fórmulas de daño y defensa
 - [ ] Armas y su influencia (velocidad de ataque, tipo de arma por clase)
-- [ ] Importación de datos desde la hoja de cálculo a Unity
+- [ ] Importación de datos desde la hoja de cálculo a DataTables de Unreal
 - [ ] Pruebas automáticas de las fórmulas
 - [ ] Escena de prueba: crear un personaje, subirlo de nivel y atacar a un muñeco de entrenamiento
 
