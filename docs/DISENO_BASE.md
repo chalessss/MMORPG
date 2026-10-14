@@ -378,7 +378,8 @@ Dos grupos: **equipo** (ropa y armas) y **joyería**, con **8 ranuras cada uno**
 | 5. Encantador | Pesca |
 | 6. Inventor | |
 
-- **Inventor**: profesión de artesano avanzado, inspirada en los enanos artesanos de Lineage 2 (personajes dedicados a fabricar cosas muy potentes más que a cazar). Es la única que fabrica **piedras santificadas**. Estará ligada a una clase o especialización concreta (por definir).
+- **Inventor**: profesión de artesano avanzado, inspirada en los enanos artesanos de Lineage 2 (personajes dedicados a fabricar cosas muy potentes más que a cazar). Es la única que fabrica **piedras santificadas**. **Exclusiva de la rama Recolector** (Combatiente → Recolector → Carroñero / Explorador): una clase pensada para quien quiere centrarse en recolectar y fabricar en vez de cazar.
+- **Encantador**: profesión separada, la única que fabrica **papiros de encantamiento** (sección 3.19). **No fabrica piedras de desarrollo**. Un jugador puede combinarla con otra principal (por ejemplo, sastre + encantador).
 - Detalle de cada profesión (recetas, niveles, qué fabrica): capítulo propio más adelante.
 
 ### 3.16 Monturas (decidido)
@@ -556,11 +557,11 @@ Mezcla de MIR4 y Lineage 2.
 | Piedra | Cómo se obtiene | Requisitos |
 |---|---|---|
 | **General** | **Caza** (botín de mobs) | — |
-| **Potenciada** | Fabricación por cualquier profesión principal (1–6) | Piedras generales + un objeto de sastre, peletero, herrero o joyero (1–4) + **cristales** + oro |
-| **Pacificada** | Fabricación por cualquier profesión principal (1–6) | Piedras generales + un objeto de sastre, peletero, herrero o joyero (1–4) + **cristales** + oro |
+| **Potenciada** | Fabricación por sastre, peletero, herrero, joyero o inventor | Piedras generales + un objeto de sastre, peletero, herrero o joyero (1–4) + **cristales** + oro |
+| **Pacificada** | Fabricación por sastre, peletero, herrero, joyero o inventor | Piedras generales + un objeto de sastre, peletero, herrero o joyero (1–4) + **cristales** + oro |
 | **Santificada** | Fabricación **exclusiva del inventor** | Piedras generales + potenciadas + pacificadas + oro (sin cristales) |
 
-Las profesiones secundarias no fabrican piedras.
+El **encantador** y las profesiones secundarias no fabrican piedras. Quien no tenga una de las profesiones 1–4 (por ejemplo, un inventor) debe conseguir el objeto de esas profesiones comerciando.
 
 **Destrucción con residuo (cambio respecto a MIR4, idea de Lineage 2)**
 - Cuando un objeto se destruye deja **cristales de su misma calidad** (un objeto raro deja cristales raros).
@@ -574,7 +575,7 @@ Las profesiones secundarias no fabrican piedras.
 
 Sistema distinto del desarrollo: **añade estadísticas adicionales** a equipo y joyería, en lugar de potenciar las estadísticas base.
 
-- Se aplica con un objeto consumible (por ejemplo, un **papiro de encantamiento**).
+- Se aplica con un **papiro de encantamiento**, que solo fabrican los **encantadores**.
 - Las estadísticas se eligen **al azar de todo el conjunto de estadísticas** del juego (ataque físico o mágico, defensa, resistencias, precisión…).
 - La **cantidad de estadísticas** (3, 4, 5…) depende de la **calidad del objeto** y del **nivel de la profesión de encantamiento** de quien encanta.
 - Referencia (MIR4): bloque "Propiedades adicionales" del objeto, con cada estadística extra y su grado.
