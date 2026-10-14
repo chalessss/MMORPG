@@ -102,6 +102,25 @@ Elementos con los que se puede interactuar y que no son NPCs ni recursos.
 
 - Cofres (botín), puertas y palancas, portales, puntos de resurrección, objetos de misión, carteles o tablones de misiones.
 
+### 3.7 Reparto de recompensas al morir un mob o jefe (decidido)
+
+**No existe "el primero que golpea se lo queda"** (sin mobs "grises" estilo WoW). Las recompensas se reparten **en proporción a la contribución** de cada jugador.
+
+- **Experiencia**: exactamente proporcional. Un mob que da 300 de experiencia, con un jugador que hizo el 20 % del daño y otro el 80 %, entrega 60 y 240.
+- **Oro / moneda / materiales contables**: mismo reparto proporcional que la experiencia.
+- **Objetos (botín)**: primero se decide si el objeto cae (con su probabilidad normal). Si cae, se sortea a quién le toca, con **probabilidad proporcional a la contribución**: quien más aportó tiene más opciones, pero no la garantía.
+
+Objetivos: que nadie pierda tiempo porque otro "marcó" el mob, y que no se pueda conseguir experiencia o botín con un solo golpe y sin esfuerzo.
+
+**Reglas complementarias (propuestas, por confirmar):**
+- Solo cuenta el daño **efectivo** (el daño de más al rematar no suma).
+- **Contribución mínima** (por ejemplo, 5 %) para recibir algo: evita el "golpe de 1 punto" para entrar en el reparto.
+- **Sanadores y tanques** también cuentan: la contribución incluye la curación y el daño absorbido en combate contra ese mob, no solo el daño hecho.
+- **Grupos**: la contribución del grupo se suma y se reparte dentro del grupo.
+- **Diferencia de nivel**: un jugador muy superior al mob recibe menos o nada, para que no se lleve todo en zonas bajas.
+- El **aggro** (a quién ataca el mob) es independiente del reparto: el mob persigue a quien más amenaza genera, sin afectar a las recompensas.
+- El servidor registra el daño de cada jugador en cada mob; si el mob se recupera fuera de combate, el registro se reinicia.
+
 ## 4. Sistemas principales
 
 Lo que hace funcionar a las entidades anteriores. Se desarrollan por fases según la hoja de ruta.
@@ -144,8 +163,7 @@ Queda para más adelante:
 
 ## 7. Preguntas abiertas
 
-- ¿Los recursos son **compartidos** (el primero que llega se los lleva) o **por jugador** (cada uno ve su propio recurso)?
-- ¿El **botín** de mobs y jefes es compartido, por grupo o individual?
+- ¿Los **recursos recolectables** (minerales, plantas, madera) son **compartidos** (el primero que llega se los lleva) o **por jugador** (cada uno ve su propio recurso)?
 - ¿El **PvP** es libre en todo el mapa (con penalizaciones, estilo Lineage 2) o solo en zonas y modos concretos?
 - ¿Qué **profesiones** entran en la Temporada 1 y cuántas puede tener cada personaje?
 - ¿Habrá **monturas** desde la Temporada 1?
