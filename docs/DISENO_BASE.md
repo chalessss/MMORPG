@@ -360,7 +360,9 @@ Dos grupos: **equipo** (ropa y armas) y **joyería**, con **8 ranuras cada uno**
 
 ### 3.14 PvP (decidido)
 
-- **PvP abierto solo en ciertas zonas**: hay **zonas seguras** (sin combate entre jugadores) y **zonas peligrosas** (PvP libre). Un único tipo de servidor; sin servidores separados PvE y PvP.
+- **Dos tipos de zona** en un único tipo de servidor (sin servidores separados PvE y PvP):
+  - **Zonas de combate (PvP)**: PvP libre. Matar a otros jugadores **no da karma**; da **honor**.
+  - **Zonas seguras**: se **puede** atacar a otros jugadores, pero quien mata **gana karma** (estilo Lineage 2), con sus consecuencias (ver 3.22).
 - Cada jugador decide si entra a las zonas peligrosas a pelear por recursos.
 - **PvP en campo abierto, estilo Lineage 2** (no solo en campos de batalla como WoW): grupos y clanes pelean por **controlar territorios** y sus recursos. Morir en PvP también quita experiencia, lo que hace que controlar una zona importe.
 - Las zonas PvP dan **botín especializado en PvP** (objetos que mejoran estadísticas PvP); las zonas PvE dan botín enfocado al PvE.
@@ -601,7 +603,10 @@ Sistema distinto del desarrollo: **añade estadísticas adicionales** a equipo y
 | Aceleración | — | Reduce el tiempo de espera de mejoras con temporizador y cofres (p. ej., cada punto = 10 s) |
 | Energía | — | Recurso que se recolecta (como un mineral o una hierba); junto con cobre/oro mejora los sistemas de progreso del personaje |
 | Monedas de clan | — | Se canjean por recursos en la tienda del clan |
-| Karma | — | Puntos que se obtienen al matar personajes en zonas no PvP |
+| Karma | — | Se gana al matar jugadores en zonas seguras (no en zonas de combate) |
+| Honor | — | Se gana en PvP (matar jugadores en zonas de combate, actividades PvP); se canjea por equipo y recompensas PvP |
+| Valor | — | Se gana en contenido PvE (mazmorras, jefes, eventos PvE); se canjea por equipo y recompensas PvE. Sirve también de *catch-up* |
+| Moneda premium (tipo *mileage*) | — | Se recibe al gastar dinero real; se usa en una **tienda propia** con objetos muy concretos |
 
 - Valores de la ficha de oro: por definir.
 - **No se implementa** un recurso tipo Darksteel de MIR4 (mineral masivo de zonas concretas): puede hundir la economía.
@@ -707,7 +712,7 @@ Queda para más adelante:
 **Temas base por definir**
 - Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; banco: número total de pestañas y espacios por pestaña; precios de pestañas y casillas de pago (se calcularán a partir del oro que genera un personaje por día); ¿límite de misiones activas a la vez?
 - Desarrollo de objeto: multiplicador de oro de cada piedra; tabla de cristales por calidad y nivel (+5 a +10); cristales exactos por nivel.
-- Monedas: qué sistemas de progreso con temporizador habrá; moneda premium tipo *mileage*; si en zonas no PvP se puede atacar a otros jugadores (karma); monedas adicionales propuestas (PvP, eventos, mazmorras, tienda de cosméticos).
+- Monedas: qué sistemas de progreso con temporizador habrá; qué se vende en la tienda de moneda premium; canjes de honor y valor.
 - Ambientación y estilo artístico.
 
 **Capítulos propios**
