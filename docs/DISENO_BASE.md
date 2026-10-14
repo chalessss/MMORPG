@@ -121,23 +121,38 @@ Elementos con los que se puede interactuar y que no son NPCs ni recursos.
 
 - Cofres (botín), puertas y palancas, portales, puntos de resurrección, objetos de misión, carteles o tablones de misiones.
 
-### 3.7 Reparto de recompensas al morir un mob o jefe (decidido)
+### 3.7 Botín de un mob (decidido)
 
-**No existe "el primero que golpea se lo queda"** (sin mobs "grises" estilo WoW). Las recompensas se reparten según la **contribución**, que es el **daño efectivo** hecho al mob: si el mob tiene 500 de vida y el golpe final es de 5.000, cuentan 500.
+Cada mob tiene una **tabla de botín** con dos partes. Ejemplo, un lobo:
 
-| Recompensa | Cómo se reparte |
-|---|---|
-| **Experiencia** | Exactamente proporcional al daño. Mob de 300 XP: quien hizo el 20 % recibe 60, quien hizo el 80 % recibe 240. |
-| **Moneda** | Proporcional al daño, en la unidad mínima (cobre). Lo que no llegue a 1 cobre se pierde. |
-| **Objetos y materiales** | Cada objeto que puede soltar el mob tira su propia probabilidad de caer (p. ej. armadura 30 %). Si cae, se sortea a quién le toca con probabilidad igual a la contribución (85 % de daño → 85 % de opciones). Cada objeto se sortea por separado. |
+| Tipo | Recompensa | Cantidad / probabilidad | A quién le llega |
+|---|---|---|---|
+| **Fijo** | Experiencia | Cantidad exacta | Repartida según contribución |
+| **Fijo** | Moneda | Cantidad exacta | Repartida según contribución |
+| **Variable** | Armaduras / equipo | % (p. ej. 30 %) | **Individual**: según el personaje |
+| **Variable** | Objetos de misión | % | **Individual**: solo a quien tenga la misión activa |
+| **Variable** | Objetos de profesión | % | Para todos por igual (rotación) |
+| **Variable** | Objetos de códice | % | Para todos por igual (rotación) |
+| **Variable** | "Basura" (objetos para vender) | % | Para todos por igual (rotación) |
 
-- **Moneda**: cobre, plata y oro; 100 cobre = 1 plata (100 plata = 1 oro, por confirmar).
-- **Sin contribución mínima**: cualquier daño cuenta, pero una contribución muy baja da muy poca experiencia, quizá ninguna moneda y pocas opciones de botín.
-- **Sin penalización por diferencia de nivel**: los materiales valiosos solo los dan mobs de nivel alto, así que matar mobs bajos no compensa.
-- **Grupos**: el grupo cuenta como una sola unidad. Si dos grupos atacan al mismo jefe, cada grupo recibe según su porcentaje de daño (clave en jefes de mundo y de banda).
-- **Aggro**: estadística aparte, independiente del reparto. Los tanques generan más aggro con sus habilidades y estadísticas.
+Los valores concretos de cada mob se definirán más adelante en las tablas de datos.
 
-### 3.8 Grupos y bandas (decidido)
+### 3.8 Reparto de recompensas (decidido)
+
+**No existe "el primero que golpea se lo queda"** (sin mobs "grises" estilo WoW). La **contribución** es el **daño efectivo** hecho al mob: si el mob tiene 500 de vida y el golpe final es de 5.000, cuentan 500.
+
+**Entre jugadores o grupos distintos** que atacan al mismo mob:
+- **Experiencia**: exactamente proporcional al daño. Mob de 300 XP: quien hizo el 20 % recibe 60, quien hizo el 80 % recibe 240.
+- **Moneda**: proporcional al daño, en la unidad mínima (cobre). Lo que no llegue a 1 cobre se pierde.
+- **Objetos compartidos** (profesión, códice, basura): cada objeto tira su probabilidad de caer; si cae, se sortea con la contribución como probabilidad (85 % de daño → 85 % de opciones).
+- Un **grupo cuenta como una sola unidad** frente a otros jugadores o grupos (clave en jefes de mundo y de banda).
+- **Sin contribución mínima** y **sin penalización por diferencia de nivel**: los materiales valiosos solo los dan mobs de nivel alto.
+
+**Moneda**: cobre, plata y oro; 100 cobre = 1 plata (100 plata = 1 oro, por confirmar).
+
+**Aggro**: estadística aparte, independiente del reparto. Los tanques generan más aggro con sus habilidades y estadísticas.
+
+### 3.9 Grupos y bandas (decidido)
 
 El juego está pensado para **jugarse en grupo**: jugar acompañado siempre debe rendir más que jugar solo.
 
@@ -151,25 +166,17 @@ El juego está pensado para **jugarse en grupo**: jugar acompañado siempre debe
 | 4 | +20 % |
 | 5 | +25 % |
 
-*(Interpretación por confirmar: el bonus crece por cada miembro adicional; con el grupo completo de 5 es +25 %.)*
-
 - **Bonus de moneda**: existe y crece con el tamaño del grupo; valores por definir (orientativo: +5 %, +10 %, +15 %, +20 %).
 - **Banda (raid)**: agrupación grande para actividades concretas (10, 20, 50 o 100 personas según la actividad). Los tamaños se desbloquean con las temporadas. Sin bonus de experiencia. Reglas propias por definir.
 
-#### Reparto de objetos dentro del grupo
+#### Reparto dentro del grupo
 
-Una vez el sorteo entre jugadores/grupos (3.7) asigna objetos al grupo, se reparten con dos sistemas:
+- **Experiencia y moneda**: a partes iguales entre los miembros, más el bonus de grupo.
+- **Objetos compartidos — rotación** (profesión, códice, basura): cada objeto que cae se asigna **al azar** entre los miembros que aún no han recibido nada; quien recibe uno queda excluido hasta que todos hayan recibido, y entonces la rotación se reinicia. A la larga todos reciben más o menos lo mismo.
+- **Armaduras / equipo — botín personal**: cada miembro tira **su propia probabilidad** (p. ej. 30 %). Solo puede caerle equipo que **su personaje puede usar** (un guerrero no recibe tela). Un mob puede dar varias piezas, una por cada miembro al que le salga la tirada. Para conseguir otros tipos de equipo (por ejemplo, para el códice) hay que comerciar con otros jugadores o usar el mercado.
+- **Objetos de misión — individuales**: solo los recibe quien tiene la misión activa, con su propia probabilidad. Una misión debe tardar **lo mismo solo que en grupo** (en grupo se matan más mobs, pero cada uno necesita sus propios objetos), para no castigar a quien juega solo.
 
-**1. Botín por turnos con prioridad (objetos compartidos)**
-- Los objetos se ordenan por prioridad: **equipo** (armas, armaduras) → **materiales de profesión** → **objetos comunes** (ingredientes de cocina, etc.) → **objetos de misión / otros**.
-- En ese orden, cada objeto se asigna **al azar** entre los miembros que aún no han recibido nada.
-- Quien recibe un objeto queda excluido de los siguientes, para que el botín rote. A la larga todos reciben más o menos lo mismo.
-
-**2. Botín individual (objetos exclusivos)**
-- Ciertos objetos especiales (por ejemplo, equipo exclusivo de personaje) se tiran **por separado para cada miembro** con su propia probabilidad (por ejemplo, 40 %).
-- Un mismo mob puede dar varias copias: una para cada miembro al que le salga la tirada.
-
-### 3.9 Roles (decidido)
+### 3.10 Roles (decidido)
 
 - **Todas las clases y especializaciones pueden hacer daño** y jugar solas, incluidas las de tanque y sanador.
 - En grupo, cada especialización es más eficiente en su rol: el tanque aguanta y atrae a los mobs, el sanador cura, el DPS hace daño.
@@ -217,11 +224,11 @@ Queda para más adelante:
 
 ## 7. Preguntas abiertas
 
-- **Bonus de experiencia**: confirmar la tabla (+10 % con 2 miembros … +25 % con 5).
+- **Códice**: ¿qué es exactamente? (¿un sistema de colección donde se registran objetos a cambio de bonificaciones permanentes, estilo MIR4?)
+- **Botín personal de equipo fuera de grupo**: si dos jugadores sin grupo matan juntos un mob, ¿cada uno tira su probabilidad de equipo, o esa probabilidad se ajusta según su contribución?
+- **Equipo personal**: ¿se puede comerciar o queda ligado al personaje?
+- **Orden de prioridad** en la rotación de objetos compartidos (¿profesión → códice → basura?).
 - **Bonus de moneda** por tamaño de grupo: valores.
-- **Moneda dentro del grupo**: ¿se reparte a partes iguales entre los miembros?
-- **Botín por turnos**: cuando todos los miembros ya recibieron un objeto y quedan más, ¿se reinicia la rotación?
-- **Objetos de misión**: ¿le llegan a cada miembro que tenga la misión (lo habitual), o entran en la rotación?
 - **Bandas**: reglas de reparto de experiencia, moneda y botín.
 - **Vetas enriquecidas**: ¿las 4–5 recolecciones son por jugador o el total compartido entre todos? ¿La cuenta atrás empieza siempre en el primer golpe?
 - **Moneda**: ¿100 plata = 1 oro?
