@@ -13,8 +13,24 @@ Contexto del proyecto para Claude. Léelo al iniciar cada sesión.
 - Videojuego tipo **MMORPG / RPG online**, empezando prácticamente desde cero.
 - **Motor:** Unity (C#).
 - Ideas previas: sistema de personajes con estadísticas (vida, daño, armadura) y sus escalados.
-- Pendiente de definir: 2D o 3D, plataforma (PC / móvil), ambientación y alcance de la primera versión.
-- El usuario tiene un diagrama de la estructura base del juego (imagen) y hojas de Google Sheets con datos/fórmulas; preferir leer las hojas vía conector de Google Drive para conservar las fórmulas.
+- Pendiente de definir: 2D o 3D, plataforma (PC / móvil), ambientación.
+- Datos de diseño en Google Sheets "Organizando la Base de Datos del Juego" (ID `1uhGfmeDtatEYMx7jZ2251bmSZtDjxfwNCl5PHncEjNM`): árbol de clases, estadísticas, habilidades y armas. Leerla vía conector de Google Drive (exportar a .xlsx conserva las fórmulas).
+
+## Progresión por temporadas (decidido)
+
+Estilo Lineage 2: el personaje evoluciona eligiendo especializaciones. Cada temporada es un **lanzamiento de contenido** separado en el tiempo (orientativo: ~1 año por temporada), para evitar la carrera al nivel máximo.
+
+| Temporada | Niveles | Elección | Clases |
+|---|---|---|---|
+| 1 | 1–20 | Arquetipo (Físico/Mágico) + clase base | Luchador, Combatiente, Asesino, Atacante a distancia, Mago, Invocador |
+| 2 | 20–40 | Especialización 1 | Dos manos, Espadas duales, Tanque, Daguero, Arquero, Hechicero, Encantador… |
+| 3 | 40–60 | Especialización final | ~19 clases (Paladín, Berserker, Nigromante, Sacerdote, Monje…) |
+
+Implicaciones técnicas:
+- El nivel máximo y las especializaciones disponibles se controlan por **configuración de temporada** (datos), no por código: el sistema debe soportar 60 niveles desde el inicio.
+- Cada temporada necesita contenido de **endgame** propio en su nivel máximo (mazmorras, jefes, PvP, equipo, crafteo), con parches intermedios.
+- Prever mecánicas de "catch-up" para jugadores que lleguen en temporadas posteriores.
+- **Primera versión del juego = Temporada 1** únicamente.
 
 ## Plan de trabajo por fases
 
