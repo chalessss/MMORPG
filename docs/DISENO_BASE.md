@@ -462,10 +462,24 @@ Mezcla de MIR4 y Lineage 2.
 
 #### Sistema decidido
 
-**Zonas**
-- **Zona segura (hasta +5)**: si falla, el objeto no se destruye. Ejemplo: +4 → +5 con ~50 % de éxito.
-- **Zona de peligro (de +5 a +10)**: si falla, el objeto **se destruye**. Ejemplo: +5 → +6 con ~40 % de éxito.
-- La probabilidad de cada salto (+5 → +6, +6 → +7…) es un dato configurable.
+**Zonas y probabilidades (piedra general)**
+
+| Mejora | Éxito | ¿Se destruye si falla? |
+|---|---|---|
+| +0 → +1 | 100 % | No |
+| +1 → +2 | 100 % | No |
+| +2 → +3 | 90 % | No |
+| +3 → +4 | 70 % | No |
+| +4 → +5 | 49 % | No |
+| +5 → +6 | 42 % | Sí |
+| +6 → +7 | 35 % | Sí |
+| +7 → +8 | 30 % | Sí |
+| +8 → +9 | 26 % | Sí |
+| +9 → +10 | 22 % | Sí |
+
+- **Zona segura (hasta +5)**: un objeto **nunca se rompe**; si falla, se queda en su nivel.
+- **Zona de peligro (de +5 a +10)**: si falla, **el objeto se destruye** (probabilidad de destrucción = 100 % − éxito).
+- **Bonificación de mejora**: códices, recompensas y otras fuentes suben un poco la probabilidad de éxito. Es un incremento **pequeño**, pensado sobre todo para que los saltos altos (+7 a +10) no se queden siempre tan bajos. Solo el salto **+5 → +6** puede llegar a ser 100 % seguro con bonificaciones; los demás nunca llegan al 100 %.
 
 **Piedras de desarrollo** (nombres y colores definitivos)
 
@@ -537,7 +551,7 @@ Queda para más adelante:
 
 **Temas base por definir**
 - Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; banco: número total de pestañas y espacios por pestaña; precios de pestañas y casillas de pago (se calcularán a partir del oro que genera un personaje por día); ¿límite de misiones activas a la vez?
-- Mejora de equipo: probabilidades por nivel; origen de cada piedra; cantidad de residuo; si la pacificada siempre funciona (100 %).
+- Mejora de equipo: probabilidades de la piedra potenciada y si puede destruir dentro de la zona segura; tope de la bonificación por salto; origen de cada piedra; cantidad de residuo; si la pacificada siempre funciona (100 %).
 - Consumibles y otros objetos.
 - Monedas: ¿100 plata = 1 oro?, monedas especiales.
 - Ambientación y estilo artístico.
