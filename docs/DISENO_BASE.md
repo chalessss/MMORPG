@@ -409,7 +409,13 @@ Objetivo: que el inventario **nunca sea una fuente de frustración** (llenarse d
 - Lo **útil** se coloca empezando por la **esquina inferior derecha**, de abajo hacia arriba y de derecha a izquierda.
 - La **basura** se coloca empezando por la **esquina superior izquierda**, de arriba hacia abajo y de izquierda a derecha.
 - Así la basura queda agrupada en un extremo y lo útil en el otro.
-- *Por definir*: orden dentro de lo útil (propuesta: por categoría y luego por calidad, de mayor a menor).
+- Orden dentro de lo útil: **por categoría** (equipo, consumibles, materiales…) y dentro de cada una **por calidad**, de mayor a menor.
+
+**Asignar bolsas** (referencia: WoW): una bolsa del inventario general puede convertirse en bolsa **solo para un tipo** de objeto. Es una **recompensa de profesiones**:
+- Al llevar la **primera profesión principal al máximo** → se pueden asignar bolsas a **materiales**.
+- Al llevar **una profesión secundaria al máximo** → se pueden asignar bolsas a **consumibles**.
+- Ejemplo: quien pasa una tarde minando o fabricando en masa tiene sus materiales siempre ordenados en las mismas bolsas.
+- *Propuesta por confirmar*: opciones por bolsa para excluirla del botón de organizar y de la venta rápida (como "Ignorar esta bolsa" en WoW).
 
 **Venta rápida** (referencia: MIR4):
 - Panel de **lista de venta** junto al inventario: muestra cuántos objetos van seleccionados y permite elegir la cantidad a vender de cada pila.
