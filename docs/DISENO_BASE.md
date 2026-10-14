@@ -380,7 +380,7 @@ Dos grupos: **equipo** (ropa y armas) y **joyería**, con **8 ranuras cada uno**
 
 - **Cambio de profesión principal**: solo hay **2 principales activas** a la vez, pero ninguna se olvida. Para aprender otra, se habla con el entrenador de la nueva profesión y se elige cuál de las dos activas se **inhabilita** (queda guardada con su progreso y se puede reactivar más tarde).
   - Cada cambio cuesta **oro**, y el coste **sube con cada cambio** siguiendo una curva suave (logarítmica, no exponencial). Objetivo: que se cambie cuando de verdad hace falta, no ir subiendo todas a la vez saltando de una a otra.
-- **Inventor — cómo se obtiene**: al convertirse en **Recolector** (nivel 20) aparece una misión que ofrece la profesión de inventor; para aprenderla, el jugador elige cuál de sus dos principales inhabilitar.
+- **Inventor — cómo se obtiene**: al convertirse en **Recolector** (nivel 20) aparece una misión que ofrece la profesión de inventor; para aprenderla, el jugador elige cuál de sus dos principales inhabilitar. **Nunca hay más de 2 principales activas**, tampoco para el Recolector.
 - **Inventor**: profesión de artesano avanzado, inspirada en los enanos artesanos de Lineage 2 (personajes dedicados a fabricar cosas muy potentes más que a cazar). Es la única que fabrica **piedras santificadas**. **Exclusiva de la rama Recolector** (Combatiente → Recolector → Carroñero / Explorador): una clase pensada para quien quiere centrarse en recolectar y fabricar en vez de cazar.
 - **Encantador**: profesión separada, la única que fabrica **papiros de encantamiento** (sección 3.19). **No fabrica piedras de desarrollo**. Un jugador puede combinarla con otra principal (por ejemplo, sastre + encantador).
 - Detalle de cada profesión (recetas, niveles, qué fabrica): capítulo propio más adelante.
@@ -633,7 +633,7 @@ Queda para más adelante:
 ## 7. Preguntas abiertas
 
 **Pendientes para más adelante**
-- **Profesiones**: valores de la curva de oro por cambio; si el Recolector tiene 2 o 3 principales activas; si una subclase de Recolector (nivel 60) da acceso al inventor.
+- **Profesiones**: valores de la curva de oro por cambio; si una subclase de Recolector (nivel 60) da acceso al inventor.
 - **Bonus de moneda** por tamaño de grupo: valores.
 - **Bandas** (se desbloquean en el nivel 40 o 60): reglas de reparto de experiencia, moneda y botín.
 - **Subclases** (desde el nivel 60): nivel de cada subclase, qué se comparte, límite de subclases.
