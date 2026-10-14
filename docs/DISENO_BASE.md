@@ -265,7 +265,7 @@ Solo tres tipos: **tela**, **cuero** y **placas** (sin malla). Regla para asigna
 - La armadura individual del botín (3.7) cae siempre del tipo propio de la clase del personaje.
 - Bonificaciones por conjunto o por pieza: se definirán junto con los objetos y las estadísticas.
 
-**Propuesta de asignación según el árbol de clases** (aplicando la regla; por revisar):
+**Propuesta de asignación según el árbol de clases** (borrador; se revisará al diseñar el contenido de cada temporada):
 
 | Base (1–20) | Especialización 1 (20–40) | Especialización final (40–60) |
 |---|---|---|
@@ -326,7 +326,7 @@ Queda para más adelante:
 
 ## 7. Preguntas abiertas
 
-- **Objetos — armadura**: casos dudosos de la asignación (Espadas duales, Recolector, Carroñero) y si el tipo de armadura puede cambiar entre la especialización 1 y la final.
+- **Por temporada** (al diseñar su contenido): tipo de armadura de cada especialización y casos dudosos (Espadas duales, Recolector, Carroñero, Mutilador); si el tipo puede cambiar entre la especialización 1 y la final.
 - **Orden de prioridad** en la rotación de objetos compartidos (¿profesión → códice → basura?).
 - **Códice**: capítulo propio más adelante (fabricación, mejora, niveles de entradas).
 - **Estadísticas**: capítulo propio más adelante (peso de cada estadística por clase, PvE vs. PvP).
