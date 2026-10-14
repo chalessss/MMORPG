@@ -383,38 +383,51 @@ Objetivo: que el inventario **nunca sea una fuente de frustración** (llenarse d
 
 **Bolsas**: un inventario **general** y **dos bolsas especiales**, cada una en su propia casilla.
 
+**Casillas de bolsa**
+
+| Casilla | Básicas | De pago (oro, precio alto) | Máximo |
+|---|---|---|---|
+| **Bolsa principal** | 1 — no se puede vender, quitar ni cambiar; se **amplía con oro** | — | 1 |
+| **Bolsas normales** | 3 — se desbloquean con **misiones** | 4.ª y 5.ª | 5 |
+| **Bolsa de componentes** | 1 | 1 más | 2 |
+| **Bolsa de consumibles** | 1 | — (siempre una sola) | 1 |
+
+Máximo total: 9 bolsas.
+
 | Bolsa | Qué guarda | Cómo se llena |
 |---|---|---|
 | **General** | Equipo, basura y todo lo que no cabe en las especiales | Automático |
-| **Materiales** | Todo lo que sirve para fabricar: materiales de profesión, objetos de códice (insignias), otros materiales | Automático |
+| **Componentes** | Todo lo que sirve para fabricar (componentes de profesiones principales y secundarias, insignias del códice…) | Automático |
 | **Consumibles** | Pociones de vida y de maná, elixires, comidas | **El jugador decide** qué pone en cada espacio (por ejemplo, de 10 espacios: 6 de pociones, 2 de comida, 1 de elixir y 1 libre) |
 
 - **Desbordamiento**: si una bolsa especial está llena, lo que llega va a la **bolsa general**. **Nunca se pierde un objeto** por falta de espacio en una bolsa especial.
-- Ventaja: inventario ordenado, y es imposible vender por accidente los materiales.
+- Ventaja: inventario ordenado, y es imposible vender por accidente los componentes.
+
+**Terminología**: **componentes** = cualquier objeto que se usa para fabricar algo, sea de profesión principal o secundaria.
 
 **Objetos de misión — "bolsa invisible"**: no ocupan espacio ni se muestran en el inventario. Solo se ven como progreso en el **registro de misiones** (por ejemplo, "Pieles de lobo 3/5"). Se eliminan al completar o abandonar la misión. Así nadie se bloquea por tener el inventario lleno, y quien acepte muchas misiones sin terminarlas no acumula miles de objetos visibles.
 
 **Tamaño de las pilas**: lo define **cada objeto** al crearlo, según su calidad y lo frecuente que sea. Los objetos muy abundantes (por ejemplo, insignias del códice, de las que se acumulan 10.000–20.000) tienen pilas muy grandes para no ocupar espacio.
 
 **De dónde salen las bolsas**:
-- La fuente principal son las **profesiones**: cada profesión puede fabricar una bolsa mayor usando **solo sus propios materiales** (el desollador con materiales de desuello, el encantador con materiales de encantamiento…). Así cualquier jugador que suba una profesión puede hacerse una bolsa.
+- La fuente principal son las **profesiones**: cada profesión puede fabricar una bolsa mayor usando **solo sus propios materiales** (el desollador con componentes de desuello, el encantador con componentes de encantamiento…). Así cualquier jugador que suba una profesión puede hacerse una bolsa.
 - Los jugadores **especializados en profesiones** pueden fabricar bolsas un poco más grandes (por ejemplo, de 34 a 36 o 38 espacios): una ventaja pequeña, no abismal.
 
 **Desbloqueo progresivo, ligado a la introducción del juego**:
 - Niveles 1–3: los mobs solo dan **experiencia y cobre**; el jugador aprende lo básico sin llenar el inventario.
-- Al llegar al nivel 3, un NPC de misión presenta las **profesiones** y desbloquea la **casilla de la bolsa de materiales**.
+- Al llegar al nivel 3, un NPC de misión presenta las **profesiones** y desbloquea la **casilla de la bolsa de componentes**.
 - Al avanzar en el juego se desbloquean **más casillas** y se consiguen **mejores bolsas**.
 
 **Organizar bolsas** (referencia: botón "Limpiar bolsas" de WoW): botón con icono de brocha en la bolsa general que ordena todo automáticamente:
 - Lo **útil** se coloca empezando por la **esquina inferior derecha**, de abajo hacia arriba y de derecha a izquierda.
 - La **basura** se coloca empezando por la **esquina superior izquierda**, de arriba hacia abajo y de izquierda a derecha.
 - Así la basura queda agrupada en un extremo y lo útil en el otro.
-- Orden dentro de lo útil: **por categoría** (equipo, consumibles, materiales…) y dentro de cada una **por calidad**, de mayor a menor.
+- Orden dentro de lo útil: **por categoría** (equipo, consumibles, componentes…) y dentro de cada una **por calidad**, de mayor a menor.
 
 **Asignar bolsas** (referencia: WoW): una bolsa del inventario general puede convertirse en bolsa **solo para un tipo** de objeto. Es una **recompensa de profesiones**:
-- Al llevar la **primera profesión principal al máximo** → se pueden asignar bolsas a **materiales**.
+- Al llevar la **primera profesión principal al máximo** → se pueden asignar bolsas a **componentes**.
 - Al llevar **una profesión secundaria al máximo** → se pueden asignar bolsas a **consumibles**.
-- Ejemplo: quien pasa una tarde minando o fabricando en masa tiene sus materiales siempre ordenados en las mismas bolsas.
+- Ejemplo: quien pasa una tarde minando o fabricando en masa tiene sus componentes siempre ordenados en las mismas bolsas.
 - *Propuesta por confirmar*: opciones por bolsa para excluirla del botón de organizar y de la venta rápida (como "Ignorar esta bolsa" en WoW).
 
 **Venta rápida** (referencia: MIR4):
@@ -422,7 +435,7 @@ Objetivo: que el inventario **nunca sea una fuente de frustración** (llenarse d
 - **Filtros de selección automática**: por calidad (común, poco común, raro…) y si se incluyen o no objetos comerciables.
 - Botones: **selección automática** (aplica los filtros), **reiniciar** y **vender**.
 - **Bloqueo de objetos**: el jugador puede bloquear cualquier objeto (candado) para que nunca entre en la venta rápida.
-- *Propuestas por confirmar*: filtro por categoría (basura, equipo, materiales…); que la selección automática **excluya el equipo que aún falta registrar en el códice**; mostrar el total de moneda antes de confirmar.
+- *Propuestas por confirmar*: filtro por categoría (basura, equipo, componentes…); que la selección automática **excluya el equipo que aún falta registrar en el códice**; mostrar el total de moneda antes de confirmar.
 
 **Banco**: sí habrá banco para guardar objetos. El **banco compartido entre personajes de la cuenta** se desbloquea en el **nivel 60**.
 
@@ -476,7 +489,7 @@ Queda para más adelante:
 - **Profesiones**: lista de principales y secundarias.
 
 **Temas base por definir**
-- Inventario: espacio inicial de cada bolsa; ¿límite de misiones activas a la vez?; tamaño del banco.
+- Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; espacio y ampliación del banco; ¿límite de misiones activas a la vez?; tamaño del banco.
 - Mejora de equipo (+N).
 - Consumibles y otros objetos.
 - Monedas: ¿100 plata = 1 oro?, monedas especiales.
