@@ -524,6 +524,21 @@ Mezcla de MIR4 y Lineage 2.
 - Baja **−1** el nivel con **100 % de éxito**, desde cualquier nivel (+1 a +10).
 - No se puede usar en objetos a **+0**.
 
+**Piedra santificada (negra)**
+
+- Solo se puede usar en la **zona de peligro** (desde +5); en la zona segura no tiene sentido.
+- Sube **+1**. Si falla, **el objeto no se destruye** ni baja de nivel: solo se pierden la piedra y el oro (no hay cristales).
+
+| Nivel actual | Éxito |
+|---|---|
+| +5 | 50 % |
+| +6 | 43 % |
+| +7 | 38 % |
+| +8 | 34 % |
+| +9 | 30 % |
+
+(La potenciada + 2 puntos. La bonificación de mejora, máx. +6, también se suma.)
+
 **Destrucción con residuo (cambio respecto a MIR4, idea de Lineage 2)**
 - Cuando un objeto se destruye deja **cristales de su misma calidad** (un objeto raro deja cristales raros).
 - La **cantidad** de cristales aumenta con el nivel de mejora que tenía (un +9 deja más que un +6).
