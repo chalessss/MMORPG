@@ -186,14 +186,39 @@ El juego está pensado para **jugarse en grupo**: jugar acompañado siempre debe
 - **Bonus de moneda**: existe y crece con el tamaño del grupo; valores por definir (orientativo: +5 %, +10 %, +15 %, +20 %).
 - **Banda (raid)**: agrupación grande para actividades concretas (10, 20, 50 o 100 personas según la actividad). Los tamaños se desbloquean con las temporadas. Sin bonus de experiencia. Reglas propias por definir.
 
-#### Reparto dentro del grupo
+#### Reparto dentro del grupo (decidido)
 
 - **Experiencia y moneda**: a partes iguales entre los miembros, más el bonus de grupo.
-- **Objetos compartidos — rotación**: cada objeto que cae se asigna **al azar** entre los miembros que aún no han recibido nada; quien recibe uno queda excluido hasta que todos hayan recibido, y entonces la rotación se reinicia. A la larga todos reciben más o menos lo mismo.
-- **Orden de prioridad del botín** (de mayor a menor): **armaduras → objetos de misión → objetos de profesión → objetos de códice → basura**. Se reparten en ese orden; quien recibe un objeto de una prioridad queda excluido de las siguientes (por ejemplo, quien recibe armadura ya no recibe objeto de misión, pero sí puede recibir profesión, códice o basura en otra vuelta). *Por confirmar cómo encaja con la armadura individual y los objetos de misión, que son personales.*
-- **Armaduras individuales — botín personal**: cada miembro tira **su propia probabilidad** (ajustada por la contribución de su grupo). Solo puede caerle equipo **de su propia clase**. Un mob puede dar varias piezas, una por cada miembro al que le salga la tirada. Es la fuente principal para el códice de la propia clase.
-- **Armaduras del grupo — botín aleatorio**: probabilidad baja de que caiga una armadura de **cualquier clase**, asignada a **un miembro al azar**. Permite conseguir armaduras de clases que no hay en el grupo (por ejemplo, de mago en un grupo sin magos) para los códices de otras clases. También se pueden comerciar o vender en el mercado.
-- **Objetos de misión — individuales**: solo los recibe quien tiene la misión activa, con su propia probabilidad. Una misión debe tardar **lo mismo solo que en grupo** (en grupo se matan más mobs, pero cada uno necesita sus propios objetos), para no castigar a quien juega solo.
+- **Objetos**: se reparten **por rotación con prioridad**.
+
+**Orden de prioridad** (de mayor a menor):
+
+1. Armaduras del grupo
+2. Armaduras individuales
+3. Objetos de misión
+4. Objetos de profesión
+5. Objetos de códice
+6. "Basura"
+
+**Algoritmo**
+
+1. Se tira la probabilidad de cada categoría para saber qué cae.
+2. Se recorren los objetos caídos en orden de prioridad. Cada uno se entrega **al azar** a un miembro **no excluido**.
+3. Quien recibe un objeto queda **excluido** de los siguientes.
+4. Cuando los 5 miembros han recibido algo, la exclusión se reinicia y todos vuelven a estar habilitados.
+5. Termina cuando no quedan objetos.
+
+**Ejemplo 1 — caen 4 objetos** (armadura del grupo, armadura individual, códice, basura):
+armadura del grupo → jugador 3 · armadura individual → jugador 5 (excluido 3) · códice → jugador 2 (excluidos 3, 5) · basura → jugador 4 (excluidos 3, 5, 2). Fin.
+
+**Ejemplo 2 — caen 6 objetos** (todas las categorías):
+armadura del grupo → jugador 2 · armadura individual → jugador 4 · misión → jugador 1 · profesión → jugador 5 · códice → jugador 3 · todos recibieron: se reinicia la exclusión · basura → jugador 4. Fin.
+
+**Notas por tipo de objeto**
+
+- **Armaduras del grupo**: probabilidad baja; armadura de **cualquier clase**. Permite conseguir armaduras de clases que no hay en el grupo (por ejemplo, de mago en un grupo sin magos) para los códices de otras clases. Se pueden comerciar o vender en el mercado.
+- **Armaduras individuales**: siempre del tipo propio de la clase de quien la recibe. Su probabilidad se ajusta por la contribución del grupo (3.8). Es la fuente principal para el códice de la propia clase.
+- **Objetos de misión**: en cada muerte cae como máximo uno para el grupo, así que una misión tarda **lo mismo sola que en grupo** (en grupo se necesitan más objetos, pero se matan más mobs).
 
 ### 3.10 Roles (decidido)
 
@@ -385,7 +410,8 @@ Queda para más adelante:
 ## 7. Preguntas abiertas
 
 **Por confirmar ahora**
-- **Prioridad del botín**: si la armadura individual (personal) y los objetos de misión (personales) también excluyen de las categorías siguientes. Si recibir armadura impide recibir el objeto de misión, la misión iría más lenta en grupo que solo, lo que contradice la regla de que debe tardar lo mismo.
+- **Armadura individual**: ¿cae **una** por muerte para el grupo y entra en la rotación (como en los ejemplos), o **cada miembro** tira su propia probabilidad y pueden caer varias en una muerte (como se habló antes)?
+- **Objetos de misión**: ¿solo pueden recibirlos los miembros que tienen la misión activa y aún la necesitan? Si el único que la necesita está excluido en esa vuelta, ¿lo recibe igual o se pierde?
 
 **Pendientes para más adelante**
 - **Bonus de moneda** por tamaño de grupo: valores.
