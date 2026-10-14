@@ -405,6 +405,12 @@ Objetivo: que el inventario **nunca sea una fuente de frustración** (llenarse d
 - Al llegar al nivel 3, un NPC de misión presenta las **profesiones** y desbloquea la **casilla de la bolsa de materiales**.
 - Al avanzar en el juego se desbloquean **más casillas** y se consiguen **mejores bolsas**.
 
+**Organizar bolsas** (referencia: botón "Limpiar bolsas" de WoW): botón con icono de brocha en la bolsa general que ordena todo automáticamente:
+- Lo **útil** se coloca empezando por la **esquina inferior derecha**, de abajo hacia arriba y de derecha a izquierda.
+- La **basura** se coloca empezando por la **esquina superior izquierda**, de arriba hacia abajo y de izquierda a derecha.
+- Así la basura queda agrupada en un extremo y lo útil en el otro.
+- *Por definir*: orden dentro de lo útil (propuesta: por categoría y luego por calidad, de mayor a menor).
+
 **Venta rápida** (referencia: MIR4):
 - Panel de **lista de venta** junto al inventario: muestra cuántos objetos van seleccionados y permite elegir la cantidad a vender de cada pila.
 - **Filtros de selección automática**: por calidad (común, poco común, raro…) y si se incluyen o no objetos comerciables.
