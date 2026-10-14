@@ -495,6 +495,27 @@ Mezcla de MIR4 y Lineage 2.
 - Hay **una versión de cada piedra por calidad de objeto** (común, poco común, raro, épico, legendario, mítico, cósmico): 4 piedras × 7 calidades = 28 piedras.
 - Cada piedra se usa sobre objetos de su misma calidad.
 
+**Piedra potenciada (roja)**
+
+- Solo se puede usar desde **+2** (en +0 y +1 la general ya tiene 100 % de éxito).
+- **Paso 1 — tamaño del salto** (fórmula 1): +1 (25 %), +2 (35 %), +3 (20 %), +4 (15 %), +5 (5 %).
+- **Paso 2 — éxito o fallo**, con la probabilidad del nivel actual:
+
+| Nivel actual | Éxito | ¿Se destruye si falla? |
+|---|---|---|
+| +2 | 100 % | No |
+| +3 | 75 % | No |
+| +4 | 49 % | No |
+| +5 | 42 % | Sí |
+| +6 | 35 % | Sí |
+| +7 | 30 % | Sí |
+| +8 | 26 % | Sí |
+| +9 | 22 % | Sí |
+
+- **Si tiene éxito**: el objeto sube el salto obtenido en el paso 1.
+- **Si falla en zona segura** (nivel actual hasta +4): no cambia nada; no hay cristales porque el objeto no se rompe.
+- **Si falla en zona de peligro** (nivel actual +5 o más): el objeto se destruye. La cantidad de cristales se calcula con el nivel actual + el salto que habría obtenido (es decir, el nivel al que habría llegado).
+
 **Destrucción con residuo (cambio respecto a MIR4, idea de Lineage 2)**
 - Cuando un objeto se destruye deja **cristales de su misma calidad** (un objeto raro deja cristales raros).
 - La **cantidad** de cristales aumenta con el nivel de mejora que tenía (un +9 deja más que un +6).
@@ -560,7 +581,7 @@ Queda para más adelante:
 
 **Temas base por definir**
 - Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; banco: número total de pestañas y espacios por pestaña; precios de pestañas y casillas de pago (se calcularán a partir del oro que genera un personaje por día); ¿límite de misiones activas a la vez?
-- Mejora de equipo: multiplicador de oro de cada piedra; piedra potenciada (probabilidades, si puede destruir en la zona segura, si puede saltar a la zona de peligro); piedra pacificada (¿100 %?); origen de cada piedra; cristales exactos por nivel.
+- Mejora de equipo: multiplicador de oro de cada piedra; piedra potenciada (salto que supera +10; diferencia con la tabla de la general en +2 y +3; qué es el "valor de encantamiento base" en el cálculo de cristales); piedra pacificada (¿100 %?); origen de cada piedra; cristales exactos por nivel.
 - Consumibles y otros objetos.
 - Monedas: ¿100 plata = 1 oro?, monedas especiales.
 - Ambientación y estilo artístico.
