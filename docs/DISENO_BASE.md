@@ -165,7 +165,7 @@ Los valores concretos de cada mob se definirán más adelante en las tablas de d
 - Solo cuenta el **daño efectivo**: si el mob tiene 500 de vida y el golpe final es de 5.000, cuentan 500.
 - **Sin contribución mínima** y **sin penalización por diferencia de nivel**: los materiales valiosos solo los dan mobs de nivel alto.
 
-**Moneda**: cobre, plata y oro; 100 cobre = 1 plata (100 plata = 1 oro, por confirmar).
+**Moneda**: cobre, plata y oro (ver 3.20).
 
 **Aggro**: estadística aparte, independiente del reparto. Los tanques generan más aggro con sus habilidades y estadísticas.
 
@@ -589,7 +589,21 @@ Sistema distinto del desarrollo: **añade estadísticas adicionales** a equipo y
 
 - El **oro es la moneda principal** y se usa para todo (desarrollo, encantamiento, ampliaciones, comisiones de comercio, compras…).
 - **Oro comprable con dinero real, estilo ficha de WoW**: se compra con dinero real un objeto que se vende a otros jugadores en el mercado a cambio de oro. El oro no se crea de la nada: pasa de un jugador a otro, y combate la venta ilegal de oro y a los bots.
-- Detalles (valores, ficha, monedas especiales): en el tema de monedas.
+
+**Monedas y recursos especiales**
+
+| Nombre | Conversión | Uso |
+|---|---|---|
+| Cobre | — | Comprar en NPC o mercado |
+| Plata | 100 cobres | Comprar en NPC o mercado |
+| Oro | 100 platas | Comprar en NPC o mercado |
+| Lingote | 1.000 oros | Objeto que se descompone en oro |
+| Aceleración | — | Reduce X segundos el tiempo de una mejora o una caja |
+| Energía | — | Material necesario para mejorar el personaje |
+| Monedas de clan | — | Se canjean por recursos en la tienda del clan |
+| Karma | — | Puntos que se obtienen al matar personajes en zonas no PvP |
+
+- Valores de la ficha de oro: por definir.
 
 ### 3.21 Consumibles (decidido)
 
@@ -681,7 +695,7 @@ Queda para más adelante:
 **Temas base por definir**
 - Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; banco: número total de pestañas y espacios por pestaña; precios de pestañas y casillas de pago (se calcularán a partir del oro que genera un personaje por día); ¿límite de misiones activas a la vez?
 - Desarrollo de objeto: multiplicador de oro de cada piedra; tabla de cristales por calidad y nivel (+5 a +10); cristales exactos por nivel.
-- Monedas: ¿100 plata = 1 oro?, monedas especiales.
+- Monedas: qué tiene tiempos de espera (para la aceleración); qué es "mejorar el personaje" con energía; si en zonas no PvP se puede atacar a otros jugadores (karma); monedas adicionales propuestas (PvP, eventos, mazmorras, tienda de cosméticos).
 - Ambientación y estilo artístico.
 
 **Capítulos propios**
