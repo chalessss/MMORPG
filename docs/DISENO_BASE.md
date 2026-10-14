@@ -280,9 +280,32 @@ Solo tres tipos: **tela**, **cuero** y **placas** (sin malla). Regla para asigna
 | Mago — tela | Hechicero, Chamán — tela | Piromántico, Arcanista, Elementalista, Brujo, Alquimista — tela |
 | Invocador — tela | Encantador — tela | Sacerdote, Conjurador, Nigromante, Bardo, Monje — tela |
 
-#### Equipo
+#### Ranuras de equipo
 
-Habrá dos diferenciaciones de equipo (por definir).
+Dos grupos: **equipo** y **accesorios**. Algunas ranuras se desbloquean a partir del nivel 41.
+
+| Grupo | Ranura | Tipo (tela/cuero/placas) | Apariencia | Disponible |
+|---|---|---|---|---|
+| Equipo | Arma | No | Sí | Nivel 1 |
+| Equipo | Arma secundaria | No (depende de la clase) | Sí | Nivel 1 |
+| Equipo | Pecho | **Sí** | Sí | Nivel 1 |
+| Equipo | Guantes | **Sí** | Sí | Nivel 1 |
+| Equipo | Pantalón | **Sí** | Sí | Nivel 1 |
+| Equipo | Botas | **Sí** | Sí | Nivel 1 |
+| Equipo | Cintura | No | Sí | Nivel 1 |
+| Equipo | Espalda | No | Sí | Nivel 41 |
+| Accesorios | Collar | No | Sí | Nivel 1 |
+| Accesorios | Anillo | No | Sí | Nivel 1 |
+| Accesorios | Arete | No | Sí | Nivel 1 |
+| Accesorios | Brazalete | No | Sí | Nivel 1 |
+| Accesorios | Tiara | No | Sí | Nivel 1 |
+| Accesorios | Anillo 2 | No | Sí | Nivel 1 |
+| Accesorios | Arete 2 | No | Sí | Nivel 1 |
+| Accesorios | Brazalete 2 | No | Sí | Nivel 41 |
+
+- 16 ranuras en total: 14 hasta el nivel 40 y 2 más desde el 41.
+- Solo **pecho, guantes, pantalón y botas** tienen tipo de armadura: son las piezas que cuentan para la bonificación de especialización en armadura.
+- *Por confirmar: lectura de qué ranuras se desbloquean en el nivel 41 y alcance del sistema de apariencia.*
 
 ## 4. Sistemas principales
 
