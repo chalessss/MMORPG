@@ -477,7 +477,9 @@ Mezcla de MIR4 y Lineage 2.
 | +8 → +9 | 26 % | Sí |
 | +9 → +10 | 22 % | Sí |
 
-- **Zona segura (hasta +5)**: un objeto **nunca se rompe**; si falla, se queda en su nivel.
+- La tabla es **la misma para todas las calidades** (común igual que cósmico).
+- **Coste de cada intento**: piedra de desarrollo + **oro**. Se paga siempre, salga bien o mal.
+- **Zona segura (hasta +5)**: un objeto **nunca se rompe**; si falla, se queda en su nivel y solo se pierden la piedra y el oro.
 - **Zona de peligro (de +5 a +10)**: si falla, **el objeto se destruye** (probabilidad de destrucción = 100 % − éxito).
 - **Bonificación de mejora**: códices, recompensas y otras fuentes suman puntos a la probabilidad de éxito, con un **máximo de +6 puntos** en cualquier salto. Ejemplos: +5 → +6 pasa como mucho de 42 % a **48 %** (destrucción mínima 52 %); +6 → +7, de 35 % a **41 %** (destrucción mínima 59 %). Ningún salto de la zona de peligro llega a ser seguro.
 
@@ -494,11 +496,18 @@ Mezcla de MIR4 y Lineage 2.
 - Cada piedra se usa sobre objetos de su misma calidad.
 
 **Destrucción con residuo (cambio respecto a MIR4, idea de Lineage 2)**
-- Cuando un objeto se destruye no se pierde todo: deja un **residuo** (cristales, polvo…).
-- Ese residuo es componente de la profesión de **encantamiento**: los encantadores lo usan, junto con componentes exclusivos de su profesión, para **fabricar piedras de mejora** (por ejemplo, las amarillas).
+- Cuando un objeto se destruye deja **cristales de su misma calidad** (un objeto raro deja cristales raros).
+- La **cantidad** de cristales aumenta con el nivel de mejora que tenía (un +9 deja más que un +6).
+- Los cristales son componentes de la profesión de **encantamiento**: con ellos y componentes exclusivos de la profesión se **fabrican piedras de desarrollo de esa misma calidad**. Para piedras cósmicas hacen falta cristales cósmicos, es decir, objetos cósmicos destruidos.
 - Así la destrucción alimenta la economía de las profesiones en vez de ser una pérdida total.
 
 **Pendiente de configurar**: las probabilidades de cada salto y de cada piedra.
+
+### 3.19 Oro y economía (en curso)
+
+- El **oro es la moneda principal** y se usa para todo (mejoras, ampliaciones, comisiones de comercio, compras…).
+- **Oro comprable con dinero real, estilo ficha de WoW**: se compra con dinero real un objeto que se vende a otros jugadores en el mercado a cambio de oro. El oro no se crea de la nada: pasa de un jugador a otro, y combate la venta ilegal de oro y a los bots.
+- Detalles (valores, ficha, monedas especiales): en el tema de monedas.
 
 ## 4. Sistemas principales
 
@@ -551,7 +560,7 @@ Queda para más adelante:
 
 **Temas base por definir**
 - Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; banco: número total de pestañas y espacios por pestaña; precios de pestañas y casillas de pago (se calcularán a partir del oro que genera un personaje por día); ¿límite de misiones activas a la vez?
-- Mejora de equipo: probabilidades de la piedra potenciada y si puede destruir dentro de la zona segura; origen de cada piedra; cantidad de residuo; si la pacificada siempre funciona (100 %).
+- Mejora de equipo: oro por intento según el nivel; piedra potenciada (probabilidades, si puede destruir en la zona segura, si puede saltar a la zona de peligro); piedra pacificada (¿100 %?); origen de cada piedra; cristales exactos por nivel.
 - Consumibles y otros objetos.
 - Monedas: ¿100 plata = 1 oro?, monedas especiales.
 - Ambientación y estilo artístico.
