@@ -125,16 +125,18 @@ Elementos con los que se puede interactuar y que no son NPCs ni recursos.
 
 Cada mob tiene una **tabla de botín** con dos partes. Ejemplo, un lobo:
 
-| Tipo | Recompensa | Cantidad / probabilidad | A quién le llega |
-|---|---|---|---|
-| **Fijo** | Experiencia | Cantidad exacta | Repartida según contribución |
-| **Fijo** | Moneda | Cantidad exacta | Repartida según contribución |
-| **Variable** | Armaduras del grupo | % (baja) | Para el grupo: armadura de **cualquier clase**, a un miembro al azar |
-| **Variable** | Armaduras individuales | % (p. ej. 30 %) | **Individual**: solo de la clase del personaje |
-| **Variable** | Objetos de misión | % | **Individual**: solo a quien tenga la misión activa |
-| **Variable** | Objetos de profesión | % | Para todos por igual (rotación) |
-| **Variable** | Objetos de códice | % | Para todos por igual (rotación) |
-| **Variable** | "Basura" (objetos para vender) | % | Para todos por igual (rotación) |
+| Tipo | Recompensa | Cantidad / probabilidad | A quién le llega | Apilable | Tamaño de pila |
+|---|---|---|---|---|---|
+| **Fijo** | Experiencia | Cantidad exacta | Repartida según contribución | — | — |
+| **Fijo** | Moneda | Cantidad exacta | Repartida según contribución | — | — |
+| **Variable** | Armaduras del grupo | % (baja) | Para el grupo: armadura de **cualquier clase**, a un miembro al azar | No | — |
+| **Variable** | Armaduras individuales | % (p. ej. 30 %) | **Individual**: solo de la clase del personaje | No | — |
+| **Variable** | Objetos de misión | % | **Individual**: solo a quien tenga la misión activa | Sí | Por definir |
+| **Variable** | Objetos de profesión | % | Para todos por igual (rotación) | Sí | Por definir |
+| **Variable** | Objetos de códice | % | Para todos por igual (rotación) | Sí | Por definir |
+| **Variable** | "Basura" (objetos para vender) | % | Para todos por igual (rotación) | Sí | Por definir |
+
+**Apilables**: el equipo (armas, armaduras, joyería) no se apila; cada pieza ocupa su propio espacio. El resto de objetos se apila; el tamaño máximo de cada pila se definirá con el inventario.
 
 Los valores concretos de cada mob se definirán más adelante en las tablas de datos.
 
