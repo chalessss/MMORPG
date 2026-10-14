@@ -590,6 +590,23 @@ Sistema distinto del desarrollo: **añade estadísticas adicionales** a equipo y
 - **Oro comprable con dinero real, estilo ficha de WoW**: se compra con dinero real un objeto que se vende a otros jugadores en el mercado a cambio de oro. El oro no se crea de la nada: pasa de un jugador a otro, y combate la venta ilegal de oro y a los bots.
 - Detalles (valores, ficha, monedas especiales): en el tema de monedas.
 
+### 3.21 Consumibles (decidido)
+
+Lista corta a propósito: no se quiere que el jugador necesite 30 consumibles distintos.
+
+| Origen | Consumible | Efecto |
+|---|---|---|
+| NPC | Poción de vida | Recupera puntos de vida |
+| NPC | Poción de maná | Recupera puntos de maná |
+| NPC | Pergamino de teletransportación | Lleva a un maestro de teletransportación |
+| NPC | Pergamino de escape | Lleva a la ciudad más cercana |
+| NPC | Piedra de hogar | Lleva a una ciudad concreta |
+| Cocina | Elixir defensivo | Da una estadística defensiva base |
+| Cocina | Elixir ofensivo | Da una estadística ofensiva base |
+| Cocina | Comida | Da vida/maná máximos + 2 estadísticas secundarias base |
+
+- Los productos de **cocina** mejoran con el nivel de la profesión. Según el ingrediente (pescado, carne, planta…) dan una estadística u otra (fuerza, agilidad, intelecto, crítico, regeneración de maná, bloqueo…). Detalle: después del capítulo de estadísticas.
+
 ## 4. Sistemas principales
 
 Lo que hace funcionar a las entidades anteriores. Se desarrollan por fases según la hoja de ruta.
@@ -643,7 +660,6 @@ Queda para más adelante:
 **Temas base por definir**
 - Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; banco: número total de pestañas y espacios por pestaña; precios de pestañas y casillas de pago (se calcularán a partir del oro que genera un personaje por día); ¿límite de misiones activas a la vez?
 - Desarrollo de objeto: multiplicador de oro de cada piedra; tabla de cristales por calidad y nivel (+5 a +10); cristales exactos por nivel.
-- Consumibles y otros objetos.
 - Monedas: ¿100 plata = 1 oro?, monedas especiales.
 - Ambientación y estilo artístico.
 
