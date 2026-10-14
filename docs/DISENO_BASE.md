@@ -368,7 +368,18 @@ Dos grupos: **equipo** (ropa y armas) y **joyería**, con **8 ranuras cada uno**
 
 - **Todas las profesiones disponibles desde el nivel 1** (Temporada 1 incluida).
 - **2 profesiones principales** por personaje y **todas las secundarias** que se quieran.
-- Lista y detalle de profesiones: capítulo propio más adelante (base WoW, con ajustes de Lineage 2 u otros juegos).
+
+| Principales (elegir 2) | Secundarias (todas) |
+|---|---|
+| 1. Sastre | Cocinero |
+| 2. Peletero | Desollador |
+| 3. Herrero | Minero |
+| 4. Joyero | Herborista |
+| 5. Encantador | Pesca |
+| 6. Inventor | |
+
+- **Inventor**: profesión de artesano avanzado, inspirada en los enanos artesanos de Lineage 2 (personajes dedicados a fabricar cosas muy potentes más que a cazar). Es la única que fabrica **piedras santificadas**. Estará ligada a una clase o especialización concreta (por definir).
+- Detalle de cada profesión (recetas, niveles, qué fabrica): capítulo propio más adelante.
 
 ### 3.16 Monturas (decidido)
 
@@ -540,6 +551,17 @@ Mezcla de MIR4 y Lineage 2.
 
 (La potenciada + 2 puntos. La bonificación de desarrollo, máx. +6, también se suma.)
 
+**Origen de las piedras de desarrollo**
+
+| Piedra | Cómo se obtiene | Requisitos |
+|---|---|---|
+| **General** | **Caza** (botín de mobs) | — |
+| **Potenciada** | Fabricación por cualquier profesión principal (1–6) | Piedras generales + un objeto de sastre, peletero, herrero o joyero (1–4) + oro |
+| **Pacificada** | Fabricación por cualquier profesión principal (1–6) | Piedras generales + un objeto de sastre, peletero, herrero o joyero (1–4) + oro |
+| **Santificada** | Fabricación **exclusiva del inventor** | Piedras generales + potenciadas + pacificadas + oro |
+
+Las profesiones secundarias no fabrican piedras.
+
 **Destrucción con residuo (cambio respecto a MIR4, idea de Lineage 2)**
 - Cuando un objeto se destruye deja **cristales de su misma calidad** (un objeto raro deja cristales raros).
 - La **cantidad** de cristales aumenta con el nivel de desarrollo que tenía (un +9 deja más que un +6).
@@ -615,7 +637,7 @@ Queda para más adelante:
 
 **Temas base por definir**
 - Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; banco: número total de pestañas y espacios por pestaña; precios de pestañas y casillas de pago (se calcularán a partir del oro que genera un personaje por día); ¿límite de misiones activas a la vez?
-- Desarrollo de objeto: multiplicador de oro de cada piedra; tabla de cristales por calidad y nivel (+5 a +10); origen de cada piedra; cristales exactos por nivel.
+- Desarrollo de objeto: multiplicador de oro de cada piedra; tabla de cristales por calidad y nivel (+5 a +10); papel exacto de los cristales en la fabricación de piedras; cristales exactos por nivel.
 - Consumibles y otros objetos.
 - Monedas: ¿100 plata = 1 oro?, monedas especiales.
 - Ambientación y estilo artístico.
