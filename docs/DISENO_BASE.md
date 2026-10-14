@@ -512,6 +512,7 @@ Mezcla de MIR4 y Lineage 2.
 | +8 | 32 % | Sí |
 | +9 | 28 % | Sí |
 
+- La **bonificación de mejora** (máx. +6 puntos) también se suma a la potenciada (por ejemplo, +5: 48 % → hasta 54 %). En general, la bonificación se suma a la probabilidad base de **cualquier** piedra.
 - Las probabilidades son **mayores que las de la general a propósito** (+2 y +3, y +6 puntos desde +5): la potenciada es más difícil de conseguir y de fabricar. No es la opción más eficiente en coste, pero mejora las opciones.
 - **Si tiene éxito**: el objeto sube el salto obtenido en el paso 1. **Nunca pasa de +10**: si el salto lo supera, el objeto queda en +10 y el resto se pierde.
 - **Si falla en zona segura** (nivel actual hasta +4): no cambia nada; no hay cristales porque el objeto no se rompe.
@@ -583,7 +584,7 @@ Queda para más adelante:
 
 **Temas base por definir**
 - Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; banco: número total de pestañas y espacios por pestaña; precios de pestañas y casillas de pago (se calcularán a partir del oro que genera un personaje por día); ¿límite de misiones activas a la vez?
-- Mejora de equipo: multiplicador de oro de cada piedra; tabla de cristales por calidad y nivel (+5 a +10); si la bonificación de mejora (+6 máx.) también se suma a la potenciada; piedra pacificada (¿100 %?); origen de cada piedra; cristales exactos por nivel.
+- Mejora de equipo: multiplicador de oro de cada piedra; tabla de cristales por calidad y nivel (+5 a +10); piedra pacificada (¿100 %?); origen de cada piedra; cristales exactos por nivel.
 - Consumibles y otros objetos.
 - Monedas: ¿100 plata = 1 oro?, monedas especiales.
 - Ambientación y estilo artístico.
