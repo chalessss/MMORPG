@@ -204,15 +204,22 @@ El juego está pensado para **jugarse en grupo**: jugar acompañado siempre debe
 
 1. Se tira la probabilidad de cada categoría para saber qué cae.
 2. Se recorren los objetos caídos en orden de prioridad. Cada uno se entrega **al azar** a un miembro **no excluido**.
+   - **Excepción — armaduras individuales**: no se sortean. **Cada miembro no excluido** tira su propia probabilidad, y todos los que acierten reciben una (del tipo de su clase). Pueden caer varias en una muerte.
+   - **Nadie recibe dos armaduras en la misma muerte**: quien recibió la armadura del grupo no tira por la individual.
 3. Quien recibe un objeto queda **excluido** de los siguientes.
 4. Cuando los 5 miembros han recibido algo, la exclusión se reinicia y todos vuelven a estar habilitados.
 5. Termina cuando no quedan objetos.
+
+*(En los ejemplos 1 y 2, solo un miembro acierta su tirada de armadura individual.)*
 
 **Ejemplo 1 — caen 4 objetos** (armadura del grupo, armadura individual, códice, basura):
 armadura del grupo → jugador 3 · armadura individual → jugador 5 (excluido 3) · códice → jugador 2 (excluidos 3, 5) · basura → jugador 4 (excluidos 3, 5, 2). Fin.
 
 **Ejemplo 2 — caen 6 objetos** (todas las categorías):
 armadura del grupo → jugador 2 · armadura individual → jugador 4 · misión → jugador 1 · profesión → jugador 5 · códice → jugador 3 · todos recibieron: se reinicia la exclusión · basura → jugador 4. Fin.
+
+**Ejemplo 3 — varias armaduras individuales** (armadura del grupo, armaduras individuales, códice, basura):
+armadura del grupo → jugador 3 · los jugadores 1, 2, 4 y 5 tiran su armadura individual; aciertan 5, 4 y 2 → una armadura para cada uno · códice → jugador 1 (único no excluido) · todos recibieron: se reinicia la exclusión · basura → jugador 4. Fin.
 
 **Notas por tipo de objeto**
 
@@ -410,7 +417,6 @@ Queda para más adelante:
 ## 7. Preguntas abiertas
 
 **Por confirmar ahora**
-- **Armadura individual**: ¿cae **una** por muerte para el grupo y entra en la rotación (como en los ejemplos), o **cada miembro** tira su propia probabilidad y pueden caer varias en una muerte (como se habló antes)?
 - **Objetos de misión**: ¿solo pueden recibirlos los miembros que tienen la misión activa y aún la necesitan? Si el único que la necesita está excluido en esa vuelta, ¿lo recibe igual o se pierde?
 
 **Pendientes para más adelante**
