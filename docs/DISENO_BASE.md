@@ -135,10 +135,41 @@ Elementos con los que se puede interactuar y que no son NPCs ni recursos.
 - **Sin contribución mínima**: cualquier daño cuenta, pero una contribución muy baja da muy poca experiencia, quizá ninguna moneda y pocas opciones de botín.
 - **Sin penalización por diferencia de nivel**: los materiales valiosos solo los dan mobs de nivel alto, así que matar mobs bajos no compensa.
 - **Grupos**: el grupo cuenta como una sola unidad. Si dos grupos atacan al mismo jefe, cada grupo recibe según su porcentaje de daño (clave en jefes de mundo y de banda).
-- **Bonus de grupo**: subir de nivel en grupo debe ser más eficiente que solo. Ejemplo: en grupo de 2, cada uno recibe la mitad de la experiencia **+10 %**; como matan el doble de rápido, ganan ~20 % más por hora. Valores ajustables.
 - **Aggro**: estadística aparte, independiente del reparto. Los tanques generan más aggro con sus habilidades y estadísticas.
 
-### 3.8 Roles (decidido)
+### 3.8 Grupos y bandas (decidido)
+
+El juego está pensado para **jugarse en grupo**: jugar acompañado siempre debe rendir más que jugar solo.
+
+**Grupo**: máximo **5 personas**. Es la única agrupación que recibe bonus de experiencia y moneda.
+
+| Miembros | Bonus de experiencia |
+|---|---|
+| 1 (solo) | — |
+| 2 | +10 % |
+| 3 | +15 % |
+| 4 | +20 % |
+| 5 | +25 % |
+
+*(Interpretación por confirmar: el bonus crece por cada miembro adicional; con el grupo completo de 5 es +25 %.)*
+
+- **Bonus de moneda**: existe y crece con el tamaño del grupo; valores por definir (orientativo: +5 %, +10 %, +15 %, +20 %).
+- **Banda (raid)**: agrupación grande para actividades concretas (10, 20, 50 o 100 personas según la actividad). Los tamaños se desbloquean con las temporadas. Sin bonus de experiencia. Reglas propias por definir.
+
+#### Reparto de objetos dentro del grupo
+
+Una vez el sorteo entre jugadores/grupos (3.7) asigna objetos al grupo, se reparten con dos sistemas:
+
+**1. Botín por turnos con prioridad (objetos compartidos)**
+- Los objetos se ordenan por prioridad: **equipo** (armas, armaduras) → **materiales de profesión** → **objetos comunes** (ingredientes de cocina, etc.) → **objetos de misión / otros**.
+- En ese orden, cada objeto se asigna **al azar** entre los miembros que aún no han recibido nada.
+- Quien recibe un objeto queda excluido de los siguientes, para que el botín rote. A la larga todos reciben más o menos lo mismo.
+
+**2. Botín individual (objetos exclusivos)**
+- Ciertos objetos especiales (por ejemplo, equipo exclusivo de personaje) se tiran **por separado para cada miembro** con su propia probabilidad (por ejemplo, 40 %).
+- Un mismo mob puede dar varias copias: una para cada miembro al que le salga la tirada.
+
+### 3.9 Roles (decidido)
 
 - **Todas las clases y especializaciones pueden hacer daño** y jugar solas, incluidas las de tanque y sanador.
 - En grupo, cada especialización es más eficiente en su rol: el tanque aguanta y atrae a los mobs, el sanador cura, el DPS hace daño.
@@ -186,9 +217,14 @@ Queda para más adelante:
 
 ## 7. Preguntas abiertas
 
-- **Reparto dentro de un grupo**: la experiencia se reparte a partes iguales con bonus; ¿la moneda también a partes iguales? ¿Los objetos se sortean a partes iguales, según el daño de cada miembro, o con otro sistema (líder, tirada de dados)?
-- **Fórmula del bonus de grupo** con 3, 4 o más miembros (por ejemplo, +10 % por cada miembro extra).
+- **Bonus de experiencia**: confirmar la tabla (+10 % con 2 miembros … +25 % con 5).
+- **Bonus de moneda** por tamaño de grupo: valores.
+- **Moneda dentro del grupo**: ¿se reparte a partes iguales entre los miembros?
+- **Botín por turnos**: cuando todos los miembros ya recibieron un objeto y quedan más, ¿se reinicia la rotación?
+- **Objetos de misión**: ¿le llegan a cada miembro que tenga la misión (lo habitual), o entran en la rotación?
+- **Bandas**: reglas de reparto de experiencia, moneda y botín.
 - **Vetas enriquecidas**: ¿las 4–5 recolecciones son por jugador o el total compartido entre todos? ¿La cuenta atrás empieza siempre en el primer golpe?
+- **Moneda**: ¿100 plata = 1 oro?
 - ¿El **PvP** es libre en todo el mapa (con penalizaciones, estilo Lineage 2) o solo en zonas y modos concretos?
 - ¿Qué **profesiones** entran en la Temporada 1 y cuántas puede tener cada personaje?
 - ¿Habrá **monturas** desde la Temporada 1?
