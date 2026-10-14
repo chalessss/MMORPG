@@ -83,18 +83,37 @@ Un mismo NPC puede tener varias funciones (por ejemplo, comerciante y dador de m
 
 ### 3.5 Recursos recolectables
 
-Puntos del mundo donde se obtienen materiales (estilo WoW / MIR4).
+Puntos del mundo donde se obtienen materiales.
 
 | Recurso | Profesión asociada | Ejemplos |
 |---|---|---|
-| Minerales | Minería | Hierro, plata, gemas |
+| Minerales | Minería | Cobre, hierro, plata, gemas |
 | Plantas | Herboristería | Hierbas para pociones |
 | Madera | Tala | Troncos para armas y construcción |
 | Pesca | Pesca | Peces para cocina |
 | Pieles / partes de mobs | Desuello | Cuero, colmillos, escamas |
 
-- Cada punto tiene un nivel de profesión mínimo, un tiempo de recolección y un tiempo de reaparición.
-- Los materiales alimentan las profesiones de fabricación (herrería, alquimia, cocina, etc.).
+Los materiales alimentan las profesiones de fabricación (herrería, alquimia, cocina, etc.). Los materiales útiles para el equipo de nivel alto solo los dan mobs y recursos de nivel alto.
+
+Hay **dos sistemas de recolección** (decidido):
+
+#### A. Zonas de recolección (estilo MIR4)
+
+- Zonas concretas del mapa con muchos puntos de recolección (por ejemplo, 20 menas en una zona).
+- Cada punto tiene un **grado** que define qué materiales da, en qué cantidad y con qué calidad (común, poco común, raro…).
+- Cada punto tiene una **cantidad de cargas** (pueden ser cientos). Cada "golpe" de recolección gasta carga y da uno o varios materiales.
+- **Uso exclusivo**: solo una persona puede recolectar un punto al mismo tiempo.
+- Al agotarse las cargas, el punto desaparece y **reaparece** tras un tiempo.
+
+#### B. Vetas enriquecidas (estilo WoW)
+
+- Versión especial y escasa de un recurso (por ejemplo, "veta de cobre enriquecida"): **materiales mejores y en mayor cantidad**, pero **pocas recolecciones** (4–5).
+- **Compartidas**: cualquier jugador cercano puede recolectarla a la vez.
+- Al primer golpe empieza una **cuenta atrás** (por ejemplo, 15 s); al terminar, la veta desaparece y nadie más puede recolectarla.
+- **Aparición aleatoria** entre muchos puntos posibles de la zona (por ejemplo, 70 puntos posibles, máximo 10 vetas activas a la vez, reaparición cada ~5 min).
+- Objetivo: que los jugadores aprendan los puntos, creen rutas de recolección y avisen a sus amigos para recolectar juntos.
+
+Todos los valores (cargas, tiempos, cantidades, probabilidades) son datos ajustables.
 
 ### 3.6 Objetos interactivos del mundo
 
@@ -104,22 +123,26 @@ Elementos con los que se puede interactuar y que no son NPCs ni recursos.
 
 ### 3.7 Reparto de recompensas al morir un mob o jefe (decidido)
 
-**No existe "el primero que golpea se lo queda"** (sin mobs "grises" estilo WoW). Las recompensas se reparten **en proporción a la contribución** de cada jugador.
+**No existe "el primero que golpea se lo queda"** (sin mobs "grises" estilo WoW). Las recompensas se reparten según la **contribución**, que es el **daño efectivo** hecho al mob: si el mob tiene 500 de vida y el golpe final es de 5.000, cuentan 500.
 
-- **Experiencia**: exactamente proporcional. Un mob que da 300 de experiencia, con un jugador que hizo el 20 % del daño y otro el 80 %, entrega 60 y 240.
-- **Oro / moneda / materiales contables**: mismo reparto proporcional que la experiencia.
-- **Objetos (botín)**: primero se decide si el objeto cae (con su probabilidad normal). Si cae, se sortea a quién le toca, con **probabilidad proporcional a la contribución**: quien más aportó tiene más opciones, pero no la garantía.
+| Recompensa | Cómo se reparte |
+|---|---|
+| **Experiencia** | Exactamente proporcional al daño. Mob de 300 XP: quien hizo el 20 % recibe 60, quien hizo el 80 % recibe 240. |
+| **Moneda** | Proporcional al daño, en la unidad mínima (cobre). Lo que no llegue a 1 cobre se pierde. |
+| **Objetos y materiales** | Cada objeto que puede soltar el mob tira su propia probabilidad de caer (p. ej. armadura 30 %). Si cae, se sortea a quién le toca con probabilidad igual a la contribución (85 % de daño → 85 % de opciones). Cada objeto se sortea por separado. |
 
-Objetivos: que nadie pierda tiempo porque otro "marcó" el mob, y que no se pueda conseguir experiencia o botín con un solo golpe y sin esfuerzo.
+- **Moneda**: cobre, plata y oro; 100 cobre = 1 plata (100 plata = 1 oro, por confirmar).
+- **Sin contribución mínima**: cualquier daño cuenta, pero una contribución muy baja da muy poca experiencia, quizá ninguna moneda y pocas opciones de botín.
+- **Sin penalización por diferencia de nivel**: los materiales valiosos solo los dan mobs de nivel alto, así que matar mobs bajos no compensa.
+- **Grupos**: el grupo cuenta como una sola unidad. Si dos grupos atacan al mismo jefe, cada grupo recibe según su porcentaje de daño (clave en jefes de mundo y de banda).
+- **Bonus de grupo**: subir de nivel en grupo debe ser más eficiente que solo. Ejemplo: en grupo de 2, cada uno recibe la mitad de la experiencia **+10 %**; como matan el doble de rápido, ganan ~20 % más por hora. Valores ajustables.
+- **Aggro**: estadística aparte, independiente del reparto. Los tanques generan más aggro con sus habilidades y estadísticas.
 
-**Reglas complementarias (propuestas, por confirmar):**
-- Solo cuenta el daño **efectivo** (el daño de más al rematar no suma).
-- **Contribución mínima** (por ejemplo, 5 %) para recibir algo: evita el "golpe de 1 punto" para entrar en el reparto.
-- **Sanadores y tanques** también cuentan: la contribución incluye la curación y el daño absorbido en combate contra ese mob, no solo el daño hecho.
-- **Grupos**: la contribución del grupo se suma y se reparte dentro del grupo.
-- **Diferencia de nivel**: un jugador muy superior al mob recibe menos o nada, para que no se lleve todo en zonas bajas.
-- El **aggro** (a quién ataca el mob) es independiente del reparto: el mob persigue a quien más amenaza genera, sin afectar a las recompensas.
-- El servidor registra el daño de cada jugador en cada mob; si el mob se recupera fuera de combate, el registro se reinicia.
+### 3.8 Roles (decidido)
+
+- **Todas las clases y especializaciones pueden hacer daño** y jugar solas, incluidas las de tanque y sanador.
+- En grupo, cada especialización es más eficiente en su rol: el tanque aguanta y atrae a los mobs, el sanador cura, el DPS hace daño.
+- Habrá zonas pensadas para grupos (por ejemplo, muchos mobs agresivos) donde un tanque y un sanador hacen que subir de nivel sea mucho más rápido.
 
 ## 4. Sistemas principales
 
@@ -163,7 +186,9 @@ Queda para más adelante:
 
 ## 7. Preguntas abiertas
 
-- ¿Los **recursos recolectables** (minerales, plantas, madera) son **compartidos** (el primero que llega se los lleva) o **por jugador** (cada uno ve su propio recurso)?
+- **Reparto dentro de un grupo**: la experiencia se reparte a partes iguales con bonus; ¿la moneda también a partes iguales? ¿Los objetos se sortean a partes iguales, según el daño de cada miembro, o con otro sistema (líder, tirada de dados)?
+- **Fórmula del bonus de grupo** con 3, 4 o más miembros (por ejemplo, +10 % por cada miembro extra).
+- **Vetas enriquecidas**: ¿las 4–5 recolecciones son por jugador o el total compartido entre todos? ¿La cuenta atrás empieza siempre en el primer golpe?
 - ¿El **PvP** es libre en todo el mapa (con penalizaciones, estilo Lineage 2) o solo en zonas y modos concretos?
 - ¿Qué **profesiones** entran en la Temporada 1 y cuántas puede tener cada personaje?
 - ¿Habrá **monturas** desde la Temporada 1?
