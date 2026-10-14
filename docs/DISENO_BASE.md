@@ -479,7 +479,7 @@ Mezcla de MIR4 y Lineage 2.
 
 - **Zona segura (hasta +5)**: un objeto **nunca se rompe**; si falla, se queda en su nivel.
 - **Zona de peligro (de +5 a +10)**: si falla, **el objeto se destruye** (probabilidad de destrucción = 100 % − éxito).
-- **Bonificación de mejora**: códices, recompensas y otras fuentes suben un poco la probabilidad de éxito. Es un incremento **pequeño**, pensado sobre todo para que los saltos altos (+7 a +10) no se queden siempre tan bajos. Solo el salto **+5 → +6** puede llegar a ser 100 % seguro con bonificaciones; los demás nunca llegan al 100 %.
+- **Bonificación de mejora**: códices, recompensas y otras fuentes suman puntos a la probabilidad de éxito, con un **máximo de +6 puntos** en cualquier salto. Ejemplos: +5 → +6 pasa como mucho de 42 % a **48 %** (destrucción mínima 52 %); +6 → +7, de 35 % a **41 %** (destrucción mínima 59 %). Ningún salto de la zona de peligro llega a ser seguro.
 
 **Piedras de desarrollo** (nombres y colores definitivos)
 
@@ -551,7 +551,7 @@ Queda para más adelante:
 
 **Temas base por definir**
 - Inventario: espacio inicial de cada bolsa y ampliaciones de la principal; banco: número total de pestañas y espacios por pestaña; precios de pestañas y casillas de pago (se calcularán a partir del oro que genera un personaje por día); ¿límite de misiones activas a la vez?
-- Mejora de equipo: probabilidades de la piedra potenciada y si puede destruir dentro de la zona segura; tope de la bonificación por salto; origen de cada piedra; cantidad de residuo; si la pacificada siempre funciona (100 %).
+- Mejora de equipo: probabilidades de la piedra potenciada y si puede destruir dentro de la zona segura; origen de cada piedra; cantidad de residuo; si la pacificada siempre funciona (100 %).
 - Consumibles y otros objetos.
 - Monedas: ¿100 plata = 1 oro?, monedas especiales.
 - Ambientación y estilo artístico.
