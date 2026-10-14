@@ -599,14 +599,26 @@ Lista corta a propósito: no se quiere que el jugador necesite 30 consumibles di
 | NPC | Poción de vida | Recupera puntos de vida |
 | NPC | Poción de maná | Recupera puntos de maná |
 | NPC | Pergamino de teletransportación | Lleva a un maestro de teletransportación |
-| NPC | Pergamino de escape | Lleva a la ciudad más cercana |
-| NPC | Piedra de hogar | Lleva a una ciudad concreta |
+| NPC | Pergamino de escape | Lleva a la ciudad más cercana. Se gasta, sin enfriamiento largo: es la alternativa a la piedra de hogar |
+| NPC | Piedra de hogar | Lleva a la ciudad elegida por el jugador. **Reutilizable**, con enfriamiento (no se gasta) |
 | Cocina | Elixir defensivo | Da una estadística defensiva base |
 | Cocina | Elixir ofensivo | Da una estadística ofensiva base |
 | Cocina | Comida | Da vida/maná máximos + 2 estadísticas secundarias base |
 
+- **Piedras de desarrollo y papiros de encantamiento** no son consumibles de combate: van en la **bolsa de componentes**.
 - Las **pociones tienen enfriamiento** (tiempo de espera entre usos), para que en PvP no gane quien más pociones lleve. Duración: por definir.
 - Los productos de **cocina** mejoran con el nivel de la profesión. Según el ingrediente (pescado, carne, planta…) dan una estadística u otra (fuerza, agilidad, intelecto, crítico, regeneración de maná, bloqueo…). Detalle: después del capítulo de estadísticas.
+
+### 3.22 Muerte y resurrección (decidido, estilo MIR4)
+
+- Al morir, el personaje queda **en el suelo 3–4 minutos**. En ese tiempo puede:
+  - ser **revivido por otro jugador** (habilidad), o
+  - **revivirse a sí mismo** con una habilidad o un objeto.
+- Si no, el sistema lo lleva automáticamente al **punto de reaparición del centro de la ciudad más cercana**, con la vida completa.
+- **Pérdida de experiencia**: morir hace perder una cantidad de experiencia.
+  - **3 recuperaciones gratis al día** de la experiencia perdida.
+  - A partir de ahí, se puede recuperar **pagando cobre**, pero solo una parte (85–90 %).
+  - **Nivel 60 / juego avanzado**: habrá **papiros** comprables que restablecen la experiencia perdida, pensados para eventos de muertes masivas (por ejemplo, 30–50 muertes en un fin de semana).
 
 ## 4. Sistemas principales
 
@@ -651,7 +663,7 @@ Queda para más adelante:
 ## 7. Preguntas abiertas
 
 **Pendientes para más adelante**
-- **Consumibles**: si la piedra de hogar se gasta o es reutilizable con enfriamiento; resurrección (consumible o punto fijo); pergamino de experiencia como recompensa (opcional); si piedras de desarrollo y papiros van en la bolsa de componentes.
+- **Muerte**: cuánta experiencia se pierde; si las 3 recuperaciones gratis devuelven el 100 %; si morir en PvP también quita experiencia; si se pueden perder objetos al morir.
 - **Profesiones**: valores de la curva de oro por cambio; si una subclase de Recolector (nivel 60) da acceso al inventor.
 - **Bonus de moneda** por tamaño de grupo: valores.
 - **Bandas** (se desbloquean en el nivel 40 o 60): reglas de reparto de experiencia, moneda y botín.
