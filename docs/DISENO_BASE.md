@@ -783,6 +783,33 @@ Lista corta a propósito: no se quiere que el jugador necesite 30 consumibles di
 - Hay **zonas de recolección propias** (estilo MIR4), a las que también se llega desde un punto de teletransporte y luego caminando.
 - Las **vetas enriquecidas** sí aparecen repartidas por todo el mapa.
 
+### 3.25 Mercado y comercio (en curso)
+
+- **Mercado del servidor** (casa de subastas estilo WoW / MIR4): compra y venta entre jugadores. Cobra comisión (pilar "todo cuesta moneda").
+- **Intercambio directo** entre jugadores, con comisión en oro (3.13).
+- **Tiendas privadas estilo Lineage 2**: un jugador se **sienta en el suelo de una ciudad** y ofrece lo que vende o las **recetas que puede fabricar** (por ejemplo, un inventor ofreciendo piedras santificadas). Las ciudades grandes tendrán zonas llenas de estos puestos, y los jugadores pasearán buscando lo que necesitan.
+- Ciclo de juego que se busca: jornada de caza o recolección → volver a la ciudad → ordenar el almacén → fabricar o encargar a otros → desconectar.
+- **Idea a futuro (si el juego funciona): blockchain / NFT**. Convertir personajes u objetos en NFT para poder venderlos fuera del juego, **pagando recursos del juego** por la conversión (otra forma de retirar moneda).
+  - *A tener en cuenta*: Steam prohíbe en sus normas los juegos que permiten intercambiar NFT o criptomonedas, y hay implicaciones legales según el país. Habría que evaluarlo antes de decidir dónde se distribuye el juego.
+
+### 3.26 Juego automático y descanso (en curso)
+
+El juego busca un equilibrio: **un tercio del día jugando, un tercio en automático y un tercio desconectado**, con recompensa en cada caso. Jugar presente debe tener siempre un beneficio real.
+
+**Caza y recolección automáticas**
+- Habrá **caza automática** y **recolección automática**.
+- **Límite diario**: unas **4 horas al día** al principio, que suben hasta **8 horas** con el progreso del juego. Pasado el límite, el jugador tiene que volver para reactivarlo.
+- En caza automática el personaje **no usa todas sus habilidades**: algunas solo se pueden usar a mano.
+
+**Macros**
+- Habrá un sistema de **macros**, pero ciertas habilidades **no se pueden incluir** en ellos.
+- Objetivo: impedir personajes 24/7 en bucle con macros.
+
+**Descanso (desconectado)**
+- Recompensa por estar desconectado, como la **experiencia de descanso** de WoW: un porcentaje extra de experiencia acumulado mientras no se juega. Posiblemente un híbrido que también se cargue con la recolección.
+
+**Impacto en la economía**: lo automático genera más recursos y presiona los precios a la baja; por eso los límites diarios y los sumideros de moneda.
+
 ### 3.23 Menú principal del juego (en curso, estilo MIR4)
 
 Un **único menú** desde el que se accede a todos los sistemas del juego, sin tener que abrir ventanas encadenadas. Incluye un panel con todas las monedas del jugador.
@@ -811,7 +838,7 @@ Un **único menú** desde el que se accede a todos los sistemas del juego, sin t
 | Entrenamiento | Desarrollo del personaje con energía (conquista, constitución…) | Más adelante |
 | Comunidad, guía, foto, desatascar, ajustes | Utilidades | Por definir |
 
-**Sistemas de MIR4 que no entran en la base del juego**: piedras mágicas, piezas místicas, artefactos de dragón, mejoras de montura, disfraces y equipo de temporada. Se reservan para temporadas futuras (4, 5…, con niveles 80, 90, 100) como formas nuevas de potenciar al personaje **sin tocar la base**. Tampoco entran los propios de móvil o blockchain de MIR4 (ahorro de batería, XDRACO, transferencias).
+**Sistemas de MIR4 que no entran en la base del juego**: piedras mágicas, piezas místicas, artefactos de dragón, mejoras de montura, disfraces y equipo de temporada. Se reservan para temporadas futuras (4, 5…, con niveles 80, 90, 100) como formas nuevas de potenciar al personaje **sin tocar la base**. Tampoco entran los propios de móvil de MIR4 (ahorro de batería). Blockchain y transferencias: ver 3.25 y 3.13.
 
 ## 4. Sistemas principales
 
@@ -856,6 +883,8 @@ Queda para más adelante:
 ## 7. Preguntas abiertas
 
 **Pendientes para más adelante**
+- **Mercado**: comisión del mercado; si las tiendas privadas siguen abiertas con el jugador desconectado o solo en automático.
+- **Juego automático**: si necesita el juego abierto (sin caza fuera de línea); qué ventaja concreta tiene jugar presente (por ejemplo, el automático da menos recompensa); valores de la experiencia de descanso.
 - **Teletransporte y zonas**: precios por zona; si dentro del círculo protegido de las zonas PvP se puede atacar hacia fuera (propuesta: no se puede atacar ni ser atacado); sistema de reputación con facciones.
 - **Muerte y karma**: sistema de karma y pérdida de objetos (juego avanzado).
 - **Profesiones**: valores de la curva de oro por cambio; si una subclase de Recolector (nivel 60) da acceso al inventor.
