@@ -148,26 +148,21 @@ Resultado en el nivel 20. El daño por segundo es solo de golpes blancos o de la
 - Desde el nivel 20 el crítico deja de estar limitado al 5 % y +10 % para las especializaciones de AGI (topes nuevos por definir).
 - Los melee bajan de maná (965 → 605) porque su INT baja; dependerán más de su recurso secundario (Ira, Energía).
 
-### 1.5 Recurso secundario (decidido el principio; mecánica en propuesta)
+### 1.5 Recurso secundario (decidido)
 
-- Desde el nivel 20 cada especialización tiene, además del maná, un **recurso secundario** (tabla de 1.3).
-- **Función (decidido):** el recurso secundario **potencia las habilidades**: aumenta su **efectividad** o su **daño neto**. El maná sigue siendo lo que cuesta lanzar la habilidad.
+- Desde el nivel 20 cada especialización tiene, además del maná, un **recurso secundario** (tabla de 1.3). Del 1 al 19 las clases de inicio solo tienen maná.
+- **Función:** el recurso secundario **potencia las habilidades**: aumenta su **efectividad** o su **daño neto**. El maná sigue siendo lo que cuesta lanzar la habilidad.
 
-**Propuesta de mecánica** (por validar):
-
-- Un medidor de **0 a 100** por personaje. Algunas habilidades **gastan lo acumulado** para lanzarse en versión potenciada; cuanto más lleno, más fuerte.
-- Cada recurso se llena de una forma acorde al rol:
-
-| Recurso | Especialización | Se llena… | Al gastarlo… |
+| Recurso | Especialización | Cómo se consigue | Qué hace |
 |---|---|---|---|
-| Ira | Luchador | al golpear | más daño de la habilidad |
-| Ira | Combatiente | sobre todo **al recibir daño** (cuantos más mobs le pegan, más rápido) | más daño en área y algo de vida o defensa |
-| Energía | Asesino | sola con el tiempo, rápido | más probabilidad y daño de crítico en la habilidad |
-| Foco | Atacante a distancia | con cada disparo, y más si no se mueve | más daño del disparo |
-| Iluminación (Trance) | Mago | con cada hechizo lanzado | al llenarse entra en trance: hechizos más fuertes durante unos segundos |
-| Iluminación (Esencia) | Invocador | con cada hechizo y cada apoyo | escudos, curas y potenciaciones al grupo más fuertes |
+| Ira | **Luchador** | Se llena al golpear | Potencia **cualquier habilidad activa** que use |
+| Ira | **Combatiente** | Se llena sobre todo **al recibir daño**: cuantos más mobs le pegan, más rápido | Habilita **habilidades exclusivas** que solo se pueden usar si tiene Ira |
+| Energía | **Asesino** | **Empieza llena** y se consume al usar habilidades; se regenera, **más rápido cuanta más AGI** | Potencia las habilidades que la gastan |
+| Foco | **Atacante a distancia** | **Puntos** que se van habilitando (con los disparos, y más si no se mueve) | Al gastarlos, potencian el disparo y le dan **daño verdadero**: esa habilidad **ignora la reducción de daño de la armadura** |
+| Iluminación (Trance) | **Mago** | Se carga con los hechizos | Entra en **trance** cada **50–60 s** en combates largos, durante **10 s como máximo**: hechizos más fuertes |
+| Iluminación (Esencia) | **Invocador** | Se carga con cada hechizo y cada apoyo | Escudos, curas y potenciaciones al grupo más fuertes |
 
-- Del 1 al 19 las clases de inicio solo tienen maná: el recurso secundario se estrena con la especialización.
+**Por definir:** cuánto potencia cada recurso (porcentajes), el tamaño de cada medidor y el número máximo de puntos de Foco. Se calibrará en el simulador junto con las habilidades de cada especialización.
 
 ## 2. Trabajo de esta sesión
 
@@ -176,7 +171,7 @@ Resultado en el nivel 20. El daño por segundo es solo de golpes blancos o de la
 3. **Pasiva de clase**: qué da cada punto de STR, INT y AGI en cada una de las 6 clases.
 4. **Habilidades de clase** (6–8 activables) en lo que afecta a las estadísticas: daño, enfriamiento y coste de maná.
 5. **Armas de clase**: daño y velocidad de daga, varita y espadas de clase.
-6. **Recursos secundarios** (Ira, Energía, Foco, Iluminación): cómo se generan y gastan.
+6. ~~**Recursos secundarios**~~: mecánica decidida (1.5). Faltan los valores.
 7. **Estadísticas visibles nuevas** desde el nivel 20 (las neutrales de la hoja que se muestran y empiezan a contar).
 8. **Simulación de las 6 clases en el nivel 20**: caza de 1.000 mobs y jefe de 20 minutos, con el objetivo de pociones de maná.
 9. **Primer balance PvP** con el triángulo STR > AGI > INT > STR.
