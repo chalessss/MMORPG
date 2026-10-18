@@ -35,6 +35,17 @@ Lista cerrada: son **todas** las especializaciones que habrá en el nivel 20.
 - **Cada especialización tiene su propia conversión** de STR, INT y AGI: un mismo punto no da lo mismo a todas. Por ejemplo, la STR da **menos daño físico al Asesino** que al Luchador, pero el Asesino saca **más probabilidad de crítico** de su AGI.
 - Se hace un **balance nuevo de las 6 especializaciones** a partir de su reparto base y de esa conversión propia.
 
+### 1.0d Balance desde el nivel 20: por rol, no por paridad (decidido)
+
+- **Del 1 al 19 se buscaba paridad**: que todos llegaran al nivel 20 a la vez, sin una clase muy adelantada. **Desde el 20 ya no**: las especializaciones no tienen que quedar en el mismo ritmo de caza.
+- El **simulador solo sirve de aproximación**, como referencia de que cada rol cumple su papel:
+  - las de **daño** hacen mucho daño;
+  - las que **curan** no se quedan en cero de daño;
+  - las que **tanquean** hacen un daño medio.
+- **Cada rol caza a su manera.** Los tanques irán a **zonas de conglomerados**, con muchos mobs juntos, donde aguantan el daño gracias a la armadura y matan en área. Allí deben sacar **la misma experiencia** que otra especialización matando mobs de uno en uno.
+- Ejemplo: si un Invocador intenta pegar a seis mobs a la vez, lo matan en 2–3 segundos; un Combatiente los aguanta y además hace mucho más daño en área.
+- Implicación para el capítulo de mapas: cada zona de caza debe prever **mobs agrupados** para las especializaciones que aguantan y pegan en área, además de mobs sueltos.
+
 ### 1.1 Cómo llega el personaje al nivel 20
 
 Valores del nivel 19 (ficha vigente: `python3 herramientas/simulador/simular.py --ficha`):
