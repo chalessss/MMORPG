@@ -258,7 +258,10 @@ Inspiración (MIR4): material por zona con grados, combinable y ligado → objet
 
 - El códice de servidor da salida a las piezas de otras clases que caen (armadura de grupo, 3.9): se registran o se venden a quien las necesite.
 - **Cambio de servidor (más adelante)**: al trasladar un personaje a otro servidor, los códices compartidos se los lleva ese personaje y los personajes alternativos del servidor de origen los pierden. Habrá una opción para elegir **qué personaje** se queda con lo compartido y **qué se lleva** en el traslado (oro, códices, etc.).
-- Proporción de entradas entre pestañas: el usuario enviará una referencia.
+- **Proporción de entradas** (referencia MIR4): Personaje ~1.800, Reputación ~350, Servidor ~290 (≈ 74 % / 14 % / 12 %). La pestaña Personaje es la más grande porque el equipo de la propia clase es lo que más se recoge; las otras dan menos estadísticas en total.
+- **Subclases**: la pestaña Personaje muestra las entradas de la **clase activa**. Al cambiar de subclase, la pestaña se actualiza a la nueva clase; lo ya registrado **se mantiene** y sus estadísticas siguen sumando (aunque rindan menos si eran de otra clase).
+- **Panel de progreso** por pestaña: entradas completadas / total, porcentaje, en curso y completadas.
+- Botón **Efectos**: muestra las estadísticas totales obtenidas por cada pestaña y el total general del códice.
 
 **Interfaz del códice (referencia MIR4)**
 - Lista de **entradas**; cada una con nombre y nivel ("[1]", "[6]"…), la bonificación que da (por ejemplo, ataque físico +20) y los **objetos que pide**, cada uno con el **nivel de desarrollo requerido** (+7, +8…).
