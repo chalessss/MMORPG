@@ -217,6 +217,25 @@ Con esta estructura cada especialización tiene **5 habilidades que se activan**
 
 Siguiente paso: **parametrizar el daño**, el enfriamiento y el coste de cada habilidad. Las cantidades de cura y escudo del Invocador se fijarán más adelante, al hablar de cómo se mejoran las habilidades.
 
+### 1.7 Borrador 1 del daño de las habilidades 7 y 8 (por validar)
+
+Mismo criterio que en la parte 1: las físicas en **% del daño del arma**, las mágicas en **puntos** (antes de multiplicar por las estadísticas). Referencias de la parte 1: Golpe doble 225 % cada 20 s, Golpe al suelo 300 % cada 40 s, Disparo potente 350 % cada 15 s, Bola de fuego 97 cada 8 s, Lanza de hielo 32. El coste de maná se calibrará en el simulador.
+
+| Especialización | Habilidad | Daño | Enfriamiento | Lanzamiento | Recurso |
+|---|---|---|---|---|---|
+| Luchador | Torbellino (área, a su alrededor) | 150 % del arma a cada mob | 15 s | — | Potenciada por la Ira |
+| Luchador | Ejecutar | 250 %; con el objetivo **por debajo del 20 % de vida**: **500 %** | 12 s; **6 s** en el remate | — | En el remate no pide Ira |
+| Combatiente | Fisura (área) | 200 % del arma a cada mob | **8 s** (el área que más se repite) | — | Cuesta **15 de Ira** |
+| Combatiente | Embate (carga y empuje) | 400 % + **2 % por punto de Ira** gastado (Ira llena: 600 %) | 30 s | — | Gasta **toda la Ira** |
+| Asesino | Lluvia de cuchillas (círculo a su alrededor) | 80 % del arma a cada mob | 1 s | — | **25 de Energía** por uso |
+| Asesino | Desgarro | 350 % + sangrado de 100 % en 6 s | 12 s | — | Potenciada por la Energía |
+| Atacante | Lluvia de flechas (zona) | 120 % del arma por segundo durante 4 s a cada mob | 25 s | 1 s | — |
+| Atacante | Disparo certero | 400 % | 15 s | 2 s | Gasta el **Foco**: +10 % por punto y **daño verdadero** |
+| Mago | Lluvia de fuego (zona) | 60 por segundo durante 5 s a cada mob (300) | 20 s | 2 s | — |
+| Mago | Fuego de alma | 250 | 15 s | 3 s | Más fuerte durante el Trance |
+| Invocador | Lluvia de estrellas (zona) | 40 por segundo durante 5 s a cada mob (200) | 20 s | 2 s | — |
+| Invocador | Restauración (cura) | Por definir más adelante | — | — | Potenciada por la Esencia |
+
 ## 2. Trabajo de esta sesión
 
 1. ~~**Especializaciones por clase de inicio**~~: decidido (1.0b).
