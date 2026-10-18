@@ -975,7 +975,9 @@ Queda para más adelante:
 ## 7. Preguntas abiertas
 
 **Pendientes para más adelante**
-- **Misiones**: límite de misiones activas; nivel exacto en que se presentan las profesiones (en el inventario se habló del nivel 3, junto con la bolsa de componentes; en las misiones, del nivel 8).
+
+*Nota: los niveles concretos que aparecen en este documento ("nivel 3", "nivel 8"…) son ejemplos salvo que se indique lo contrario; se fijarán al diseñar la línea principal de misiones y cada sistema.*
+- **Misiones**: límite de misiones activas.
 - **Clanes**: coste exacto de fundarlo; qué da cada nivel de clan; mecánica de "ayudar a compañeros" (¿sellado de cofres?); expediciones y desafíos de clan; ramas y técnicas concretas; niveles de desbloqueo de cada función.
 - **Mercado**: porcentajes de comisión y de quema (mercado vs. P2P); si las tiendas privadas funcionan con el jugador desconectado.
 - **Juego automático**: qué objetos exactos se restringen en automático; valores de la experiencia de descanso.
