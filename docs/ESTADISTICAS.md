@@ -216,6 +216,36 @@ Diseño pedido para los físicos (los valores marcados como propuesta son ajusta
 - Los hechizos del mágico subieron un **28 %** (fuerte 75,8 → 96,8; débil 25,3 → 32,3) para compensar las habilidades nuevas de los físicos.
 - Con las habilidades, el guerrero mata un mob de 420 de vida en **5,4 acciones** (antes, 6,6 golpes blancos) y el ritmo pasa de 17 a **14 s por mob**.
 
+### 2.3 Caza real: desplazamiento, golpes del mob, vida y maná
+
+**Decidido:**
+- El **cuerpo a cuerpo** camina de un mob a otro (al menos **1–1,5 s**; más según cómo se repartan los mobs en el mapa) y siempre pelea cara a cara, así que recibe golpes todo el tiempo.
+- Los de **distancia** (arquero y mágico) pegan **gratis mientras el mob se acerca**; a veces lo matan antes de que llegue. Reciben menos daño, por eso tienen **menos vida y regeneran más despacio** (sacan poca STR).
+- Para eso existe la separación de STR (vida, regeneración de vida, defensas) e INT (maná, regeneración de maná).
+- La desventaja del desplazamiento se compensará más adelante, al diseñar las zonas de caza, **subiendo algo el daño del cuerpo a cuerpo** para que mate en menos golpes.
+
+**Cómo lo simula** (`supervivencia_en_caza = 1`; valores de propuesta en `parametros.csv` y `habilidades.csv`):
+- Cuerpo a cuerpo: 1,5 s caminando antes de cada mob. Distancia: el mob tarda 2,5 s en llegar.
+- El mob pega 6 cada 2 s (menos la defensa física de STR).
+- Vida = 100 + 20 por STR; regeneración = 0,5 + 0,2 por STR. Maná = 50 + 15 por INT; regeneración = 0,5 + 0,2 por INT.
+- Coste de maná: golpe doble 8, golpe al suelo 12, disparo cargado 6, ráfaga triple 12, hechizo fuerte 12, hechizo débil 5. Sin maná suficiente, la habilidad no se usa (el mágico espera).
+- Tras cada mob se descansa (regeneración ×2) hasta llenar vida y maná si no queda para aguantar otro mob como el último (con un 25 % de margen) o si se baja del 35 %.
+- La calibración de daño sigue haciéndose en combate puro.
+
+**Primer resultado** (1.000 mobs, nivel 1):
+
+| Perfil | Vida | Regen. vida/s | Maná | Regen. maná/s | Caza | Frente al más rápido | Pegando | Caminando | Descansando | Daño recibido por mob |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Espada larga | 200 | 1,5 | 65 | 0,7 | 365,3 min | — | 62 % | 7 % | 31 % | 42,8 |
+| Espada corta | 200 | 1,5 | 65 | 0,7 | 374,6 min | +2,5 % | 62 % | 7 % | 31 % | 44,0 |
+| Arco | 140 | 0,9 | 80 | 0,9 | 436,3 min | +19,4 % | 51 % | 0 % | 49 % | 34,6 |
+| Mágico | 120 | 0,7 | 155 | 1,9 | 536,5 min | +46,9 % | 43 % | 0 % | 57 % | 35,0 |
+
+- Los golpes gratis reducen el daño recibido un **19 %**, pero no compensan tener **30–40 % menos vida y la mitad o menos de regeneración**: el arco y el mágico pasan mucho más tiempo descansando.
+- El arco descansa por **vida** (su maná alcanza). El mágico descansa por **vida y maná** a la vez: gasta unos 47 de maná por mob y regenera unos 27 mientras pelea.
+- El cuerpo a cuerpo, pese a caminar, queda **el más rápido**.
+- Todos estos números (daño del mob, vida y regeneración por punto, costes de maná) son de partida: el siguiente paso es calibrarlos.
+
 ## 3. Estructura propuesta del capítulo
 
 1. **Lista cerrada de estadísticas** y a qué categoría pertenece cada una (principal, derivada, neutral, PvP, utilidad).

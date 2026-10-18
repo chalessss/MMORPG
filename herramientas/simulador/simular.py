@@ -57,6 +57,11 @@ def secundarias(arquetipo, conversion, parametros):
     probabilidad = (parametros["critico_base_pct"] + s.get("critico_pct", 0)) / 100
     multiplicador = parametros["multiplicador_critico_base"] + s.get("critico_aumentado_pct", 0) / 100
     return {
+        "vida": s.get("vida", 0),
+        "regen_vida": s.get("regen_vida", 0),
+        "mana": s.get("mana", 0),
+        "regen_mana": s.get("regen_mana", 0),
+        "defensa_fisica_pct": s.get("defensa_fisica_pct", 0),
         "plano": s.get("dano_base", 0),
         "base": 1 + s.get("dano_base_pct", 0) / 100,
         "habilidad": 1 + s.get("dano_habilidad_pct", 0) / 100,
@@ -88,65 +93,161 @@ def golpes_de(habilidad, dano_arma, s):
     return golpes
 
 
-def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None):
+def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, supervivencia=False):
     """Pelea contra una lista de objetivos (sus vidas) uno detrás de otro.
 
-    Devuelve el tiempo empleado, el daño útil, el daño perdido al rematar y los
-    usos de cada acción. Con `azar` (un random.Random) cada golpe tira su
-    crítico; sin él, se usa el valor esperado.
+    Con `azar` (un random.Random) cada golpe tira su crítico; sin él, se usa el
+    valor esperado. Con `supervivencia`, además: el cuerpo a cuerpo camina hasta
+    cada mob, al de distancia el mob tarda en llegar (golpes gratis), el mob
+    devuelve golpes, las habilidades gastan maná y se descansa para recuperar
+    vida y maná. Devuelve el tiempo empleado (y en qué se fue), el daño útil, el
+    daño perdido al rematar y los usos de cada acción.
     """
     s = secundarias(perfil["arquetipo"], conversion, parametros)
+    p = parametros
     intervalo = float(perfil["arma"]["segundos_entre_golpes"])
     dano_arma = float(perfil["arma"]["dano"])
     con_ataque_basico = perfil["arquetipo"]["ataque_basico"] == "1"
+    a_distancia = perfil["arquetipo"]["a_distancia"] == "1"
     habilidades = perfil["habilidades"]
     golpes = {h["nombre"]: golpes_de(h, dano_arma, s) for h in habilidades}
+    coste = {h["nombre"]: float(h["coste_mana"]) if supervivencia else 0.0 for h in habilidades}
     blanco = (dano_arma + s["plano"]) * s["base"]
     # El remate más barato: un golpe blanco o, si no hay, la habilidad más débil.
     remate = blanco if con_ataque_basico else min((sum(g) for g in golpes.values()), default=0)
-    ahorrar = parametros["ahorrar_habilidades"]
     listo = {h["nombre"]: 0.0 for h in habilidades}  # cuándo sale del enfriamiento
-    usos = {}
-    t, util, perdido, indice = 0.0, 0.0, 0.0, 0
-    vida = vidas[0]
 
-    while indice < len(vidas) and (limite_s is None or t < limite_s):
-        disponibles = [h for h in habilidades if listo[h["nombre"]] <= t]
-        if ahorrar and vida <= remate:
+    vida_max = p["vida_base"] + s["vida"]
+    mana_max = p["mana_base"] + s["mana"]
+    regen_vida = p["regen_vida_base"] + s["regen_vida"]
+    regen_mana = p["regen_mana_base"] + s["regen_mana"]
+    dano_recibido = p["dano_mob"] * (1 - s["defensa_fisica_pct"] / 100)
+
+    e = {"t": 0.0, "vida": vida_max, "mana": mana_max, "util": 0.0, "perdido": 0.0, "muertes": 0,
+         "pegando": 0.0, "caminando": 0.0, "descansando": 0.0, "esperando_mana": 0.0, "muerto": 0.0,
+         "dano_recibido": 0.0}
+    usos = {}
+    mob = {"vida": 0.0, "proximo_golpe": None}  # proximo_golpe None = el mob no está pegando
+
+    def avanzar(dt, motivo, multiplicador_regen=1.0):
+        """Pasa el tiempo: regenera y, si el mob está pegando, recibe sus golpes."""
+        fin = e["t"] + dt
+        while supervivencia and mob["proximo_golpe"] is not None and mob["proximo_golpe"] <= fin:
+            regenerar(mob["proximo_golpe"] - e["t"], multiplicador_regen)
+            e["t"] = mob["proximo_golpe"]
+            e["vida"] -= dano_recibido
+            e["dano_recibido"] += dano_recibido
+            mob["proximo_golpe"] += p["intervalo_mob_s"]
+            if e["vida"] <= 0:
+                return False
+        regenerar(fin - e["t"], multiplicador_regen)
+        e[motivo] += dt
+        e["t"] = fin
+        return True
+
+    def regenerar(dt, multiplicador):
+        if supervivencia:
+            e["vida"] = min(vida_max, e["vida"] + regen_vida * multiplicador * dt)
+            e["mana"] = min(mana_max, e["mana"] + regen_mana * multiplicador * dt)
+
+    inicio = {}
+
+    def empezar_mob(vida):
+        mob["vida"] = vida
+        inicio["vida"], inicio["mana"] = e["vida"], e["mana"]
+        if supervivencia:
+            if a_distancia:
+                mob["proximo_golpe"] = e["t"] + p["acercamiento_mob_s"]
+            else:
+                avanzar(p["desplazamiento_melee_s"], "caminando")
+                mob["proximo_golpe"] = e["t"]
+        else:
+            mob["proximo_golpe"] = None
+
+    indice = 0
+    empezar_mob(vidas[0])
+    while indice < len(vidas) and (limite_s is None or e["t"] < limite_s):
+        disponibles = [h for h in habilidades if listo[h["nombre"]] <= e["t"] and coste[h["nombre"]] <= e["mana"]]
+        if p["ahorrar_habilidades"] and mob["vida"] <= remate:
             # Al mob le queda poco: no se gasta una habilidad con enfriamiento largo.
             baratas = [h for h in disponibles if sum(golpes[h["nombre"]]) <= remate]
             disponibles = baratas if baratas or con_ataque_basico else disponibles
+        vivo = True
         if disponibles:
             # Prioridad: la habilidad de más daño que esté disponible.
             h = max(disponibles, key=lambda h: sum(golpes[h["nombre"]]))
             nombre, danos = h["nombre"], golpes[h["nombre"]]
-            listo[nombre] = t + float(h["enfriamiento"])
+            listo[nombre] = e["t"] + float(h["enfriamiento"])
+            e["mana"] -= coste[nombre]
             # Sin tiempo de lanzamiento, la habilidad ocupa el hueco de un golpe blanco.
-            t += float(h["lanzamiento"]) or intervalo
+            duracion = float(h["lanzamiento"]) or intervalo
         elif con_ataque_basico:
-            nombre, danos = "golpe blanco", [blanco]
-            t += intervalo
+            nombre, danos, duracion = "golpe blanco", [blanco], intervalo
         elif listo:
-            t = min(listo.values())  # esperar a que salga un hechizo
-            continue
+            # Sin habilidad lista: esperar a la primera que se pueda lanzar, por
+            # enfriamiento o por maná (lo que tarde más en cada una).
+            esperas = []
+            for h in habilidades:
+                por_cd = max(listo[h["nombre"]] - e["t"], 0)
+                falta = coste[h["nombre"]] - e["mana"]
+                por_mana = falta / regen_mana if falta > 0 else 0
+                esperas.append((max(por_cd, por_mana), por_mana > por_cd))
+            espera, es_mana = min(esperas)
+            vivo = avanzar(max(espera, 1e-6), "esperando_mana" if es_mana else "pegando")
+            nombre = None
         else:
             break
-        usos[nombre] = usos.get(nombre, 0) + 1
-        for dano in danos:
-            if azar is None:
-                dano *= s["critico"]
-            elif azar.random() < s["probabilidad_critico"]:
-                dano *= s["multiplicador_critico"]
-            # Si el mob muere a mitad de una habilidad, los golpes que quedan se pierden.
-            util += min(dano, max(vida, 0))
-            perdido += max(dano - max(vida, 0), 0)
-            vida -= dano
-        if vida <= 0:
+
+        if nombre:
+            usos[nombre] = usos.get(nombre, 0) + 1
+            vivo = avanzar(duracion, "pegando")
+            if vivo:
+                for dano in danos:
+                    if azar is None:
+                        dano *= s["critico"]
+                    elif azar.random() < s["probabilidad_critico"]:
+                        dano *= s["multiplicador_critico"]
+                    # Si el mob muere a mitad de una habilidad, los golpes que quedan se pierden.
+                    e["util"] += min(dano, max(mob["vida"], 0))
+                    e["perdido"] += max(dano - max(mob["vida"], 0), 0)
+                    mob["vida"] -= dano
+
+        if not vivo:
+            # Muerte: se pierde tiempo, se vuelve con todo lleno y el mob se recupera.
+            e["muertes"] += 1
+            e["t"] += p["penalizacion_muerte_s"]
+            e["muerto"] += p["penalizacion_muerte_s"]
+            e["vida"], e["mana"] = vida_max, mana_max
+            mob["proximo_golpe"] = None
+            empezar_mob(vidas[indice])
+            continue
+
+        if mob["vida"] <= 0:
+            mob["proximo_golpe"] = None
             indice += 1
-            if indice < len(vidas):
-                vida = vidas[indice]
-                t += parametros["desplazamiento_s"]
-    return {"tiempo": t, "util": util, "perdido": perdido, "usos": usos}
+            if indice >= len(vidas):
+                break
+            if supervivencia:
+                # Se descansa si no queda para aguantar otro mob como el último
+                # (con margen) o si se baja del % mínimo.
+                margen = p["margen_descanso"]
+                gastado_vida = inicio["vida"] - e["vida"]
+                gastado_mana = inicio["mana"] - e["mana"]
+                necesita_mana = not con_ataque_basico
+                if (e["vida"] < max(vida_max * p["descansar_bajo_vida_pct"] / 100, gastado_vida * margen)
+                        or necesita_mana and e["mana"] < max(mana_max * p["descansar_bajo_mana_pct"] / 100,
+                                                             gastado_mana * margen)):
+                    multiplicador = p["multiplicador_regen_descanso"]
+                    dt = max((vida_max - e["vida"]) / (regen_vida * multiplicador),
+                             (mana_max - e["mana"]) / (regen_mana * multiplicador))
+                    avanzar(dt, "descansando", multiplicador)
+            else:
+                e["t"] += p["desplazamiento_s"]
+            empezar_mob(vidas[indice])
+
+    e["tiempo"] = e["t"]
+    e["usos"] = usos
+    return e
 
 
 def prueba_jefe(perfil, conversion, parametros):
@@ -155,23 +256,26 @@ def prueba_jefe(perfil, conversion, parametros):
     return r
 
 
-def prueba_caza(perfil, conversion, parametros):
+def prueba_caza(perfil, conversion, parametros, supervivencia=None):
     azar_vidas = random.Random(int(parametros["semilla"]))
     variacion = parametros["variacion_vida_mob_pct"] / 100
     vidas = [parametros["vida_mob"] * (1 + azar_vidas.uniform(-variacion, variacion))
              for _ in range(int(parametros["numero_mobs"]))]
     azar = random.Random(int(parametros["semilla"])) if parametros["critico_aleatorio_en_caza"] else None
-    return combatir(perfil, conversion, parametros, vidas, azar=azar)
+    if supervivencia is None:
+        supervivencia = bool(parametros["supervivencia_en_caza"])
+    return combatir(perfil, conversion, parametros, vidas, azar=azar, supervivencia=supervivencia)
 
 
 def calibrar(parametros, armas, arquetipos, conversion, habilidades):
     """Ajusta el daño de cada arma (y de los hechizos de quien no usa el arma)
-    para que tarde lo mismo en la caza que el arma de referencia. Las
+    para que tarde lo mismo en la caza que el arma de referencia, en combate puro
+    (sin desplazamiento ni descansos: eso se compensa aparte). Las
     habilidades que dependen del arma suben o bajan con ella. Como el tiempo de
     caza va a saltos (golpes por mob), se busca el factor por bisección."""
     lista = list(perfiles(armas, arquetipos, habilidades))
     referencia = next(p for p in lista if p["arma"]["arma"] == parametros["arma_referencia"])
-    objetivo = prueba_caza(referencia, conversion, parametros)["tiempo"]
+    objetivo = prueba_caza(referencia, conversion, parametros, supervivencia=False)["tiempo"]
 
     for perfil in lista:
         if perfil is referencia:
@@ -190,7 +294,7 @@ def calibrar(parametros, armas, arquetipos, conversion, habilidades):
         for _ in range(40):
             medio = (bajo + alto) / 2
             aplicar(medio)
-            if prueba_caza(perfil, conversion, parametros)["tiempo"] > objetivo:
+            if prueba_caza(perfil, conversion, parametros, supervivencia=False)["tiempo"] > objetivo:
                 bajo = medio
             else:
                 alto = medio
@@ -203,52 +307,51 @@ def calibrar(parametros, armas, arquetipos, conversion, habilidades):
 
 
 def informe(parametros, armas, arquetipos, conversion, habilidades):
-    filas = []
-    for perfil in perfiles(armas, arquetipos, habilidades):
-        filas.append((perfil, prueba_jefe(perfil, conversion, parametros),
-                      prueba_caza(perfil, conversion, parametros)))
-    media_dps = sum(j["dps"] for _, j, _ in filas) / len(filas)
-    media_caza = sum(c["tiempo"] for _, _, c in filas) / len(filas)
-    rapido = min(c["tiempo"] for _, _, c in filas)
+    lista = list(perfiles(armas, arquetipos, habilidades))
     n = parametros["numero_mobs"]
-
+    nombre = lambda perfil: (perfil["arma"]["arma"] if perfil["arquetipo"]["ataque_basico"] == "1"
+                             else perfil["arquetipo"]["nombre"])
     print(f"Nivel 1 · caza: {n:.0f} mobs de {parametros['vida_mob']:.0f} de vida "
-          f"(±{parametros['variacion_vida_mob_pct']:.0f} %) · jefe: {parametros['duracion_jefe_s'] / 60:.0f} min\n")
-    print(f"{'Arquetipo':<24}{'Arma':<14}{'s/golpe':>8}{'Daño':>7}{'Acciones/mob':>13}{'s/mob':>7}"
-          f"{'Caza (min)':>11}{'vs media':>10}{'vs + rápido':>12}{'Perdido':>9}{'DPS jefe':>10}{'vs media':>10}")
-    for perfil, jefe, caza in filas:
-        a = perfil["arma"]
-        con_arma = perfil["arquetipo"]["ataque_basico"] == "1"
-        acciones = sum(caza["usos"].values()) / n
-        print(f"{perfil['arquetipo']['nombre']:<24}{a['arma'] if con_arma else 'solo hechizos':<14}"
-              f"{(a['segundos_entre_golpes'] if con_arma else '—'):>8}{(a['dano'] if con_arma else '—'):>7}"
-              f"{acciones:>13.2f}{caza['tiempo'] / n:>7.2f}"
-              f"{caza['tiempo'] / 60:>11.1f}{(caza['tiempo'] / media_caza - 1) * 100:>+9.1f}%"
+          f"(±{parametros['variacion_vida_mob_pct']:.0f} %) · jefe: {parametros['duracion_jefe_s'] / 60:.0f} min")
+
+    # 1. Combate puro: solo daño, como se calibra.
+    filas = [(pf, prueba_jefe(pf, conversion, parametros),
+              prueba_caza(pf, conversion, parametros, supervivencia=False)) for pf in lista]
+    rapido = min(c["tiempo"] for _, _, c in filas)
+    print("\n1) Combate puro (sin desplazamiento, sin golpes del mob, sin maná)\n")
+    print(f"{'Perfil':<14}{'Daño arma':>10}{'Acciones/mob':>13}{'s/mob':>7}{'Caza (min)':>11}"
+          f"{'vs + rápido':>12}{'Perdido':>9}{'DPS jefe':>10}")
+    for pf, jefe, caza in filas:
+        con_arma = pf["arquetipo"]["ataque_basico"] == "1"
+        print(f"{nombre(pf):<14}{(pf['arma']['dano'] if con_arma else '—'):>10}"
+              f"{sum(caza['usos'].values()) / n:>13.2f}{caza['tiempo'] / n:>7.2f}{caza['tiempo'] / 60:>11.1f}"
               f"{(caza['tiempo'] / rapido - 1) * 100:>+11.1f}%"
-              f"{caza['perdido'] / (caza['util'] + caza['perdido']) * 100:>8.1f}%"
-              f"{jefe['dps']:>10.2f}{(jefe['dps'] / media_dps - 1) * 100:>+9.1f}%")
-
-    dps = [j["dps"] for _, j, _ in filas]
+              f"{caza['perdido'] / (caza['util'] + caza['perdido']) * 100:>8.1f}%{jefe['dps']:>10.2f}")
     tiempos = [c["tiempo"] for _, _, c in filas]
-    print(f"\nDiferencia máxima entre perfiles · caza: {(max(tiempos) / min(tiempos) - 1) * 100:.1f} %"
-          f" · jefe: {(max(dps) / min(dps) - 1) * 100:.1f} %")
-    print("'Perdido' = daño que sobra al rematar a cada mob en la prueba de caza.")
+    print(f"Diferencia máxima en la caza: {(max(tiempos) / min(tiempos) - 1) * 100:.1f} %")
 
-    print("\nReparto del daño contra el jefe (sin crítico):")
-    for perfil, jefe, _ in filas:
-        s = secundarias(perfil["arquetipo"], conversion, parametros)
-        dano_arma = float(perfil["arma"]["dano"])
-        aporte = {}
-        for nombre, veces in jefe["usos"].items():
-            if nombre == "golpe blanco":
-                por_uso = (dano_arma + s["plano"]) * s["base"]
-            else:
-                h = next(h for h in perfil["habilidades"] if h["nombre"] == nombre)
-                por_uso = sum(golpes_de(h, dano_arma, s))
-            aporte[nombre] = (veces, por_uso, veces * por_uso)
-        total = sum(v[2] for v in aporte.values())
-        partes = ", ".join(f"{n} x{v[0]} ({v[1]:.0f} por uso, {v[2] / total * 100:.0f} %)" for n, v in aporte.items())
-        print(f"  {perfil['arquetipo']['nombre']} ({perfil['arma']['arma']}): {partes}")
+    # 2. Caza real: desplazamiento, golpes del mob, vida, maná y descansos.
+    reales = [(pf, prueba_caza(pf, conversion, parametros, supervivencia=True)) for pf in lista]
+    rapido = min(c["tiempo"] for _, c in reales)
+    print("\n2) Caza real (desplazamiento, golpes del mob, vida, maná y descansos)\n")
+    print(f"{'Perfil':<14}{'Vida':>6}{'Reg/s':>6}{'Maná':>6}{'Reg/s':>6}{'Caza (min)':>11}{'vs + rápido':>12}"
+          f"{'Pegando':>9}{'Caminando':>10}{'Descanso':>9}{'Sin maná':>9}{'Muertes':>8}{'Daño recibido/mob':>18}")
+    for pf, c in reales:
+        s = secundarias(pf["arquetipo"], conversion, parametros)
+        t = c["tiempo"]
+        print(f"{nombre(pf):<14}{parametros['vida_base'] + s['vida']:>6.0f}"
+              f"{parametros['regen_vida_base'] + s['regen_vida']:>6.1f}"
+              f"{parametros['mana_base'] + s['mana']:>6.0f}{parametros['regen_mana_base'] + s['regen_mana']:>6.1f}"
+              f"{t / 60:>11.1f}{(t / rapido - 1) * 100:>+11.1f}%"
+              f"{c['pegando'] / t * 100:>8.0f}%{c['caminando'] / t * 100:>9.0f}%"
+              f"{c['descansando'] / t * 100:>8.0f}%{c['esperando_mana'] / t * 100:>8.0f}%"
+              f"{c['muertes']:>8}{c['dano_recibido'] / n:>18.1f}")
+    tiempos = [c["tiempo"] for _, c in reales]
+    print(f"Diferencia máxima en la caza: {(max(tiempos) / min(tiempos) - 1) * 100:.1f} %")
+
+    print("\nUsos en la caza real:")
+    for pf, c in reales:
+        print(f"  {nombre(pf)}: " + ", ".join(f"{k} x{v}" for k, v in c["usos"].items()))
 
 
 def main():
