@@ -690,7 +690,37 @@ Reparto base (STR / INT / AGI): **mágico 2 / 6 / 2** (antes 1 / 7 / 2) y **fís
 - En los niveles 5–9 el mágico bebe algo más que sin armadura porque descansa menos (gana tiempo y caza más rápido: la diferencia sube al 38–44 % en los niveles 5–6).
 - Desde el nivel 16–18 nadie necesita pociones.
 
-## 3. Ficha cerrada de los niveles 1–19
+### 2.21 Valores por punto de STR revisados (decidido)
+
+Los valores por punto usados hasta ahora eran una propuesta inicial de Claude que nunca se había validado. Para STR quedan así:
+
+| STR por punto | Antes (propuesta) | Ahora |
+|---|---|---|
+| Vida | 20 | **25** |
+| Regeneración de vida | 0,2/s | 0,2/s (sin cambios) |
+| Defensa física y mágica | 0,5 % | **0,1 %** |
+| % de daño en todos los golpes | 1,5 % | **retirado** (la reducción de daño la dará la armadura) |
+
+INT y AGI siguen pendientes de validar.
+
+**Del 1 al 19 con estos valores** (sin recalibrar armas; min · pociones; nadie muere):
+
+| Nivel | Espada larga | Espada corta | Arco | Mágico | Diferencia |
+|---|---|---|---|---|---|
+| 1 | 194 · 0 | 196 · 0 | 188 · 139 | 178 · 186 | 9,8 % |
+| 5 | 333 · 0 | 293 · 0 | 227 · 564 | 224 · 349 | 48,5 % |
+| 9 | 638 · 0 | 535 · 0 | 453 · 494 | 391 · 306 | 63,0 % |
+| 10 | 908 · 606 | 861 · 657 | 493 · 495 | 296 · 609 | 206,8 % |
+| 15 | 2.147 · 2.535 | 2.010 · 1.976 | 1.160 · 1.045 | 621 · 1.438 | 245,8 % |
+| 19 | 4.337 · 8.627 | 3.876 · 7.233 | 2.480 · 942 | 1.301 · 2.172 | 233,4 % |
+
+- **Vida**: el cuerpo a cuerpo pasa de 400 a 475 en el nivel 1 y de 4.000 a 4.975 en el 19; el arco y el mágico, +35 a +395. La regeneración no cambia (18 cada 5 s en el nivel 1, 198 en el 19 para el cuerpo a cuerpo).
+- **Defensa**: el cuerpo a cuerpo baja del 97,5 % al **19,5 %** en el nivel 19 (arco 7,9 %, mágico 5,9 %).
+- **Daño**: sin el % de daño de STR, el golpe blanco de la espada larga baja de 114 a **93** en el nivel 1 y de 1.072 a **273** en el 19. Todo el cuerpo a cuerpo queda muy por detrás: tarda **3,3 veces más que el mágico** en el nivel 19 y, como sus peleas duran mucho más y el golpe sangriento le sigue costando vida, bebe muchas más pociones (hasta 8.627 cada 1.000 mobs).
+- El arco también pierde algo (su STR también daba daño), pero mucho menos.
+- Las armas y la vida de los mobs se calibraron con el % de daño de STR incluido: hay que **recalibrar** el daño del cuerpo a cuerpo (arma, crecimiento o habilidades) para volver a acercarlo. Las tablas de la sección 3 quedan **pendientes de actualizar** tras esa recalibración.
+
+## 3. Ficha de los niveles 1–19 (en revisión: ver 2.21)
 
 Resumen de todo lo decidido en la sección 2 para el tramo **sin clase** (niveles 1 al 19). La ficha completa, nivel a nivel, se genera con `python3 herramientas/simulador/simular.py --ficha` en `herramientas/simulador/resultados/` (`ficha_perfiles_1_19.csv` y `ficha_mobs_1_19.csv`), lista para pasar a DataTables.
 
@@ -709,12 +739,12 @@ El arma de nivel 1 da el mismo bono que se gana en cada nivel (easter egg).
 
 | Estadística | Por punto |
 |---|---|
-| STR | +20 vida · +0,2 vida/s · +0,5 % defensa física y mágica · +1,5 % de daño en todos los golpes |
+| STR | +25 vida · +0,2 vida/s · +0,1 % defensa física y mágica (antes +20 vida, +0,5 % de defensa y +1,5 % de daño: ver 2.21) |
 | INT | +15 maná · +0,2 maná/s · +2,5 % de daño de habilidades |
 | AGI | +2 de daño plano en cada golpe |
 | Base | 100 de vida, 0,5 vida/s, 50 de maná, 0,5 maná/s |
 
-- Daño de un golpe = (daño del arma o de la habilidad + daño plano de AGI) × (1 + % de STR) × (1 + % de INT, solo habilidades) × crítico. Se redondea a entero.
+- Daño de un golpe = (daño del arma o de la habilidad + daño plano de AGI) × (1 + % de INT, solo habilidades) × crítico. Se redondea a entero. (La STR ya no da % de daño.)
 - **Crítico** (no depende de AGI en este tramo): probabilidad 1 % + 0,2 % por nivel, tope 5 %; daño extra 2 % + 0,4 % por nivel, tope +10 %.
 - **Armadura**: 50 por nivel; cada 100 restan 1 de daño a cada golpe recibido (mínimo 1).
 - **Regeneración** mostrada cada 5 s y redondeada. Daño, vida, maná y estadísticas siempre enteros.
@@ -797,7 +827,8 @@ Al llegar al nivel 20 se elige clase y **se reconfiguran las estadísticas**. Ca
 ## 6. Preguntas abiertas
 
 **De los niveles 1–19 (para cerrar del todo):**
-- **Tope de las defensas de STR**: con 0,5 % por punto y sin tope, el cuerpo a cuerpo llega a un **97,5 % de defensa física y mágica** en el nivel 19 (el arco al 39,5 % y el mágico al 29,5 %). Hace falta un tope o rendimientos decrecientes.
+- **Validar los valores por punto de INT y AGI** (los de STR ya están: 2.21).
+- **Recalibrar el cuerpo a cuerpo** tras quitar el % de daño de STR (2.21) y actualizar la ficha de la sección 3.
 - **Daño de las armas por tramos** (bronce → cobre → plata): de momento el arma no cambia de daño en todo el tramo.
 - **Pociones por nivel**: la poción cura siempre 100.
 - **El crítico apenas se nota** (+10 % de daño como mucho): decidido así por ahora.

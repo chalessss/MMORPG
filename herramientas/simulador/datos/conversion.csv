@@ -1,9 +1,9 @@
 estadistica,secundaria,por_punto,nota
-str,vida,20,puntos de vida
+str,vida,25,puntos de vida
 str,regen_vida,0.2,vida por segundo
-str,defensa_fisica_pct,0.5,% de defensa física
-str,defensa_magica_pct,0.5,% de defensa mágica
-str,dano_base_pct,1.5,% de daño en todos los golpes
+str,defensa_fisica_pct,0.1,% de defensa física
+str,defensa_magica_pct,0.1,% de defensa mágica
+str,dano_base_pct,0,% de daño en todos los golpes (retirado: la reducción de daño viene de la armadura)
 int,mana,15,puntos de maná
 int,regen_mana,0.2,maná por segundo
 int,dano_habilidad_pct,2.5,% de daño solo en habilidades
