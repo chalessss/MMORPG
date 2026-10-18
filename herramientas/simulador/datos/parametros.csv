@@ -35,3 +35,4 @@ tope_critico_pct,5,niveles 1-19: la probabilidad de crítico no pasa de este %
 tope_critico_aumentado_pct,10,niveles 1-19: un crítico no suma más de este % de daño
 numero_mobs_por_nivel,300,mobs por nivel en la simulación nivel a nivel (--niveles)
 nivel_maximo_simulado,19,último nivel de la simulación nivel a nivel
+crecimiento_vida_mob_pct,10,--niveles: la vida del mob sube este % por nivel (compuesto); 0 = al ritmo del daño medio de los perfiles

@@ -382,12 +382,15 @@ def perfiles_nivel(armas, arquetipos, habilidades, nivel):
 
 
 def niveles(parametros, armas, arquetipos, conversion, habilidades):
-    """Caza real nivel a nivel. Los mobs escalan con los jugadores: su vida sube
-    como el daño por segundo medio de los perfiles y su daño, como la vida media."""
+    """Caza real nivel a nivel. La vida de los mobs sube un % fijo por nivel (o,
+    si es 0, como el daño por segundo medio de los perfiles) y su daño, como la
+    vida media de los perfiles."""
     p = dict(parametros)
     p["numero_mobs"] = parametros["numero_mobs_por_nivel"]
     base = None
-    print(f"Caza real nivel a nivel · {p['numero_mobs']:.0f} mobs por nivel · los mobs escalan con los jugadores\n")
+    escala = (f"vida del mob +{parametros['crecimiento_vida_mob_pct']:g} % por nivel" if parametros["crecimiento_vida_mob_pct"]
+              else "vida del mob al ritmo del daño medio")
+    print(f"Caza real nivel a nivel · {p['numero_mobs']:.0f} mobs por nivel · {escala}\n")
     cabecera = None
     for nivel in range(1, int(parametros["nivel_maximo_simulado"]) + 1):
         lista = perfiles_nivel(armas, arquetipos, habilidades, nivel)
@@ -395,7 +398,11 @@ def niveles(parametros, armas, arquetipos, conversion, habilidades):
         vida = sum(p["vida_base"] + secundarias(pf["arquetipo"], conversion, p)["vida"] for pf in lista) / len(lista)
         if base is None:
             base = (dps, vida)
-        p["vida_mob"] = round(parametros["vida_mob"] * dps / base[0])
+        if parametros["crecimiento_vida_mob_pct"]:
+            # Vida del mob: sube un % fijo por nivel (compuesto).
+            p["vida_mob"] = round(parametros["vida_mob"] * (1 + parametros["crecimiento_vida_mob_pct"] / 100) ** (nivel - 1))
+        else:
+            p["vida_mob"] = round(parametros["vida_mob"] * dps / base[0])
         p["dano_mob"] = round(parametros["dano_mob"] * vida / base[1])
         cazas = [prueba_caza(pf, conversion, p, supervivencia=True) for pf in lista]
         nombres = [pf["arma"]["arma"] if pf["arquetipo"]["ataque_basico"] == "1" else "Mágico" for pf in lista]
