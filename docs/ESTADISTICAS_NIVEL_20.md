@@ -101,16 +101,18 @@ Valores del nivel 19 (ficha vigente: `python3 herramientas/simulador/simular.py 
 - **El PvP se balancea desde el nivel 20**, con el triángulo **STR > AGI > INT > STR** (`ESTADISTICAS.md`, 1.3).
 - Objetivos de daño por rol (de ejemplo): daño puro un 3–5 % por encima de la media, tanque un 5 % por debajo y curandero un 8 % por debajo (`ESTADISTICAS.md`, 1.5).
 
-### 1.3 Reparto base de las clases (tabla vigente de la hoja, filas 54–60)
+### 1.3 Reparto base de las especializaciones (decidido)
+
+Confirmado por el usuario (coincide con la tabla vigente de la hoja, filas 54–60). Todas usan **MP** (maná) como recurso primario y tienen un **recurso secundario** propio (ver 1.5).
 
 | ID | Clase | STR | INT | AGI | Arma (hoja) | Velocidad | Recurso secundario |
 |---|---|---|---|---|---|---|---|
-| CL_LUC | Luchador | 7 | 1 | 2 | Espada (decidido: espada corta) | 1,0 | Ira |
-| CL_COM | Combatiente | 5 | 1 | 4 | Espada (decidido: espada larga) | 1,0 | Ira |
-| CL_ASE | Asesino | 3 | 1 | 6 | Daga | 1,6 | Energía |
-| CL_ATA | Atacante a distancia | 2 | 2 | 6 | Arco | 1,1 | Foco |
-| CL_MAG | Mago | 1 | 7 | 2 | Bastón | 0,6 | Iluminación |
-| CL_INV | Invocador | 2 | 5 | 3 | Varita | 1,2 | Iluminación |
+| CL_LUC | Luchador | 7 | 1 | 2 | Espada (decidido: espada corta) | 1,0 | Ira (Medidor de Ira) |
+| CL_COM | Combatiente | 5 | 1 | 4 | Espada (decidido: espada larga) | 1,0 | Ira (Medidor de Ira) |
+| CL_ASE | Asesino | 3 | 1 | 6 | Daga | 1,6 | Energía (Medidor de Energía) |
+| CL_ATA | Atacante a distancia | 2 | 2 | 6 | Arco | 1,1 | Foco (Puntos de Foco) |
+| CL_MAG | Mago | 1 | 7 | 2 | Bastón | 0,6 | Iluminación (Trance de Iluminación) |
+| CL_INV | Invocador | 2 | 5 | 3 | Varita | 1,2 | Iluminación (Esencia de Iluminación) |
 
 La velocidad de la hoja está en golpes relativos; en el simulador se expresa en segundos entre golpe y golpe.
 
@@ -145,6 +147,27 @@ Resultado en el nivel 20. El daño por segundo es solo de golpes blancos o de la
 - La daga (20 de daño, 1,0 s entre golpes) es provisional.
 - Desde el nivel 20 el crítico deja de estar limitado al 5 % y +10 % para las especializaciones de AGI (topes nuevos por definir).
 - Los melee bajan de maná (965 → 605) porque su INT baja; dependerán más de su recurso secundario (Ira, Energía).
+
+### 1.5 Recurso secundario (decidido el principio; mecánica en propuesta)
+
+- Desde el nivel 20 cada especialización tiene, además del maná, un **recurso secundario** (tabla de 1.3).
+- **Función (decidido):** el recurso secundario **potencia las habilidades**: aumenta su **efectividad** o su **daño neto**. El maná sigue siendo lo que cuesta lanzar la habilidad.
+
+**Propuesta de mecánica** (por validar):
+
+- Un medidor de **0 a 100** por personaje. Algunas habilidades **gastan lo acumulado** para lanzarse en versión potenciada; cuanto más lleno, más fuerte.
+- Cada recurso se llena de una forma acorde al rol:
+
+| Recurso | Especialización | Se llena… | Al gastarlo… |
+|---|---|---|---|
+| Ira | Luchador | al golpear | más daño de la habilidad |
+| Ira | Combatiente | sobre todo **al recibir daño** (cuantos más mobs le pegan, más rápido) | más daño en área y algo de vida o defensa |
+| Energía | Asesino | sola con el tiempo, rápido | más probabilidad y daño de crítico en la habilidad |
+| Foco | Atacante a distancia | con cada disparo, y más si no se mueve | más daño del disparo |
+| Iluminación (Trance) | Mago | con cada hechizo lanzado | al llenarse entra en trance: hechizos más fuertes durante unos segundos |
+| Iluminación (Esencia) | Invocador | con cada hechizo y cada apoyo | escudos, curas y potenciaciones al grupo más fuertes |
+
+- Del 1 al 19 las clases de inicio solo tienen maná: el recurso secundario se estrena con la especialización.
 
 ## 2. Trabajo de esta sesión
 
