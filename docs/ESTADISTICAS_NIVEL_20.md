@@ -217,9 +217,9 @@ Con esta estructura cada especialización tiene **5 habilidades que se activan**
 
 Siguiente paso: **parametrizar el daño**, el enfriamiento y el coste de cada habilidad. Las cantidades de cura y escudo del Invocador se fijarán más adelante, al hablar de cómo se mejoran las habilidades.
 
-### 1.7 Borrador 1 del daño de las habilidades 7 y 8 (por validar)
+### 1.7 Daño de las habilidades 7 y 8 (decidido, con los ajustes del usuario)
 
-Mismo criterio que en la parte 1: las físicas en **% del daño del arma**, las mágicas en **puntos** (antes de multiplicar por las estadísticas). Referencias de la parte 1: Golpe doble 225 % cada 20 s, Golpe al suelo 300 % cada 40 s, Disparo potente 350 % cada 15 s, Bola de fuego 97 cada 8 s, Lanza de hielo 32. El coste de maná se calibrará en el simulador.
+Parámetros de daño cerrados para la simulación (individual, en grupo y contra jefe). Mismo criterio que en la parte 1: las físicas en **% del daño del arma**, las mágicas en **puntos** (antes de multiplicar por las estadísticas). Referencias de la parte 1: Golpe doble 225 % cada 20 s, Golpe al suelo 300 % cada 40 s, Disparo potente 350 % cada 15 s, Bola de fuego 97 cada 8 s, Lanza de hielo 32. El coste de maná se calibrará en el simulador.
 
 | Especialización | Habilidad | Daño | Enfriamiento | Lanzamiento | Recurso |
 |---|---|---|---|---|---|
@@ -228,13 +228,13 @@ Mismo criterio que en la parte 1: las físicas en **% del daño del arma**, las 
 | Combatiente | Fisura (área) | 200 % del arma a cada mob | **8 s** (el área que más se repite) | — | Cuesta **15 de Ira** |
 | Combatiente | Embate (carga y empuje) | 400 % + **2 % por punto de Ira** gastado (Ira llena: 600 %) | 30 s | — | Gasta **toda la Ira** |
 | Asesino | Lluvia de cuchillas (círculo a su alrededor) | 80 % del arma a cada mob | 1 s | — | **25 de Energía** por uso |
-| Asesino | Desgarro | 350 % + sangrado de 100 % en 6 s | 12 s | — | Potenciada por la Energía |
-| Atacante | Lluvia de flechas (zona) | 120 % del arma por segundo durante 4 s a cada mob | 25 s | 1 s | — |
+| Asesino | Desgarro (remate) | 350 % + sangrado en 6 s según la Energía gastada: **≥ 70 % → 100 %**, **40–70 % → 70 %**, **< 40 % → 50 %** | 12 s | — | Gasta **el 100 % de la Energía** que tenga |
+| Atacante | Lluvia de flechas (zona) | 120 % del arma por segundo durante 4 s a cada mob | 25 s | **No le interrumpe**: la lanza y sigue disparando a su objetivo mientras caen las flechas | — |
 | Atacante | Disparo certero | 400 % | 15 s | 2 s | Gasta el **Foco**: +10 % por punto y **daño verdadero** |
-| Mago | Lluvia de fuego (zona) | 60 por segundo durante 5 s a cada mob (300) | 20 s | 2 s | — |
+| Mago | Lluvia de fuego (zona) | **Canalizada**: se queda quieto invocándola; cae **un impacto por segundo** de 60 a cada mob, durante 5 s (300) | 20 s | 5 s canalizando | — |
 | Mago | Fuego de alma | 250 | 15 s | 3 s | Más fuerte durante el Trance |
-| Invocador | Lluvia de estrellas (zona) | 40 por segundo durante 5 s a cada mob (200) | 20 s | 2 s | — |
-| Invocador | Restauración (cura) | Por definir más adelante | — | — | Potenciada por la Esencia |
+| Invocador | Lluvia de estrellas (zona) | Caen estrellas **más seguidas** que la lluvia del mago, pero cada una hace **menos daño** (por ejemplo, 10 estrellas). Si una estrella cae sobre un **aliado**, le pone un **escudo** igual al daño que habría hecho | 20 s | — | — |
+| Invocador | Restauración (cura) | Cura el **30 % de la vida máxima**. Lanzada sobre un aliado: el aliado recupera el 30 % y el Invocador **el 15 %** si le falta vida; si no, ese 15 % va a otro aliado al que le falte | — | — | Potenciada por la Esencia |
 
 ## 2. Trabajo de esta sesión
 
