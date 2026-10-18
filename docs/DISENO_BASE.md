@@ -13,6 +13,7 @@ MMORPG 3D para PC donde cada jugador hace evolucionar a su personaje a lo largo 
 3. **Temporadas**: el contenido se publica por etapas; cada una tiene su propio endgame.
 4. **Todo cuesta moneda**: teletransporte, desarrollo, comercio, ampliaciones… Cada sistema retira moneda para frenar la inflación.
 5. **Juego limpio**: el servidor decide todo lo importante (combate, botín, recolección) para combatir trampas y bots.
+6. **Funciones que se desbloquean por nivel**: clan (nivel 10), bandas, eventos masivos… se abren a medida que el personaje progresa, para presentarlas poco a poco.
 
 ## 3. Entidades del mundo
 
@@ -825,6 +826,21 @@ Los clanes deben ser **comunidades vivas** que den sentido de pertenencia y prem
 - **Técnicas del clan** (como puntos de talento): el clan elige en qué especializarse primero: **economía**, **PvP** o **PvE**. Habrá una ruta recomendada, pero la decisión es del clan.
 - Los puntos para las técnicas se consiguen con la **participación de los miembros**.
 - **Registro de contribución por miembro**: donaciones, ayuda, participación en actividades… Los líderes ven quién contribuye y quién no, y pueden actuar en consecuencia.
+  - **Obligatorio**: ver cuántas **monedas de clan obtiene cada miembro por semana**. Distingue a quien juega de verdad de quien entra a dar dos clics.
+
+**Creación del clan (decidido)**
+- La pestaña de clan se desbloquea en el **nivel 10**.
+- Fundarlo cuesta **solo cobre**: una cantidad equivalente a **1–2 horas de juego** a ese nivel. Debe ser un sacrificio real del líder (deja de mejorar su personaje para invertir en el clan), sin hundir su cuenta. Valor exacto: con la economía.
+
+**Tamaño del clan (decidido)**
+- Empieza con unos **30 miembros** (entre 20 y 40) y llega a un **máximo de 100** desarrollando técnicas.
+- Sin técnicas que amplíen el límite de forma temporal.
+
+**Cómo se ganan monedas de clan (decidido)**
+- **Cooperar** en el desarrollo de técnicas (cada aporte da monedas).
+- **Ayudar a compañeros** del clan (mecánica concreta por definir).
+- **Compras con dinero real en la tienda general**: dan **regalos a los miembros del clan** y **monedas de clan a quien compra**.
+- **Bandas y actividades de clan**: siempre dan un mínimo de monedas, que **aumenta si se hacen en grupo con miembros del mismo clan** (bonus progresivo como el de experiencia en grupo).
 - Monedas de clan y tienda del clan (3.20).
 
 **Referencia (MIR4): técnicas del clan**
@@ -839,6 +855,8 @@ Los clanes deben ser **comunidades vivas** que den sentido de pertenencia y prem
 - **Qué da cada cooperación** (400 de cobre): **experiencia de técnica** (10) para el edificio, **experiencia de clan** (3) —el clan tiene **nivel propio**—, **monedas de clan** (60) para el miembro que coopera y **fondos del clan** (4). Así cooperar beneficia a la vez al clan y al miembro.
 - **Expedición**: técnica que desbloquea expediciones y desafíos de clan adicionales.
 - **Regalos de clan** (*gestión de viajeros*): técnica que da regalos adicionales a los miembros, que se reclaman en un menú de suministros.
+
+- **Árbol progresivo** (referencia MIR4): primera columna (salón marcial, almacén, acumulador de energía, almacenamiento) → segunda (gestión de viajeros, depósito comercial), que exige técnicas de la primera → expedición, que exige ambas → última columna (sala de escrituras, técnica de sello, oficina de impuestos, esgrima). Avanzar exige haber desarrollado las técnicas anteriores.
 
 **Propuesta de árbol para nuestro juego** (por validar):
 - **General**: número de miembros, almacén y tesorería del clan.
@@ -919,7 +937,7 @@ Queda para más adelante:
 ## 7. Preguntas abiertas
 
 **Pendientes para más adelante**
-- **Clanes**: tamaño máximo; coste de fundarlo; qué da cada nivel de clan; qué cuenta como contribución; expediciones y desafíos de clan; cargas de cooperación y si se puede saltar el límite con moneda premium (propuesta: no); regalos de clan; ramas y técnicas concretas.
+- **Clanes**: coste exacto de fundarlo; qué da cada nivel de clan; mecánica de "ayudar a compañeros" (¿sellado de cofres?); expediciones y desafíos de clan; si se puede cooperar con moneda premium al agotar cargas (propuesta: no); ramas y técnicas concretas; niveles de desbloqueo de cada función.
 - **Mercado**: porcentajes de comisión y de quema (mercado vs. P2P); si las tiendas privadas funcionan con el jugador desconectado.
 - **Juego automático**: qué objetos exactos se restringen en automático; valores de la experiencia de descanso.
 - **Teletransporte y zonas**: precios por zona; si dentro del círculo protegido de las zonas PvP se puede atacar hacia fuera (propuesta: no se puede atacar ni ser atacado); sistema de reputación con facciones.
