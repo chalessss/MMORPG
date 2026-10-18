@@ -1,0 +1,48 @@
+parametro,valor,nota
+arma_referencia,Espada larga,las demás armas y los hechizos se calibran para tardar lo mismo que ella en la caza
+duracion_jefe_s,1200,prueba del jefe: 20 minutos contra un objetivo de vida casi infinita
+vida_jefe,50000000,
+numero_mobs,1000,prueba de caza: cuántos mobs matar
+vida_mob,420,un guerrero con espada larga lo mata en 6-7 golpes
+desplazamiento_s,0,segundos entre un mob y el siguiente (igual para todos)
+critico_base_pct,1,probabilidad de crítico a nivel 1
+multiplicador_critico_base,1.0,un crítico sin estadísticas no suma daño; el daño extra sale de crítico aumentado
+critico_por_nivel_pct,0.2,la probabilidad de crítico sube este % por nivel
+critico_aumentado_base_pct,2,daño extra de un crítico a nivel 1 (%)
+critico_aumentado_por_nivel_pct,0.4,el daño extra del crítico sube este % por nivel
+critico_aleatorio_en_caza,1,1 = en la caza cada golpe tira su crítico; 0 = valor esperado (sin azar)
+semilla,1,semilla del azar: la misma semilla da siempre el mismo resultado
+variacion_vida_mob_pct,10,la vida de cada mob varía al azar este % arriba o abajo
+ahorrar_habilidades,1,1 = no gasta una habilidad si un golpe blanco (o el hechizo más débil) ya mata al mob
+supervivencia_en_caza,1,1 = en la caza cuentan desplazamiento / golpes del mob / vida / maná / descansos; 0 = combate puro
+desplazamiento_melee_s,1.5,segundos que camina el cuerpo a cuerpo de un mob al siguiente
+acercamiento_mob_s,2.5,segundos que tarda el mob en llegar hasta un personaje a distancia (golpes gratis)
+dano_mob,6,daño de cada golpe del mob (propuesta)
+intervalo_mob_s,2.0,segundos entre golpe y golpe del mob
+vida_base,100,vida del personaje antes de sumar STR
+regen_vida_base,0.5,vida por segundo antes de sumar STR
+mana_base,50,maná antes de sumar INT
+regen_mana_base,0.5,maná por segundo antes de sumar INT
+multiplicador_regen_descanso,2,al sentarse a descansar la regeneración se multiplica por este valor
+descansar_bajo_vida_pct,35,tras matar un mob se descansa si la vida queda por debajo de este %
+descansar_bajo_mana_pct,35,lo mismo con el maná (solo quien depende de él: el mágico)
+penalizacion_muerte_s,30,segundos perdidos al morir (vuelve con vida y maná llenos)
+margen_descanso,1.25,también se descansa si la vida (o el maná) no alcanza para otro mob como el último multiplicado por este margen
+descansar,1,1 = en la caza real se para a descansar cuando hace falta; 0 = nunca descansa: sigue pegando y si muere pierde el tiempo de penalización
+pociones,1,1 = se beben pociones en la caza real; 0 = sin pociones
+pocion_vida,100,vida que recupera una poción de vida (propuesta)
+pocion_mana,100,maná que recupera una poción de maná (propuesta)
+enfriamiento_pocion_s,20,segundos entre poción y poción del mismo tipo
+usar_pocion_vida_pct,40,se bebe una poción de vida al bajar de este % de vida
+tope_critico_pct,5,niveles 1-19: la probabilidad de crítico no pasa de este %
+tope_critico_aumentado_pct,10,niveles 1-19: un crítico no suma más de este % de daño
+numero_mobs_por_nivel,1000,mobs por nivel en la simulación nivel a nivel (--niveles)
+nivel_maximo_simulado,19,último nivel de la simulación nivel a nivel
+crecimiento_vida_mob_pct,30,--niveles: la vida del mob sube este % por nivel (compuesto); 0 = al ritmo del daño medio de los perfiles
+rotacion_mobs,1,1 = los mobs salen siempre en el orden de mobs.csv (cuerpo a cuerpo físico / a distancia mágico / cuerpo a cuerpo mágico / a distancia físico); 0 = al azar según su proporción
+armadura_por_nivel,50,armadura del equipo: este valor por nivel (50 en el 1; 500 en el 10; 1000 en el 20)
+armadura_por_punto_de_dano,100,cada tantos puntos de armadura se resta 1 de daño a cada golpe recibido (de cualquier fuente)
+objetivo_pociones_mana,650,--calibrar-mana: pociones de maná cada 1.000 mobs en el último nivel simulado (entre 300 y 1.000)
+niveles_rango,5|10|15,libros de habilidad: niveles de personaje en los que cada habilidad sube de nivel (nivel 2 en el 5, 3 en el 10, 4 en el 15)
+mejora_dano_pct,2,cada nivel de habilidad sube el daño este % sobre el nivel anterior
+mejora_coste_pct,25,cada nivel de habilidad sube el coste de maná este % sobre el nivel anterior

@@ -1,0 +1,32 @@
+especializacion,estadistica,secundaria,por_punto,nota
+todas,str,vida,25,valor común (el mismo de las clases de inicio)
+todas,str,regen_vida,0.2,
+todas,str,defensa_fisica_pct,0.1,
+todas,str,defensa_magica_pct,0.1,
+todas,str,dano_base_pct,1.5,
+todas,int,mana,15,
+todas,int,regen_mana,0.2,
+todas,int,dano_habilidad_pct,2.5,
+todas,agi,dano_base,2,
+luchador,str,dano_base_pct,2.0,Afinidad con la fuerza: más daño
+combatiente,str,vida,40,Afinidad con la fuerza: más vida y defensa
+combatiente,str,defensa_fisica_pct,0.2,
+combatiente,str,defensa_magica_pct,0.2,
+combatiente,str,dano_base_pct,1.0,
+combatiente,agi,dano_base,1.75,
+asesino,str,vida,35,Afinidad con la agilidad: crítico
+asesino,str,dano_base_pct,1.0,
+asesino,agi,dano_base,1.5,
+asesino,agi,critico_pct,0.06,
+asesino,agi,critico_aumentado_pct,0.25,
+atacante,str,vida,30,Afinidad con la agilidad: crítico
+atacante,agi,critico_pct,0.05,
+atacante,agi,critico_aumentado_pct,0.3,
+mago,str,vida,40,Afinidad con el intelecto: daño de hechizos
+mago,int,mana,20,
+mago,int,regen_mana,0.3,
+mago,int,dano_habilidad_pct,4.25,
+invocador,str,vida,30,Afinidad con el intelecto: maná para curar
+invocador,int,regen_mana,0.4,
+invocador,int,dano_habilidad_pct,1.5,
+invocador,agi,dano_base,1,Afinidad con el intelecto: menos daño plano (es curandero)

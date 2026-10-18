@@ -1,0 +1,12 @@
+estadistica,secundaria,por_punto,nota
+str,vida,25,puntos de vida
+str,regen_vida,0.2,vida por segundo
+str,defensa_fisica_pct,0.1,% de defensa física
+str,defensa_magica_pct,0.1,% de defensa mágica
+str,dano_base_pct,1.5,% de daño en todos los golpes
+int,mana,15,puntos de maná
+int,regen_mana,0.2,maná por segundo
+int,dano_habilidad_pct,2.5,% de daño solo en habilidades
+agi,dano_base,2,daño plano sumado a cada golpe
+agi,critico_pct,0,% de probabilidad de crítico (del 1 al 19 el crítico sube con el nivel, no con AGI)
+agi,critico_aumentado_pct,0,% extra de daño crítico (del 1 al 19 sube con el nivel, no con AGI)

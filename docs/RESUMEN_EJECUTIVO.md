@@ -14,7 +14,7 @@ Vista rápida del proyecto. El detalle de cada decisión está en `docs/DISENO_B
 - **Pilares**: el personaje evoluciona · hay más que subir de nivel · temporadas · todo cuesta moneda · juego limpio · funciones que se desbloquean por nivel.
 
 **Progresión**
-- Temporadas: T1 (1–20, clase base) · T2 (20–40, especialización) · T3 (40–60, especialización final). Futuras: 80, 90, 100.
+- Temporadas: T1 (1–20: clase de inicio hasta el 19 —Mágica - Rango, Física - Melee, Física - Rango—, especialización 1 en el 20) · T2 (20–40, especialización 2) · T3 (40–60, especialización 3). Futuras: 80, 90, 100.
 - Subclases desde el nivel 60: comparten nivel; cada clase con su conjunto de equipo vinculado.
 
 **Grupo y botín**
@@ -67,7 +67,7 @@ Vista rápida del proyecto. El detalle de cada decisión está en `docs/DISENO_B
 ## Pendiente
 
 **Capítulos de detalle** (uno por sesión):
-1. **Estadísticas** (siguiente) — incluye revisar la hoja de Google Sheets.
+1. **Estadísticas** (en curso, `docs/ESTADISTICAS.md`; resumen en `docs/RESUMEN_ESTADISTICAS.md`) — cerrados los niveles 1–19 (tres perfiles de inicio, armas, crecimiento por nivel, cuatro habilidades por perfil, crítico, armadura, mobs; ficha en la sección 3) con un simulador de balance en `herramientas/simulador/`. Cerrado también el **nivel 20** (parte 2, `docs/ESTADISTICAS_NIVEL_20.md`): 6 especializaciones con su conversión propia, 8 habilidades cada una, recursos secundarios, maná, agro y simulación solo, en grupo, con élites y en mazmorra. Siguiente: estadísticas visibles del nivel 20, primer balance PvP, neutrales, topes y poder.
 2. Personajes → habilidades.
 3. Mapas (incluye guerra de territorios, asedios, cementerios).
 4. Recursos.

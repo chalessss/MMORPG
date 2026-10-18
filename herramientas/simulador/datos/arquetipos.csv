@@ -1,0 +1,4 @@
+arquetipo,nombre,str,int,agi,ataque_basico,a_distancia,armas,nota
+melee,Físico cuerpo a cuerpo,5,1,4,1,0,Espada larga|Espada corta,reparto base del Combatiente
+rango,Físico a distancia,3,2,5,1,1,Arco,reparto de prueba (antes 2/2/6 del Atacante a distancia)
+magico,Mágico,2,6,2,0,1,Bastón,reparto de prueba (antes 1/7/2 del Mago); nunca pega con el bastón

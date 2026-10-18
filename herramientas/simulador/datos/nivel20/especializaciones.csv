@@ -1,0 +1,7 @@
+especializacion,nombre,clase_inicio,str,agi,int,arma,ataque_basico,a_distancia,recurso,nota
+luchador,Luchador,Física - Melee,7,2,1,Espada corta,1,0,ira_golpe,daño cuerpo a cuerpo de uno en uno
+combatiente,Combatiente,Física - Melee,5,4,1,Espada larga,1,0,ira_recibida,aguanta y caza en área (conglomerados)
+asesino,Asesino,Física - Melee,3,6,1,Daga,1,0,energia,daño cuerpo a cuerpo de uno en uno; crítico
+atacante,Atacante a distancia,Física - Rango,2,6,2,Arco,1,1,foco,daño a distancia de uno en uno
+mago,Mago,Mágica - Rango,1,2,7,Bastón,0,1,trance,daño mágico a distancia; nunca pega con el bastón
+invocador,Invocador,Mágica - Rango,2,3,5,Varita,0,1,esencia,curandero; potencia al grupo; nunca pega con la varita

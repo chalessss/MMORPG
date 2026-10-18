@@ -27,9 +27,9 @@ La hoja de ruta completa está en `docs/HOJA_DE_RUTA.md`: mantenerla actualizada
 
 | Temporada | Niveles | Elección | Clases |
 |---|---|---|---|
-| 1 | 1–20 | Arquetipo (Físico/Mágico) + clase base | Luchador, Combatiente, Asesino, Atacante a distancia, Mago, Invocador |
-| 2 | 20–40 | Especialización 1 | Dos manos, Espadas duales, Tanque, Daguero, Arquero, Hechicero, Encantador… |
-| 3 | 40–60 | Especialización final | ~19 clases (Paladín, Berserker, Nigromante, Sacerdote, Monje…) |
+| 1 | 1–20 | Clase de inicio del 1 al 19 (Mágica - Rango, Física - Melee, Física - Rango); **especialización 1** en el nivel 20 | Luchador, Combatiente, Asesino, Atacante a distancia, Mago, Invocador |
+| 2 | 20–40 | **Especialización 2** (nivel 40 según la hoja) | Dos manos, Espadas duales, Tanque, Daguero, Arquero, Hechicero, Encantador… |
+| 3 | 40–60 | **Especialización 3** (nivel 60 según la hoja) | ~19 clases (Lancero, Berserker, Carroñero, Explorador, Paladín, Nigromante, Sacerdote, Monje…) |
 
 Implicaciones técnicas:
 - El nivel máximo y las especializaciones disponibles se controlan por **configuración de temporada** (datos), no por código: el sistema debe soportar 60 niveles desde el inicio.
@@ -41,12 +41,17 @@ Implicaciones técnicas:
 ## Documentación
 
 - `docs/RESUMEN_EJECUTIVO.md`: **leer primero** — vista rápida de todo lo decidido, lo pendiente y las recomendaciones.
+- `docs/RESUMEN_ESTADISTICAS.md`: resumen ejecutivo del capítulo de estadísticas (detalle en `docs/ESTADISTICAS.md`; simulador en `herramientas/simulador/`). Parte 1: niveles 1–19, sin clase (cerrada).
+- `docs/ESTADISTICAS_NIVEL_20.md`: parte 2 del capítulo de estadísticas — nivel 20 y estadísticas finales con la especialización 1 (cerrada; ficha en la sección 2; simulador `herramientas/simulador/simular20.py`).
 - `docs/HOJA_DE_RUTA.md`: fases del proyecto y decisiones pendientes.
 - Forma de trabajo: la primera conversación fijó los parámetros generales de todos los sistemas; ahora se trabaja **un capítulo de detalle por sesión** (estadísticas, personajes/habilidades, mapas, recursos, objetos, profesiones, contenido por temporada).
 - `docs/DISENO_BASE.md`: qué existe en el juego (personajes, mobs, jefes, NPCs, recursos, objetos) y sistemas principales.
+
+**Valores siempre enteros (decidido):** el daño (de armas, habilidades y cada golpe), la vida, el maná y las estadísticas en general se muestran como números enteros, sin decimales; los datos de balance se guardan ya redondeados. La regeneración se expresa **cada 5 segundos**, redondeada al entero más cercano. Los tiempos (2,6 s) y los porcentajes (150 %, 75 %) sí pueden llevar decimales.
 
 Mantener cada fase pequeña y funcional antes de pasar a la siguiente. Datos de balance (estadísticas, escalados) preferiblemente fuera del código (DataTables de Unreal importadas desde CSV/JSON) para poder ajustarlos sin programar.
 
 ## Git
 
-- Rama de desarrollo: `claude/videojuego-project-structure-5ofiej`.
+- Cada sesión trabaja en **su propia rama** `claude/...`, y el trabajo de una sesión anterior puede no estar fusionado en la rama principal. Al empezar, revisar las ramas remotas (`git ls-remote origin`) y traer la de la sesión anterior si hace falta.
+- Rama principal: `claude/videojuego-project-structure-5ofiej`.

@@ -1,0 +1,68 @@
+parametro,valor,nota
+nivel,20,
+puntos_totales,370,STR + AGI + INT en el nivel 20 (10 de base y 18 por nivel con el arma)
+vida_mob,61400,vida del mob del nivel 20 (47.231 del 19 × 1,3)
+dano_mob,59,golpe básico del mob del nivel 20 (ciclo básico básico potenciado ×2)
+intervalo_mob_s,2.0,
+armadura,1000,armadura del equipo en el nivel 20 (50 por nivel)
+armadura_por_punto_de_dano,100,cada 100 de armadura resta 1 de daño a cada golpe recibido
+vida_base,100,
+regen_vida_base,0.5,
+mana_base,50,
+regen_mana_base,0.5,
+critico_base_pct,4.8,probabilidad de crítico del nivel 20 (1 % + 0,2 % por nivel)
+critico_aumentado_base_pct,9.6,daño extra del crítico del nivel 20 (2 % + 0,4 % por nivel)
+tope_critico_pct,50,desde el nivel 20 (provisional)
+tope_critico_aumentado_pct,150,desde el nivel 20 (provisional)
+mejora_dano_pct,2,cada nivel de habilidad sobre el anterior
+mejora_coste_pct,25,cada nivel de habilidad sube el coste este % sobre el anterior (nivel 4 = ×1.95; nivel 10 = ×7.45)
+nivel_habilidad_maximo,10,las habilidades suben hasta el nivel 10; en el nivel de personaje 20 se llega como mucho al 4
+desplazamiento_melee_s,1.5,
+acercamiento_mob_s,2.5,
+pocion_vida,400,pociones mejoradas del nivel 20 (provisional: el valor se fija más adelante)
+pocion_mana,400,pociones mejoradas del nivel 20 (provisional)
+usar_pocion_mana_pct,50,se bebe una poción de maná al bajar de este %
+enfriamiento_pocion_s,20,
+usar_pocion_vida_pct,40,
+descansar_bajo_pct,35,
+multiplicador_regen_descanso,2,
+penalizacion_muerte_s,30,
+ira_por_golpe,5,Luchador: Ira por golpe dado
+ira_por_golpe_recibido,2,Combatiente: Ira por golpe recibido
+ira_por_punto_pct,0.3,Luchador: % de daño por punto de Ira gastado en una habilidad
+coste_ira_fisura,15,
+embate_por_ira_pct,2,
+energia_regen,5,Asesino: Energía por segundo
+energia_regen_por_agi,0.02,
+coste_energia_cuchillas,25,
+foco_maximo,5,
+foco_por_disparo,2,quieto: 2 por disparo
+foco_por_punto_pct,10,
+trance_por_hechizo,4,
+trance_duracion_s,10,
+trance_dano_pct,30,
+remate_umbral_pct,20,
+remate_dano,5.0,
+remate_enfriamiento,6,
+duracion_jefe_s,1200,
+vida_jefe,50000000,
+mobs_por_prueba,300,
+semilla,1,
+apoyo_regen_mana_por_int,0.2,pasiva de arma del Invocador: maná por segundo extra por cada punto de INT (0.4 de su conversión + 0.2 = 0.6)
+apoyo_dano_monstruos_pct,50,pasiva de arma del Invocador: % de daño extra contra monstruos (no contra jefes)
+escudo_propio_pct,25,escudo sobre un aliado: quien lo lanza recibe este % (20-30 %)
+escudo_estrellas_s,8,duración del escudo que deja cada estrella de la Lluvia de estrellas en los aliados
+curar_bajo_pct,60,el curandero cura al aliado más herido cuando baja de este % de vida
+habilidades_provocan,Embate,habilidades que provocan a los mobs que golpean (separadas por |)
+provocacion_s,7,segundos que dura la provocación: después cada mob ataca a quien más amenaza tenga
+amenaza_cura_pct,50,curar genera en cada mob esta parte de lo curado como amenaza
+provocacion_iguala_amenaza,0,1 = al provocar, la amenaza del tanque sube hasta la más alta de cada mob (provocación clásica)
+amenaza_tanque_mult,1,amenaza del Combatiente por punto de daño (1 = como los demás; decidido: sin multiplicador en la Temporada 1)
+elite_mult_dano,3,élites: multiplican el daño del mob normal
+mazmorra_vida_jefe,1500000,jefe de mazmorra del nivel 20 (provisional)
+mazmorra_dano_jefe_mult,10,el jefe pega este múltiplo del mob normal
+oleada_cada_s,30,segundos entre oleadas de adds
+oleada_tamanos,6|7,tamaño de cada oleada (se van alternando)
+primera_oleada_s,20,segundos hasta la primera oleada
+mazmorra_limite_s,900,si el jefe no cae en este tiempo, el intento se da por fallido (furia)
+mazmorra_intentos,5,intentos antes de dar la mazmorra por imposible
