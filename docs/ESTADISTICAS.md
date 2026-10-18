@@ -794,7 +794,7 @@ Para bajar su consumo de pociones, el robo de vida del cuerpo a cuerpo pasa del 
 - El mágico, al depender del maná, **se para a descansar** para recuperarlo en vez de beber, y pasa de ser el más rápido a tardar más que el cuerpo a cuerpo desde el nivel 10 (705 → 1.095 min en el 19). Al descansar tampoco necesita pociones de vida.
 - Siguiente paso: bajar el % del arco, decidir si el mágico debe beber en lugar de descansar por maná, y calibrar los % para quedar dentro de 300–1.000.
 
-**Rangos de habilidad (decidido):** las habilidades solo suben de rango en niveles concretos: **rango 2 en el nivel 5, rango 3 en el 10 y rango 4 en el 15** (cada rango: +1 % de daño, +10 % de coste de maná sobre el valor base; en el nivel 19, +3 % de daño y +30 % de coste).
+**Niveles de habilidad (decidido):** con los libros, cada habilidad pasa a **nivel de habilidad 2 en el nivel de personaje 5, a nivel 3 en el 10 y a nivel 4 en el 15** (cada rango: +1 % de daño, +10 % de coste de maná sobre el valor base; en el nivel 19, +3 % de daño y +30 % de coste).
 
 Con solo tres rangos y los % de partida, **nadie bebe pociones de maná** en ningún nivel (min · pociones de vida; nadie muere):
 
