@@ -732,6 +732,27 @@ INT y AGI siguen pendientes de validar.
 - Con mucha menos defensa, **todos reciben más daño** en los niveles altos: desde el nivel 10 el cuerpo a cuerpo bebe 250–1.500 pociones cada 1.000 mobs y tiene que descansar (espada larga 859 → 1.049 min en el nivel 19); el arco y el mágico también beben más y tardan algo más que antes.
 - Del 1 al 9 casi nada cambia: hasta el nivel 9 la defensa antigua aún era baja.
 
+### 2.22 Robo de vida del cuerpo a cuerpo al 5 % (decidido)
+
+Para bajar su consumo de pociones, el robo de vida del cuerpo a cuerpo pasa del **4 % al 5 %**. Del 1 al 9 no cambia nada (se desbloquea en el nivel 10).
+
+| Nivel | Espada larga 4 % → 5 % (min · pociones) | Espada corta 4 % → 5 % |
+|---|---|---|
+| 10 | 331 · 316 → 314 · 340 | 321 · 266 → 298 · 304 |
+| 11 | 364 · 366 → 333 · 521 | 364 · 253 → 321 · 382 |
+| 12 | 404 · 496 → 389 · 457 | 385 · 408 → 368 · 372 |
+| 13 | 479 · 419 → 451 · 376 | 433 · 393 → 409 · 348 |
+| 14 | 534 · 582 → 505 · 531 | 509 · 420 → 475 · 407 |
+| 15 | 603 · 726 → 563 · 781 | 566 · 505 → 516 · 562 |
+| 16 | 664 · 1.021 → 648 · 712 | 601 · 808 → 585 · 589 |
+| 17 | 806 · 949 → 733 · 1.029 | 714 · 815 → 665 · 695 |
+| 18 | 880 · 1.509 → 857 · 1.097 | 800 · 987 → 748 · 781 |
+| 19 | 1.049 · 1.449 → 965 · 1.501 | 938 · 1.182 → 855 · 1.065 |
+| **Total 10–19** | **7.833 → 7.345 pociones (−6 %)** | **6.037 → 5.505 (−9 %)** |
+
+- Las pociones bajan poco (6–9 %); lo que más mejora es el **tiempo**: descansa menos y caza un 5–10 % más rápido (espada larga 1.049 → 965 min en el nivel 19). La diferencia con el mágico baja de ~61 % a 52–63 % según el nivel.
+- Lo que más vida le quita es el **golpe sangriento** (1/6 de la vida cada 10 s). Para bajar de verdad las pociones, la palanca más directa es su coste (1/7 o 1/8) o su enfriamiento.
+
 ## 3. Ficha de los niveles 1–19 (en revisión: ver 2.21)
 
 Resumen de todo lo decidido en la sección 2 para el tramo **sin clase** (niveles 1 al 19). La ficha completa, nivel a nivel, se genera con `python3 herramientas/simulador/simular.py --ficha` en `herramientas/simulador/resultados/` (`ficha_perfiles_1_19.csv` y `ficha_mobs_1_19.csv`), lista para pasar a DataTables.
@@ -787,7 +808,7 @@ El arma de nivel 1 da el mismo bono que se gana en cada nivel (easter egg).
 | Cuerpo a cuerpo | Golpe doble | 1 | 150 % + 75 % del arma | 20 s | un golpe blanco | 8 |
 | Cuerpo a cuerpo | Golpe al suelo | 1 | 300 % del arma | 40 s | 3 s | 12 |
 | Cuerpo a cuerpo | Golpe sangriento | 10 | 300 % del arma; cuesta 1/6 de la vida máxima | 10 s | un golpe blanco | — |
-| Cuerpo a cuerpo | Robo de vida (pasiva) | 10 | se cura el 4 % del daño que hace | — | — | — |
+| Cuerpo a cuerpo | Robo de vida (pasiva) | 10 | se cura el 5 % del daño que hace (antes 4 %) | — | — | — |
 | Distancia | Disparo cargado | 1 | 200 % del arma | 12 s | 2 s | 6 |
 | Distancia | Ráfaga triple | 1 | 3 × 120 % del arma | 40 s | 1,5 s | 12 |
 | Distancia | Disparo potente | 10 | 350 % del arma | 15 s | 3 s | 10 |
