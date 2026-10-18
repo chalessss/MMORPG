@@ -817,6 +817,16 @@ El juego busca un equilibrio: **un tercio del día jugando, un tercio en automá
 
 **Impacto en la economía**: lo automático genera más recursos y presiona los precios a la baja; por eso los límites diarios y los sumideros de moneda.
 
+### 3.27 Clanes (en curso)
+
+Los clanes deben ser **comunidades vivas** que den sentido de pertenencia y premien a los jugadores activos. Estar en un clan debe ser prácticamente imprescindible.
+
+- **El clan se desarrolla con el esfuerzo de sus miembros**, no se compra hecho (a diferencia de WoW). Progreso deliberadamente lento y exigente, estilo MIR4.
+- **Técnicas del clan** (como puntos de talento): el clan elige en qué especializarse primero: **economía**, **PvP** o **PvE**. Habrá una ruta recomendada, pero la decisión es del clan.
+- Los puntos para las técnicas se consiguen con la **participación de los miembros**.
+- **Registro de contribución por miembro**: donaciones, ayuda, participación en actividades… Los líderes ven quién contribuye y quién no, y pueden actuar en consecuencia.
+- Monedas de clan y tienda del clan (3.20).
+
 ### 3.23 Menú principal del juego (en curso, estilo MIR4)
 
 Un **único menú** desde el que se accede a todos los sistemas del juego, sin tener que abrir ventanas encadenadas. Incluye un panel con todas las monedas del jugador.
