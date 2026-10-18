@@ -128,7 +128,12 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
     dano_arma = float(perfil["arma"]["dano"])
     con_ataque_basico = perfil["arquetipo"]["ataque_basico"] == "1"
     a_distancia = perfil["arquetipo"]["a_distancia"] == "1"
-    habilidades = perfil["habilidades"]
+    # Habilidades de daño, y las especiales (pasivas y activas que no pegan).
+    habilidades = [h for h in perfil["habilidades"] if h.get("tipo", "dano") == "dano"]
+    especial = {h["tipo"]: h for h in perfil["habilidades"] if h.get("tipo", "dano") != "dano"}
+    robo_vida = float(especial["robo_vida"]["valor"]) / 100 if "robo_vida" in especial else 0.0
+    furia, escudo = especial.get("furia"), especial.get("escudo")
+    activa = {"furia_hasta": -1.0, "furia_lista": 0.0, "escudo_hasta": -1.0, "escudo_resto": 0.0, "escudo_listo": 0.0}
     golpes = {h["nombre"]: golpes_de(h, dano_arma, s) for h in habilidades}
     coste = {h["nombre"]: float(h["coste_mana"]) if supervivencia else 0.0 for h in habilidades}
     blanco = (dano_arma + s["plano"]) * s["base"]
@@ -144,7 +149,7 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
 
     e = {"t": 0.0, "vida": vida_max, "mana": mana_max, "util": 0.0, "perdido": 0.0, "muertes": 0,
          "pegando": 0.0, "caminando": 0.0, "descansando": 0.0, "esperando_mana": 0.0, "muerto": 0.0,
-         "dano_recibido": 0.0, "pociones_vida": 0, "pociones_mana": 0}
+         "dano_recibido": 0.0, "pociones_vida": 0, "pociones_mana": 0, "absorbido": 0.0, "curado": 0.0}
     pocion_lista = {"vida": 0.0, "mana": 0.0}  # cuándo sale del enfriamiento cada poción
 
     def beber(tipo):
@@ -168,6 +173,11 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
             e["t"] = mob["proximo_golpe"]
             dano_recibido = mob["golpes"][mob["ciclo"] % len(mob["golpes"])]
             mob["ciclo"] += 1
+            if e["t"] < activa["escudo_hasta"] and activa["escudo_resto"] > 0:
+                absorbido = min(dano_recibido, activa["escudo_resto"])
+                activa["escudo_resto"] -= absorbido
+                e["absorbido"] += absorbido
+                dano_recibido -= absorbido
             e["vida"] -= dano_recibido
             e["dano_recibido"] += dano_recibido
             mob["proximo_golpe"] += p["intervalo_mob_s"]
@@ -215,6 +225,26 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
     indice = 0
     empezar_mob(vidas[0])
     while indice < len(vidas) and (limite_s is None or e["t"] < limite_s):
+        # Activas que no pegan: se usan antes que cualquier ataque si están listas.
+        if furia and activa["furia_lista"] <= e["t"] and (not supervivencia or e["vida"] > vida_max / 2):
+            activa["furia_hasta"] = e["t"] + float(furia["duracion"])
+            activa["furia_lista"] = e["t"] + float(furia["enfriamiento"])
+            usos[furia["nombre"]] = usos.get(furia["nombre"], 0) + 1
+        if (supervivencia and escudo and activa["escudo_listo"] <= e["t"] and mob["proximo_golpe"] is not None
+                and e["mana"] >= float(escudo["coste_mana"])):
+            e["mana"] -= float(escudo["coste_mana"])
+            activa["escudo_hasta"] = e["t"] + float(escudo["duracion"])
+            activa["escudo_resto"] = vida_max * float(escudo["valor"]) / 100
+            activa["escudo_listo"] = e["t"] + float(escudo["enfriamiento"])
+            usos[escudo["nombre"]] = usos.get(escudo["nombre"], 0) + 1
+            if not avanzar(float(escudo["lanzamiento"]), "pegando"):
+                e["muertes"] += 1
+                e["t"] += p["penalizacion_muerte_s"]
+                e["muerto"] += p["penalizacion_muerte_s"]
+                e["vida"], e["mana"] = vida_max, mana_max
+                mob["proximo_golpe"] = None
+                empezar_mob(vidas[indice])
+            continue
         disponibles = [h for h in habilidades if listo[h["nombre"]] <= e["t"] and coste[h["nombre"]] <= e["mana"]]
         if p["ahorrar_habilidades"] and mob["vida"] <= remate:
             # Al mob le queda poco: no se gasta una habilidad con enfriamiento largo.
@@ -227,6 +257,11 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
             nombre, danos = h["nombre"], golpes[h["nombre"]]
             listo[nombre] = e["t"] + float(h["enfriamiento"])
             e["mana"] -= coste[nombre]
+            if furia and e["t"] < activa["furia_hasta"]:
+                # Furia: la habilidad pega más fuerte a cambio de vida.
+                danos = [d * (1 + float(furia["valor"]) / 100) for d in danos]
+                if supervivencia:
+                    e["vida"] = max(1, e["vida"] - round(vida_max * float(furia["coste_vida_pct"]) / 100))
             # Sin tiempo de lanzamiento, la habilidad ocupa el hueco de un golpe blanco.
             duracion = float(h["lanzamiento"]) or intervalo
         elif con_ataque_basico:
@@ -260,7 +295,12 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
                     if azar is not None:
                         dano = round(dano)  # con críticos reales cada golpe es un número entero
                     # Si el mob muere a mitad de una habilidad, los golpes que quedan se pierden.
-                    e["util"] += min(dano, max(mob["vida"], 0))
+                    util = min(dano, max(mob["vida"], 0))
+                    e["util"] += util
+                    if supervivencia and robo_vida:
+                        curado = min(vida_max - e["vida"], util * robo_vida)
+                        e["vida"] += curado
+                        e["curado"] += curado
                     e["perdido"] += max(dano - max(mob["vida"], 0), 0)
                     mob["vida"] -= dano
 
@@ -433,13 +473,14 @@ def niveles(parametros, armas, arquetipos, conversion, habilidades):
         cazas = [prueba_caza(pf, conversion, p, supervivencia=True) for pf in lista]
         nombres = [pf["arma"]["arma"] if pf["arquetipo"]["ataque_basico"] == "1" else "Mágico" for pf in lista]
         if cabecera is None:
-            cabecera = f"{'Nivel':>5}{'Vida mob':>9}" + "".join(f"{n:>22}" for n in nombres) + f"{'Diferencia':>11}"
+            cabecera = f"{'Nivel':>5}{'Vida mob':>9}" + "".join(f"{n:>24}" for n in nombres) + f"{'Diferencia':>11}"
             print(cabecera)
-            print(f"{'':>14}" + "".join(f"{'min · pociones':>22}" for _ in nombres))
+            print(f"{'':>14}" + "".join(f"{'min · poc. · muertes':>24}" for _ in nombres))
         tiempos = [c["tiempo"] for c in cazas]
-        celdas = "".join(f"{c['tiempo'] / 60:>14.1f}{c['pociones_vida'] + c['pociones_mana']:>8}" for c in cazas)
+        celdas = "".join(f"{c['tiempo'] / 60:>12.1f}{c['pociones_vida'] + c['pociones_mana']:>6}{c['muertes']:>6}"
+                         for c in cazas)
         print(f"{nivel:>5}{p['vida_mob']:>9.0f}{celdas}{(max(tiempos) / min(tiempos) - 1) * 100:>10.1f}%")
-    print("\nmin = minutos para matar los mobs del nivel · pociones = de vida y de maná bebidas")
+    print("\nmin = minutos para matar los mobs del nivel · poc. = pociones de vida y de maná bebidas · muertes")
 
 
 def informe(parametros, armas, arquetipos, conversion, habilidades):

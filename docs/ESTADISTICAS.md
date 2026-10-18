@@ -485,6 +485,46 @@ Nivel 1 con la rotación (caza real, 1.000 mobs): espada larga 165,1 min · espa
 - Con +30 % por nivel los mobs **crecen más que los jugadores** (cuyo daño sube ~17 % por nivel): matar 1.000 mobs pasa de ~165 min en el nivel 1 a **820–1.190 min** en el 19. Con +10 % (2.11) pasaba lo contrario. El punto de equilibrio está en torno a **+17 % por nivel** con el crecimiento de estadísticas actual.
 - **Pociones**: el cuerpo a cuerpo no necesita ninguna desde el nivel 2; el **arco llega a 2,4 pociones por mob** y el mágico a 1 en el nivel 19. La poción cura siempre 100 mientras la vida de los jugadores sube (el arco tiene 1.660 de vida en el 19): las pociones también tendrán que escalar por nivel.
 - La diferencia entre perfiles va del 2,5 % al **44 %**: la espada larga cada vez más lenta y el mágico el más rápido (el crecimiento desigual de 2.10).
+- **Corrección**: esta tabla no mostraba las muertes. El arco y el mágico sí morían en niveles altos aun bebiendo pociones: en el nivel 10, 45 y 102 muertes; en el 19, **80 y 341** (cada una cuesta 30 s).
+
+### 2.14 Primeras habilidades de supervivencia (una por perfil)
+
+Valores de partida (ajustables en `habilidades.csv`):
+
+| Perfil | Habilidad | Tipo | Qué hace |
+|---|---|---|---|
+| Arco | **Robo de vida** | Pasiva | Se cura el **10 %** del daño de cada golpe (para depender menos de las pociones) |
+| Cuerpo a cuerpo | **Furia sangrienta** | Activa | Durante 12 s sus habilidades hacen **+40 %** de daño, pero cada una cuesta además un **5 % de su vida máxima**; enfriamiento 30 s; solo se activa con más de la mitad de la vida |
+| Mágico | **Escudo de maná** | Activa | Absorbe daño hasta un **30 % de su vida máxima** durante 8 s; 15 de maná, 1 s de lanzamiento, enfriamiento 20 s; se lo pone cuando el mob ya le está pegando |
+
+**Del 1 al 19** (vida del mob +30 % por nivel, rotación de mobs, 1.000 mobs por nivel; min · pociones · muertes):
+
+| Nivel | Vida mob | Espada larga | Espada corta | Arco | Mágico | Diferencia |
+|---|---|---|---|---|---|---|
+| 1 | 420 | 160 · 43 · 0 | 164 · 27 · 0 | 169 · 0 · 0 | 177 · 114 · 0 | 10,9 % |
+| 2 | 546 | 163 · 12 · 0 | 159 · 17 · 0 | 160 · 0 · 0 | 161 · 149 · 0 | 2,8 % |
+| 3 | 710 | 168 · 0 · 0 | 159 · 0 · 0 | 160 · 0 · 0 | 153 · 134 · 0 | 10,2 % |
+| 4 | 923 | 174 · 0 · 0 | 164 · 0 · 0 | 165 · 0 · 0 | 150 · 179 · 0 | 16,1 % |
+| 5 | 1.200 | 185 · 0 · 0 | 172 · 0 · 0 | 171 · 0 · 0 | 153 · 231 · 0 | 21,4 % |
+| 6 | 1.559 | 205 · 0 · 0 | 178 · 0 · 0 | 179 · 0 · 0 | 159 · 273 · 0 | 29,0 % |
+| 7 | 2.027 | 227 · 0 · 0 | 194 · 0 · 0 | 198 · 0 · 0 | 168 · 312 · 0 | 35,3 % |
+| 8 | 2.635 | 250 · 0 · 0 | 212 · 0 · 0 | 226 · 0 · 0 | 177 · 387 · 0 | 41,6 % |
+| 9 | 3.426 | 274 · 0 · 0 | 231 · 0 · 0 | 234 · 0 · 0 | 187 · 416 · 0 | 46,6 % |
+| 10 | 4.454 | 305 · 0 · 0 | 259 · 0 · 0 | 271 · 0 · 0 | 206 · 444 · 0 | 47,9 % |
+| 11 | 5.790 | 344 · 0 · 0 | 290 · 0 · 0 | 310 · 0 · 0 | 227 · 509 · 0 | 51,4 % |
+| 12 | 7.527 | 382 · 0 · 0 | 331 · 0 · 0 | 346 · 0 · 0 | 252 · 619 · 0 | 51,6 % |
+| 13 | 9.785 | 439 · 0 · 0 | 366 · 0 · 0 | 398 · 0 · 0 | 281 · 704 · 0 | 56,1 % |
+| 14 | 12.721 | 505 · 0 · 0 | 423 · 0 · 0 | 458 · 0 · 0 | 316 · 831 · 0 | 59,9 % |
+| 15 | 16.537 | 589 · 0 · 0 | 488 · 0 · 0 | 528 · 0 · 0 | 359 · 987 · 0 | 64,1 % |
+| 16 | 21.498 | 678 · 0 · 0 | 563 · 0 · 0 | 638 · 0 · 0 | 411 · 1.103 · 0 | 65,0 % |
+| 17 | 27.947 | 796 · 0 · 0 | 659 · 0 · 0 | 710 · 0 · 0 | 471 · 1.255 · 0 | 69,1 % |
+| 18 | 36.332 | 937 · 0 · 0 | 769 · 0 · 0 | 847 · 0 · 0 | 544 · 1.456 · 0 | 72,1 % |
+| 19 | 47.231 | 1.093 · 0 · 0 | 907 · 0 · 0 | 998 · 0 · 0 | 630 · 1.644 · 0 | 73,5 % |
+
+- **Nadie muere** en ningún nivel (antes, el arco y el mágico morían a partir de nivel 5–10).
+- **Arco**: con el robo de vida del 10 % **no necesita ninguna poción** (antes 196 en el nivel 1 y 2.425 en el 19). Probablemente es demasiado: se puede bajar el %.
+- **Mágico**: el escudo baja las pociones a menos de la mitad en el nivel 1 (251 → 114), pero en niveles altos sigue bebiendo mucho (1.644 en el 19; la poción cura 100 fijo). Como ya no muere, es **el más rápido** desde el nivel 3, y la diferencia sube al 73,5 %. En el nivel 1 el escudo le cuesta tiempo (1 s de lanzamiento cada vez): queda un 10,9 % más lento.
+- **Cuerpo a cuerpo**: la furia le da algo más de daño (espada larga 165 → 160 min en el nivel 1) a cambio de beber algunas pociones en los niveles 1–2 (43 y 27); desde el nivel 3 no necesita ninguna.
 
 ## 3. Estructura propuesta del capítulo
 

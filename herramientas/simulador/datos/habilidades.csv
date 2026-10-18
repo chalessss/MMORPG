@@ -1,7 +1,10 @@
-arquetipo,nombre,golpes,unidad,enfriamiento,lanzamiento,coste_mana,nota
-melee,Golpe doble,1.5|0.75,arma,20,0,8,golpe blanco potenciado con remate del mango (150 % + 75 % = 225 %); ocupa el hueco de un golpe blanco
-melee,Golpe al suelo,3.0,arma,40,3.0,12,salta y golpea el suelo: animación de 3 s
-rango,Disparo cargado,2.0,arma,12,2.0,6,carga la flecha 2 s y la suelta
-rango,Ráfaga triple,1.2|1.2|1.2,arma,40,1.5,12,tres disparos seguidos: la habilidad de más daño
-magico,Hechizo fuerte,97,puntos,8,2.0,12,mucho daño; vuelve a estar listo tras tres hechizos débiles
-magico,Hechizo débil,32,puntos,1,2.0,5,se puede lanzar siempre
+arquetipo,nombre,tipo,golpes,unidad,enfriamiento,lanzamiento,coste_mana,coste_vida_pct,valor,duracion,nota
+melee,Golpe doble,dano,1.5|0.75,arma,20,0,8,0,0,0,golpe blanco potenciado con remate del mango (150 % + 75 % = 225 %); ocupa el hueco de un golpe blanco
+melee,Golpe al suelo,dano,3.0,arma,40,3.0,12,0,0,0,salta y golpea el suelo: animación de 3 s
+melee,Furia sangrienta,furia,,,30,0,0,5,40,12,activa: durante 'duracion' s las habilidades hacen +valor % de daño y cada una cuesta coste_vida_pct % de la vida máxima
+rango,Disparo cargado,dano,2.0,arma,12,2.0,6,0,0,0,carga la flecha 2 s y la suelta
+rango,Ráfaga triple,dano,1.2|1.2|1.2,arma,40,1.5,12,0,0,0,tres disparos seguidos: la habilidad de más daño
+rango,Robo de vida,robo_vida,,,0,0,0,0,10,0,pasiva: se cura un valor % del daño de cada golpe
+magico,Hechizo fuerte,dano,97,puntos,8,2.0,12,0,0,0,mucho daño; vuelve a estar listo tras tres hechizos débiles
+magico,Hechizo débil,dano,32,puntos,1,2.0,5,0,0,0,se puede lanzar siempre
+magico,Escudo de maná,escudo,,,20,1.0,15,0,30,8,activa: absorbe daño hasta un valor % de la vida máxima durante 'duracion' s
