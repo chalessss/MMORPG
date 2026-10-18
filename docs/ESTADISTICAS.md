@@ -15,7 +15,7 @@ Estado: **en curso**. Primer capítulo de detalle. Este archivo recoge el punto 
 
 ### 1.2 Lo que hay en la hoja "Organizando la Base de Datos del Juego"
 
-**Qué da cada estadística principal** (pestaña principal, columnas W–Z):
+**Qué da cada punto de estadística principal** (pestaña principal, columnas W–Z) — **decidido**: cada punto de STR, INT o AGI sube todas las secundarias de su columna. Las **neutrales** no dependen de ninguna principal.
 
 | Fuerza | Inteligencia | Agilidad | Neutrales |
 |---|---|---|---|
@@ -34,7 +34,7 @@ Estado: **en curso**. Primer capítulo de detalle. Este archivo recoge el punto 
 
 Hay además una columna con las anotaciones `AGI>INT`, `INT>STR`, `STR>AGI` (ver 1.3).
 
-**Estadísticas base de las clases de la Temporada 1** — tabla corregida (filas 54–60 de la pestaña principal; la tabla de las filas 45–51 y la de "Habilidades 2.0" son versiones anteriores y **no se usan**). Cada clase suma 10 puntos:
+**Estadísticas base de las clases de la Temporada 1** — tabla corregida (filas 54–60 de la pestaña principal; la tabla de las filas 45–51 y la de "Habilidades 2.0" son versiones anteriores y **no se usan**). Es el **reparto de nivel 1** que recibe el personaje por ser de esa clase (decidido). Cada clase suma 10 puntos:
 
 | ID | Clase | STR | INT | AGI | Recurso secundario |
 |---|---|---|---|---|---|
@@ -49,17 +49,9 @@ Todas usan MP como recurso primario.
 
 La fila 45 añade tres neutrales a la lista: **efecto de pociones**, **% de caída** y **% de caída con suerte**.
 
-En las filas 62–70 hay otro borrador de reparto, con columnas Físico / Mágico:
+Las filas 62–70 tienen otro borrador de reparto (STR → daño base y defensa física, AGI → crítico y evasión…): **descartado**; se usa el de las columnas W–Z.
 
-| Estadística | Da | Y además | Físico | Mágico |
-|---|---|---|---|---|
-| STR | Daño base | Defensa física | 6 | 3 |
-| AGI | Crítico | Evasión | 6 | 5 |
-| INT | Daño de habilidad | Defensa mágica | 3 | 7 |
-| HP | Vida máxima | Regeneración de vida | 7 | 6 |
-| MP | Maná máximo | Regeneración de maná | 3 | 4 |
-| WD (arma) | Daño de arma | Velocidad de ataque | 7 | 3 |
-| ARM (armadura) | Absorción de daño | Reducción de daño de mobs | 6 | 2 |
+**Origen de las neutrales (decidido):** vienen del **equipo secundario** (collar, aretes y demás joyería) y de **encantamientos** concretos. Se suman aparte, sin depender de STR, INT ni AGI.
 
 **Velocidad de ataque por arma** (pestaña "Armas"): lanza 0,9 · espada 1,0 · espada corta 1,3 · daga 1,6 · ballesta 0,8 · arco 1,1 · bastón 0,6 · libro 0,9 · varita 1,2.
 
