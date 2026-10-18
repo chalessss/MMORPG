@@ -864,6 +864,18 @@ Los clanes deben ser **comunidades vivas** que den sentido de pertenencia y prem
 - **PvE**: bonificaciones de caza, experiencia y botín.
 - **PvP**: bonificaciones en zonas de combate, acceso a la conquista de territorios.
 
+### 3.28 Clasificación (decidido)
+
+Solo se clasifica lo que se puede medir de forma objetiva:
+
+| Clasificación | Qué mide |
+|---|---|
+| **Nivel** | Experiencia acumulada del personaje |
+| **Poder** | Puntuación de poder del personaje (fórmula a definir en el capítulo de estadísticas) |
+| **Códice** | Cuántas entradas del códice ha completado la cuenta |
+
+*Propuestas por confirmar*: clasificación de **clanes** (nivel o poder del clan) y de **honor** (PvP); filtros por clase y por servidor.
+
 ### 3.23 Menú principal del juego (en curso, estilo MIR4)
 
 Un **único menú** desde el que se accede a todos los sistemas del juego, sin tener que abrir ventanas encadenadas. Incluye un panel con todas las monedas del jugador.
