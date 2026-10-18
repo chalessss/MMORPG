@@ -298,6 +298,27 @@ Sin tocar mobs, vida ni daño o velocidad de las armas. Bonos (STR / INT / AGI):
 - Con pociones **nadie muere**. El arco gasta unas 6 pociones de vida cada 100 mobs y el mágico unas 10; ninguno necesita pociones de maná.
 - El cuerpo a cuerpo no gasta ninguna (le sobra vida y regeneración), pero queda último: pierde un 12–13 % caminando y la espada larga ya era la más lenta en combate puro.
 
+### 2.7 Daño extra del cuerpo a cuerpo por la caminata (decidido)
+
+El daño de las espadas se sube directamente para que el cuerpo a cuerpo, caminando entre mobs, cace al mismo ritmo que el arco y el mágico (que no se tocan). Se calcula con `simular.py --calibrar-real`.
+
+| Arma | Daño por golpe antes | Daño por golpe ahora | Subida |
+|---|---|---|---|
+| Espada larga | 52 | **75,5** | +45 % |
+| Espada corta | 27,7 | **37,1** | +34 % |
+
+**Resultado** (bonos de arma de 2.5, sin descansos, con pociones; 1.000 mobs):
+
+| Perfil | Caza real | Frente al más rápido | Caminando | Pociones de vida | Combate puro | Daño por segundo contra jefe |
+|---|---|---|---|---|---|---|
+| Arco | 158,4 min | — | 0 % | 59 | 158,4 min | 50,0 |
+| Espada larga | 159,0 min | +0,4 % | 16 % | 0 | 137,5 min | 60,0 |
+| Espada corta | 159,2 min | +0,5 % | 16 % | 0 | 136,5 min | 56,4 |
+| Mágico | 160,7 min | +1,5 % | 0 % | 99 | 160,7 min | 49,4 |
+
+- En la caza real los cuatro quedan a un **1,5 %** como máximo.
+- A cambio, **sin caminar** (contra un jefe, o con mobs muy juntos) el cuerpo a cuerpo hace un **13–20 % más de daño** que los de distancia. Habrá que tenerlo en cuenta en mazmorras y jefes.
+
 ## 3. Estructura propuesta del capítulo
 
 1. **Lista cerrada de estadísticas** y a qué categoría pertenece cada una (principal, derivada, neutral, PvP, utilidad).

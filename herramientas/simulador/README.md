@@ -15,9 +15,12 @@ Pruebas:
 ```
 python3 herramientas/simulador/simular.py             # resultados
 python3 herramientas/simulador/simular.py --calibrar  # recalcula el daño de armas y hechizos y lo guarda
+python3 herramientas/simulador/simular.py --calibrar-real  # sube el daño del cuerpo a cuerpo para igualar en la caza real
 ```
 
 `--calibrar` deja el arma de referencia (espada larga) como está y ajusta el daño de las demás armas, y el de los hechizos del mágico, para que todos tarden lo mismo en la caza en combate puro. Las habilidades de los físicos se definen como % del daño del arma y suben o bajan con ella.
+
+`--calibrar-real` deja el arco y el bastón como están y ajusta solo el daño de las armas cuerpo a cuerpo para que, caminando entre mobs, tarden lo mismo que la media de los de distancia. Ojo: volver a ejecutar `--calibrar` después iguala de nuevo todo en combate puro tomando la espada larga como referencia, y deshace esa compensación.
 
 Solo necesita Python 3, sin librerías extra. Todos los valores están en `datos/` (CSV), los mismos que más adelante se importarán a las DataTables de Unreal:
 

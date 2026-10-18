@@ -1,5 +1,5 @@
 arma,segundos_entre_golpes,dano,bono_str,bono_int,bono_agi,nota
-Espada larga,2.6,52,10,3,5,referencia de la calibración: pega lento y fuerte
-Espada corta,1.4,27.7,10,3,5,pega rápido y flojo
+Espada larga,2.6,75.5,10,3,5,referencia de la calibración en combate puro; daño subido para compensar la caminata: pega lento y fuerte
+Espada corta,1.4,37.1,10,3,5,pega rápido y flojo
 Arco,2.0,34.5,4,4,10,
 Bastón,3.0,0,3,10,5,el mago no hace daño con el arma
