@@ -1022,8 +1022,12 @@ Queda para más adelante:
 **Para el final**
 - **Ambientación y estilo artístico**: se decide cuando el juego ya se pueda jugar con modelos genéricos; el estilo gráfico se adaptará a la historia.
 
-**Capítulos propios**
-- **Sistemas de juego** (siguiente): sistemas tomados de otros juegos que marcarán a qué deben apuntar las estadísticas.
+**Capítulos propios** (esta conversación fija los parámetros generales; cada capítulo se detalla después por separado)
+- **PvP** (siguiente): reglas base del combate entre jugadores. La **guerra de territorios** va aparte, con los mapas.
 - **Estadísticas**: peso de cada estadística por clase, PvE vs. PvP; revisar la hoja (valores base que no coinciden, fórmula que suma el nivel dos veces, nombres de habilidades desplazados, modelo de estadísticas).
-- **Códice**: cantidades exactas de objetos y desarrollo por entrada (con las estadísticas); fabricación de objetos con trofeos; nombres de trofeos y objetos por familia; cuello de botella de MIR4.
-- **Contenido por temporada**: tipo de armadura de cada especialización y casos dudosos (Espadas duales, Recolector, Carroñero, Mutilador); si el tipo puede cambiar entre la especialización 1 y la final.
+- **Personajes → Habilidades**: subcapítulo del de personajes.
+- **Mapas**: zonas, distribución de mobs, guerra de territorios.
+- **Recursos**: cómo se generan y distribuyen.
+- **Objetos**: todo lo que se usa, se equipa, se consume o aparece en el juego (incluye cantidades del códice, trofeos y nombres; tipo de armadura por especialización).
+- **Profesiones**: detalle completo.
+- **Contenido por temporada**: la **distribución** de todo lo anterior en capítulos: qué mapas, objetos, nivel máximo, cadena de misiones y reputaciones se habilitan en cada temporada.
