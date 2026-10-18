@@ -28,6 +28,19 @@ Lista cerrada: son **todas** las especializaciones que habrá en el nivel 20.
 | Física - Rango | **Atacante a distancia** (única opción) |
 | Mágica - Rango | **Mago**, **Invocador** |
 
+**Rol, arma y forma de cazar (decidido):**
+
+| Especialización | Rol | Arma | Cómo caza |
+|---|---|---|---|
+| Luchador | Daño físico cuerpo a cuerpo | Espadas cortas | Mobs de uno en uno |
+| Asesino | Daño físico cuerpo a cuerpo | Dagas (**se crean por profesión**) | Mobs de uno en uno |
+| Combatiente | Daño físico cuerpo a cuerpo, aguanta | Espadas largas | **En área** (zonas de conglomerados) |
+| Atacante a distancia | Daño físico a distancia | Arcos | Mobs de uno en uno |
+| Mago | Daño mágico a distancia | Bastón | Mobs de uno en uno |
+| Invocador | Daño mágico a distancia, **potencia al grupo** | Varita (**se crea por profesión**) | Mobs de uno en uno |
+
+- Las dos armas de Física - Melee se reparten entre sus especializaciones: la **espada corta** pasa al Luchador y la **espada larga** al Combatiente.
+- Dagas y varitas no se consiguen como las demás armas: **se fabrican con una profesión**.
 
 ### 1.0c Transición en el nivel 20: se recalcula todo (decidido)
 
@@ -78,8 +91,8 @@ Valores del nivel 19 (ficha vigente: `python3 herramientas/simulador/simular.py 
 
 | ID | Clase | STR | INT | AGI | Arma (hoja) | Velocidad | Recurso secundario |
 |---|---|---|---|---|---|---|---|
-| CL_LUC | Luchador | 7 | 1 | 2 | Espada | 1,0 | Ira |
-| CL_COM | Combatiente | 5 | 1 | 4 | Espada | 1,0 | Ira |
+| CL_LUC | Luchador | 7 | 1 | 2 | Espada (decidido: espada corta) | 1,0 | Ira |
+| CL_COM | Combatiente | 5 | 1 | 4 | Espada (decidido: espada larga) | 1,0 | Ira |
 | CL_ASE | Asesino | 3 | 1 | 6 | Daga | 1,6 | Energía |
 | CL_ATA | Atacante a distancia | 2 | 2 | 6 | Arco | 1,1 | Foco |
 | CL_MAG | Mago | 1 | 7 | 2 | Bastón | 0,6 | Iluminación |
