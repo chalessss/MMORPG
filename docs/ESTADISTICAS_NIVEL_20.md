@@ -16,7 +16,17 @@ Estado: **en curso**. Segunda sesión del capítulo de estadísticas. La primera
 
 - Los nombres de clase que se usaron al describir los perfiles de inicio (Combatiente, Atacante a distancia, Mago…) eran **ejemplos de la especialización que elegirían después**, no el nombre oficial de la clase de inicio.
 - Las estadísticas de estas clases son las de los perfiles cerrados en la parte 1 (reparto, armas, crecimiento y habilidades).
-- **Física son dos clases distintas** (decidido): Física - Melee y Física - Rango. En el nivel 20 cada una lleva a su propia especialización: la melee, por ejemplo, al **Combatiente**; la de rango, al **Atacante a distancia**.
+- **Física son dos clases distintas** (decidido): Física - Melee y Física - Rango, cada una con sus propias especializaciones.
+
+### 1.0b Especializaciones del nivel 20 (decidido)
+
+Lista cerrada: son **todas** las especializaciones que habrá en el nivel 20.
+
+| Clase de inicio | Especializaciones del nivel 20 |
+|---|---|
+| Física - Melee | **Luchador**, **Combatiente**, **Asesino** |
+| Física - Rango | **Atacante a distancia** (única opción) |
+| Mágica - Rango | **Mago**, **Invocador** |
 
 
 ### 1.1 Cómo llega el personaje al nivel 20
@@ -62,7 +72,7 @@ La velocidad de la hoja está en golpes relativos; en el simulador se expresa en
 
 ## 2. Trabajo de esta sesión
 
-1. **Clases por perfil de inicio**: qué clases ofrece la misión a cada perfil.
+1. ~~**Especializaciones por clase de inicio**~~: decidido (1.0b).
 2. **Transición en el nivel 20**: cómo se pasa del reparto del perfil al de la clase (puntos ya ganados y crecimiento por nivel desde el 20).
 3. **Pasiva de clase**: qué da cada punto de STR, INT y AGI en cada una de las 6 clases.
 4. **Habilidades de clase** (6–8 activables) en lo que afecta a las estadísticas: daño, enfriamiento y coste de maná.
@@ -75,7 +85,6 @@ La velocidad de la hoja está en golpes relativos; en el simulador se expresa en
 
 ## 3. Preguntas abiertas
 
-- **Especializaciones de cada clase de inicio en el nivel 20** (propuesta por confirmar): Física - Melee → Luchador, Combatiente o Asesino; Física - Rango → Atacante a distancia; Mágica - Rango → Mago o Invocador. Física - Rango tendría una sola opción.
 - **Nombres de las etapas**: con la clase base en el nivel 20, la "especialización 1" (Dos manos, Tanque, Arquero…) parece pasar al nivel 40 y la especialización final al 60, como en la hoja. En los documentos generales aún figura la especialización 1 en el 20. Hay que confirmarlo y unificarlo.
 - **Transición**: ¿se recalculan todas las estadísticas con el reparto de la clase como si siempre hubiera sido de esa clase, o la clase solo cambia lo que se gana del 20 en adelante?
 - **Flecos de la parte 1** que conviene cerrar aquí: validar los valores por punto de INT y AGI, daño de las armas por tramos y pociones que curen según el nivel.
