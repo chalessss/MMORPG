@@ -776,7 +776,7 @@ Para bajar su consumo de pociones, el robo de vida del cuerpo a cuerpo pasa del 
 - Los físicos beben poción de maná cuando tienen una habilidad lista y les falta maná.
 
 **Libros de habilidad (decidido):** las habilidades se mejoran con libros. Cada mejora: **+1 % de daño** y **+10 % de coste de maná**.
-- Supuestos de la simulación (pendientes de confirmar): **una mejora por nivel** en cada habilidad (18 en el nivel 19) y mejoras **sumadas sobre el valor base** (nivel 19: +18 % de daño y +180 % de coste).
+- Primera prueba (descartada después): **una mejora por nivel** en cada habilidad (18 en el nivel 19), sumadas sobre el valor base (nivel 19: +18 % de daño y +180 % de coste).
 
 **Del 1 al 19 con costes en % y libros** (min · pociones de vida · pociones de maná; nadie muere):
 
@@ -793,6 +793,20 @@ Para bajar su consumo de pociones, el robo de vida del cuerpo a cuerpo pasa del 
 - Con los libros, el coste de maná por fin se nota en niveles altos, pero aún **sin calibrar**: en el nivel 19 el cuerpo a cuerpo bebe ~1.000 de maná (en el límite), el **arco casi 2.000** (demasiado) y el **mágico solo 96**.
 - El mágico, al depender del maná, **se para a descansar** para recuperarlo en vez de beber, y pasa de ser el más rápido a tardar más que el cuerpo a cuerpo desde el nivel 10 (705 → 1.095 min en el 19). Al descansar tampoco necesita pociones de vida.
 - Siguiente paso: bajar el % del arco, decidir si el mágico debe beber en lugar de descansar por maná, y calibrar los % para quedar dentro de 300–1.000.
+
+**Rangos de habilidad (decidido):** las habilidades solo suben de rango en niveles concretos: **rango 2 en el nivel 5, rango 3 en el 10 y rango 4 en el 15** (cada rango: +1 % de daño, +10 % de coste de maná sobre el valor base; en el nivel 19, +3 % de daño y +30 % de coste).
+
+Con solo tres rangos y los % de partida, **nadie bebe pociones de maná** en ningún nivel (min · pociones de vida; nadie muere):
+
+| Nivel | Espada larga | Espada corta | Arco | Mágico | Diferencia |
+|---|---|---|---|---|---|
+| 1 | 165 · 0 | 166 · 0 | 170 · 129 | 170 · 181 | 2,9 % |
+| 5 | 200 · 0 | 175 · 0 | 171 · 401 | 178 · 298 | 17,1 % |
+| 10 | 250 · 312 | 242 · 286 | 301 · 302 | 237 · 59 | 26,8 % |
+| 15 | 458 · 37 | 425 · 0 | 583 · 493 | 435 · 128 | 37,2 % |
+| 19 | 841 · 0 | 777 · 0 | 1.078 · 968 | 752 · 192 | 43,3 % |
+
+El mágico sí se queda corto de maná a veces y para a recuperarlo (por eso tarda algo más desde el nivel 10 que sin costes en %), pero no llega a beber. Para llegar a las 300–1.000 pociones de maná del nivel 19 hay que **subir los % de coste** de cada habilidad.
 
 ## 3. Ficha de los niveles 1–19 (en revisión: ver 2.21)
 
