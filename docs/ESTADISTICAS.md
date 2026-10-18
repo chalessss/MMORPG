@@ -753,9 +753,20 @@ Para bajar su consumo de pociones, el robo de vida del cuerpo a cuerpo pasa del 
 - Las pociones bajan poco (6–9 %); lo que más mejora es el **tiempo**: descansa menos y caza un 5–10 % más rápido (espada larga 1.049 → 965 min en el nivel 19). La diferencia con el mágico baja de ~61 % a 52–63 % según el nivel.
 - Lo que más vida le quita es el **golpe sangriento** (1/6 de la vida cada 10 s). Para bajar de verdad las pociones, la palanca más directa es su coste (1/7 o 1/8) o su enfriamiento.
 
-**Regeneración doble para el cuerpo a cuerpo (decidido):** el golpe sangriento se mantiene tal cual (solo se usa con buena vida). En cambio, su pasiva, igual que la del arco, suma una segunda ventaja: además del robo de vida del 5 %, **duplica su regeneración de vida** (desde el nivel 10: 108 → 216 cada 5 s en el nivel 10; 198 → 396 en el 19).
+**Regeneración extra para el cuerpo a cuerpo (decidido):** el golpe sangriento se mantiene tal cual (solo se usa con buena vida). Su pasiva, igual que la del arco, suma una segunda ventaja: además del robo de vida del 5 %, **cada punto de STR da +0,1 de vida por segundo** (la mitad de lo que ya da la STR, así que su regeneración sube un ~50 %: 108 → 161 cada 5 s en el nivel 10; 198 → 296 en el 19). Primero se probó a duplicarla (+0,2 por punto), pero dejaba al cuerpo a cuerpo sin consumir ninguna poción.
 
-Resultado: el cuerpo a cuerpo **deja de necesitar pociones y descansos** desde el nivel 10 y vuelve a su ritmo (espada larga: 249 min en el nivel 10, 859 en el 19; espada corta: 231 y 788). El golpe sangriento se sigue usando mucho (en el nivel 19, unas 4.600 veces cada 1.000 mobs): le cuesta más vida que todo el daño que recibe de los mobs, y la regeneración y el robo de vida lo cubren. El arco y el mágico no cambian. Diferencia con el mágico: 48–63 % desde el nivel 10.
+| Nivel | Espada larga (min · pociones) | Espada corta |
+|---|---|---|
+| 10 | 253 · 284 | 243 · 313 |
+| 11 | 286 · 382 | 269 · 349 |
+| 12 | 321 · 478 | 295 · 433 |
+| 13 | 355 · 529 | 330 · 486 |
+| 14 | 405 · 472 | 372 · 347 |
+| 15 | 468 · 217 | 430 · 8 |
+| 16–19 | 540–859 · 0 | 497–788 · 0 |
+
+- Vuelve a beber pociones en los niveles 10–15 (unas 0,3–0,5 por mob), sin tener que descansar; desde el nivel 16 la regeneración y el robo de vida ya lo cubren todo.
+- El arco y el mágico no cambian.
 
 ## 3. Ficha de los niveles 1–19 (en revisión: ver 2.21)
 
@@ -812,7 +823,7 @@ El arma de nivel 1 da el mismo bono que se gana en cada nivel (easter egg).
 | Cuerpo a cuerpo | Golpe doble | 1 | 150 % + 75 % del arma | 20 s | un golpe blanco | 8 |
 | Cuerpo a cuerpo | Golpe al suelo | 1 | 300 % del arma | 40 s | 3 s | 12 |
 | Cuerpo a cuerpo | Golpe sangriento | 10 | 300 % del arma; cuesta 1/6 de la vida máxima | 10 s | un golpe blanco | — |
-| Cuerpo a cuerpo | Robo de vida (pasiva) | 10 | se cura el 5 % del daño que hace y duplica su regeneración de vida | — | — | — |
+| Cuerpo a cuerpo | Robo de vida (pasiva) | 10 | se cura el 5 % del daño que hace y cada punto de STR da +0,1 de vida por segundo | — | — | — |
 | Distancia | Disparo cargado | 1 | 200 % del arma | 12 s | 2 s | 6 |
 | Distancia | Ráfaga triple | 1 | 3 × 120 % del arma | 40 s | 1,5 s | 12 |
 | Distancia | Disparo potente | 10 | 350 % del arma | 15 s | 3 s | 10 |
