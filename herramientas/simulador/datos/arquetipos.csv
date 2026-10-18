@@ -1,4 +1,4 @@
-arquetipo,nombre,ataque_basico,referencia,nota
-melee,Físico cuerpo a cuerpo,1,1,80-90 % golpes blancos y un golpe potenciado de vez en cuando; es la referencia de la calibración
-rango,Físico a distancia,1,0,golpes blancos y de vez en cuando un disparo triple
-magico,Mágico,0,0,sin ataque básico: todo el daño sale de dos hechizos
+arquetipo,nombre,str,int,agi,ataque_basico,armas,nota
+melee,Físico cuerpo a cuerpo,5,1,4,1,Espada larga|Espada corta,reparto base del Combatiente
+rango,Físico a distancia,2,2,6,1,Arco,reparto base del Atacante a distancia
+magico,Mágico,1,7,2,0,Bastón,reparto base del Mago; nunca pega con el bastón

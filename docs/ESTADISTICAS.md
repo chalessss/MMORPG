@@ -82,9 +82,18 @@ Las estadísticas principales forman un sistema de **piedra, papel o tijera**: *
 ### 1.6 Del nivel 1 al 19: solo arquetipo (decidido)
 
 - Del 1 al 19 el personaje es solo **atacante físico** o **atacante mágico**: **sin clase ni especialización**.
+- Al crear el personaje hay **tres opciones**, con el reparto base de una de las clases finales:
+
+| Perfil de inicio | Reparto (STR/INT/AGI) | Tomado de | Armas |
+|---|---|---|---|
+| Físico cuerpo a cuerpo | 5 / 1 / 4 | Combatiente | Espada larga (lenta, fuerte) o espada corta (rápida, floja) |
+| Físico a distancia | 2 / 2 / 6 | Atacante a distancia | Arco |
+| Mágico | 1 / 7 / 2 | Mago | Bastón de dos manos (nunca pega con él) |
+
+- Al elegir clase en el nivel 20 se pasa al reparto propio de la clase (tabla de 1.2).
 - Es una etapa de **aprendizaje**: atacar, moverse, hacer misiones, leer el mapa, recolectar y entender las profesiones. Debería durar unas **3–4 semanas** de juego (orientativo).
-- **Una sola arma** para todo el tramo, que solo mejora en daño (espada larga de bronce → de cobre → de plata…). Los físicos llevan **espada de dos manos** (por ejemplo, espada larga); los mágicos, **bastón de dos manos**.
-- La velocidad del arma se expresa en **segundos entre golpe y golpe**. Ejemplo: espada larga 2,60 s; espada corta 1,40 s con un 40 % menos de daño por golpe (valores ajustables).
+- **Un solo tipo de arma** para todo el tramo, que solo mejora en daño (espada larga de bronce → de cobre → de plata…). Solo el físico cuerpo a cuerpo puede elegir entre dos (espada larga o corta), y **ambas deben rendir lo mismo** por segundo, tanto contra un jefe como cazando.
+- La velocidad del arma se expresa en **segundos entre golpe y golpe**: espada larga 2,60 s, espada corta 1,40 s.
 - Al subir de nivel crecen las estadísticas y el daño del arma, y los mobs también: matar un mob de tu nivel cuesta lo mismo en el nivel 1 que en el 10 o el 19.
 - Formas de combatir en esta etapa:
 
@@ -92,7 +101,7 @@ Las estadísticas principales forman un sistema de **piedra, papel o tijera**: *
 |---|---|
 | **Físico cuerpo a cuerpo** | 80–90 % del daño en **golpes blancos**; de vez en cuando un **golpe potenciado** que pega algo más de lo normal |
 | **Físico a distancia** | Golpes blancos continuos y de vez en cuando una habilidad que **dispara tres flechas** a la vez |
-| **Mágico** | **No hace daño con el arma**: todo sale de **dos hechizos básicos**. Uno se puede lanzar siempre (1 s de enfriamiento, 2 s de lanzamiento) y otro hace mucho daño (10 s de enfriamiento, 2 s de lanzamiento). Rotación: fuerte, 4 básicos, fuerte… |
+| **Mágico** | **No hace daño con el arma**: todo sale de **dos hechizos básicos**. Uno débil que se puede lanzar siempre (1 s de enfriamiento, 2 s de lanzamiento) y otro fuerte con enfriamiento. Rotación: **fuerte, 3 débiles, fuerte, 3 débiles…** |
 
 - Lo único que se calibra en esta etapa es la **paridad entre arquetipos** (1.4) con las estadísticas base, y las habilidades básicas son el punto de equilibrio.
 
@@ -115,27 +124,29 @@ Las estadísticas principales forman un sistema de **piedra, papel o tijera**: *
 
 `herramientas/simulador/` (ver su README) ejecuta la prueba del muñeco con los datos en CSV.
 
-**Orden de trabajo (decidido):** primero se calibran los golpes blancos y las habilidades básicas de cada arquetipo (1.6) con el mismo daño de arma para todos; las habilidades de clase se añaden después.
+**Orden de trabajo (decidido):** primero se calibran los tres perfiles de inicio (1.6) solo con golpes blancos para los físicos y con los dos hechizos para el mágico; las habilidades de los físicos (golpe potenciado, disparo triple) se añaden después.
 
-**Prueba actual** (todo ajustable en los CSV):
-- **Todas las armas: 20 de daño por golpe**; cada una conserva su velocidad. Los dos mágicos usan bastón.
-- **Habilidades por arquetipo** (`habilidades.csv`, valores de partida): golpe potenciado = 1,6 × arma cada 10 s (instantáneo); disparo triple = 3 flechas de 0,8 × arma cada 10 s (1 s de lanzamiento); hechizo fuerte = 3 × arma (10 s / 2 s); hechizo básico = 1 × arma (1 s / 2 s). El daño de los hechizos se calcula sobre el del bastón para que suba con él (propuesta).
-- **Fórmula del golpe** (supuesto): (daño del arma o de la habilidad + daño base de AGI) × (1 + % daño base de STR) × (1 + % daño de habilidad de INT, solo en habilidades) × crítico.
+**Pruebas:**
+- **Jefe**: 20 minutos contra un objetivo de 50 millones de vida.
+- **Caza**: 1.000 mobs de 1.000 de vida. El daño que sobra al rematar se pierde (penaliza los golpes grandes); cada golpe tira su crítico.
+
+**Supuestos** (todo ajustable en los CSV):
+- **Fórmula del golpe**: (daño del arma o del hechizo + daño base de AGI) × (1 + % daño base de STR) × (1 + % daño de habilidad de INT, solo en hechizos) × crítico.
 - **Por punto** (propuesta inicial): STR → +20 vida, +0,2 vida/s, +0,5 % defensa física y mágica, +1,5 % daño; INT → +15 maná, +0,2 maná/s, +2,5 % daño de habilidad; AGI → +2 daño plano por golpe, +0,5 % crítico, +1 % daño crítico. Crítico base: 5 % y ×1,5.
-- El cuerpo a cuerpo es la **referencia**: el simulador calcula cuánto mover las habilidades de los otros arquetipos para igualarlo.
+- **Referencia**: espada larga con 52 de daño por golpe (equivale a 20 de daño por segundo antes de estadísticas). Arco a 2,0 s entre golpes (propuesta). Hechizo fuerte = 3 veces el débil, 8 s de enfriamiento para que entren tres débiles entre uno y otro.
 
-**Resultado** (20 minutos, nivel 1):
+**Resultado calibrado** (nivel 1):
 
-| Clase | Arquetipo | Arma | Daño total | Frente a la media | Golpes blancos |
-|---|---|---|---|---|---|
-| Luchador | Cuerpo a cuerpo | Espada | 34.581 | −14,6 % | 85 % |
-| Combatiente | Cuerpo a cuerpo | Espada | 39.226 | −3,1 % | 86 % |
-| Asesino | Cuerpo a cuerpo | Daga | 68.798 | +69,9 % | 91 % |
-| Atacante a distancia | Distancia | Arco | 52.275 | +29,1 % | 78 % |
-| Mago | Mágico | Bastón | 23.613 | −41,7 % | 0 % |
-| Invocador | Mágico | Bastón | 24.453 | −39,6 % | 0 % |
+| Perfil | Arma | s/golpe | Daño por golpe | DPS contra jefe | Caza (min) | Daño perdido al rematar |
+|---|---|---|---|---|---|---|
+| Cuerpo a cuerpo | Espada larga | 2,6 | 52 | 25,77 | 660,4 | 2,2 % |
+| Cuerpo a cuerpo | Espada corta | 1,4 | 24,3 | 25,77 | 659,4 | 1,9 % |
+| Distancia | Arco | 2,0 | 35,9 | 25,77 | 665,8 | 3,0 % |
+| Mágico | — | — | Fuerte 75,8 · débil 25,3 | 25,78 | 662,6 | 2,5 % |
 
-La daga (1,6 golpes por segundo con el mismo daño por golpe) dispara al Asesino y sube la media del cuerpo a cuerpo.
+- Contra el jefe, los cuatro quedan **iguales** (diferencia del 0,1 %).
+- Cazando, la diferencia máxima es del **1 %** (repetido con varias semillas: 0,9–1,0 %).
+- La espada corta pega un 53 % menos por golpe que la larga (no un 40 %): las estadísticas planas de AGI se suman a cada golpe y favorecen a las armas rápidas, así que hay que bajarle más el daño.
 
 ## 3. Estructura propuesta del capítulo
 

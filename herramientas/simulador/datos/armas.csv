@@ -1,10 +1,5 @@
-arma,velocidad,dano
-Lanza,0.9,20
-Espada,1.0,20
-Espada corta,1.3,20
-Daga,1.6,20
-Ballesta,0.8,20
-Arco,1.1,20
-Bastón,0.6,20
-Libro,0.9,20
-Varita,1.2,20
+arma,segundos_entre_golpes,dano,nota
+Espada larga,2.6,52,referencia de la calibración: pega lento y fuerte
+Espada corta,1.4,24.3,pega rápido y flojo
+Arco,2.0,35.9,
+Bastón,3.0,0,el mago no hace daño con el arma

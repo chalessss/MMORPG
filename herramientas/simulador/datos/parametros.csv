@@ -1,5 +1,11 @@
 parametro,valor,nota
-duracion_s,1200,duración de la prueba del muñeco (20 minutos)
+arma_referencia,Espada larga,las demás armas y los hechizos se calibran para igualar su daño por segundo
+duracion_jefe_s,1200,prueba del jefe: 20 minutos contra un objetivo de vida casi infinita
+vida_jefe,50000000,
+numero_mobs,1000,prueba de caza: cuántos mobs matar
+vida_mob,1000,
+desplazamiento_s,0,segundos entre un mob y el siguiente (igual para todos)
 critico_base_pct,5,probabilidad de crítico sin estadísticas
 multiplicador_critico_base,1.5,un crítico hace x1.5 sin estadísticas
-usar_habilidades,1,1 = cada arquetipo usa sus habilidades; 0 = solo golpes blancos
+critico_aleatorio_en_caza,1,1 = en la caza cada golpe tira su crítico; 0 = valor esperado (sin azar)
+semilla,1,semilla del azar: la misma semilla da siempre el mismo resultado
