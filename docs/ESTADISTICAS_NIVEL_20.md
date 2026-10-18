@@ -97,7 +97,7 @@ Valores del nivel 19 (ficha vigente: `python3 herramientas/simulador/simular.py 
   - **Luchador / Combatiente**: la STR da más vida y más armadura (por ejemplo, 120 de vida en lugar de 100); la INT solo da maná plano.
   - **Mago** (bastones): más regeneración de maná y más daño de hechizos.
   - **Invocador** (varitas): menos daño base, más regeneración de maná y más potencia de escudos y curaciones.
-- **6–8 habilidades activables** por clase, y con ellas se ajusta el coste de maná. Objetivo: **300–1.000 pociones de maná cada 1.000 mobs**, con **menos de 150 de diferencia** entre perfiles.
+- **6–8 habilidades activables** por clase (sustituido por la estructura de 8 habilidades de 1.6), y con ellas se ajusta el coste de maná. Objetivo: **300–1.000 pociones de maná cada 1.000 mobs**, con **menos de 150 de diferencia** entre perfiles.
 - **El PvP se balancea desde el nivel 20**, con el triángulo **STR > AGI > INT > STR** (`ESTADISTICAS.md`, 1.3).
 - Objetivos de daño por rol (de ejemplo): daño puro un 3–5 % por encima de la media, tanque un 5 % por debajo y curandero un 8 % por debajo (`ESTADISTICAS.md`, 1.5).
 
@@ -164,12 +164,37 @@ Resultado en el nivel 20. El daño por segundo es solo de golpes blancos o de la
 
 **Por definir:** cuánto potencia cada recurso (porcentajes), el tamaño de cada medidor y el número máximo de puntos de Foco. Se calibrará en el simulador junto con las habilidades de cada especialización.
 
+### 1.6 Estructura de habilidades (decidido)
+
+Todas las especializaciones tienen **8 habilidades** con la misma distribución:
+
+| # | Tipo | Cuándo | Qué es |
+|---|---|---|---|
+| 1 | General de daño | Clase de inicio (1–19) | Ya configurada en la parte 1 |
+| 2 | General de daño | Clase de inicio (1–19) | Ya configurada en la parte 1 |
+| 3 | Pasiva | Clase de inicio (1–19) | Ya configurada en la parte 1 |
+| 4 | Activa | Clase de inicio (1–19) | Ya configurada en la parte 1 |
+| 5 | **Pasiva de especialización** | Especialización (nivel 20) | Indica la **tasa de conversión** de STR, AGI e INT: cuánto suma cada punto a las demás estadísticas secundarias (borrador en 1.4) |
+| 6 | **Pasiva de arma** | Especialización (nivel 20) | Da daño o estadísticas **extra por usar el tipo de arma correcto** de la especialización |
+| 7 | **Área** | Especialización (nivel 20) | Un hechizo o golpe **fuerte de daño en área** |
+| 8 | **Individual** | Especialización (nivel 20) | Un hechizo o golpe **fuerte de daño a un solo objetivo** |
+
+Habilidades 1–4 que ya existen (parte 1, `docs/RESUMEN_ESTADISTICAS.md`):
+
+| Clase de inicio | 1 · Daño | 2 · Daño | 3 · Pasiva | 4 · Activa |
+|---|---|---|---|---|
+| Física - Melee | Golpe doble | Golpe al suelo | Robo de vida (5 %, +0,1 vida/s por STR) | Golpe sangriento |
+| Física - Rango | Disparo cargado | Ráfaga triple | Robo de vida (0,3 %, +3 % de crítico) | Disparo potente |
+| Mágica - Rango | Hechizo fuerte | Hechizo débil | Celeridad | Escudo de maná |
+
+Con esta estructura cada especialización tiene **5 habilidades que se activan** (1, 2, 4, 7 y 8) y 3 pasivas; con ellas se ajusta el coste de maná del nivel 20.
+
 ## 2. Trabajo de esta sesión
 
 1. ~~**Especializaciones por clase de inicio**~~: decidido (1.0b).
 2. ~~**Transición en el nivel 20**~~: se recalcula todo (1.0c). Falta fijar el crecimiento por nivel de cada especialización.
-3. **Pasiva de clase**: qué da cada punto de STR, INT y AGI en cada una de las 6 clases.
-4. **Habilidades de clase** (6–8 activables) en lo que afecta a las estadísticas: daño, enfriamiento y coste de maná.
+3. **Pasiva de especialización** (habilidad 5, ver 1.6): qué da cada punto de STR, INT y AGI en cada una de las 6 especializaciones (borrador en 1.4).
+4. **Habilidades 6–8 de cada especialización** (pasiva de arma, área e individual; ver 1.6) en lo que afecta a las estadísticas: daño, enfriamiento y coste de maná.
 5. **Armas de clase**: daño y velocidad de daga, varita y espadas de clase.
 6. ~~**Recursos secundarios**~~: mecánica decidida (1.5). Faltan los valores.
 7. **Estadísticas visibles nuevas** desde el nivel 20 (las neutrales de la hoja que se muestran y empiezan a contar).
