@@ -808,6 +808,17 @@ Con solo tres rangos y los % de partida, **nadie bebe pociones de maná** en nin
 
 El mágico sí se queda corto de maná a veces y para a recuperarlo (por eso tarda algo más desde el nivel 10 que sin costes en %), pero no llega a beber. Para llegar a las 300–1.000 pociones de maná del nivel 19 hay que **subir los % de coste** de cada habilidad.
 
+**Rangos: +2 % de daño y +20 % de coste por rango (decidido).** En el nivel 19 (rango 4): +6 % de daño y +60 % de coste.
+
+| Nivel | Espada larga | Espada corta | Arco | Mágico | Diferencia |
+|---|---|---|---|---|---|
+| 5 | 200 · 0 | 175 · 0 | 171 · 393 | 174 · 297 | 16,8 % |
+| 10 | 249 · 296 | 239 · 281 | 297 · 295 | 248 · 0 | 24,0 % |
+| 15 | 450 · 0 | 419 · 0 | 573 · 492 | 459 · 0 | 36,6 % |
+| 19 | 824 · 0 | 765 · 0 | 1.061 · 947 | 812 · 0 | 38,6 % |
+
+(min · pociones de vida.) Sigue sin beberse **ninguna poción de maná**. El mágico se queda sin maná más a menudo y **para a descansar** (desde el nivel 10 ya no bebe ni pociones de vida, y tarda algo más: 752 → 812 min en el nivel 19). Los costes de partida siguen siendo bajos para el objetivo de 300–1.000 pociones de maná.
+
 ## 3. Ficha de los niveles 1–19 (en revisión: ver 2.21)
 
 Resumen de todo lo decidido en la sección 2 para el tramo **sin clase** (niveles 1 al 19). La ficha completa, nivel a nivel, se genera con `python3 herramientas/simulador/simular.py --ficha` en `herramientas/simulador/resultados/` (`ficha_perfiles_1_19.csv` y `ficha_mobs_1_19.csv`), lista para pasar a DataTables.
