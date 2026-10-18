@@ -76,7 +76,9 @@ Enemigos que pueblan el mundo y las mazmorras.
 Enemigos especiales con mecánicas propias (fases, habilidades únicas, ataques que hay que esquivar).
 
 - **Jefe de mazmorra**: al final o a lo largo de una mazmorra, para grupos.
-- **Jefe de mundo**: aparece en el mundo abierto cada cierto tiempo y reúne a muchos jugadores; puede generar PvP alrededor.
+- **Jefe de mundo**: aparece en el mundo abierto cada cierto tiempo y reúne a muchos jugadores; puede generar PvP alrededor. Contenido de grupo principal de la Temporada 1.
+  - **Escala su vida según quién le ataca**, como las bandas.
+  - Si le ataca un jugador **que está en un grupo**, el jefe escala **de inmediato por todo el grupo** (los 5 miembros), aunque los demás no estén allí. Evita que miembros de un grupo esperen lejos y lleguen al final solo para llevarse parte del botín gracias al reparto por grupo.
 - **Jefe de banda (raid)**: contenido de endgame para grupos grandes.
 - Botín especial y, en algunos casos, ligado a la temporada.
 
@@ -906,8 +908,15 @@ Solo se clasifica lo que se puede medir de forma objetiva:
 
 **Mazmorras**
 - Para **5 personas**: **1 tanque, 1 sanador y 3 de daño**, como en la mayoría de MMO.
-- Llegan con la **Temporada 2** (niveles 20–40) *(por confirmar si es definitivo)*.
+- Llegan con la **Temporada 2** (niveles 20–40).
+- **Contenido de grupo de la Temporada 1**: zonas de caza para grupos y **jefes de mundo**.
 - **Mazmorras asistidas**: opción de entrar con 4 compañeros controlados por la IA (ver 3.29).
+
+**Composición y roles (mazmorras y bandas)**
+- **Buscador de grupo** (estilo WoW): forma grupos respetando la composición de roles.
+- **Grupos hechos a mano**: composición libre; no se impide entrar.
+- **Aviso antes de entrar**: si los roles del grupo no encajan con las especializaciones de sus miembros, el juego avisa ("El grupo no tiene los roles adecuados. ¿Queréis cambiar de especialización antes de entrar?").
+- **Elegir rol al confirmar**: en la ventana de confirmación ("¿Entrar a la mazmorra/banda? Sí / No") el jugador elige su rol (tanque, sanador, daño) y, al cargar, el personaje cambia automáticamente a la clase/subclase y al conjunto de equipo de ese rol. Evita que un sanador o un tanque entre por olvido con su subclase de daño (aplica sobre todo desde el nivel 60, con las subclases).
 
 **Bandas**
 - Llegan en una **temporada posterior** (con la tercera especialización).
@@ -989,7 +998,7 @@ Queda para más adelante:
 ## 7. Preguntas abiertas
 
 **Pendientes para más adelante**
-- **Mazmorras y bandas**: si las mazmorras empiezan exactamente en la Temporada 2 (y qué contenido de grupo tiene la Temporada 1); si la composición 1-1-3 de las mazmorras es obligatoria o recomendada.
+- **Mazmorras y bandas**: detalle del buscador de grupo; escalado exacto de los jefes de mundo.
 
 *Nota: los niveles concretos que aparecen en este documento ("nivel 3", "nivel 8"…) son ejemplos salvo que se indique lo contrario; se fijarán al diseñar la línea principal de misiones y cada sistema.*
 - **Misiones**: límite de misiones activas.
