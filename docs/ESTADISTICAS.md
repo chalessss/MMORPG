@@ -614,7 +614,7 @@ Reparto base (STR / INT / AGI): **mágico 2 / 6 / 2** (antes 1 / 7 / 2) y **fís
 | Perfil | Habilidad 3 | Habilidad 4 (nueva) |
 |---|---|---|
 | Cuerpo a cuerpo | Golpe sangriento (activa) | **Robo de vida** (pasiva): se cura el **4 %** del daño de cada golpe, para recuperar parte de la vida que gasta |
-| Arco | Robo de vida 4 % (pasiva) | **Disparo potente** (activa): **350 % del arma con 3 s de lanzamiento** (el daño de 3,5 golpes en el tiempo de 1,5); enfriamiento 15 s y 10 de maná (propuesta) |
+| Arco | Robo de vida 4 % (pasiva; luego 0,3 % + 3 % de crítico, ver 2.19) | **Disparo potente** (activa): **350 % del arma con 3 s de lanzamiento** (el daño de 3,5 golpes en el tiempo de 1,5); enfriamiento 15 s y 10 de maná (propuesta) |
 | Mágico | Escudo de maná (activa), ahora absorbe el **20 %** de la vida máxima (antes 30 %) | **Celeridad** (pasiva): lanza los hechizos un **2 %** más rápido |
 
 **Del 1 al 19** (con descansos y pociones; los niveles 1–9 no cambian respecto a 2.17; min · pociones · muertes):
@@ -649,6 +649,19 @@ Reparto base (STR / INT / AGI): **mágico 2 / 6 / 2** (antes 1 / 7 / 2) y **fís
 - En grupo se notará más: guerreros que aguantan y mágicos que hacen mucho daño favorecen el trabajo en equipo.
 
 **Efecto del 2 % en el arco**: solo necesita pociones en el nivel 10 (18 de cada 1.000 mobs); desde el 11 el robo de vida sigue cubriendo todo el daño que recibe. Para obligarle de verdad a beber haría falta bajarlo más (≈0,5–1 %) o esperar a que los mobs y las pociones se ajusten. El resto de la tabla queda igual que en 2.18.
+
+**Corrección definitiva del arco (decidido):** su pasiva da dos cosas: **robo de vida del 0,3 %** y **+3 % de probabilidad de crítico** (sin pasar el tope del 5 %).
+
+| Nivel | Arco antes (2 %) | Arco ahora (0,3 % + 3 % crítico) |
+|---|---|---|
+| 10 | 248 min · 18 pociones | 273 min · 447 pociones |
+| 11 | 277 · 0 | 281 · 724 |
+| 12 | 328 · 0 | 348 · 640 |
+| 13 | 358 · 0 | 367 · 894 |
+| 14–19 | 417–897 · 0 | igual tiempo · 1.099–1.438 pociones |
+
+- Ahora **sí bebe pociones** de forma constante (unas 0,4–1,4 por mob), y en los niveles 10–13 además tiene que parar a descansar algo.
+- El **crítico extra apenas suma daño**: con las reglas del 1 al 19 un crítico añade como mucho un +10 % (entre +5,6 y +9,2 % en los niveles 10–19) y la probabilidad ya roza el tope (2,8 % en el nivel 10 → 5 % con la pasiva; 4,6 % en el 19 → 5 %). En total, alrededor de un **+0,1 % de daño**. Si se quiere que el crítico se note, habrá que subir el daño extra del crítico o el tope.
 
 ## 3. Estructura propuesta del capítulo
 

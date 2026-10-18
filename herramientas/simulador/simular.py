@@ -142,6 +142,12 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
                   if supervivencia else 0 for h in habilidades}
     robo_vida = float(especial["robo_vida"]["valor"]) / 100 if "robo_vida" in especial else 0.0
     furia, escudo = especial.get("furia"), especial.get("escudo")
+    # Pasivas que suman crítico (sin pasar el tope).
+    critico_extra = sum(float(h.get("critico_pct") or 0) for h in desbloqueadas) / 100
+    if critico_extra:
+        s = dict(s)
+        s["probabilidad_critico"] = min(s["probabilidad_critico"] + critico_extra, parametros["tope_critico_pct"] / 100)
+        s["critico"] = 1 + s["probabilidad_critico"] * (s["multiplicador_critico"] - 1)
     celeridad = 1 - float(especial["celeridad"]["valor"]) / 100 if "celeridad" in especial else 1.0
     activa = {"furia_hasta": -1.0, "furia_lista": 0.0, "escudo_hasta": -1.0, "escudo_resto": 0.0, "escudo_listo": 0.0}
     golpes = {h["nombre"]: golpes_de(h, dano_arma, s) for h in habilidades}
