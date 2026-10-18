@@ -873,8 +873,11 @@ Solo se clasifica lo que se puede medir de forma objetiva:
 | **Nivel** | Experiencia acumulada del personaje |
 | **Poder** | Puntuación de poder del personaje (fórmula a definir en el capítulo de estadísticas) |
 | **Códice** | Cuántas entradas del códice ha completado la cuenta |
+| **Clanes — nivel** | Experiencia acumulada del clan |
+| **Clanes — poder** | Suma del poder de todos sus miembros |
 
-*Propuestas por confirmar*: clasificación de **clanes** (nivel o poder del clan) y de **honor** (PvP); filtros por clase y por servidor.
+- **Honor (PvP)**: pendiente; se decidirá con el capítulo de PvP.
+- *Propuesta por confirmar*: filtros por clase y por servidor.
 
 ### 3.23 Menú principal del juego (en curso, estilo MIR4)
 
