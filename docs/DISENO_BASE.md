@@ -247,6 +247,26 @@ Sistema de colección que da **estadísticas permanentes a la cuenta**. Por ahor
 
 Inspiración (MIR4): material por zona con grados, combinable y ligado → objeto de códice (material + moneda) → mejora (p. ej. +2) → entrada que pide un conjunto de objetos → bonificación fija → efectos totales sumados.
 
+**Interfaz del códice (referencia MIR4)**
+- Lista de **entradas**; cada una con nombre y nivel ("[1]", "[6]"…), la bonificación que da (por ejemplo, ataque físico +20) y los **objetos que pide**, cada uno con el **nivel de desarrollo requerido** (+7, +8…).
+- Filtro lateral: **favoritos** (estrella), **todos** y **por calidad** (poco común, raro, épico, legendario…). Filtros superiores: estadística, rango de desarrollo, grado y buscador por nombre.
+- Panel de **efectos totales** con la suma de todas las bonificaciones.
+- Botones de **registro automático** y **progreso**.
+- **Estados visuales de cada objeto pedido**:
+  1. **No lo tengo**: casilla vacía o apagada.
+  2. **Lo tengo pero no está desarrollado** al nivel pedido: icono de aviso (círculo naranja con "!").
+  3. **Lo tengo desarrollado**: casilla iluminada, lista para registrar.
+  4. **Registrado**: marca o sello de completado.
+
+**Crecimiento del códice con el juego**
+- Cada vez que salga una **clase nueva** o **piezas de equipo nuevas**, se añaden entradas de códice para todas las calidades.
+- **Cada temporada** trae sus propias entradas de códice.
+
+**Botín y códice dentro de una temporada** (ejemplo: Temporada 3, niveles 40–60)
+- Los mobs de la parte baja de la temporada (nivel 40) sueltan mucho equipo **común y poco común**: alimento para el códice.
+- A medida que se acerca al nivel máximo (60), empieza a caer equipo de calidad más alta.
+- La **calidad máxima de la temporada** (por ejemplo, épico en la Temporada 3) **no se consigue fácil como botín**: es equipo de **fabricación** con componentes recolectados. (El usuario explicará más adelante el cuello de botella de MIR4 y cómo evitarlo.)
+
 ### 3.12 Objetos: clasificación (en curso)
 
 #### Fuente (de dónde sale un objeto)
@@ -750,5 +770,5 @@ Queda para más adelante:
 **Capítulos propios**
 - **Sistemas de juego** (siguiente): sistemas tomados de otros juegos que marcarán a qué deben apuntar las estadísticas.
 - **Estadísticas**: peso de cada estadística por clase, PvE vs. PvP; revisar la hoja (valores base que no coinciden, fórmula que suma el nivel dos veces, nombres de habilidades desplazados, modelo de estadísticas).
-- **Códice**: fabricación, mejora, niveles de entradas.
+- **Códice**: pestañas del códice (MIR4 tiene personaje, reputación, servidor y tiempo limitado); qué objetos pide cada entrada y a qué nivel de desarrollo; niveles de entradas; fabricación de objetos con insignias; cuello de botella de MIR4.
 - **Contenido por temporada**: tipo de armadura de cada especialización y casos dudosos (Espadas duales, Recolector, Carroñero, Mutilador); si el tipo puede cambiar entre la especialización 1 y la final.
