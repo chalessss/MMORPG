@@ -662,6 +662,9 @@ Lista corta a propósito: no se quiere que el jugador necesite 30 consumibles di
 
 Un **único menú** desde el que se accede a todos los sistemas del juego, sin tener que abrir ventanas encadenadas. Incluye un panel con todas las monedas del jugador.
 
+**Submenús desplegables**: al pulsar una entrada que tiene varias partes, el resto del menú se desplaza hacia abajo y aparecen sus **subpestañas** debajo; desde ahí se entra directamente a la que se quiere. Aplica a todas las entradas con más de una pestaña.
+- Ejemplo (MIR4): Códice → *Códice*, *Catálogo de colección*, *Sala de escritura*. Las dos últimas se añadieron con el tiempo como formas de consumir objetos y recursos que sobraban.
+
 **Propuesta de entradas** (se ajusta a medida que se definen los sistemas):
 
 | Entrada | Contenido | Estado |
