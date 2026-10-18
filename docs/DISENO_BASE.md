@@ -939,9 +939,11 @@ Modelo inspirado en Lineage 2: **una ciudad principal (capital) controlada por u
 | **Capital** (centro del mapa) | Ciudad principal; la posee un clan | Conquistable en **asedios** |
 | **Villas** (**4**, a los lados y al sur de la capital) | Cada una con su **facción y reputación**; recorrerlas todas desbloquea sus teletransportes y reputaciones | Conquistables por clanes |
 
-**Boceto del territorio** (`docs/img/mapa_territorios_boceto.png`)
+**Dos estados del mapa**: el mapa cambia sus reglas de PvP entre los días normales y los **eventos PvP** (fines de semana).
 
-![Boceto de territorios](img/mapa_territorios_boceto.png)
+**Mapa durante un evento PvP** (`docs/img/mapa_pvp_evento.png`)
+
+![Mapa durante un evento PvP](img/mapa_pvp_evento.png)
 
 - **1** zona de inicio · **2** pueblo intermedio · **3** capital · **4** villas.
 - Cada recuadro rojo es el **territorio** que cubre ese lugar (no su tamaño de ciudad): una villa incluye su pueblo y, alrededor, sus zonas de caza, recolección u otras zonas especiales.
@@ -949,6 +951,16 @@ Modelo inspirado en Lineage 2: **una ciudad principal (capital) controlada por u
 - Las **líneas** que unen la capital con las villas (invisibles en el juego) delimitan la zona de guerra. Todo lo que queda dentro de esa figura —capital, villas y el espacio entre ellas— es la **zona de guerra**: durante los eventos PvP, **cualquiera que esté dentro** puede ser atacado, participe o no.
 - **Rosa** (dentro de la figura): **zona de guerra**. Durante el evento se puede pelear libremente **sin ganar karma**.
 - **Azul claro** (todo lo demás, no solo donde están las estrellas): **no se puede pelear** durante el evento. Ahí siguen los mobs, la recolección y la subida de nivel para quien no participa.
+
+**Mapa en días normales** (`docs/img/mapa_pvp_normal.png`)
+
+![Mapa en días normales](img/mapa_pvp_normal.png)
+
+*Interpretación por confirmar*:
+- **Esquina superior izquierda** (zona de inicio y pueblo intermedio, separados por la línea roja): protegida, sin PvP.
+- **Pentágonos** (capital en el centro y las 4 villas): ciudades; **no se puede atacar** dentro en días normales.
+- **Óvalos rosas**: **zonas de combate** con PvP libre (honor, sin karma), repartidas por el mapa.
+- **Azul claro**: resto del territorio (¿zona segura donde atacar da karma, o sin PvP?).
 
 **Control de territorios**
 - Los días de **evento PvP** (asedios, estilo Lineage 2), la capital y las villas **pierden su protección** contra el PvP.
