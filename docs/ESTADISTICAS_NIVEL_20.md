@@ -188,7 +188,7 @@ Todas las especializaciones tienen **8 habilidades** con la misma distribución:
 | 3 | Pasiva | Sed de sangre | Sed de sangre | Sed de sangre | Ojo de Halcón | Celeridad | Celeridad |
 | 4 | Activa | Golpe sangriento | Golpe sangriento | Golpe sangriento | Disparo potente | Escudo de maná | Escudo de maná |
 | 5 | Pasiva de especialización | Afinidad con la fuerza | Afinidad con la fuerza | Afinidad con la agilidad | Afinidad con la agilidad | Afinidad con el intelecto | Afinidad con el intelecto |
-| 6 | Pasiva de arma | Golpes más rápidos con espadas cortas | Más armadura y defensa con espadas largas | Más probabilidad de crítico | Más daño a distancia y más alcance | Más daño de hechizos y regeneración de maná | Más potencia de escudos, curas y apoyos al grupo, y más regeneración de maná por punto de INT |
+| 6 | Pasiva de arma | Golpes más rápidos con espadas cortas | Más armadura y defensa con espadas largas | Más probabilidad de crítico | Más daño a distancia y más alcance | Más daño de hechizos y regeneración de maná | Más potencia de escudos, curas y apoyos al grupo; más regeneración de maná por punto de INT; +50 % de daño contra monstruos (no jefes) |
 | 7 | Área | Torbellino | Fisura | Lluvia de cuchillas | Lluvia de flechas | Lluvia de fuego | Lluvia de estrellas |
 | 8 | Individual | Ejecutar | Embate | Desgarro | Disparo certero | Fuego de alma | Restauración |
 
@@ -247,7 +247,7 @@ Simulador: `python3 herramientas/simulador/simular20.py` (ficha: `--ficha`), con
 **Supuestos de la simulación** (por validar):
 - Las habilidades de área físicas aplican su % al golpe entero (arma + daño plano de la AGI); los impactos de las lluvias mágicas (Lluvia de fuego, Lluvia de estrellas) no suman el daño plano de la AGI en cada impacto.
 - Ajustes: el Invocador saca 1 de daño plano por punto de AGI (en vez de 2); Lluvia de fuego cuesta el 6 % del maná y Fuego de alma el 4 %; el Golpe sangriento solo se usa si deja más de la mitad de la vida.
-- Pasivas de arma: Luchador −10 % de tiempo entre golpes; Combatiente +5 % de defensa y +500 de armadura; Asesino +5 % de crítico; Atacante +10 % de daño; Mago +10 % de daño de hechizos y +20 % de regeneración de maná; Invocador +20 % de curas y escudos y **+0,2 de maná por segundo por punto de INT** (decidido, ver 1.9).
+- Pasivas de arma: Luchador −10 % de tiempo entre golpes; Combatiente +5 % de defensa y +500 de armadura; Asesino +5 % de crítico; Atacante +10 % de daño; Mago +10 % de daño de hechizos y +20 % de regeneración de maná; Invocador +20 % de curas y escudos, **+0,2 de maná por segundo por punto de INT** (decidido, ver 1.9) y **+50 % de daño contra monstruos, no contra jefes** (decidido, ver 1.9).
 - Los topes de crítico suben al 50 % de probabilidad y +150 % de daño desde el nivel 20 (provisional).
 
 **Ficha del nivel 20:**
@@ -261,7 +261,7 @@ Simulador: `python3 herramientas/simulador/simular20.py` (ficha: `--ficha`), con
 | Mago | 37 | 74 | 259 | 1.580 | 5.230 | 3,7 % | 1.000 | 4,8 % | +9,6 % |
 | Invocador | 74 | 111 | 185 | 2.320 | 2.825 | 7,4 % | 1.000 | 4,8 % | +9,6 % |
 
-**Resultados (simulación 4: Lluvia de estrellas sin interrumpir y de 7 s):**
+**Resultados (simulación 5: Lluvia de estrellas de 7 s sin interrumpir; maná de Mago e Invocador en valor exacto y pasiva de arma del Invocador, ver 1.9):**
 
 | Especialización | Jefe (daño/s) | Jefe en remate (< 20 %) | Mobs/hora de uno en uno | Grupos de 6 | Grupos de 12 | En grupo, 12 mobs que no le pegan |
 |---|---|---|---|---|---|---|
@@ -269,8 +269,8 @@ Simulador: `python3 herramientas/simulador/simular20.py` (ficha: `--ficha`), con
 | Combatiente | 637 (sin Ira: el jefe no le pega en la prueba) | 637 | 49 | **131** | **235** | — (es quien recibe) |
 | Asesino | 1.900 | 1.900 | 105 | 124 | muere | 144 |
 | Atacante a distancia | 2.243 | 2.243 | **122** | muere | muere | 417 |
-| Mago | **2.352** | 2.352 | 90 (28 % del tiempo descansando) | muere | muere | **800** |
-| Invocador | 746 | 746 | 41 | muere | muere | 88 |
+| Mago | **2.367** | 2.367 | **126** | muere | muere | **800** |
+| Invocador | 746 | 746 | 61 | muere | muere | 130 |
 
 Lectura:
 - **Contra un objetivo** mandan las de daño (Mago y Atacante, las que más contra el jefe). El Combatiente hace un daño medio y el Invocador, el más bajo, sin quedarse en cero.
@@ -312,6 +312,7 @@ Efecto (caza de uno en uno; pociones de maná de 400 cada 1.000 mobs):
 - El Mago queda dentro del objetivo (300–1.000 pociones) y ya no se sienta.
 - El Invocador no cuadraba: con 185 de INT regeneraba 74 de maná por segundo, menos que el Mago (94), y además de atacar cura y escuda (~3.700 pociones cada 1.000 mobs y 15 % del tiempo descansando).
 - **Corrección (decidido):** su **pasiva de arma** (más potencia de escudos y curas) le da además **+0,2 de maná por segundo por cada punto de INT** (0,4 de su pasiva de especialización + 0,2 = 0,6). Regenera **112 por segundo** (558 cada 5 s) y queda en **41 mobs/hora, ~430 pociones cada 1.000 mobs y sin descansar**; contra el jefe, 746 de daño por segundo.
+- **Más caza para el Invocador (decidido):** su pasiva de arma le da además **+50 % de daño contra monstruos** (no contra jefes). Resultado: de uno en uno **41 → 61 mobs/hora** (~440 pociones de maná cada 1.000 mobs, sin descansar); en grupo con 12 mobs **88 → 130 mobs/hora**; contra el jefe sigue en 746.
 
 ## 2. Trabajo de esta sesión
 

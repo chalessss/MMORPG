@@ -117,12 +117,15 @@ def ficha(esp, parametros, armas, conversion, habilidades):
         "robo_vida": num(pasivas["robo_vida"]["valor"]) / 100 if "robo_vida" in pasivas else 0,
         "celeridad": 1 - num(pasivas["celeridad"]["valor"]) / 100 if "celeridad" in pasivas else 1,
         "apoyo": 1 + num(pasivas["arma_apoyo"]["valor"]) / 100 if "arma_apoyo" in pasivas else 1,
+        # Pasiva de arma del Invocador: más daño contra monstruos (no contra jefes).
+        "contra_monstruos": 1 + p["apoyo_dano_monstruos_pct"] / 100 if "arma_apoyo" in pasivas else 1,
     }
 
 
-def combatir(f, p, grupos, limite_s=None, sin_dano=False, vida_inicial_pct=100, azar=None):
+def combatir(f, p, grupos, limite_s=None, sin_dano=False, vida_inicial_pct=100, azar=None, jefe=False):
     """Pelea contra una lista de grupos de mobs (cada grupo, una lista de vidas)
     que llegan uno detrás de otro; todos los mobs de un grupo pegan a la vez.
+    Con `jefe`, el objetivo es un jefe (no cuentan los bonos contra monstruos).
     Devuelve el tiempo, los mobs muertos, el daño hecho y lo gastado."""
     azar = azar or random.Random(int(p["semilla"]))
     esp = f["esp"]["especializacion"]
@@ -166,6 +169,8 @@ def combatir(f, p, grupos, limite_s=None, sin_dano=False, vida_inicial_pct=100, 
             d = (f["dano_arma"] + f["plano"]) * porcentaje * f["base"] * f["mult_dano"]
         if es_habilidad:
             d *= f["habilidad"]
+        if not jefe:
+            d *= f["contra_monstruos"]
         if magico:
             d *= f["mult_hechizos"]
             if e["t"] < r["trance_hasta"]:
@@ -495,9 +500,9 @@ def informe(parametros, armas, especializaciones, conversion, habilidades):
     print("1) Jefe: daño por segundo durante 20 minutos (sin recibir daño)\n")
     print(f"{'Especialización':22}{'Por encima del 20 %':>21}{'Remate (< 20 %)':>17}")
     for f in fichas:
-        normal = combatir(f, p, [[p["vida_jefe"]]], p["duracion_jefe_s"], sin_dano=True)
+        normal = combatir(f, p, [[p["vida_jefe"]]], p["duracion_jefe_s"], sin_dano=True, jefe=True)
         remate = combatir(f, p, [[p["vida_jefe"]]], p["duracion_jefe_s"], sin_dano=True,
-                          vida_inicial_pct=p["remate_umbral_pct"] - 1)
+                          vida_inicial_pct=p["remate_umbral_pct"] - 1, jefe=True)
         print(f"{f['esp']['nombre']:22}{normal['dano'] / p['duracion_jefe_s']:>21.0f}"
               f"{remate['dano'] / p['duracion_jefe_s']:>17.0f}")
     for tamano in (1, 6, 12):
