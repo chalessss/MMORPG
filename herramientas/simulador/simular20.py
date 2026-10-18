@@ -89,6 +89,9 @@ def ficha(esp, parametros, armas, conversion, habilidades):
     regen_mana = p["regen_mana_base"] + s.get("regen_mana", 0)
     if "arma_hechizos" in pasivas:
         regen_mana *= 1.2
+    if "arma_apoyo" in pasivas:
+        # La pasiva de arma del Invocador también da maná por segundo por cada punto de INT.
+        regen_mana += p["apoyo_regen_mana_por_int"] * puntos["int"]
     regen_vida = p["regen_vida_base"] + s.get("regen_vida", 0)
     if "robo_vida" in pasivas and pasivas["robo_vida"]["nombre"] == "Sed de sangre":
         regen_vida += 0.1 * puntos["str"]

@@ -48,3 +48,4 @@ duracion_jefe_s,1200,
 vida_jefe,50000000,
 mobs_por_prueba,300,
 semilla,1,
+apoyo_regen_mana_por_int,0.2,pasiva de arma del Invocador: maná por segundo extra por cada punto de INT (0.4 de su conversión + 0.2 = 0.6)

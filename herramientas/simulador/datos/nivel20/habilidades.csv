@@ -27,6 +27,6 @@ atacante,8,Disparo certero,dano,4.0,arma,15,2.0,0,,6,0,0,1,certero,,gasta el Foc
 mago,6,Más daño de hechizos y regeneración de maná,arma_hechizos,,,0,0,0,,0,0,10,1,,,pasiva de arma: +10 % de daño de hechizos y +20 % de regeneración de maná
 mago,7,Lluvia de fuego,canal,60,puntos,0,0,5,300,0,0,5,1,,,canalizada: un impacto por segundo a cada mob durante 5 s; sin enfriamiento (solo el Mago puede encadenar su área)
 mago,8,Fuego de alma,dano,250,puntos,15,3.0,0,200,0,0,0,1,,,
-invocador,6,Más potencia de escudos curas y apoyos,arma_apoyo,,,0,0,0,,0,0,20,1,,,pasiva de arma: +20 % a escudos y curas
+invocador,6,Más potencia de escudos curas y apoyos,arma_apoyo,,,0,0,0,,0,0,20,1,,,"pasiva de arma: +20 % a escudos y curas y +0,2 de maná por segundo por cada punto de INT"
 invocador,7,Lluvia de estrellas,zona,20,puntos,20,1.0,7,250,0,0,14,1,,,"se lanza en 1 s y no interrumpe: 14 estrellas (2 por segundo) caen durante 7 s sobre todos los mobs de la zona (contra un solo objetivo, todas le caen a él); daño bajo y constante; escudo igual al daño a cada aliado"
 invocador,8,Restauración,cura,,,15,2.0,0,300,0,0,30,1,,,cura el 30 % de la vida máxima

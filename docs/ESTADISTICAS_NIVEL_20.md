@@ -188,7 +188,7 @@ Todas las especializaciones tienen **8 habilidades** con la misma distribución:
 | 3 | Pasiva | Sed de sangre | Sed de sangre | Sed de sangre | Ojo de Halcón | Celeridad | Celeridad |
 | 4 | Activa | Golpe sangriento | Golpe sangriento | Golpe sangriento | Disparo potente | Escudo de maná | Escudo de maná |
 | 5 | Pasiva de especialización | Afinidad con la fuerza | Afinidad con la fuerza | Afinidad con la agilidad | Afinidad con la agilidad | Afinidad con el intelecto | Afinidad con el intelecto |
-| 6 | Pasiva de arma | Golpes más rápidos con espadas cortas | Más armadura y defensa con espadas largas | Más probabilidad de crítico | Más daño a distancia y más alcance | Más daño de hechizos y regeneración de maná | Más potencia de escudos, curas y apoyos al grupo |
+| 6 | Pasiva de arma | Golpes más rápidos con espadas cortas | Más armadura y defensa con espadas largas | Más probabilidad de crítico | Más daño a distancia y más alcance | Más daño de hechizos y regeneración de maná | Más potencia de escudos, curas y apoyos al grupo, y más regeneración de maná por punto de INT |
 | 7 | Área | Torbellino | Fisura | Lluvia de cuchillas | Lluvia de flechas | Lluvia de fuego | Lluvia de estrellas |
 | 8 | Individual | Ejecutar | Embate | Desgarro | Disparo certero | Fuego de alma | Restauración |
 
@@ -247,7 +247,7 @@ Simulador: `python3 herramientas/simulador/simular20.py` (ficha: `--ficha`), con
 **Supuestos de la simulación** (por validar):
 - Las habilidades de área físicas aplican su % al golpe entero (arma + daño plano de la AGI); los impactos de las lluvias mágicas (Lluvia de fuego, Lluvia de estrellas) no suman el daño plano de la AGI en cada impacto.
 - Ajustes: el Invocador saca 1 de daño plano por punto de AGI (en vez de 2); Lluvia de fuego cuesta el 6 % del maná y Fuego de alma el 4 %; el Golpe sangriento solo se usa si deja más de la mitad de la vida.
-- Pasivas de arma: Luchador −10 % de tiempo entre golpes; Combatiente +5 % de defensa y +500 de armadura; Asesino +5 % de crítico; Atacante +10 % de daño; Mago +10 % de daño de hechizos y +20 % de regeneración de maná; Invocador +20 % de curas y escudos.
+- Pasivas de arma: Luchador −10 % de tiempo entre golpes; Combatiente +5 % de defensa y +500 de armadura; Asesino +5 % de crítico; Atacante +10 % de daño; Mago +10 % de daño de hechizos y +20 % de regeneración de maná; Invocador +20 % de curas y escudos y **+0,2 de maná por segundo por punto de INT** (decidido, ver 1.9).
 - Los topes de crítico suben al 50 % de probabilidad y +150 % de daño desde el nivel 20 (provisional).
 
 **Ficha del nivel 20:**
@@ -310,7 +310,8 @@ Efecto (caza de uno en uno; pociones de maná de 400 cada 1.000 mobs):
 | **Invocador** | 41 mobs/hora · ~2.700 pociones · sin descansar | 35 mobs/hora · ~3.700 pociones · **15 % descansando** |
 
 - El Mago queda dentro del objetivo (300–1.000 pociones) y ya no se sienta.
-- El Invocador **sigue sin cuadrar**: con 185 de INT regenera 74 de maná por segundo, menos que el Mago (94), y además de atacar cura y escuda. En la simulación necesitaría unos 110 por segundo (0,6 por punto de INT en vez de 0,4) para quedar en ~430 pociones sin descansar. Pendiente de decidir.
+- El Invocador no cuadraba: con 185 de INT regeneraba 74 de maná por segundo, menos que el Mago (94), y además de atacar cura y escuda (~3.700 pociones cada 1.000 mobs y 15 % del tiempo descansando).
+- **Corrección (decidido):** su **pasiva de arma** (más potencia de escudos y curas) le da además **+0,2 de maná por segundo por cada punto de INT** (0,4 de su pasiva de especialización + 0,2 = 0,6). Regenera **112 por segundo** (558 cada 5 s) y queda en **41 mobs/hora, ~430 pociones cada 1.000 mobs y sin descansar**; contra el jefe, 746 de daño por segundo.
 
 ## 2. Trabajo de esta sesión
 
