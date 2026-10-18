@@ -956,11 +956,15 @@ Modelo inspirado en Lineage 2: **una ciudad principal (capital) controlada por u
 
 ![Mapa en días normales](img/mapa_pvp_normal.png)
 
-*Interpretación por confirmar*:
-- **Esquina superior izquierda** (zona de inicio y pueblo intermedio, separados por la línea roja): protegida, sin PvP.
-- **Pentágonos** (capital en el centro y las 4 villas): ciudades; **no se puede atacar** dentro en días normales.
-- **Óvalos rosas**: **zonas de combate** con PvP libre (honor, sin karma), repartidas por el mapa.
-- **Azul claro**: resto del territorio (¿zona segura donde atacar da karma, o sin PvP?).
+**Reglas de PvP por zona (decidido)**
+
+| Zona | Días normales | Durante un evento PvP |
+|---|---|---|
+| **Zona de inicio y pueblo intermedio** (esquina tras la línea roja) | Sin PvP | Sin PvP |
+| **Ciudades** (capital y villas, pentágonos) | No se puede atacar | Dentro de la zona de guerra: PvP libre |
+| **Zonas de combate** (óvalos rosas) | PvP libre: da **honor**, no karma | Fuera de la zona de guerra: sin PvP |
+| **Campo abierto** (azul claro) | Se puede atacar, pero quien mata gana **karma** | Sin PvP |
+| **Zona de guerra** (capital, villas y el espacio entre ellas) | Según la zona (arriba) | PvP libre, **sin karma** |
 
 **Control de territorios**
 - Los días de **evento PvP** (asedios, estilo Lineage 2), la capital y las villas **pierden su protección** contra el PvP.
@@ -1046,7 +1050,7 @@ Queda para más adelante:
 ## 7. Preguntas abiertas
 
 **Pendientes para más adelante**
-- **Mundo y PvP**: tipos de zona según el PvP (inicio sin PvP, seguras con karma, de combate, de asedio); reglas de guerra entre clanes; niveles lineales o escalados.
+- **Mundo y PvP**: reglas de guerra entre clanes; niveles lineales o escalados.
 - **Mazmorras y bandas**: detalle del buscador de grupo; escalado exacto de los jefes de mundo.
 
 *Nota: los niveles concretos que aparecen en este documento ("nivel 3", "nivel 8"…) son ejemplos salvo que se indique lo contrario; se fijarán al diseñar la línea principal de misiones y cada sistema.*
