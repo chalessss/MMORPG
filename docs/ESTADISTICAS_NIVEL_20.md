@@ -57,6 +57,10 @@ Lista cerrada: son **todas** las especializaciones que habrá en el nivel 20.
 - Al elegir especialización **se recalculan todas las estadísticas** con el reparto de la especialización, como si el personaje siempre lo hubiera tenido.
 - **Cada especialización tiene su propia conversión** de STR, INT y AGI: un mismo punto no da lo mismo a todas. Por ejemplo, la STR da **menos daño físico al Asesino** que al Luchador, pero el Asesino saca **más probabilidad de crítico** de su AGI.
 - Se hace un **balance nuevo de las 6 especializaciones** a partir de su reparto base y de esa conversión propia.
+- **Mismos puntos, otro reparto (decidido)**: la especialización **no da puntos extra**. En el nivel 20 todas las clases de inicio llevan **370 puntos** de STR + AGI + INT (10 de base y 18 por nivel, contando el arma); al especializarse se **redistribuyen** según el reparto de la especialización (por ejemplo, el Luchador 7/2/1 → 259 STR, 74 AGI, 37 INT).
+- La fuerza nueva sale de la **conversión propia** de cada especialización, de sus habilidades y de su arma. Los valores se **reajustan** para ir perfilando a cada una hacia lo que hará en la especialización 2:
+  - **Luchador**: un poco más de daño y un poco más de aguante que la clase de inicio.
+  - **Combatiente**: el que entra a pegarse a muerte y recibe todo el daño: su STR da **más vida máxima y más resistencias**, a cambio de menos daño por golpe (lo compensa el daño en área).
 
 ### 1.0d Balance desde el nivel 20: por rol, no por paridad (decidido)
 
@@ -109,6 +113,38 @@ Valores del nivel 19 (ficha vigente: `python3 herramientas/simulador/simular.py 
 | CL_INV | Invocador | 2 | 5 | 3 | Varita | 1,2 | Iluminación |
 
 La velocidad de la hoja está en golpes relativos; en el simulador se expresa en segundos entre golpe y golpe.
+
+### 1.4 Borrador 1 de la conversión por especialización (por validar)
+
+Primer reparto de los 370 puntos y de lo que da cada punto. Lo que no aparece en la tabla de conversión es igual que en la clase de inicio (STR: 25 vida, 0,2 vida/s, 0,1 % de defensa, 1,5 % de daño; AGI: 2 de daño plano; INT: 15 maná, 0,2 maná/s, 2,5 % de daño de habilidad).
+
+| Especialización | Cambios en la conversión |
+|---|---|
+| Luchador | STR: **2 % de daño** por punto (en vez de 1,5 %) |
+| Combatiente | STR: **40 de vida**, **0,2 % de defensa**, 1 % de daño · AGI: 1,75 de daño plano |
+| Asesino | STR: 35 de vida, 1 % de daño · AGI: 1,5 de daño plano, **+0,06 % de crítico** y **+0,25 % de daño crítico** |
+| Atacante a distancia | STR: 30 de vida · AGI: **+0,05 % de crítico** y **+0,3 % de daño crítico** |
+| Mago | STR: 40 de vida · INT: 20 de maná, 0,3 maná/s, **4,25 % de daño de habilidad** |
+| Invocador | STR: 30 de vida · INT: 0,4 maná/s, **1,5 % de daño de habilidad** (su fuerte será potenciar al grupo) |
+
+Resultado en el nivel 20. El daño por segundo es solo de golpes blancos o de la rotación básica del mágico, sin habilidades: sirve para comparar cada especialización con su clase de inicio, no entre melee, rango y mágico.
+
+| | STR | AGI | INT | Vida | Maná | Defensa | Crítico | Daño crítico | Daño/s | vs. clase de inicio |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Física - Melee, espada corta (ref.) | 205 | 104 | 61 | 5.225 | 965 | 20,5 % | 5 % | +10 % | 717 | — |
+| Física - Melee, espada larga (ref.) | 205 | 104 | 61 | 5.225 | 965 | 20,5 % | 5 % | +10 % | 446 | — |
+| **Luchador** (espada corta) | 259 | 74 | 37 | 6.575 | 605 | 25,9 % | 5 % | +10 % | 821 | +15 % |
+| **Combatiente** (espada larga) | 185 | 148 | 37 | 7.500 | 605 | 37,0 % | 5 % | +10 % | 368 | −17 % (en un solo mob) |
+| **Asesino** (daga 20 de daño, 1,0 s) | 111 | 222 | 37 | 3.985 | 605 | 11,1 % | 18,3 % | +65,5 % | 834 | +16 % |
+| Física - Rango (ref.) | 83 | 205 | 82 | 2.175 | 1.280 | 8,3 % | 5 % | +10 % | 502 | — |
+| **Atacante a distancia** | 74 | 222 | 74 | 2.320 | 1.160 | 7,4 % | 16,1 % | +76,6 % | 568 | +13 % |
+| Mágica - Rango (ref.) | 62 | 102 | 206 | 1.650 | 3.140 | 6,2 % | 5 % | +10 % | 1.505 | — |
+| **Mago** | 37 | 74 | 259 | 1.580 | 5.230 | 3,7 % | 5 % | +10 % | 1.841 | +22 % |
+| **Invocador** | 74 | 111 | 185 | 2.320 | 2.825 | 7,4 % | 5 % | +10 % | 1.082 | −28 % |
+
+- La daga (20 de daño, 1,0 s entre golpes) es provisional.
+- Desde el nivel 20 el crítico deja de estar limitado al 5 % y +10 % para las especializaciones de AGI (topes nuevos por definir).
+- Los melee bajan de maná (965 → 605) porque su INT baja; dependerán más de su recurso secundario (Ira, Energía).
 
 ## 2. Trabajo de esta sesión
 
