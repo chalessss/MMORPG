@@ -5,7 +5,7 @@ Vista rápida de cómo quedaron las estadísticas tras la primera sesión del ca
 ## Estado
 
 - **Niveles 1–19 (sin clase): cerrados**, salvo los flecos de la última sección.
-- **Siguiente sesión: nivel 20**, elección de clase y reconfiguración de estadísticas.
+- **Nivel 20** (elección de clase y estadísticas finales con la clase): **en curso** en `docs/ESTADISTICAS_NIVEL_20.md`.
 
 ## Principios decididos
 

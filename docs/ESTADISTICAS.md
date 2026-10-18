@@ -1,6 +1,6 @@
 # Capítulo de detalle — Estadísticas
 
-Estado: **en curso**. Primer capítulo de detalle. Los niveles 1–19 están cerrados: ver la ficha en la sección 3 (quedan tres flecos en la sección 6). La próxima sesión empieza por el nivel 20 (sección 4). Este archivo recoge el punto de partida (lo ya decidido y lo que hay en la hoja de cálculo), la propuesta de estructura y las preguntas abiertas. Se irá completando en la sesión.
+Estado: **en curso**. Primer capítulo de detalle. Los niveles 1–19 están cerrados: ver la ficha en la sección 3 (quedan tres flecos en la sección 6). El nivel 20 continúa en `docs/ESTADISTICAS_NIVEL_20.md` (parte 2). Este archivo recoge el punto de partida (lo ya decidido y lo que hay en la hoja de cálculo), la propuesta de estructura y las preguntas abiertas. Se irá completando en la sesión.
 
 ## 1. Punto de partida
 
@@ -911,7 +911,7 @@ El arma de nivel 1 da el mismo bono que se gana en cada nivel (easter egg).
 
 El mágico es el más rápido y el que más pociones necesita; el cuerpo a cuerpo, el que más aguanta. Esa diferencia es intencionada (2.19).
 
-## 4. Nivel 20: elección de clase (próxima sesión)
+## 4. Nivel 20: elección de clase (continúa en `docs/ESTADISTICAS_NIVEL_20.md`)
 
 Al llegar al nivel 20 se elige clase y **se reconfiguran las estadísticas**. Cada clase recibe una **pasiva** que cambia lo que da cada punto, para que empiecen a perfilarse:
 - **Mágicos**: cada punto de INT vale mucho más (por ejemplo, ×3), sobre todo en daño.

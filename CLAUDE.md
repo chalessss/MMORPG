@@ -41,7 +41,8 @@ Implicaciones técnicas:
 ## Documentación
 
 - `docs/RESUMEN_EJECUTIVO.md`: **leer primero** — vista rápida de todo lo decidido, lo pendiente y las recomendaciones.
-- `docs/RESUMEN_ESTADISTICAS.md`: resumen ejecutivo del capítulo de estadísticas (detalle en `docs/ESTADISTICAS.md`; simulador en `herramientas/simulador/`).
+- `docs/RESUMEN_ESTADISTICAS.md`: resumen ejecutivo del capítulo de estadísticas (detalle en `docs/ESTADISTICAS.md`; simulador en `herramientas/simulador/`). Parte 1: niveles 1–19, sin clase (cerrada).
+- `docs/ESTADISTICAS_NIVEL_20.md`: parte 2 del capítulo de estadísticas — nivel 20 y estadísticas finales con la clase ya elegida (en curso).
 - `docs/HOJA_DE_RUTA.md`: fases del proyecto y decisiones pendientes.
 - Forma de trabajo: la primera conversación fijó los parámetros generales de todos los sistemas; ahora se trabaja **un capítulo de detalle por sesión** (estadísticas, personajes/habilidades, mapas, recursos, objetos, profesiones, contenido por temporada).
 - `docs/DISENO_BASE.md`: qué existe en el juego (personajes, mobs, jefes, NPCs, recursos, objetos) y sistemas principales.
@@ -52,4 +53,5 @@ Mantener cada fase pequeña y funcional antes de pasar a la siguiente. Datos de 
 
 ## Git
 
-- Rama de desarrollo: `claude/videojuego-project-structure-5ofiej`.
+- Cada sesión trabaja en **su propia rama** `claude/...`, y el trabajo de una sesión anterior puede no estar fusionado en la rama principal. Al empezar, revisar las ramas remotas (`git ls-remote origin`) y traer la de la sesión anterior si hace falta.
+- Rama principal: `claude/videojuego-project-structure-5ofiej`.
