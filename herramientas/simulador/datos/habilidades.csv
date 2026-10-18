@@ -1,3 +1,7 @@
-arquetipo,nombre,dano,golpes,enfriamiento,lanzamiento,nota
-magico,Hechizo fuerte,75.8,1,8,2.0,mucho daño; vuelve a estar listo tras tres hechizos débiles
-magico,Hechizo débil,25.3,1,1,2.0,se puede lanzar siempre
+arquetipo,nombre,golpes,unidad,enfriamiento,lanzamiento,nota
+melee,Golpe doble,1.5|0.75,arma,20,0,golpe blanco potenciado con remate del mango (150 % + 75 % = 225 %); ocupa el hueco de un golpe blanco
+melee,Golpe al suelo,3.0,arma,40,3.0,salta y golpea el suelo: animación de 3 s
+rango,Disparo cargado,2.0,arma,12,2.0,carga la flecha 2 s y la suelta
+rango,Ráfaga triple,1.2|1.2|1.2,arma,40,1.5,tres disparos seguidos: la habilidad de más daño
+magico,Hechizo fuerte,96.8,puntos,8,2.0,mucho daño; vuelve a estar listo tras tres hechizos débiles
+magico,Hechizo débil,32.3,puntos,1,2.0,se puede lanzar siempre

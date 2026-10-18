@@ -186,6 +186,36 @@ Diferencia máxima: **35,8 %**. Cuando un mob muere en 2–3 golpes, lo que mand
 - Con 6–7 golpes los umbrales todavía pesan: según la vida exacta (380–480) la diferencia oscila entre 2,8 % y 8,6 %. Con **vida variable de ±10 %** (378–462) la diferencia se queda en 3,5 % y deja de depender del número exacto.
 - **Ritmo**: unos 17 s por mob, unos **3,5 mobs por minuto** a nivel 1 en un contra uno. Para llegar a decenas de mobs por minuto harían falta golpes más rápidos o más fuertes, mobs con menos vida o ataques en área.
 
+### 2.2 Habilidades de los físicos (decidido) y recalibración
+
+Diseño pedido para los físicos (los valores marcados como propuesta son ajustables):
+
+| Perfil | Habilidad | Qué hace | Daño | Enfriamiento | Duración |
+|---|---|---|---|---|---|
+| Cuerpo a cuerpo | **Golpe doble** | Un golpe blanco que se convierte en golpe potenciado con remate del mango | 150 % + 75 % del arma (225 %) | 20 s (propuesta) | Lo que dura un golpe blanco |
+| Cuerpo a cuerpo | **Golpe al suelo** | Salta y golpea el suelo; animación completa y lenta | 300 % del arma (propuesta) | 40 s (propuesta) | 3 s |
+| Distancia | **Disparo cargado** | Carga la flecha y la suelta; el daño se aplica al soltar | 200 % del arma (propuesta) | 12 s | 2 s de carga |
+| Distancia | **Ráfaga triple** | Tres disparos seguidos; la habilidad de más daño | 3 × 120 % del arma (propuesta) | 40 s | 1,5 s (propuesta) |
+
+- Los enfriamientos del cuerpo a cuerpo se eligieron para que pase **el 80 % del tiempo dando golpes blancos**. Con 8 s y 15 s solo lo hacía el 57 % del tiempo y su daño salía en un 36 % de golpes blancos. El arquero queda también en un 80 % del tiempo.
+- Las habilidades escalan con el daño del arma, así que mejoran con ella.
+- **No se gasta una habilidad en un mob que muere con un golpe blanco** (o con el hechizo débil, en el mágico). Reduce mucho el daño perdido al rematar: el mágico pasa de 13,1 % a 6,9 % y la espada larga, de 11,0 % a 8,0 %.
+- Se calibra con la **prueba de caza**: la espada larga es la referencia; la espada corta y el arco ajustan su daño por golpe y el mágico ajusta sus dos hechizos.
+
+**Resultado** (nivel 1, 1.000 mobs de 420 de vida ±10 %):
+
+| Perfil | Daño del arma | Golpe blanco | Habilidades (daño final sin crítico) | Acciones por mob | Segundos por mob | Caza | Daño perdido | Daño por segundo contra jefe |
+|---|---|---|---|---|---|---|---|---|
+| Espada larga | 52 | 64,5 | Golpe doble 94,8 + 51,8 · Golpe al suelo 180,7 | 5,39 | 14,14 | 235,7 min | 8,0 % | 32,58 |
+| Espada corta | 27,7 | 38,4 | Golpe doble 54,6 + 31,7 · Golpe al suelo 100,4 | 9,69 | 14,12 | 235,3 min | 4,7 % | 31,29 |
+| Arco | 34,5 | 47,9 | Disparo cargado 87,6 · Ráfaga triple 3 × 57,8 | 7,16 | 14,15 | 235,9 min | 6,3 % | 31,87 |
+| Mágico | — | — | Fuerte 120,2 (base 96,8) · débil 43,3 (base 32,3) | 7,06 | 14,13 | 235,5 min | 6,9 % | 32,24 |
+
+- Cazando, la diferencia máxima es del **0,3 %**; contra el jefe, del **4,1 %** (allí no se pierde nada al rematar, así que gana quien más pierde cazando).
+- Reparto del daño contra el jefe: espada larga 64 % golpes blancos, 23 % golpe doble, 14 % golpe al suelo; arco 63 % golpes blancos, 23 % disparo cargado, 14 % ráfaga triple; mágico 48 % hechizo fuerte, 52 % débil.
+- Los hechizos del mágico subieron un **28 %** (fuerte 75,8 → 96,8; débil 25,3 → 32,3) para compensar las habilidades nuevas de los físicos.
+- Con las habilidades, el guerrero mata un mob de 420 de vida en **5,4 acciones** (antes, 6,6 golpes blancos) y el ritmo pasa de 17 a **14 s por mob**.
+
 ## 3. Estructura propuesta del capítulo
 
 1. **Lista cerrada de estadísticas** y a qué categoría pertenece cada una (principal, derivada, neutral, PvP, utilidad).
