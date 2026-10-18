@@ -1,6 +1,6 @@
 # Capítulo de detalle — Estadísticas (parte 2): nivel 20 y clases
 
-Estado: **en curso**. Segunda sesión del capítulo de estadísticas. La primera sesión cerró las estadísticas **previas** a la elección de clase (niveles 1–19, tres perfiles sin clase): ver `docs/RESUMEN_ESTADISTICAS.md` y el detalle en `docs/ESTADISTICAS.md`. Esta sesión cubre las **estadísticas finales de los personajes ya afectados por el cambio de clase en el nivel 20** (primera especialización).
+Estado: **nivel 20 cerrado** (ficha en la sección 2). Segunda sesión del capítulo de estadísticas. La primera sesión cerró las estadísticas **previas** a la elección de clase (niveles 1–19, tres perfiles sin clase): ver `docs/RESUMEN_ESTADISTICAS.md` y el detalle en `docs/ESTADISTICAS.md`. Esta sesión cubre las **estadísticas finales de los personajes ya afectados por el cambio de clase en el nivel 20** (primera especialización).
 
 ## 1. Punto de partida
 
@@ -116,7 +116,7 @@ Confirmado por el usuario (coincide con la tabla vigente de la hoja, filas 54–
 
 La velocidad de la hoja está en golpes relativos; en el simulador se expresa en segundos entre golpe y golpe.
 
-### 1.4 Borrador 1 de la conversión por especialización (por validar)
+### 1.4 Borrador 1 de la conversión por especialización (base de la ficha cerrada; valores vigentes en la sección 2)
 
 Primer reparto de los 370 puntos y de lo que da cada punto. Lo que no aparece en la tabla de conversión es igual que en la clase de inicio (STR: 25 vida, 0,2 vida/s, 0,1 % de defensa, 1,5 % de daño; AGI: 2 de daño plano; INT: 15 maná, 0,2 maná/s, 2,5 % de daño de habilidad).
 
@@ -413,19 +413,112 @@ Lectura:
 - **El curandero es imprescindible** en la mazmorra: con adds de élite cura 155 de vida por segundo y pone 412 de escudo por segundo, y el tanque bebe 23 pociones.
 - La forma de "controlar el agro" del simulador es muy simple; un jugador bueno lo hará mejor que estas dos formas de jugar.
 
-## 2. Trabajo de esta sesión
+## 2. Ficha cerrada del nivel 20 (decidido)
 
-1. ~~**Especializaciones por clase de inicio**~~: decidido (1.0b).
-2. ~~**Transición en el nivel 20**~~: se recalcula todo (1.0c). Falta fijar el crecimiento por nivel de cada especialización.
-3. **Pasiva de especialización** (habilidad 5, ver 1.6): qué da cada punto de STR, INT y AGI en cada una de las 6 especializaciones (borrador en 1.4).
-4. **Habilidades 6–8 de cada especialización** (pasiva de arma, área e individual; ver 1.6) en lo que afecta a las estadísticas: daño, enfriamiento y coste de maná.
-5. **Armas de clase**: daño y velocidad de daga, varita y espadas de clase.
-6. ~~**Recursos secundarios**~~: mecánica decidida (1.5). Faltan los valores.
-7. **Estadísticas visibles nuevas** desde el nivel 20 (las neutrales de la hoja que se muestran y empiezan a contar).
-8. **Simulación de las 6 clases en el nivel 20**: hecha, solos (1.8) y en grupo (1.10); maná calibrado para Mago e Invocador (1.9).
-9. **Primer balance PvP** con el triángulo STR > AGI > INT > STR.
-10. **Ficha cerrada del nivel 20** por clase.
+Todos los valores están en `herramientas/simulador/datos/nivel20/` y se reproducen con `python3 herramientas/simulador/simular20.py` (ficha: `--ficha`, que la guarda en `herramientas/simulador/resultados/ficha_especializaciones_20.csv`). Los valores marcados como provisionales se pueden retocar sin cambiar la estructura.
 
-## 3. Preguntas abiertas
+### 2.1 Especializaciones
 
-- **Flecos de la parte 1** que conviene cerrar aquí: validar los valores por punto de INT y AGI, daño de las armas por tramos y pociones que curen según el nivel.
+| Clase de inicio | Especialización | Rol | Arma | Reparto (STR/INT/AGI) | Recurso secundario |
+|---|---|---|---|---|---|
+| Física - Melee | Luchador | Daño cuerpo a cuerpo, de uno en uno | Espada corta (37 de daño, 1,4 s) | 7 / 1 / 2 | Ira (al golpear) |
+| Física - Melee | Combatiente | Daño cuerpo a cuerpo en área; aguanta y provoca | Espada larga (75, 2,6 s) | 5 / 1 / 4 | Ira (al recibir golpes) |
+| Física - Melee | Asesino | Daño cuerpo a cuerpo, crítico | Daga (20, 1,0 s; provisional) | 3 / 1 / 6 | Energía |
+| Física - Rango | Atacante a distancia | Daño a distancia | Arco (35, 2,0 s) | 2 / 2 / 6 | Foco |
+| Mágica - Rango | Mago | Daño mágico, el que más daño hace en área | Bastón (no pega con él) | 1 / 7 / 2 | Trance de Iluminación |
+| Mágica - Rango | Invocador | Curandero; potencia al grupo | Varita (no pega con ella) | 2 / 5 / 3 | Esencia de Iluminación |
+
+- La especialización **no da puntos extra**: los 370 puntos del nivel 20 se **recalculan** con su reparto. La daga y la varita son la recompensa de la misión de especialización; las siguientes se fabrican.
+
+### 2.2 Pasiva de especialización (qué da cada punto)
+
+Base común: **STR** 25 de vida, 0,2 de vida/s, 0,1 % de defensa física y mágica, 1,5 % de daño · **INT** 15 de maná, 0,2 de maná/s, 2,5 % de daño de habilidades · **AGI** 2 de daño plano por golpe. Cada especialización cambia:
+
+| Especialización | Cambios |
+|---|---|
+| Luchador (Afinidad con la fuerza) | STR: **2 % de daño** |
+| Combatiente (Afinidad con la fuerza) | STR: **40 de vida**, **0,2 % de defensa**, 1 % de daño · AGI: 1,75 de daño plano |
+| Asesino (Afinidad con la agilidad) | STR: 35 de vida, 1 % de daño · AGI: 1,5 de daño plano, **+0,06 % de crítico**, **+0,25 % de daño crítico** |
+| Atacante (Afinidad con la agilidad) | STR: 30 de vida · AGI: **+0,05 % de crítico**, **+0,3 % de daño crítico** |
+| Mago (Afinidad con el intelecto) | STR: 40 de vida · INT: 20 de maná, 0,3 de maná/s, **4,25 % de daño de habilidades** |
+| Invocador (Afinidad con el intelecto) | STR: 30 de vida · INT: 0,4 de maná/s, 1,5 % de daño de habilidades · AGI: 1 de daño plano |
+
+### 2.3 Pasiva de arma
+
+| Especialización | Pasiva de arma |
+|---|---|
+| Luchador | −10 % de tiempo entre golpes con espadas cortas |
+| Combatiente | +5 % de defensa y +500 de armadura con espadas largas (sin amenaza extra en la Temporada 1) |
+| Asesino | +5 % de probabilidad de crítico |
+| Atacante | +10 % de daño (y más alcance) |
+| Mago | +10 % de daño de hechizos y +20 % de regeneración de maná |
+| Invocador | +20 % a escudos y curas, **+0,2 de maná/s por punto de INT** y **+50 % de daño contra monstruos** (no contra jefes) |
+
+### 2.4 Ficha del nivel 20
+
+| Especialización | STR | AGI | INT | Vida | Vida cada 5 s | Maná | Maná cada 5 s | Defensa | Armadura | Golpe blanco | Crítico | Daño crítico | Robo de vida |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Luchador | 259 | 74 | 37 | 6.575 | 391 | 605 | 40 | 25,9 % | 1.000 | 1.143 (cada 1,26 s) | 4,8 % | +9,6 % | 5 % |
+| Combatiente | 185 | 148 | 37 | 7.500 | 280 | 605 | 40 | 42,0 % | 1.500 | 952 (cada 2,6 s) | 4,8 % | +9,6 % | 5 % (también en área) |
+| Asesino | 111 | 222 | 37 | 3.985 | 169 | 605 | 40 | 11,1 % | 1.000 | 745 (cada 1,0 s) | 23,1 % | +65,1 % | 5 % |
+| Atacante a distancia | 74 | 222 | 74 | 2.320 | 76 | 1.160 | 76 | 7,4 % | 1.000 | 1.112 (cada 2,0 s) | 18,9 % | +76,2 % | 0,3 % |
+| Mago | 37 | 74 | 259 | 1.580 | 40 | 5.230 | 469 | 3,7 % | 1.000 | — | 4,8 % | +9,6 % | — |
+| Invocador | 74 | 111 | 185 | 2.320 | 76 | 2.825 | 558 | 7,4 % | 1.000 | — | 4,8 % | +9,6 % | — |
+
+- Crítico base del nivel 20: 4,8 % y +9,6 % de daño. Desde el 20 los topes suben al 50 % y +150 % (provisional).
+- Armadura del equipo: 1.000 en el nivel 20 (cada 100 restan 1 de daño a cada golpe).
+
+### 2.5 Habilidades
+
+Las 1–4 llegan al nivel 20 en **nivel de habilidad 4** (+6,1 % de daño, coste ×1,95); las 5–8 se desbloquean en nivel 1. Las habilidades suben hasta el nivel 10 (+25 % de coste por nivel, compuesto). Las físicas cuestan un % del maná máximo; las de Mago e Invocador, un valor exacto (en la tabla, en nivel 1).
+
+| Especialización | 1 · Daño | 2 · Daño | 3 · Pasiva | 4 · Activa | 7 · Área | 8 · Individual |
+|---|---|---|---|---|---|---|
+| Luchador | Golpe doble: 150 % + 75 % del arma, 20 s | Golpe al suelo: 300 %, 3 s de animación, 40 s | Sed de sangre: 5 % de robo de vida, +0,1 vida/s por STR | Golpe sangriento: 300 %, 1/6 de la vida, 10 s | **Torbellino**: 150 % a cada mob, 15 s | **Ejecutar**: 250 %, 12 s; con el objetivo por debajo del 20 %: 500 % cada 6 s y sin Ira |
+| Combatiente | Golpe doble | Golpe al suelo | Sed de sangre | Golpe sangriento | **Fisura**: 200 % a cada mob, 10 s, 15 de Ira | **Embate**: 400 % + 2 % por punto de Ira gastado (gasta toda), 10 s; **provoca a todos los mobs a su alcance 7 s** |
+| Asesino | Golpe doble | **Golpe bajo**: 200 %, 15 s (provisional) | Sed de sangre | Golpe sangriento | **Lluvia de cuchillas**: 80 % a cada mob en círculo, 10 s, 25 de Energía, roba vida al 50 % | **Desgarro**: 350 % + sangrado en 6 s (100/70/50 % según la Energía), gasta toda la Energía, 12 s |
+| Atacante | Disparo cargado: 200 %, 2 s, 12 s | Ráfaga triple: 3 × 120 %, 40 s | Ojo de Halcón: 0,3 % de robo de vida, +3 % de crítico | Disparo potente: 350 %, 3 s, 15 s | **Lluvia de flechas**: 120 % por segundo durante 4 s, no interrumpe, 25 s | **Disparo certero**: 400 % + 10 % por punto de Foco, daño verdadero, 2 s, 15 s |
+| Mago | Lanza de hielo: 32, 2 s, 75 de maná | Bola de fuego: 97, 2 s, 8 s, 150 | Celeridad: hechizos un 2 % más rápidos | Escudo de maná: 20 % de la vida durante 8 s, 20 s, 200 | **Lluvia de fuego**: canalizada 5 s, 60 por segundo a cada mob, **sin enfriamiento**, 300 | **Fuego de alma**: 250, 3 s, 15 s, 200 |
+| Invocador | Lanza de hielo | Bola de fuego | Celeridad | Escudo de maná (también a un aliado: él recibe el 25 %) | **Lluvia de estrellas**: 1 s y no interrumpe; 14 estrellas de 20 en 7 s a cada mob; escuda a los aliados; 20 s, 250 | **Restauración**: cura el 30 % de la vida (y él la mitad), 2 s, 15 s, 300 |
+
+### 2.6 Recursos secundarios (valores provisionales)
+
+| Recurso | Especialización | Valores |
+|---|---|---|
+| Ira | Luchador | +5 por golpe; cualquier habilidad activa la gasta toda: +0,3 % de daño por punto |
+| Ira | Combatiente | +2 por golpe recibido; Fisura cuesta 15; Embate gasta toda (+2 % por punto) |
+| Energía | Asesino | Empieza en 100; 5 por segundo + 0,02 por punto de AGI (unos 9/s) |
+| Foco | Atacante | Hasta 5 puntos; 2 por disparo estando quieto; Disparo certero los gasta (+10 % por punto) |
+| Trance | Mago | +4 por hechizo; al llegar a 100, 10 s de trance con +30 % de daño de hechizos (cada 50–60 s en combates largos) |
+| Esencia | Invocador | +5 por hechizo; potencia la Restauración (+0,3 % por punto) |
+
+### 2.7 Combate en grupo
+
+- **Agro**: amenaza = daño hecho (igual para todos; curar suma la mitad de lo curado en cada mob). El Combatiente alterna **Embate** (provoca 7 s cada 10 s) y **Fisura**: quedan unos 3 s sin provocación en los que los demás tienen que contenerse.
+- **Pociones mejoradas** del nivel 20 (provisional: 400 de vida o de maná, 20 s).
+- **Conglomerados**: como máximo 12 mobs; en el nivel 20 sirven sobre todo para conseguir botín.
+
+### 2.8 Resultados de referencia
+
+| Especialización | Jefe (daño/s) | De uno en uno (mobs/h) | Solo con 6 | Solo con 12 | Pociones de maná cada 1.000 mobs |
+|---|---|---|---|---|---|
+| Luchador | 1.517 (1.787 en remate) | 90 | 128 | 181 | ~660 |
+| Combatiente | 637 | 49 | 129 | 239 | ~350 |
+| Asesino | 1.900 | 105 | 124 | muere | ~730 |
+| Atacante | 2.243 | 122 | muere | muere | ~1.020 |
+| Mago | 2.367 | 126 | muere | muere | ~620 |
+| Invocador | 746 | 61 | muere | muere | ~430 |
+
+En grupo, con élites y en la mazmorra: ver 1.11 y 1.12.
+
+## 3. Pendiente
+
+**Del nivel 20:**
+- **Estadísticas visibles nuevas** desde el nivel 20 (las neutrales de la hoja que se muestran y empiezan a contar).
+- **Primer balance PvP** con el triángulo STR > AGI > INT > STR (desde el nivel 20 cuenta el PvP).
+- **Cantidades** de las curas y escudos del Invocador, de las pociones mejoradas y de los recursos secundarios (ahora provisionales).
+- **Crecimiento por nivel** de cada especialización a partir del 20 (para la Temporada 2).
+
+**Del capítulo:** neutrales, topes y rendimientos decrecientes, puntuación de poder e implementación en GAS.
+
+**Flecos de la parte 1:** validar los valores por punto de INT y AGI, daño de las armas por tramos y pociones que curen según el nivel.

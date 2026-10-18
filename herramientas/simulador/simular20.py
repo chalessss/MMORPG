@@ -12,7 +12,7 @@ datos de datos/nivel20/ y prueba cada especialización en:
 
 Uso:
   python3 simular20.py           muestra los resultados
-  python3 simular20.py --ficha   muestra la ficha de estadísticas del nivel 20
+  python3 simular20.py --ficha   muestra la ficha de estadísticas del nivel 20 y la guarda en resultados/
 """
 
 import csv
@@ -869,6 +869,25 @@ def informe(parametros, armas, especializaciones, conversion, habilidades):
 
 
 def mostrar_ficha(parametros, armas, especializaciones, conversion, habilidades):
+    """Muestra la ficha del nivel 20 y la guarda en resultados/ficha_especializaciones_20.csv."""
+    filas = []
+    for esp in especializaciones:
+        f = ficha(esp, parametros, armas, conversion, habilidades)
+        filas.append({"especializacion": esp["nombre"], "str": f["puntos"]["str"], "agi": f["puntos"]["agi"],
+                      "int": f["puntos"]["int"], "vida": f["vida"], "regen_vida_5s": round(f["regen_vida"] * 5),
+                      "mana": f["mana"], "regen_mana_5s": round(f["regen_mana"] * 5),
+                      "defensa_pct": round(f["defensa"], 1), "armadura": round(f["armadura"]),
+                      "dano_arma": round(f["dano_arma"]), "segundos_entre_golpes": round(f["intervalo"], 2),
+                      "dano_plano": round(f["plano"]), "dano_base_pct": round((f["base"] - 1) * 100, 1),
+                      "dano_habilidad_pct": round((f["habilidad"] - 1) * 100, 1),
+                      "critico_pct": round(f["prob_critico"] * 100, 1),
+                      "critico_aumentado_pct": round((f["mult_critico"] - 1) * 100, 1),
+                      "robo_vida_pct": round(f["robo_vida"] * 100, 1), "recurso": esp["recurso"]})
+    salida = Path(__file__).parent / "resultados" / "ficha_especializaciones_20.csv"
+    with open(salida, "w", encoding="utf-8", newline="") as fh:
+        escritor = csv.DictWriter(fh, fieldnames=list(filas[0].keys()), lineterminator="\n")
+        escritor.writeheader()
+        escritor.writerows(filas)
     print(f"{'Especialización':22}{'STR':>5}{'AGI':>5}{'INT':>5}{'Vida':>7}{'Reg/5s':>7}{'Maná':>7}{'Reg/5s':>7}"
           f"{'Defensa':>9}{'Armadura':>9}{'Crítico':>9}{'+Crítico':>9}{'Golpe':>7}")
     for esp in especializaciones:

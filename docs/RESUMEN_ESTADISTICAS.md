@@ -5,7 +5,7 @@ Vista rápida de cómo quedaron las estadísticas tras la primera sesión del ca
 ## Estado
 
 - **Niveles 1–19 (sin clase): cerrados**, salvo los flecos de la última sección.
-- **Nivel 20** (elección de clase y estadísticas finales con la clase): **en curso** en `docs/ESTADISTICAS_NIVEL_20.md`.
+- **Nivel 20** (especialización 1 y estadísticas finales con ella): **cerrado** en `docs/ESTADISTICAS_NIVEL_20.md` (ficha en la sección 2). Resumen al final de este archivo.
 
 ## Principios decididos
 
@@ -102,3 +102,27 @@ Ficha completa nivel a nivel: `python3 herramientas/simulador/simular.py --ficha
 - **6–8 habilidades activables** por clase y ajuste del coste de maná (objetivo: 300–1.000 pociones de maná cada 1.000 mobs en el nivel máximo, con menos de 150 de diferencia entre perfiles).
 
 **Más adelante en el capítulo:** neutrales, topes y rendimientos decrecientes, puntuación de poder e implementación en GAS.
+
+## Parte 2 — Nivel 20: especialización 1 (cerrada)
+
+Detalle: `docs/ESTADISTICAS_NIVEL_20.md` · simulador: `herramientas/simulador/simular20.py`.
+
+- **Clases de inicio** (1–19): Mágica - Rango, Física - Melee y Física - Rango. En el nivel 20, la **especialización 1**: Luchador, Combatiente y Asesino (melee), Atacante a distancia (rango), Mago e Invocador (mágica).
+- **Se recalcula todo** con el reparto de la especialización y **sin puntos extra** (370 puntos en el nivel 20). Cada especialización tiene su **conversión propia** (pasiva de especialización) y una **pasiva de arma**.
+- **8 habilidades** por especialización: 2 de daño, una pasiva y una activa de la clase de inicio, más pasiva de especialización, pasiva de arma, **área** e **individual**. Todas las áreas tienen enfriamiento salvo la Lluvia de fuego del Mago.
+- **Recurso secundario** que potencia las habilidades: Ira (Luchador, Combatiente), Energía (Asesino), Foco (Atacante), Trance y Esencia de Iluminación (Mago, Invocador).
+- **Balance por rol**, no por paridad: las de daño mandan contra un objetivo, el Combatiente aguanta conglomerados (hasta 12 mobs) y el Mago es el que más daño hace en área en grupo; el Invocador es el único curandero.
+- **Maná**: Mago e Invocador pagan sus hechizos con un valor exacto que sube con el nivel de la habilidad (hasta el 10); los físicos, un % del maná máximo.
+- **Agro**: el Combatiente provoca con el Embate (7 s cada 10 s) y lo alterna con Fisura; sin amenaza extra en la Temporada 1: los jugadores tienen que aprender a controlar el agro.
+
+| Especialización | Vida | Maná | Defensa | Crítico | Jefe (daño/s) | Mobs/hora de uno en uno |
+|---|---|---|---|---|---|---|
+| Luchador | 6.575 | 605 | 25,9 % | 4,8 % | 1.517 | 90 |
+| Combatiente | 7.500 | 605 | 42,0 % | 4,8 % | 637 | 49 (239 con 12 mobs) |
+| Asesino | 3.985 | 605 | 11,1 % | 23,1 % | 1.900 | 105 |
+| Atacante | 2.320 | 1.160 | 7,4 % | 18,9 % | 2.243 | 122 |
+| Mago | 1.580 | 5.230 | 3,7 % | 4,8 % | 2.367 | 126 |
+| Invocador | 2.320 | 2.825 | 7,4 % | 4,8 % | 746 | 61 |
+
+**Pendiente**: estadísticas visibles nuevas del nivel 20, primer balance PvP, cantidades de curas, escudos, pociones mejoradas y recursos secundarios; después, neutrales, topes, poder e implementación en GAS.
+
