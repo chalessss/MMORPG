@@ -747,6 +747,29 @@ Lista corta a propósito: no se quiere que el jugador necesite 30 consumibles di
   - Objetivo adicional: que a los bots que farmean 24/7 les salga caro, porque valga la pena matarlos.
   - *A resolver*: en Lineage 2, el karma lo gana quien mata a jugadores que no se defienden, y es **él** quien suelta objetos. Un bot que solo farmea no tendría karma, así que matarlo no le haría soltar nada. Hay que encajar ambas ideas (por ejemplo, una probabilidad de soltar componentes recolectados al morir en zonas PvP, aparte del karma).
 
+### 3.24 Desplazamiento y estructura de zonas (decidido)
+
+**Teletransporte estilo Lineage 2**
+- Hay **puntos de teletransporte fijos** (maestros de teletransporte) que conectan lugares concretos: ciudades y entradas de zonas de contenido.
+- **No hay rutas de vuelo con tiempo de viaje** (estilo WoW): se considera tiempo muerto.
+- **No hay teletransporte a cualquier sitio** (como los papiros de MIR4 a un NPC, una puerta o una zona concreta): rompe la exploración.
+- Consumibles de viaje (3.21): pergamino de teletransportación (lleva a un maestro de teletransporte), pergamino de escape (ciudad más cercana) y piedra de hogar (ciudad elegida).
+
+**Caminar sigue importando**
+- Desde el punto de teletransporte se llega al contenido **caminando o en montura**, en recorridos cortos: **1–2 minutos como máximo**.
+- Las **monturas** deben suponer un ahorro de tiempo real.
+
+**Zonas de caza divididas por estilo de juego** (ejemplo: zona de lobos)
+- Un área con **muchos lobos agrupados**: favorece a los grupos.
+- Otra con **lobos de élite separados y no agresivos**: favorece a quien caza solo con daño sostenido.
+- Otra con **lobos débiles a cierto tipo de magia**: favorece a los magos.
+- Todo sigue siendo la misma familia de mob; cambia cómo conviene cazar.
+
+**Recolección separada de la caza**
+- Las zonas de caza **no tienen puntos de recolección**, para no distraer.
+- Hay **zonas de recolección propias** (estilo MIR4), a las que también se llega desde un punto de teletransporte y luego caminando.
+- Las **vetas enriquecidas** sí aparecen repartidas por todo el mapa.
+
 ### 3.23 Menú principal del juego (en curso, estilo MIR4)
 
 Un **único menú** desde el que se accede a todos los sistemas del juego, sin tener que abrir ventanas encadenadas. Incluye un panel con todas las monedas del jugador.
@@ -820,6 +843,7 @@ Queda para más adelante:
 ## 7. Preguntas abiertas
 
 **Pendientes para más adelante**
+- **Teletransporte**: coste de cada viaje; si hay que descubrir un punto (llegar caminando) antes de poder usarlo; si hay puntos de teletransporte dentro de zonas PvP.
 - **Muerte y karma**: sistema de karma y pérdida de objetos (juego avanzado).
 - **Profesiones**: valores de la curva de oro por cambio; si una subclase de Recolector (nivel 60) da acceso al inventor.
 - **Bonus de moneda** por tamaño de grupo: valores.
