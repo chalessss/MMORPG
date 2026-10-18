@@ -262,6 +262,8 @@ Inspiración (MIR4): material por zona con grados, combinable y ligado → objet
 - **Subclases**: la pestaña Personaje muestra las entradas de la **clase activa**. Al cambiar de subclase, la pestaña se actualiza a la nueva clase; lo ya registrado **se mantiene** y sus estadísticas siguen sumando (aunque rindan menos si eran de otra clase).
 - **Panel de progreso** por pestaña: entradas completadas / total, porcentaje, en curso y completadas.
 - Botón **Efectos**: muestra las estadísticas totales obtenidas por cada pestaña y el total general del códice.
+- **Tipos de bonificación** (referencia MIR4, a definir en el capítulo de estadísticas): estadísticas planas (vida, maná, ataque y defensa física/mágica, precisión, evasión, crítico, evasión de crítico) y porcentuales (daño crítico, reducción de daño crítico, reducción de todo el daño, experiencia de caza, obtención de energía…). Las de Personaje son las más altas; las de Servidor, las más bajas.
+- En MIR4 algunas entradas de la pestaña Personaje piden objetos que no son equipo (gemas, objetos de espíritus…). Para nuestro juego, de momento, el códice solo pide equipo e insignias.
 
 **Interfaz del códice (referencia MIR4)**
 - Lista de **entradas**; cada una con nombre y nivel ("[1]", "[6]"…), la bonificación que da (por ejemplo, ataque físico +20) y los **objetos que pide**, cada uno con el **nivel de desarrollo requerido** (+7, +8…).
