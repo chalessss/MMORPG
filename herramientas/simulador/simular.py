@@ -15,6 +15,7 @@ Uso:
                                  para igualar a los de distancia en la caza
                                  real (con caminata), y lo guarda
   python3 simular.py --niveles   caza real nivel a nivel con mobs que escalan
+  python3 simular.py --ficha     guarda la ficha de estadísticas por nivel en resultados/
 """
 
 import csv
@@ -506,6 +507,59 @@ def niveles(parametros, armas, arquetipos, conversion, habilidades):
     print("\nmin = minutos para matar los mobs del nivel · poc. = pociones de vida y de maná bebidas · muertes")
 
 
+def ficha(parametros, armas, arquetipos, conversion, habilidades):
+    """Ficha cerrada de los niveles 1 al último simulado: estadísticas de cada
+    perfil por nivel y escalado de los mobs. Se guarda en resultados/ como CSV."""
+    p = parametros
+    filas, mobs = [], []
+    vida_media_1 = None
+    for nivel in range(1, int(p["nivel_maximo_simulado"]) + 1):
+        lista = perfiles_nivel(armas, arquetipos, habilidades, nivel)
+        vidas = []
+        for pf in lista:
+            s = secundarias(pf["arquetipo"], conversion, p)
+            con_arma = pf["arquetipo"]["ataque_basico"] == "1"
+            dano_arma = float(pf["arma"]["dano"])
+            vida = p["vida_base"] + s["vida"]
+            vidas.append(vida)
+            filas.append({
+                "nivel": nivel,
+                "perfil": pf["arquetipo"]["nombre"],
+                "arma": pf["arma"]["arma"],
+                "str": round(float(pf["arquetipo"]["str"])),
+                "agi": round(float(pf["arquetipo"]["agi"])),
+                "int": round(float(pf["arquetipo"]["int"])),
+                "vida": round(vida),
+                "regen_vida_5s": regen_cada_5s(p["regen_vida_base"] + s["regen_vida"]),
+                "mana": round(p["mana_base"] + s["mana"]),
+                "regen_mana_5s": regen_cada_5s(p["regen_mana_base"] + s["regen_mana"]),
+                "armadura": round(p["armadura_por_nivel"] * nivel),
+                "defensa_fisica_pct": round(s["defensa_fisica_pct"], 1),
+                "defensa_magica_pct": round(s["defensa_magica_pct"], 1),
+                "dano_arma": round(dano_arma) if con_arma else 0,
+                "dano_base_pct": round((s["base"] - 1) * 100, 1),
+                "dano_habilidad_pct": round((s["habilidad"] - 1) * 100, 1),
+                "dano_plano": round(s["plano"]),
+                "golpe_blanco": round((dano_arma + s["plano"]) * s["base"]) if con_arma else 0,
+                "critico_pct": round(s["probabilidad_critico"] * 100, 1),
+                "critico_extra_pct": round((s["multiplicador_critico"] - 1) * 100, 1),
+            })
+        vida_media = sum(vidas) / len(vidas)
+        vida_media_1 = vida_media_1 or vida_media
+        dano = round(p["dano_mob"] * vida_media / vida_media_1)
+        crecimiento = p["crecimiento_vida_mob_pct"] / 100
+        mobs.append({"nivel": nivel, "vida": round(p["vida_mob"] * (1 + crecimiento) ** (nivel - 1)),
+                     "golpe_basico": dano, "golpe_potenciado": dano * 2})
+    carpeta = Path(__file__).parent / "resultados"
+    carpeta.mkdir(exist_ok=True)
+    for nombre, datos in (("ficha_perfiles_1_19.csv", filas), ("ficha_mobs_1_19.csv", mobs)):
+        with open(carpeta / nombre, "w", encoding="utf-8", newline="") as f:
+            escritor = csv.DictWriter(f, fieldnames=list(datos[0].keys()), lineterminator="\n")
+            escritor.writeheader()
+            escritor.writerows(datos)
+    print(f"Guardado en resultados/: ficha_perfiles_1_19.csv ({len(filas)} filas) y ficha_mobs_1_19.csv")
+
+
 def informe(parametros, armas, arquetipos, conversion, habilidades):
     lista = list(perfiles(armas, arquetipos, habilidades))
     n = parametros["numero_mobs"]
@@ -563,6 +617,9 @@ def main():
         calibrar(*datos)
     if "--calibrar-real" in sys.argv:
         calibrar_real(*datos)
+    if "--ficha" in sys.argv:
+        ficha(*datos)
+        return
     if "--niveles" in sys.argv:
         niveles(*datos)
         return

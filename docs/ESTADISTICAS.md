@@ -1,6 +1,6 @@
 # Capítulo de detalle — Estadísticas
 
-Estado: **en curso**. Primer capítulo de detalle. La base de los niveles 1–19 (perfiles, armas, crecimiento y habilidades básicas) está cerrada: ver 2.19. Este archivo recoge el punto de partida (lo ya decidido y lo que hay en la hoja de cálculo), la propuesta de estructura y las preguntas abiertas. Se irá completando en la sesión.
+Estado: **en curso**. Primer capítulo de detalle. Los niveles 1–19 están cerrados: ver la ficha en la sección 3 (quedan tres flecos en la sección 6). La próxima sesión empieza por el nivel 20 (sección 4). Este archivo recoge el punto de partida (lo ya decidido y lo que hay en la hoja de cálculo), la propuesta de estructura y las preguntas abiertas. Se irá completando en la sesión.
 
 ## 1. Punto de partida
 
@@ -457,7 +457,7 @@ Nivel 1 con la rotación (caza real, 1.000 mobs): espada larga 165,1 min · espa
 ### 2.13 Del 1 al 19: vida del mob +30 % por nivel y crítico por nivel
 
 - El potenciado del mob hace **el doble** que un básico (decidido).
-- **Crítico por nivel** (prueba): probabilidad **1 %** a nivel 1, **+0,2 % por nivel**, tope 5 %; daño extra del crítico **+2 %** a nivel 1, **+0,4 % por nivel**, tope +10 %. De momento la AGI no da crítico.
+- **Crítico por nivel** (prueba): probabilidad **1 %** a nivel 1, **+0,2 % por nivel**, tope 5 %; daño extra del crítico **+2 %** a nivel 1, **+0,4 % por nivel**, tope +10 %. De momento la AGI no da crítico (por un error, las simulaciones 2.13–2.20 aún sumaban el crítico de AGI; corregido en la ficha de la sección 3, con resultados prácticamente iguales).
 - Vida del mob **+30 % por nivel** (compuesto); su daño sigue subiendo como la vida media de los jugadores. Rotación de los cuatro tipos de mob, 1.000 mobs por nivel, con pociones y sin descansos.
 
 | Nivel | Vida mob | Espada larga (min · pociones) | Espada corta | Arco | Mágico | Diferencia |
@@ -690,7 +690,99 @@ Reparto base (STR / INT / AGI): **mágico 2 / 6 / 2** (antes 1 / 7 / 2) y **fís
 - En los niveles 5–9 el mágico bebe algo más que sin armadura porque descansa menos (gana tiempo y caza más rápido: la diferencia sube al 38–44 % en los niveles 5–6).
 - Desde el nivel 16–18 nadie necesita pociones.
 
-## 3. Estructura propuesta del capítulo
+## 3. Ficha cerrada de los niveles 1–19
+
+Resumen de todo lo decidido en la sección 2 para el tramo **sin clase** (niveles 1 al 19). La ficha completa, nivel a nivel, se genera con `python3 herramientas/simulador/simular.py --ficha` en `herramientas/simulador/resultados/` (`ficha_perfiles_1_19.csv` y `ficha_mobs_1_19.csv`), lista para pasar a DataTables.
+
+### 3.1 Perfiles, armas y crecimiento
+
+| Perfil | Reparto base (STR / AGI / INT) | Arma | Segundos entre golpes | Daño del arma | Bono del arma y crecimiento por nivel (STR / AGI / INT) |
+|---|---|---|---|---|---|
+| Físico cuerpo a cuerpo | 5 / 4 / 1 | Espada larga | 2,6 | 75 | +10 / +5 / +3 |
+| Físico cuerpo a cuerpo | 5 / 4 / 1 | Espada corta | 1,4 | 37 | +10 / +5 / +3 |
+| Físico a distancia | 3 / 5 / 2 | Arco | 2,0 | 35 | +4 / +10 / +4 |
+| Mágico | 2 / 2 / 6 | Bastón (no pega) | — | — | +3 / +5 / +10 |
+
+El arma de nivel 1 da el mismo bono que se gana en cada nivel (easter egg).
+
+### 3.2 Qué da cada punto
+
+| Estadística | Por punto |
+|---|---|
+| STR | +20 vida · +0,2 vida/s · +0,5 % defensa física y mágica · +1,5 % de daño en todos los golpes |
+| INT | +15 maná · +0,2 maná/s · +2,5 % de daño de habilidades |
+| AGI | +2 de daño plano en cada golpe |
+| Base | 100 de vida, 0,5 vida/s, 50 de maná, 0,5 maná/s |
+
+- Daño de un golpe = (daño del arma o de la habilidad + daño plano de AGI) × (1 + % de STR) × (1 + % de INT, solo habilidades) × crítico. Se redondea a entero.
+- **Crítico** (no depende de AGI en este tramo): probabilidad 1 % + 0,2 % por nivel, tope 5 %; daño extra 2 % + 0,4 % por nivel, tope +10 %.
+- **Armadura**: 50 por nivel; cada 100 restan 1 de daño a cada golpe recibido (mínimo 1).
+- **Regeneración** mostrada cada 5 s y redondeada. Daño, vida, maná y estadísticas siempre enteros.
+
+### 3.3 Valores por nivel (extracto de la ficha)
+
+| Nivel | Perfil | STR / AGI / INT | Vida | Regen. vida (5 s) | Maná | Regen. maná (5 s) | Armadura | Golpe blanco | % daño (STR) | % habilidad (INT) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | Espada larga | 15 / 9 / 4 | 400 | 18 | 110 | 7 | 50 | 114 | 22,5 | 10 |
+| 1 | Espada corta | 15 / 9 / 4 | 400 | 18 | 110 | 7 | 50 | 67 | 22,5 | 10 |
+| 1 | Arco | 7 / 15 / 6 | 240 | 10 | 140 | 9 | 50 | 72 | 10,5 | 15 |
+| 1 | Mágico | 5 / 7 / 16 | 200 | 8 | 290 | 19 | 50 | — | 7,5 | 40 |
+| 10 | Espada larga | 105 / 54 / 31 | 2.200 | 108 | 515 | 34 | 500 | 471 | 157,5 | 77,5 |
+| 10 | Espada corta | 105 / 54 / 31 | 2.200 | 108 | 515 | 34 | 500 | 373 | 157,5 | 77,5 |
+| 10 | Arco | 43 / 105 / 42 | 960 | 46 | 680 | 45 | 500 | 403 | 64,5 | 105 |
+| 10 | Mágico | 32 / 52 / 106 | 740 | 35 | 1.640 | 109 | 500 | — | 48 | 265 |
+| 19 | Espada larga | 195 / 99 / 58 | 4.000 | 198 | 920 | 61 | 950 | 1.072 | 292,5 | 145 |
+| 19 | Espada corta | 195 / 99 / 58 | 4.000 | 198 | 920 | 61 | 950 | 922 | 292,5 | 145 |
+| 19 | Arco | 79 / 195 / 78 | 1.680 | 82 | 1.220 | 81 | 950 | 929 | 118,5 | 195 |
+| 19 | Mágico | 59 / 97 / 196 | 1.280 | 62 | 2.990 | 199 | 950 | — | 88,5 | 490 |
+
+(STR / AGI / INT incluyen el bono del arma.)
+
+### 3.4 Habilidades
+
+| Perfil | Habilidad | Nivel | Qué hace | Enfriamiento | Duración | Maná |
+|---|---|---|---|---|---|---|
+| Cuerpo a cuerpo | Golpe doble | 1 | 150 % + 75 % del arma | 20 s | un golpe blanco | 8 |
+| Cuerpo a cuerpo | Golpe al suelo | 1 | 300 % del arma | 40 s | 3 s | 12 |
+| Cuerpo a cuerpo | Golpe sangriento | 10 | 300 % del arma; cuesta 1/6 de la vida máxima | 10 s | un golpe blanco | — |
+| Cuerpo a cuerpo | Robo de vida (pasiva) | 10 | se cura el 4 % del daño que hace | — | — | — |
+| Distancia | Disparo cargado | 1 | 200 % del arma | 12 s | 2 s | 6 |
+| Distancia | Ráfaga triple | 1 | 3 × 120 % del arma | 40 s | 1,5 s | 12 |
+| Distancia | Disparo potente | 10 | 350 % del arma | 15 s | 3 s | 10 |
+| Distancia | Robo de vida (pasiva) | 10 | se cura el 0,3 % del daño y +3 % de crítico (sin pasar el tope) | — | — | — |
+| Mágico | Hechizo fuerte | 1 | 97 de daño base | 8 s | 2 s | 12 |
+| Mágico | Hechizo débil | 1 | 32 de daño base | 1 s | 2 s | 5 |
+| Mágico | Escudo de maná | 10 | absorbe hasta el 20 % de la vida máxima | 20 s | 8 s (1 s de lanzamiento) | 15 |
+| Mágico | Celeridad (pasiva) | 10 | hechizos un 2 % más rápidos | — | — | — |
+
+### 3.5 Mobs y caza
+
+- Dos tipos de daño (físico o mágico) y dos distancias; para simular, rotación fija: cuerpo a cuerpo físico → a distancia mágico → cuerpo a cuerpo mágico → a distancia físico. Ciclo de ataques: básico, básico, potenciado (×2).
+- Vida: 420 en el nivel 1 (±10 % por mob) y **+30 % por nivel**. Daño: 6 por golpe básico en el nivel 1, creciendo como la vida media de los jugadores (53 en el nivel 19).
+- El cuerpo a cuerpo camina 1,5 s hasta cada mob; a los de distancia el mob cuerpo a cuerpo tarda 2,5 s en llegar.
+- Pociones: +100, 20 s de enfriamiento; se descansa tras un mob si no queda vida para otro. Los mágicos reciben pociones de misión extra.
+
+**Caza real del 1 al 19** (1.000 mobs por nivel; min · pociones; nadie muere):
+
+| Nivel | Vida mob | Espada larga | Espada corta | Arco | Mágico | Diferencia |
+|---|---|---|---|---|---|---|
+| 1 | 420 | 165 · 0 | 166 · 0 | 170 · 129 | 170 · 181 | 2,9 % |
+| 5 | 1.200 | 201 · 0 | 175 · 0 | 171 · 252 | 146 · 351 | 37,6 % |
+| 10 | 4.454 | 249 · 152 | 231 · 357 | 249 · 406 | 206 · 112 | 20,9 % |
+| 15 | 16.537 | 468 · 0 | 430 · 0 | 480 · 141 | 356 · 176 | 34,6 % |
+| 19 | 47.231 | 859 · 0 | 788 · 0 | 896 · 0 | 625 · 0 | 43,4 % |
+
+El mágico es el más rápido y el que más pociones necesita; el cuerpo a cuerpo, el que más aguanta. Esa diferencia es intencionada (2.19).
+
+## 4. Nivel 20: elección de clase (próxima sesión)
+
+Al llegar al nivel 20 se elige clase y **se reconfiguran las estadísticas**. Cada clase recibe una **pasiva** que cambia lo que da cada punto, para que empiecen a perfilarse:
+- **Mágicos**: cada punto de INT vale mucho más (por ejemplo, ×3), sobre todo en daño.
+- **Agilidad**: cada pocos puntos de AGI (por ejemplo, cada 3) suben el crítico, el robo de vida o lo que haga falta para equilibrar.
+- **Guerreros y combatientes**: la STR da más vida y más armadura, para perfilarse como los que aguantan (tanques).
+- Las demás clases se potencian según la especialización que elijan.
+
+## 5. Estructura propuesta del capítulo
 
 1. **Lista cerrada de estadísticas** y a qué categoría pertenece cada una (principal, derivada, neutral, PvP, utilidad).
 2. **Crecimiento por nivel**: cuántos puntos de principales da cada nivel y si el reparto es fijo por clase o en parte libre.
@@ -702,6 +794,12 @@ Reparto base (STR / INT / AGI): **mágico 2 / 6 / 2** (antes 1 / 7 / 2) y **fís
 8. **Puntuación de poder**.
 9. **Implementación**: AttributeSets de GAS y DataTables.
 
-## 4. Preguntas abiertas
+## 6. Preguntas abiertas
 
-Ver la conversación de la sesión; se trasladarán aquí las respuestas como decisiones.
+**De los niveles 1–19 (para cerrar del todo):**
+- **Tope de las defensas de STR**: con 0,5 % por punto y sin tope, el cuerpo a cuerpo llega a un **97,5 % de defensa física y mágica** en el nivel 19 (el arco al 39,5 % y el mágico al 29,5 %). Hace falta un tope o rendimientos decrecientes.
+- **Daño de las armas por tramos** (bronce → cobre → plata): de momento el arma no cambia de daño en todo el tramo.
+- **Pociones por nivel**: la poción cura siempre 100.
+- **El crítico apenas se nota** (+10 % de daño como mucho): decidido así por ahora.
+
+**Para la próxima sesión:** nivel 20 y clases (ver 4).

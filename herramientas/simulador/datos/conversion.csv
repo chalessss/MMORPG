@@ -8,5 +8,5 @@ int,mana,15,puntos de maná
 int,regen_mana,0.2,maná por segundo
 int,dano_habilidad_pct,2.5,% de daño solo en habilidades
 agi,dano_base,2,daño plano sumado a cada golpe
-agi,critico_pct,0.5,% de probabilidad de crítico
-agi,critico_aumentado_pct,1,% extra de daño crítico
+agi,critico_pct,0,% de probabilidad de crítico (del 1 al 19 el crítico sube con el nivel, no con AGI)
+agi,critico_aumentado_pct,0,% extra de daño crítico (del 1 al 19 sube con el nivel, no con AGI)
