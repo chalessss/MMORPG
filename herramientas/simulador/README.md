@@ -57,3 +57,5 @@ Datos en `datos/nivel20/`:
 | `parametros.csv` | Mob del nivel 20, puntos totales, crítico, pociones, recursos secundarios (Ira, Energía, Foco, Trance) y remate |
 
 Simula en pasos de 0,1 s. En los conglomerados todos los mobs del grupo pegan a la vez y entran en las habilidades de área; si un personaje muere 20 veces se da por hecho que no puede con esa caza.
+
+La prueba 4 simula **grupos** (`GRUPOS` en `simular20.py`: un trío Combatiente + Mago + Invocador y un grupo de 5): todos los mobs pegan al tanque, el Invocador cura y escuda a los aliados, y la experiencia se reparte entre los miembros.

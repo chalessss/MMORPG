@@ -314,6 +314,41 @@ Efecto (caza de uno en uno; pociones de maná de 400 cada 1.000 mobs):
 - **Corrección (decidido):** su **pasiva de arma** (más potencia de escudos y curas) le da además **+0,2 de maná por segundo por cada punto de INT** (0,4 de su pasiva de especialización + 0,2 = 0,6). Regenera **112 por segundo** (558 cada 5 s) y queda en **41 mobs/hora, ~430 pociones cada 1.000 mobs y sin descansar**; contra el jefe, 746 de daño por segundo.
 - **Más caza para el Invocador (decidido):** su pasiva de arma le da además **+50 % de daño contra monstruos** (no contra jefes). Resultado: de uno en uno **41 → 61 mobs/hora** (~440 pociones de maná cada 1.000 mobs, sin descansar); en grupo con 12 mobs **88 → 130 mobs/hora**; contra el jefe sigue en 746.
 
+### 1.10 Simulación del grupo completo
+
+- **Maná de los físicos (decidido):** se queda como está (entre ~350 y ~1.000 pociones de maná cada 1.000 mobs).
+- El simulador ya admite **varios personajes a la vez** (prueba 4 de `simular20.py`). Supuestos:
+  - Todos los mobs pegan al **tanque** (Combatiente); si cae, pasan al siguiente (cuerpo a cuerpo y después los de distancia).
+  - Quien muere vuelve a los 30 s con todo lleno; si cae el grupo entero, los mobs se recuperan.
+  - El Invocador cura con Restauración al aliado más herido cuando baja del 60 % (30 % de su vida; si cura a otro, se cura él la mitad o se la da al siguiente más herido); pone el Escudo de maná al tanque cuando le van a pegar (el tanque recibe el escudo entero y el Invocador un 25 %); cada estrella de la Lluvia de estrellas escuda a los aliados (no a él) con el daño que hace, durante 8 s.
+  - Se descansa si a cualquiera le queda poca vida o poco maná, y se espera a que todos se recuperen.
+
+**Resultados** (300 mobs por prueba; "por miembro" = mobs/hora del grupo entre sus miembros, porque la experiencia se reparte):
+
+Trío: Combatiente, Mago, Invocador.
+
+| Mobs a la vez | Mobs/hora del grupo | Por miembro | Caídas | Pociones de vida del tanque | Curado / escudo por segundo | Reparto del daño |
+|---|---|---|---|---|---|---|
+| 1 | 226 | 75 | 0 | 0 | 9 / 283 | Combatiente 20 %, Mago 55 %, Invocador 24 % |
+| 6 | 571 | 190 | 0 | 0 | 0 / 315 | Combatiente 23 %, Mago 62 %, Invocador 15 % |
+| 12 | 1.102 | 367 | 0 | 0 | 0 / 302 | Combatiente 22 %, Mago 68 %, Invocador 11 % |
+| 20 | 1.849 | 616 | 0 | 0 | 11 / 342 | Combatiente 21 %, Mago 69 %, Invocador 11 % |
+
+Grupo de 5: Combatiente, Invocador, Mago, Atacante a distancia, Asesino.
+
+| Mobs a la vez | Mobs/hora del grupo | Por miembro | Caídas | Pociones de vida del tanque | Curado / escudo por segundo | Reparto del daño |
+|---|---|---|---|---|---|---|
+| 1 | 379 | 76 | 0 | 0 | 16 / 396 | Combatiente 11 %, Invocador 13 %, Mago 29 %, Atacante 27 %, Asesino 20 % |
+| 6 | 846 | 169 | 0 | 0 | 0 / 593 | Combatiente 14 %, Invocador 9 %, Mago 40 %, Atacante 25 %, Asesino 12 % |
+| 12 | 1.620 | 324 | 0 | 0 | 0 / 604 | Combatiente 13 %, Invocador 7 %, Mago 45 %, Atacante 26 %, Asesino 8 % |
+| 20 | 2.602 | 520 | 0 | 0 | 12 / 589 | Combatiente 14 %, Invocador 6 %, Mago 45 %, Atacante 28 %, Asesino 7 % |
+
+Lectura:
+- **Los roles funcionan en grupo**: el Combatiente aguanta hasta 20 mobs sin que nadie muera, el **Mago hace la mayor parte del daño en área** (45–69 %) y el Invocador aporta algo de daño y, sobre todo, escudos.
+- **De uno en uno, el grupo no compensa por sí solo**: por miembro sale como cazar solo (trío 75 frente a una media de 79 de sus miembros solos; grupo de 5, 76 frente a 93). Lo compensará la **bonificación de experiencia de grupo** (+10 % a +25 %, ya decidida).
+- **En conglomerados el grupo caza muchísimo más**: con 12–20 mobs, cada miembro saca **4–7 veces** lo que sacaría solo. Si se quiere evitar, se puede ajustar con la experiencia por mob de las zonas de conglomerados o el tamaño de los grupos de mobs (capítulo de mapas).
+- **El curandero casi no tiene que curar**: los escudos (los de las estrellas y el Escudo de maná) y el robo de vida en área del Combatiente cubren casi todo el daño, y el tanque no bebe pociones. Con el mob del nivel 20 (59 de daño por golpe), el daño que entra en grupo es bajo; los mobs de las zonas de conglomerados, los élites y los jefes deberían pegar más para que la cura importe.
+
 ## 2. Trabajo de esta sesión
 
 1. ~~**Especializaciones por clase de inicio**~~: decidido (1.0b).
@@ -323,7 +358,7 @@ Efecto (caza de uno en uno; pociones de maná de 400 cada 1.000 mobs):
 5. **Armas de clase**: daño y velocidad de daga, varita y espadas de clase.
 6. ~~**Recursos secundarios**~~: mecánica decidida (1.5). Faltan los valores.
 7. **Estadísticas visibles nuevas** desde el nivel 20 (las neutrales de la hoja que se muestran y empiezan a contar).
-8. **Simulación de las 6 clases en el nivel 20**: primera versión hecha (1.8). Falta la caza en grupo y calibrar el maná.
+8. **Simulación de las 6 clases en el nivel 20**: hecha, solos (1.8) y en grupo (1.10); maná calibrado para Mago e Invocador (1.9).
 9. **Primer balance PvP** con el triángulo STR > AGI > INT > STR.
 10. **Ficha cerrada del nivel 20** por clase.
 

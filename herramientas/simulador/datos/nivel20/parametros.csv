@@ -50,3 +50,6 @@ mobs_por_prueba,300,
 semilla,1,
 apoyo_regen_mana_por_int,0.2,pasiva de arma del Invocador: maná por segundo extra por cada punto de INT (0.4 de su conversión + 0.2 = 0.6)
 apoyo_dano_monstruos_pct,50,pasiva de arma del Invocador: % de daño extra contra monstruos (no contra jefes)
+escudo_propio_pct,25,escudo sobre un aliado: quien lo lanza recibe este % (20-30 %)
+escudo_estrellas_s,8,duración del escudo que deja cada estrella de la Lluvia de estrellas en los aliados
+curar_bajo_pct,60,el curandero cura al aliado más herido cuando baja de este % de vida
