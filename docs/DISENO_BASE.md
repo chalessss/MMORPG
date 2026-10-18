@@ -67,6 +67,8 @@ Enemigos que pueblan el mundo y las mazmorras.
 - Al morir dan experiencia y botín. Reaparecen tras un tiempo.
 - Pueden ser fuente de recursos (pieles, carne, materiales) mediante profesiones.
 
+**Familias de mobs (en curso)**: todo mob pertenece a una familia, que define su trofeo de códice y su basura. Base segura: **bestias** y **humanoides**. Otras posibles (por revisar con referencias): elementales, no-muertos/reanimados, etc.
+
 ### 3.3 NPCs de combate — Jefes
 
 Enemigos especiales con mecánicas propias (fases, habilidades únicas, ataques que hay que esquivar).
@@ -251,8 +253,12 @@ armadura del grupo → jugador 3 · los jugadores 1, 2, 4 y 5 tiran su armadura 
 
 Sistema de colección que da **estadísticas permanentes a la cuenta**. Por ahora solo se fija lo básico:
 
-- **Los mobs sueltan insignias**, el material del códice (objetos de códice en la tabla de botín). Cada zona tiene las suyas.
-- Con las insignias se **fabrican** objetos de códice, que se **mejoran** y se **registran**. Fabricación, mejora y niveles de las entradas: por definir.
+- **Los mobs sueltan trofeos**, el material del códice de reputación (objetos de códice en la tabla de botín). *"Trofeo" es el nombre provisional; se descarta "insignia" por ser demasiado de MIR4.*
+- **Trofeos representativos de cada familia de mob**: no son objetos inventados, sino una parte de la criatura que se caza. Ejemplos: las **bestias** sueltan **dientes**; los **elementales**, **residuo elemental**. Solo cazando esa familia se consigue su trofeo.
+- **Objetos de códice**: se fabrican con los trofeos y llevan su nombre (con dientes, un **collar de dientes**; con residuo elemental, un **collar de residuo elemental**).
+- **Cada temporada trae un trofeo nuevo por familia** (por ejemplo, bestias: dientes en la Temporada 1 → huesos en la Temporada 2 → …), manteniendo la forma "collar de X".
+- La **basura** también es temática y sencilla (lobos: bolas de pelo; alces: cuernos desgastados…).
+- Con los trofeos se **fabrican** objetos de códice, que se **mejoran** y se **registran**. Fabricación, mejora y niveles de las entradas: por definir.
 - **Registro**: el objeto **se consume** y desaparece del inventario; queda registrado en la cuenta. Cada línea del códice necesita sus objetos concretos: un objeto no cubre varias líneas.
 - **Códice de armaduras**: las armaduras sobrantes o sustituidas también se registran, en vez de venderse por poco. Cuando el códice está completo, las armaduras de más se mejoran y se venden en el mercado.
 - **Bonificaciones de cuenta**: se mantienen al cambiar de subclase (el códice de ataque mágico sigue sirviendo si un guerrero pasa a mago).
@@ -265,7 +271,7 @@ Inspiración (MIR4): material por zona con grados, combinable y ligado → objet
 | Pestaña | Qué se registra | Alcance |
 |---|---|---|
 | **Personaje** | Solo el equipo que **mi clase/especialización puede usar** (un guerrero tanque solo ve equipo de guerrero tanque; nunca equipo de mago) | Del personaje |
-| **Reputación** | Objetos de códice fabricados con **insignias** | **Compartido** por todos los personajes de la cuenta en el servidor: lo que registra uno, lo tienen todos |
+| **Reputación** | Objetos de códice fabricados con **trofeos** de cada familia de mob | **Compartido** por todos los personajes de la cuenta en el servidor: lo que registra uno, lo tienen todos |
 | **Servidor** | Equipo de **otras clases y especializaciones** (por ejemplo, armaduras de mago para un guerrero). Da pocas estadísticas, pero suma | **Compartido** por todos los personajes de la cuenta en el servidor |
 | ~~Tiempo limitado~~ | — | **No se implementa nunca** (códices temporales de MIR4) |
 
@@ -276,7 +282,7 @@ Inspiración (MIR4): material por zona con grados, combinable y ligado → objet
 - **Panel de progreso** por pestaña: entradas completadas / total, porcentaje, en curso y completadas.
 - Botón **Efectos**: muestra las estadísticas totales obtenidas por cada pestaña y el total general del códice.
 - **Tipos de bonificación** (referencia MIR4, a definir en el capítulo de estadísticas): estadísticas planas (vida, maná, ataque y defensa física/mágica, precisión, evasión, crítico, evasión de crítico) y porcentuales (daño crítico, reducción de daño crítico, reducción de todo el daño, experiencia de caza, obtención de energía…). Las de Personaje son las más altas; las de Servidor, las más bajas.
-- En MIR4 algunas entradas de la pestaña Personaje piden objetos que no son equipo (gemas, objetos de espíritus…). Para nuestro juego, de momento, el códice solo pide equipo e insignias.
+- En MIR4 algunas entradas de la pestaña Personaje piden objetos que no son equipo (gemas, objetos de espíritus…). Para nuestro juego, de momento, el códice solo pide equipo y objetos hechos con trofeos.
 
 **Qué pide cada entrada (decidido)**
 - Las entradas se agrupan por **estadística** y se numeran ([1], [2], [3]…). Todas las de un grupo dan **la misma bonificación** (por ejemplo, ataque físico +20 cada una).
@@ -314,7 +320,7 @@ Es la primera clasificación de todo objeto.
 |---|---|
 | Caza | Botín de mobs y jefes |
 | Misión | Recompensas de misiones |
-| Fabricación | Profesiones, combinación de insignias |
+| Fabricación | Profesiones, objetos de códice hechos con trofeos |
 | Compra a NPC | Comerciantes |
 | Logros | Recompensas por cumplir objetivos |
 | Recolección | Minerales, plantas, madera, pesca |
@@ -472,7 +478,7 @@ Máximo total: 9 bolsas.
 | Bolsa | Qué guarda | Cómo se llena |
 |---|---|---|
 | **General** | Equipo, basura y todo lo que no cabe en las especiales | Automático |
-| **Componentes** | Todo lo que sirve para fabricar (componentes de profesiones principales y secundarias, insignias del códice…) | Automático |
+| **Componentes** | Todo lo que sirve para fabricar (componentes de profesiones principales y secundarias, trofeos del códice…) | Automático |
 | **Consumibles** | Pociones de vida y de maná, elixires, comidas | **El jugador decide** qué pone en cada espacio (por ejemplo, de 10 espacios: 6 de pociones, 2 de comida, 1 de elixir y 1 libre) |
 
 - **Desbordamiento**: si una bolsa especial está llena, lo que llega va a la **bolsa general**. **Nunca se pierde un objeto** por falta de espacio en una bolsa especial.
@@ -482,7 +488,7 @@ Máximo total: 9 bolsas.
 
 **Objetos de misión — "bolsa invisible"**: no ocupan espacio ni se muestran en el inventario. Solo se ven como progreso en el **registro de misiones** (por ejemplo, "Pieles de lobo 3/5"). Se eliminan al completar o abandonar la misión. Así nadie se bloquea por tener el inventario lleno, y quien acepte muchas misiones sin terminarlas no acumula miles de objetos visibles.
 
-**Tamaño de las pilas**: lo define **cada objeto** al crearlo, según su calidad y lo frecuente que sea. Los objetos muy abundantes (por ejemplo, insignias del códice, de las que se acumulan 10.000–20.000) tienen pilas muy grandes para no ocupar espacio.
+**Tamaño de las pilas**: lo define **cada objeto** al crearlo, según su calidad y lo frecuente que sea. Los objetos muy abundantes (por ejemplo, trofeos del códice, de las que se acumulan 10.000–20.000) tienen pilas muy grandes para no ocupar espacio.
 
 **De dónde salen las bolsas**:
 - La fuente principal son las **profesiones**: cada profesión puede fabricar una bolsa mayor usando **solo sus propios materiales** (el desollador con componentes de desuello, el encantador con componentes de encantamiento…). Así cualquier jugador que suba una profesión puede hacerse una bolsa.
@@ -826,5 +832,5 @@ Queda para más adelante:
 **Capítulos propios**
 - **Sistemas de juego** (siguiente): sistemas tomados de otros juegos que marcarán a qué deben apuntar las estadísticas.
 - **Estadísticas**: peso de cada estadística por clase, PvE vs. PvP; revisar la hoja (valores base que no coinciden, fórmula que suma el nivel dos veces, nombres de habilidades desplazados, modelo de estadísticas).
-- **Códice**: cantidades exactas de objetos y desarrollo por entrada (con las estadísticas); fabricación de objetos con insignias; cuello de botella de MIR4.
+- **Códice**: cantidades exactas de objetos y desarrollo por entrada (con las estadísticas); fabricación de objetos con trofeos; lista de familias de mobs y su trofeo por temporada; cuello de botella de MIR4.
 - **Contenido por temporada**: tipo de armadura de cada especialización y casos dudosos (Espadas duales, Recolector, Carroñero, Mutilador); si el tipo puede cambiar entre la especialización 1 y la final.
