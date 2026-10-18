@@ -836,6 +836,8 @@ Los clanes deben ser **comunidades vivas** que den sentido de pertenencia y prem
   - Otros: almacén del clan, acumulador de energía, instalación de almacenamiento, sala de escrituras, técnica de sello, esgrima, expedición.
 - **Cooperar**: cada miembro aporta moneda (por ejemplo, 400 de cobre por aporte) y la investigación avanza (por ejemplo, 3.150/18.700). Algunas técnicas aparecen como **recomendadas**.
 - **Cargas de cooperación**: cada miembro tiene un máximo de cargas (24) que **se recargan con el tiempo** (una cada pocos minutos). Sin cargas, MIR4 permite cooperar pagando con su moneda premium (*Dragon Jade*).
+- **Qué da cada cooperación** (400 de cobre): **experiencia de técnica** (10) para el edificio, **experiencia de clan** (3) —el clan tiene **nivel propio**—, **monedas de clan** (60) para el miembro que coopera y **fondos del clan** (4). Así cooperar beneficia a la vez al clan y al miembro.
+- **Expedición**: técnica que desbloquea expediciones y desafíos de clan adicionales.
 - **Regalos de clan** (*gestión de viajeros*): técnica que da regalos adicionales a los miembros, que se reclaman en un menú de suministros.
 
 **Propuesta de árbol para nuestro juego** (por validar):
@@ -917,7 +919,7 @@ Queda para más adelante:
 ## 7. Preguntas abiertas
 
 **Pendientes para más adelante**
-- **Clanes**: tamaño máximo; coste de fundarlo; niveles de clan; qué cuenta como contribución; cargas de cooperación y si se puede saltar el límite con moneda premium (propuesta: no); regalos de clan; ramas y técnicas concretas.
+- **Clanes**: tamaño máximo; coste de fundarlo; qué da cada nivel de clan; qué cuenta como contribución; expediciones y desafíos de clan; cargas de cooperación y si se puede saltar el límite con moneda premium (propuesta: no); regalos de clan; ramas y técnicas concretas.
 - **Mercado**: porcentajes de comisión y de quema (mercado vs. P2P); si las tiendas privadas funcionan con el jugador desconectado.
 - **Juego automático**: qué objetos exactos se restringen en automático; valores de la experiencia de descanso.
 - **Teletransporte y zonas**: precios por zona; si dentro del círculo protegido de las zonas PvP se puede atacar hacia fuera (propuesta: no se puede atacar ni ser atacado); sistema de reputación con facciones.
