@@ -889,7 +889,17 @@ Solo se clasifica lo que se puede medir de forma objetiva:
 | **Semanales** | Contenido semanal con recompensa o logro. |
 | **Únicas** | Solo se pueden hacer una vez, con una recompensa única (eventos, hitos concretos). |
 
-- **Saltar**: los jugadores con experiencia pueden **avanzar rápido** la parte explicativa de la línea principal.
+- **Saltar**: los jugadores con experiencia pueden **saltar los diálogos**, pero **no las tareas**: hay que completarlas igual (por ejemplo, desarrollar un objeto de +0 a +1 para seguir).
+
+**Misiones de clase**: forman parte de la **línea principal**. Se puede llegar al nivel 20 sin hacer misiones, pero para desbloquear el contenido desde el nivel 21 hay que completar la línea principal, que incluye la misión **obligatoria** de elegir especialización ("Se viene un nuevo desafío… ¿cómo te quieres enfocar?").
+
+**Misiones de profesión**: en la línea principal, una misión presenta las profesiones. El jugador puede **elegir una ya o saltar** la elección; en ambos casos queda habilitado para aprender profesiones más tarde con cualquier entrenador.
+
+**Reputación de facción**: la dan **todas las misiones fuera de la línea principal** (diarias, semanales, de mundo abierto, de objetos que sueltan los mobs, de mazmorras…). La línea principal puede dar algo de reputación, sobre todo al abrir una zona o un mapa nuevo. Quien quiera subir reputación tiene que hacer misiones diarias y secundarias.
+
+**Misiones de élite o de grupo**: siempre **opcionales** y **fuera de la línea principal**, para no bloquear a quien juega solo.
+
+**Mazmorras asistidas** (idea para el capítulo de mazmorras): entrar a una mazmorra con **4 compañeros controlados por la IA**. El jugador elige su rol (tanque, daño o sanador) y la IA cubre el resto. Sirve para aprender la mazmorra en solitario antes de hacerla en grupo.
 - **Guía / tomo del jugador**: un libro dentro del juego con un resumen de cómo funciona cada sistema ya desbloqueado y la lista de lo que falta por desbloquear.
 
 ### 3.23 Menú principal del juego (en curso, estilo MIR4)
@@ -965,7 +975,7 @@ Queda para más adelante:
 ## 7. Preguntas abiertas
 
 **Pendientes para más adelante**
-- **Misiones**: qué se salta exactamente con "avance rápido" (solo explicaciones o también tareas); límite de misiones activas; tipos adicionales propuestos (clase, profesión, reputación de facción, élite de grupo).
+- **Misiones**: límite de misiones activas; nivel exacto en que se presentan las profesiones (en el inventario se habló del nivel 3, junto con la bolsa de componentes; en las misiones, del nivel 8).
 - **Clanes**: coste exacto de fundarlo; qué da cada nivel de clan; mecánica de "ayudar a compañeros" (¿sellado de cofres?); expediciones y desafíos de clan; ramas y técnicas concretas; niveles de desbloqueo de cada función.
 - **Mercado**: porcentajes de comisión y de quema (mercado vs. P2P); si las tiendas privadas funcionan con el jugador desconectado.
 - **Juego automático**: qué objetos exactos se restringen en automático; valores de la experiencia de descanso.
