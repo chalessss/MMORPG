@@ -520,6 +520,23 @@ Máximo total: 9 bolsas.
 - Comodidades: buscador, botón de organizar y botón **"Depositar todos los componentes"**.
 - **Banco de tropa** (compartido entre los personajes de la cuenta): la pestaña existe pero se desbloquea en el **nivel 60**, cuando llega el contenido para varios personajes en la cuenta (por ejemplo, clases especiales que se añadan más adelante).
 
+### 3.17b Fabricación de equipo y cuello de botella (decidido el principio)
+
+**Cómo funciona en MIR4 (referencia)**
+- Para fabricar equipo de una calidad hacen falta **componentes de esa misma calidad** (por ejemplo, un arma épica pide acero épico, orbes épicos, etc., además de moneda).
+- Los componentes se pueden **combinar hacia arriba**: 10 de una calidad → 1 de la siguiente.
+- Interfaz: pestañas por tipo (arma/arma secundaria, armadura, accesorios), lista por calidad, receta con los componentes y su cantidad, y filtro "se puede fabricar".
+
+**El cuello de botella de MIR4**
+- Por mucho que avance el jugador, los mobs solo sueltan componentes hasta **raro**, la recolección hasta **épico** y los cofres hasta **legendario**.
+- Para un objeto **mítico** hay que combinar desde abajo: 10 legendarios = 100 épicos = 1.000 raros = 10.000 poco comunes. Llegar a la calidad más alta se vuelve casi imposible, y subir de nivel no ayuda.
+
+**Solución para nuestro juego**
+- **Cada temporada, los mobs de mayor nivel sueltan componentes de la calidad máxima de esa temporada** (por ejemplo, en la Temporada 3, los mobs de nivel 60 sueltan acero épico).
+- La probabilidad debe estar **equilibrada**: ni un componente por cada mob (el equipo saldría demasiado rápido) ni uno cada miles (frustrante).
+- Objetivo: que el equipo y el códice de la temporada **se puedan completar de verdad**, y que siempre haya **incentivo para subir de nivel** y pasar a la siguiente temporada.
+- Se mantiene la combinación hacia arriba como vía secundaria, para que los componentes de menor calidad no pierdan valor.
+
 ### 3.18 Desarrollo de objeto (+1 a +10)
 
 Mezcla de MIR4 y Lineage 2.
