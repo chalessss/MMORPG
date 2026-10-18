@@ -310,9 +310,12 @@ def prueba_caza(perfil, conversion, parametros, supervivencia=None):
     variacion = parametros["variacion_vida_mob_pct"] / 100
     tipos = leer("mobs.csv")
     pesos = [float(t["proporcion"]) for t in tipos]
-    vidas = [(round(parametros["vida_mob"] * (1 + azar_vidas.uniform(-variacion, variacion))),
-              azar_vidas.choices(tipos, pesos)[0])
-             for _ in range(int(parametros["numero_mobs"]))]
+    vidas = []
+    for i in range(int(parametros["numero_mobs"])):
+        vida = round(parametros["vida_mob"] * (1 + azar_vidas.uniform(-variacion, variacion)))
+        # Rotación fija (siempre se recibe daño intercalado) o tipo al azar.
+        tipo = tipos[i % len(tipos)] if parametros["rotacion_mobs"] else azar_vidas.choices(tipos, pesos)[0]
+        vidas.append((vida, tipo))
     azar = random.Random(int(parametros["semilla"])) if parametros["critico_aleatorio_en_caza"] else None
     if supervivencia is None:
         supervivencia = bool(parametros["supervivencia_en_caza"])

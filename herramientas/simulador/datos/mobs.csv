@@ -1,3 +1,5 @@
 tipo,nombre,a_distancia,tipo_dano,ciclo,proporcion,nota
-fisico,Mob físico,0,fisico,1|1|2,50,se acerca y pega cuerpo a cuerpo: básico básico potenciado (x2) y repite
-magico,Mob mágico,1,magico,1|1|2,50,lanza desde lejos: básico básico potenciado (x2) y repite
+melee_fisico,Cuerpo a cuerpo físico,0,fisico,1|1|2,25,se acerca y pega: básico básico potenciado (x2) y repite
+rango_magico,A distancia mágico,1,magico,1|1|2,25,pega desde lejos desde que empieza la pelea
+melee_magico,Cuerpo a cuerpo mágico,0,magico,1|1|2,25,
+rango_fisico,A distancia físico,1,fisico,1|1|2,25,

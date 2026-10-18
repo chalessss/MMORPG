@@ -433,7 +433,9 @@ Mismas armas, mismos mobs (420 de vida) y mismas pociones que 2.7; solo se suman
 
 - Los mobs son siempre de **dos tipos: físicos o mágicos**.
 - Todos siguen el mismo ciclo: **dos ataques básicos y un ataque potenciado**, y vuelven a empezar.
-- Supuestos de la simulación (pendientes de confirmar): el físico pega **cuerpo a cuerpo** y el mágico **a distancia** (empieza a pegar en cuanto empieza la pelea: sin golpes gratis para los de distancia y daño también mientras el cuerpo a cuerpo camina hacia él); el potenciado hace **el doble** que un básico; zonas con **50 % físicos y 50 % mágicos** (`mobs.csv`). El daño físico se reduce con la defensa física y el mágico con la mágica.
+- Un mob a distancia empieza a pegar en cuanto empieza la pelea: sin golpes gratis para los de distancia y daño también mientras el cuerpo a cuerpo camina hacia él. El daño físico se reduce con la defensa física y el mágico con la mágica.
+- Supuesto pendiente de confirmar: el potenciado hace **el doble** que un básico.
+- La primera prueba (tabla siguiente) usó solo dos tipos (físico cuerpo a cuerpo y mágico a distancia, 50 % / 50 %); la rotación decidida está debajo.
 
 **Nivel 1** (caza real, 1.000 mobs, con pociones, sin descansos):
 
@@ -447,6 +449,10 @@ Mismas armas, mismos mobs (420 de vida) y mismas pociones que 2.7; solo se suman
 - El ritmo de caza sigue igualado (**2,6 %**), porque las pociones evitan que nadie muera ni pare.
 - Con mobs mágicos a distancia, los de distancia **pierden la ventaja de los golpes gratis en la mitad de los mobs**: ahora reciben tanto daño como el cuerpo a cuerpo (36–40 por mob) con la mitad de vida, y beben **3–4 veces más pociones** (unas 20–26 cada 100 mobs).
 - El cuerpo a cuerpo apenas necesita pociones.
+
+**Rotación de mobs para las simulaciones (decidido):** los mobs salen siempre en este orden y se repite: **cuerpo a cuerpo físico → a distancia mágico → cuerpo a cuerpo mágico → a distancia físico** (`rotacion_mobs = 1`). Así cada perfil recibe daño intercalado entre cuerpo a cuerpo y distancia, y entre físico y mágico. Con eso quedan cuatro tipos (el tipo de daño y la distancia son independientes).
+
+Nivel 1 con la rotación (caza real, 1.000 mobs): espada larga 165,1 min · espada corta 166,1 (+0,6 %) · mágico 169,1 (+2,4 %) · arco 169,2 (+2,5 %). Pociones de vida: 6 · 4 · 252 · 196. Daño recibido por mob: 36–39 para todos. Prácticamente igual que con 50 % / 50 % al azar, porque la mitad de los mobs siguen pegando a distancia.
 
 ## 3. Estructura propuesta del capítulo
 
