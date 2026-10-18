@@ -153,7 +153,11 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
         s["critico"] = 1 + s["probabilidad_critico"] * (s["multiplicador_critico"] - 1)
     celeridad = 1 - float(especial["celeridad"]["valor"]) / 100 if "celeridad" in especial else 1.0
     activa = {"furia_hasta": -1.0, "furia_lista": 0.0, "escudo_hasta": -1.0, "escudo_resto": 0.0, "escudo_listo": 0.0}
-    golpes = {h["nombre"]: golpes_de(h, dano_arma, s) for h in habilidades}
+    # Libros de habilidad: cada mejora sube el daño y el coste de maná (sobre el valor base).
+    mejoras = max(0, (nivel - 1) * parametros["mejoras_por_nivel"])
+    mejora_dano = 1 + mejoras * parametros["mejora_dano_pct"] / 100
+    mejora_coste = 1 + mejoras * parametros["mejora_coste_pct"] / 100
+    golpes = {h["nombre"]: [g * mejora_dano for g in golpes_de(h, dano_arma, s)] for h in habilidades}
     blanco = (dano_arma + s["plano"]) * s["base"]
     # El remate más barato: un golpe blanco o, si no hay, la habilidad más débil.
     remate = blanco if con_ataque_basico else min((sum(g) for g in golpes.values()), default=0)
@@ -167,7 +171,8 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
     regen_mana = regen_cada_5s(p["regen_mana_base"] + s["regen_mana"]) / 5
     # Coste de maná: una parte fija y una parte en % del maná máximo (así crece con el personaje).
     def coste_de(h):
-        return round(float(h.get("coste_mana") or 0) + float(h.get("coste_mana_pct") or 0) * mana_max / 100)
+        return round((float(h.get("coste_mana") or 0) + float(h.get("coste_mana_pct") or 0) * mana_max / 100)
+                     * mejora_coste)
     coste = {h["nombre"]: coste_de(h) if supervivencia else 0 for h in habilidades}
     # Una habilidad que cuesta más que todo el maná del personaje no se puede usar nunca.
     habilidades = [h for h in habilidades if coste[h["nombre"]] <= mana_max]

@@ -768,6 +768,32 @@ Para bajar su consumo de pociones, el robo de vida del cuerpo a cuerpo pasa del 
 - Vuelve a beber pociones en los niveles 10–15 (unas 0,3–0,5 por mob), sin tener que descansar; desde el nivel 16 la regeneración y el robo de vida ya lo cubren todo.
 - El arco y el mágico no cambian.
 
+### 2.23 Coste de maná y libros de habilidad
+
+**Objetivo (decidido):** todos los perfiles deben **gastar maná de verdad** y beber pociones de maná. En el nivel 19, entre **300 y 1.000 pociones de maná** cada 1.000 mobs, con **menos de 150 de diferencia** entre los tres. Los hechizos del mágico cuestan más (tiene mucho más maná); el arco, punto intermedio; el cuerpo a cuerpo, menos (también gasta vida).
+
+- El coste de maná pasa a ser un **% del maná máximo** (crece con el personaje): golpe doble 7 %, golpe al suelo 11 %, disparo cargado 4 %, ráfaga triple 9 %, disparo potente 7 %, hechizo fuerte 4 %, hechizo débil 2 %, escudo 5 % (valores de partida, sin calibrar).
+- Los físicos beben poción de maná cuando tienen una habilidad lista y les falta maná.
+
+**Libros de habilidad (decidido):** las habilidades se mejoran con libros. Cada mejora: **+1 % de daño** y **+10 % de coste de maná**.
+- Supuestos de la simulación (pendientes de confirmar): **una mejora por nivel** en cada habilidad (18 en el nivel 19) y mejoras **sumadas sobre el valor base** (nivel 19: +18 % de daño y +180 % de coste).
+
+**Del 1 al 19 con costes en % y libros** (min · pociones de vida · pociones de maná; nadie muere):
+
+| Nivel | Espada larga | Espada corta | Arco | Mágico | Diferencia |
+|---|---|---|---|---|---|
+| 1 | 165 · 0 · 0 | 166 · 0 · 0 | 170 · 129 · 0 | 170 · 181 · 0 | 2,9 % |
+| 5 | 198 · 0 · 0 | 175 · 0 · 0 | 171 · 390 · 0 | 173 · 274 · 0 | 15,9 % |
+| 10 | 244 · 284 · 0 | 234 · 297 · 0 | 286 · 281 · 11 | 295 · 0 · 0 | 26,2 % |
+| 13 | 335 · 256 · 0 | 313 · 290 · 0 | 416 · 358 · 263 | 441 · 0 · 0 | 41,2 % |
+| 15 | 429 · 0 · 159 | 404 · 0 · 150 | 572 · 473 · 669 | 568 · 0 · 0 | 41,5 % |
+| 17 | 568 · 0 · 594 | 535 · 0 · 565 | 787 · 604 · 1.074 | 838 · 0 · 0 | 56,5 % |
+| 19 | 772 · 0 · **1.037** | 727 · 0 · **976** | 1.161 · 981 · **1.984** | 1.095 · 0 · **96** | 59,6 % |
+
+- Con los libros, el coste de maná por fin se nota en niveles altos, pero aún **sin calibrar**: en el nivel 19 el cuerpo a cuerpo bebe ~1.000 de maná (en el límite), el **arco casi 2.000** (demasiado) y el **mágico solo 96**.
+- El mágico, al depender del maná, **se para a descansar** para recuperarlo en vez de beber, y pasa de ser el más rápido a tardar más que el cuerpo a cuerpo desde el nivel 10 (705 → 1.095 min en el 19). Al descansar tampoco necesita pociones de vida.
+- Siguiente paso: bajar el % del arco, decidir si el mágico debe beber en lugar de descansar por maná, y calibrar los % para quedar dentro de 300–1.000.
+
 ## 3. Ficha de los niveles 1–19 (en revisión: ver 2.21)
 
 Resumen de todo lo decidido en la sección 2 para el tramo **sin clase** (niveles 1 al 19). La ficha completa, nivel a nivel, se genera con `python3 herramientas/simulador/simular.py --ficha` en `herramientas/simulador/resultados/` (`ficha_perfiles_1_19.csv` y `ficha_mobs_1_19.csv`), lista para pasar a DataTables.
