@@ -926,6 +926,31 @@ Solo se clasifica lo que se puede medir de forma objetiva:
   - Cada jugador por encima de 10 añade **+10 % de vida** al jefe (20 jugadores ≈ el doble de vida).
   - Su **daño** y **resistencias** suben **muy poco** por jugador extra (por ejemplo, +0,3 % de daño por jugador): más difícil, pero nunca inviable.
 
+### 3.31 Estructura del mundo y esencia del PvP (en curso)
+
+Modelo inspirado en Lineage 2: **una ciudad principal (capital) controlada por un clan**, rodeada de territorios por los que los clanes compiten. El sistema se diseña ya, pero la conquista de la capital y las villas **se habilita en la Temporada 3**, como uno de los grandes cambios del juego: deja de ser solo subir de nivel y aparece un objetivo real que atacar.
+
+**Estructura del primer mapa** (analogía usada: Colombia)
+
+| Lugar | Descripción | PvP |
+|---|---|---|
+| **Zona de inicio** (como La Guajira: apartada, accesible solo por cierto camino) | Ciudad y zona para principiantes, niveles 1–10 | **Imposible**: guardias muy fuertes; ni siquiera con guerra de clanes se puede atacar aquí |
+| **Primer pueblo** (conecta la zona de inicio con la capital) | Primeras misiones y NPCs, zonas de recolección, zonas de caza para grupo y en solitario | Hay zonas PvP alrededor, pero el pueblo es **neutral**: no se puede conquistar; siempre se podrá subir de nivel y recolectar ahí |
+| **Capital** (centro del mapa) | Ciudad principal; la posee un clan | Conquistable en **asedios** |
+| **Villas** (varios pueblos a los lados y al sur de la capital) | Cada una con su **facción y reputación**; recorrerlas todas desbloquea sus teletransportes y reputaciones | Conquistables por clanes |
+
+**Control de territorios**
+- Los días de **evento PvP** (asedios, estilo Lineage 2), la capital y las villas **pierden su protección** contra el PvP.
+- Un clan que controla una **villa** obtiene recursos que le sirven para **atacar o defender la capital** (según sea aliado o enemigo del clan dueño). Las villas también dan **puntos de reaparición** (cementerios) durante los eventos.
+- El clan dueño de la **capital** cobra una parte de la economía. Ejemplo: de la comisión del 5 % del mercado, un 2 % va al banco del clan dueño.
+- Objetivo: que haya competencia real **sin monopolios** (acceso posible para otros clanes, con ventajas razonables para el dueño).
+- **Guerras entre clanes**: los clanes pueden declararse la guerra. Coste, alcance y reglas: por definir.
+- Detalle (cementerios, mapas, recursos de las villas, asedios): en el capítulo de mapas.
+
+**Niveles de las zonas (por decidir más adelante)**
+- **A. Lineal**: cada zona tiene su rango de nivel y se recorren en orden.
+- **B. Escalado**: a partir del nivel 20, los mobs se ajustan al nivel del jugador (mobs de misión a su nivel + 3).
+
 ### 3.23 Menú principal del juego (en curso, estilo MIR4)
 
 Un **único menú** desde el que se accede a todos los sistemas del juego, sin tener que abrir ventanas encadenadas. Incluye un panel con todas las monedas del jugador.
@@ -998,6 +1023,7 @@ Queda para más adelante:
 ## 7. Preguntas abiertas
 
 **Pendientes para más adelante**
+- **Mundo y PvP**: número de villas alrededor de la capital; tipos de zona según el PvP (inicio sin PvP, seguras con karma, de combate, de asedio); reglas de guerra entre clanes; niveles lineales o escalados.
 - **Mazmorras y bandas**: detalle del buscador de grupo; escalado exacto de los jefes de mundo.
 
 *Nota: los niveles concretos que aparecen en este documento ("nivel 3", "nivel 8"…) son ejemplos salvo que se indique lo contrario; se fijarán al diseñar la línea principal de misiones y cada sistema.*
