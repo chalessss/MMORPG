@@ -75,6 +75,11 @@ def secundarias(arquetipo, conversion, parametros):
     }
 
 
+def regen_cada_5s(por_segundo):
+    """La regeneración se muestra cada 5 s, redondeada al entero más cercano."""
+    return int(por_segundo * 5 + 0.5)
+
+
 def perfiles(armas, arquetipos, habilidades):
     """Cada combinación de arquetipo y arma que puede elegir un jugador."""
     por_nombre = {a["arma"]: a for a in armas}
@@ -126,8 +131,8 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
 
     vida_max = p["vida_base"] + s["vida"]
     mana_max = p["mana_base"] + s["mana"]
-    regen_vida = p["regen_vida_base"] + s["regen_vida"]
-    regen_mana = p["regen_mana_base"] + s["regen_mana"]
+    regen_vida = regen_cada_5s(p["regen_vida_base"] + s["regen_vida"]) / 5
+    regen_mana = regen_cada_5s(p["regen_mana_base"] + s["regen_mana"]) / 5
     # En el juego todos los valores que se ven son enteros: cada golpe se redondea.
     dano_recibido = round(p["dano_mob"] * (1 - s["defensa_fisica_pct"] / 100))
 
@@ -389,14 +394,14 @@ def informe(parametros, armas, arquetipos, conversion, habilidades):
     descanso = "con descansos" if parametros["descansar"] else "sin descansos"
     descanso += ", con pociones" if parametros["pociones"] else ", sin pociones"
     print(f"\n2) Caza real (desplazamiento, golpes del mob, vida y maná; {descanso})\n")
-    print(f"{'Perfil':<14}{'Vida':>6}{'Reg/s':>6}{'Maná':>6}{'Reg/s':>6}{'Caza (min)':>11}{'vs + rápido':>12}"
+    print(f"{'Perfil':<14}{'Vida':>6}{'Reg/5s':>7}{'Maná':>6}{'Reg/5s':>7}{'Caza (min)':>11}{'vs + rápido':>12}"
           f"{'Pegando':>9}{'Caminando':>10}{'Descanso':>9}{'Sin maná':>9}{'Muerto':>8}{'Muertes':>8}{'Poc. vida':>10}{'Poc. maná':>10}{'Daño recibido/mob':>18}")
     for pf, c in reales:
         s = secundarias(pf["arquetipo"], conversion, parametros)
         t = c["tiempo"]
         print(f"{nombre(pf):<14}{parametros['vida_base'] + s['vida']:>6.0f}"
-              f"{parametros['regen_vida_base'] + s['regen_vida']:>6.1f}"
-              f"{parametros['mana_base'] + s['mana']:>6.0f}{parametros['regen_mana_base'] + s['regen_mana']:>6.1f}"
+              f"{regen_cada_5s(parametros['regen_vida_base'] + s['regen_vida']):>7}"
+              f"{parametros['mana_base'] + s['mana']:>6.0f}{regen_cada_5s(parametros['regen_mana_base'] + s['regen_mana']):>7}"
               f"{t / 60:>11.1f}{(t / rapido - 1) * 100:>+11.1f}%"
               f"{c['pegando'] / t * 100:>8.0f}%{c['caminando'] / t * 100:>9.0f}%"
               f"{c['descansando'] / t * 100:>8.0f}%{c['esperando_mana'] / t * 100:>8.0f}%"

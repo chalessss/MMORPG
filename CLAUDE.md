@@ -45,7 +45,7 @@ Implicaciones técnicas:
 - Forma de trabajo: la primera conversación fijó los parámetros generales de todos los sistemas; ahora se trabaja **un capítulo de detalle por sesión** (estadísticas, personajes/habilidades, mapas, recursos, objetos, profesiones, contenido por temporada).
 - `docs/DISENO_BASE.md`: qué existe en el juego (personajes, mobs, jefes, NPCs, recursos, objetos) y sistemas principales.
 
-**Valores siempre enteros (decidido):** todo valor que se muestra en el juego (daño de armas y habilidades, daño de cada golpe, vida, maná, estadísticas…) es un número entero, sin decimales. Los datos de balance se guardan ya redondeados.
+**Valores siempre enteros (decidido):** el daño (de armas, habilidades y cada golpe), la vida, el maná y las estadísticas en general se muestran como números enteros, sin decimales; los datos de balance se guardan ya redondeados. La regeneración se expresa **cada 5 segundos**, redondeada al entero más cercano. Los tiempos (2,6 s) y los porcentajes (150 %, 75 %) sí pueden llevar decimales.
 
 Mantener cada fase pequeña y funcional antes de pasar a la siguiente. Datos de balance (estadísticas, escalados) preferiblemente fuera del código (DataTables de Unreal importadas desde CSV/JSON) para poder ajustarlos sin programar.
 

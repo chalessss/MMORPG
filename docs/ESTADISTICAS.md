@@ -302,7 +302,7 @@ Sin tocar mobs, vida ni daño o velocidad de las armas. Bonos (STR / INT / AGI):
 
 El daño de las espadas se sube directamente para que el cuerpo a cuerpo, caminando entre mobs, cace al mismo ritmo que el arco y el mágico (que no se tocan). Se calcula con `simular.py --calibrar-real`.
 
-**Valores siempre enteros (decidido):** todo lo que se ve en el juego es un número entero. Los datos se redondean (arco 34,5 → 35; hechizos 96,8 → 97 y 32,3 → 32) y el simulador redondea el daño de cada golpe, la vida de cada mob y el daño que hace.
+**Valores siempre enteros (decidido):** el daño, la vida, el maná y las estadísticas que se ven en el juego son números enteros. Los datos se redondean (arco 34,5 → 35; hechizos 96,8 → 97 y 32,3 → 32) y el simulador redondea el daño de cada golpe, la vida de cada mob y el daño que hace.
 
 | Arma | Daño por golpe antes | Daño por golpe ahora | Subida |
 |---|---|---|---|
@@ -313,14 +313,15 @@ El daño de las espadas se sube directamente para que el cuerpo a cuerpo, camina
 
 | Perfil | Caza real | Frente al más rápido | Caminando | Pociones de vida | Combate puro | Daño por segundo contra jefe |
 |---|---|---|---|---|---|---|
-| Arco (35) | 157,3 min | — | 0 % | 65 | 157,3 min | 50 |
+| Arco (35) | 157,3 min | — | 0 % | 56 | 157,3 min | 50 |
 | Espada corta (37) | 159,9 min | +1,7 % | 16 % | 0 | 137,3 min | 56 |
 | Espada larga (75) | 160,3 min | +1,9 % | 16 % | 0 | 138,2 min | 60 |
-| Mágico (97 / 32) | 160,8 min | +2,2 % | 0 % | 103 | 160,8 min | 49 |
+| Mágico (97 / 32) | 160,8 min | +2,2 % | 0 % | 94 | 160,8 min | 49 |
 
 - En la caza real los cuatro quedan a un **2,2 %** como máximo.
 - A cambio, **sin caminar** (contra un jefe, o con mobs muy juntos) el cuerpo a cuerpo hace un **12–22 % más de daño** que los de distancia. Habrá que tenerlo en cuenta en mazmorras y jefes.
-- **Pendiente**: la regeneración por punto (0,2 de vida o maná por STR/INT) da valores con decimales (1,3/s, 3,5/s). Hay que expresarla de otra forma (por ejemplo, cada 5 s) o cambiar la conversión para que salga entera.
+- **Regeneración (decidido)**: se expresa **cada 5 segundos**, redondeada al entero más cercano (por ejemplo, 3,5 de vida por segundo → 18 cada 5 s; 1,3 → 7 cada 5 s).
+- La regla de enteros se aplica al daño, la vida, el maná y las estadísticas; **los tiempos y los porcentajes pueden llevar decimales** (2,6 s, 1,4 s, 150 %, 75 %, 120 %).
 
 ## 3. Estructura propuesta del capítulo
 
