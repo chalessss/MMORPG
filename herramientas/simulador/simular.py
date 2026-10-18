@@ -11,6 +11,9 @@ Uso:
   python3 simular.py --calibrar  recalcula el daño de las armas y los hechizos
                                  para que todos tarden lo mismo en la caza que
                                  el arma de referencia, y lo guarda
+  python3 simular.py --calibrar-real  sube el daño de las armas cuerpo a cuerpo
+                                 para igualar a los de distancia en la caza
+                                 real (con caminata), y lo guarda
 """
 
 import csv
@@ -325,6 +328,34 @@ def calibrar(parametros, armas, arquetipos, conversion, habilidades):
     print("Guardado en datos/armas.csv y datos/habilidades.csv.\n")
 
 
+def calibrar_real(parametros, armas, arquetipos, conversion, habilidades):
+    """Sube o baja el daño de las armas cuerpo a cuerpo para que, en la caza real
+    (caminando entre mobs), tarden lo mismo que la media de los perfiles a
+    distancia. Las armas a distancia y los hechizos no se tocan."""
+    lista = list(perfiles(armas, arquetipos, habilidades))
+    distancia = [pf for pf in lista if pf["arquetipo"]["a_distancia"] == "1"]
+    objetivo = sum(prueba_caza(pf, conversion, parametros, supervivencia=True)["tiempo"]
+                   for pf in distancia) / len(distancia)
+    for perfil in lista:
+        if perfil in distancia:
+            continue
+        arma = perfil["arma"]
+        original = float(arma["dano"])
+        bajo, alto = 0.5, 3.0
+        for _ in range(14):
+            medio = (bajo + alto) / 2
+            arma["dano"] = str(original * medio)
+            if prueba_caza(perfil, conversion, parametros, supervivencia=True)["tiempo"] > objetivo:
+                bajo = medio
+            else:
+                alto = medio
+        arma["dano"] = f"{original * (bajo + alto) / 2:.1f}"
+        print(f"{arma['arma']}: {original:g} -> {arma['dano']} de daño por golpe")
+    escribir("armas.csv", armas)
+    print(f"Igualado a {objetivo / 60:.1f} min de caza real (media de los perfiles a distancia).")
+    print("Guardado en datos/armas.csv.\n")
+
+
 def informe(parametros, armas, arquetipos, conversion, habilidades):
     lista = list(perfiles(armas, arquetipos, habilidades))
     n = parametros["numero_mobs"]
@@ -380,6 +411,8 @@ def main():
     datos = cargar()
     if "--calibrar" in sys.argv:
         calibrar(*datos)
+    if "--calibrar-real" in sys.argv:
+        calibrar_real(*datos)
     informe(*datos)
 
 
