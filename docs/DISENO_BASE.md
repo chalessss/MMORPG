@@ -966,6 +966,24 @@ Modelo inspirado en Lineage 2: **una ciudad principal (capital) controlada por u
 | **Campo abierto** (azul claro) | Se puede atacar, pero quien mata gana **karma** | Sin PvP |
 | **Zona de guerra** (capital, villas y el espacio entre ellas) | Según la zona (arriba) | PvP libre, **sin karma** |
 
+**Bandos (decidido)**
+- **Todos contra todos**, estilo Lineage 2: solo protegen el **grupo**, el **clan** y las **alianzas** entre clanes.
+- El **número máximo de alianzas** de un clan se amplía con las **técnicas del clan**.
+
+**Duelos y arenas (decidido)**
+- **Duelos** 1 contra 1 por invitación desde el principio (sin karma ni pérdida de experiencia, *por confirmar*).
+- **Arenas**: más adelante (Temporada 2 o 3). El foco del PvP es el **mundo abierto**, no las zonas de duelo.
+
+**Diferencia de nivel (decidido)**
+- Un jugador de nivel alto **puede** matar a uno de nivel bajo.
+- En el campo abierto, el **karma** ganado **aumenta cuanto mayor es la diferencia de nivel**.
+
+**Karma: sanciones (decidido)**
+- **Nombre en rojo**.
+- **Sin desplazamiento rápido**: no puede usar maestros de teletransporte, pergaminos de teletransportación o de escape, piedra de hogar ni ningún otro viaje rápido.
+- Los guardias **no** le atacan: puede entrar a las ciudades a comprar pociones y otros objetos.
+- Pérdida de objetos al morir con karma: juego avanzado (3.22).
+
 **Control de territorios**
 - Los días de **evento PvP** (asedios, estilo Lineage 2), la capital y las villas **pierden su protección** contra el PvP.
 - Un clan que controla una **villa** obtiene recursos que le sirven para **atacar o defender la capital** (según sea aliado o enemigo del clan dueño). Las villas también dan **puntos de reaparición** (cementerios) durante los eventos.
@@ -1050,7 +1068,7 @@ Queda para más adelante:
 ## 7. Preguntas abiertas
 
 **Pendientes para más adelante**
-- **Mundo y PvP**: reglas de guerra entre clanes; niveles lineales o escalados.
+- **Mundo y PvP**: reglas de guerra entre clanes; cómo se pierde el karma; si los duelos quitan experiencia; si matar a jugadores de mucho menos nivel en zonas de combate reduce el honor; niveles lineales o escalados.
 - **Mazmorras y bandas**: detalle del buscador de grupo; escalado exacto de los jefes de mundo.
 
 *Nota: los niveles concretos que aparecen en este documento ("nivel 3", "nivel 8"…) son ejemplos salvo que se indique lo contrario; se fijarán al diseñar la línea principal de misiones y cada sistema.*
