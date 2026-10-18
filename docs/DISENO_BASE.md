@@ -201,7 +201,7 @@ El juego está pensado para **jugarse en grupo**: jugar acompañado siempre debe
 | 5 | +25 % |
 
 - **Bonus de moneda**: existe y crece con el tamaño del grupo; valores por definir (orientativo: +5 %, +10 %, +15 %, +20 %).
-- **Banda (raid)**: agrupación grande para actividades concretas (10, 20, 50 o 100 personas según la actividad). Los tamaños se desbloquean con las temporadas. Sin bonus de experiencia. Reglas propias por definir.
+- **Banda (raid)**: agrupación grande y **flexible, de 10 a 40 personas** (ver 3.30). Sin bonus de experiencia.
 
 #### Reparto dentro del grupo (decidido)
 
@@ -902,6 +902,21 @@ Solo se clasifica lo que se puede medir de forma objetiva:
 **Mazmorras asistidas** (idea para el capítulo de mazmorras): entrar a una mazmorra con **4 compañeros controlados por la IA**. El jugador elige su rol (tanque, daño o sanador) y la IA cubre el resto. Sirve para aprender la mazmorra en solitario antes de hacerla en grupo.
 - **Guía / tomo del jugador**: un libro dentro del juego con un resumen de cómo funciona cada sistema ya desbloqueado y la lista de lo que falta por desbloquear.
 
+### 3.30 Mazmorras y bandas (decidido en lo general)
+
+**Mazmorras**
+- Para **5 personas**: **1 tanque, 1 sanador y 3 de daño**, como en la mayoría de MMO.
+- Llegan con la **Temporada 2** (niveles 20–40) *(por confirmar si es definitivo)*.
+- **Mazmorras asistidas**: opción de entrar con 4 compañeros controlados por la IA (ver 3.29).
+
+**Bandas**
+- Llegan en una **temporada posterior** (con la tercera especialización).
+- **Tamaño flexible de 10 a 40 personas** y **composición libre**: el clan decide cuántos tanques, sanadores y de daño lleva (por ejemplo, 25 personas con 3 tanques, 6 sanadores y 16 de daño). Si llega un amigo más, se suma sin problema. Se evita lo cerrado de WoW, donde un número distinto al exacto complica mucho la banda.
+- **Escalado del jefe según el número de jugadores**:
+  - **10 es el número ideal**: sin incrementos.
+  - Cada jugador por encima de 10 añade **+10 % de vida** al jefe (20 jugadores ≈ el doble de vida).
+  - Su **daño** y **resistencias** suben **muy poco** por jugador extra (por ejemplo, +0,3 % de daño por jugador): más difícil, pero nunca inviable.
+
 ### 3.23 Menú principal del juego (en curso, estilo MIR4)
 
 Un **único menú** desde el que se accede a todos los sistemas del juego, sin tener que abrir ventanas encadenadas. Incluye un panel con todas las monedas del jugador.
@@ -969,12 +984,12 @@ Entra:
 
 Queda para más adelante:
 - Especializaciones de las temporadas 2 y 3.
-- Bandas (raids) grandes.
 - Subasta y economía avanzada.
 
 ## 7. Preguntas abiertas
 
 **Pendientes para más adelante**
+- **Mazmorras y bandas**: si las mazmorras empiezan exactamente en la Temporada 2 (y qué contenido de grupo tiene la Temporada 1); si la composición 1-1-3 de las mazmorras es obligatoria o recomendada.
 
 *Nota: los niveles concretos que aparecen en este documento ("nivel 3", "nivel 8"…) son ejemplos salvo que se indique lo contrario; se fijarán al diseñar la línea principal de misiones y cada sistema.*
 - **Misiones**: límite de misiones activas.
