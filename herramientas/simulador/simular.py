@@ -129,7 +129,18 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
 
     e = {"t": 0.0, "vida": vida_max, "mana": mana_max, "util": 0.0, "perdido": 0.0, "muertes": 0,
          "pegando": 0.0, "caminando": 0.0, "descansando": 0.0, "esperando_mana": 0.0, "muerto": 0.0,
-         "dano_recibido": 0.0}
+         "dano_recibido": 0.0, "pociones_vida": 0, "pociones_mana": 0}
+    pocion_lista = {"vida": 0.0, "mana": 0.0}  # cuándo sale del enfriamiento cada poción
+
+    def beber(tipo):
+        """Bebe una poción (instantánea) si están activadas y no está en enfriamiento."""
+        if not (supervivencia and p["pociones"]) or pocion_lista[tipo] > e["t"]:
+            return False
+        maximo = vida_max if tipo == "vida" else mana_max
+        e[tipo] = min(maximo, e[tipo] + p[f"pocion_{tipo}"])
+        e[f"pociones_{tipo}"] += 1
+        pocion_lista[tipo] = e["t"] + p["enfriamiento_pocion_s"]
+        return True
     usos = {}
     mob = {"vida": 0.0, "proximo_golpe": None}  # proximo_golpe None = el mob no está pegando
 
@@ -142,6 +153,8 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
             e["vida"] -= dano_recibido
             e["dano_recibido"] += dano_recibido
             mob["proximo_golpe"] += p["intervalo_mob_s"]
+            if 0 < e["vida"] < vida_max * p["usar_pocion_vida_pct"] / 100:
+                beber("vida")
             if e["vida"] <= 0:
                 return False
         regenerar(fin - e["t"], multiplicador_regen)
@@ -197,6 +210,8 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
                 por_mana = falta / regen_mana if falta > 0 else 0
                 esperas.append((max(por_cd, por_mana), por_mana > por_cd))
             espera, es_mana = min(esperas)
+            if es_mana and beber("mana"):
+                continue
             vivo = avanzar(max(espera, 1e-6), "esperando_mana" if es_mana else "pegando")
             nombre = None
         else:
@@ -338,9 +353,10 @@ def informe(parametros, armas, arquetipos, conversion, habilidades):
     reales = [(pf, prueba_caza(pf, conversion, parametros, supervivencia=True)) for pf in lista]
     rapido = min(c["tiempo"] for _, c in reales)
     descanso = "con descansos" if parametros["descansar"] else "sin descansos"
+    descanso += ", con pociones" if parametros["pociones"] else ", sin pociones"
     print(f"\n2) Caza real (desplazamiento, golpes del mob, vida y maná; {descanso})\n")
     print(f"{'Perfil':<14}{'Vida':>6}{'Reg/s':>6}{'Maná':>6}{'Reg/s':>6}{'Caza (min)':>11}{'vs + rápido':>12}"
-          f"{'Pegando':>9}{'Caminando':>10}{'Descanso':>9}{'Sin maná':>9}{'Muerto':>8}{'Muertes':>8}{'Daño recibido/mob':>18}")
+          f"{'Pegando':>9}{'Caminando':>10}{'Descanso':>9}{'Sin maná':>9}{'Muerto':>8}{'Muertes':>8}{'Poc. vida':>10}{'Poc. maná':>10}{'Daño recibido/mob':>18}")
     for pf, c in reales:
         s = secundarias(pf["arquetipo"], conversion, parametros)
         t = c["tiempo"]
@@ -350,7 +366,8 @@ def informe(parametros, armas, arquetipos, conversion, habilidades):
               f"{t / 60:>11.1f}{(t / rapido - 1) * 100:>+11.1f}%"
               f"{c['pegando'] / t * 100:>8.0f}%{c['caminando'] / t * 100:>9.0f}%"
               f"{c['descansando'] / t * 100:>8.0f}%{c['esperando_mana'] / t * 100:>8.0f}%"
-              f"{c['muerto'] / t * 100:>7.0f}%{c['muertes']:>8}{c['dano_recibido'] / n:>18.1f}")
+              f"{c['muerto'] / t * 100:>7.0f}%{c['muertes']:>8}"
+              f"{c['pociones_vida']:>10}{c['pociones_mana']:>10}{c['dano_recibido'] / n:>18.1f}")
     tiempos = [c["tiempo"] for _, c in reales]
     print(f"Diferencia máxima en la caza: {(max(tiempos) / min(tiempos) - 1) * 100:.1f} %")
 

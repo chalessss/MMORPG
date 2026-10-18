@@ -281,6 +281,23 @@ Sin tocar mobs, vida ni daño o velocidad de las armas. Bonos (STR / INT / AGI):
 - **Sin descansos, los de distancia mueren**: el arco y el mágico, con 180–220 de vida y 1,3–1,7 de regeneración, pierden más vida por mob de la que recuperan (el arco 27 muertes, el mágico 58). El cuerpo a cuerpo, con 400 de vida y 3,5/s, aguanta sin morir.
 - El cuerpo a cuerpo pierde un 12–13 % del tiempo caminando.
 
+### 2.6 Pociones (decidido)
+
+- Del 1 al 19, cazando de uno en uno, **nadie debería morir** mientras tenga pociones: las muertes de 2.5 solo indican que faltaban las pociones en la simulación.
+- Simulación (valores de propuesta): poción de vida +100, poción de maná +100, **20 s de enfriamiento** por tipo, la de vida se bebe al bajar del 40 %, la de maná cuando falta maná para lanzar.
+
+**Resultado** (mismos bonos de arma que 2.5, sin descansos, con pociones; 1.000 mobs):
+
+| Perfil | Caza real | Frente al más rápido | Caminando | Muertes | Pociones de vida | Pociones de maná |
+|---|---|---|---|---|---|---|
+| Arco | 158,4 min | — | 0 % | 0 | 59 | 0 |
+| Mágico | 160,7 min | +1,5 % | 0 % | 0 | 99 | 0 |
+| Espada corta | 185,9 min | +17,3 % | 13 % | 0 | 0 | 0 |
+| Espada larga | 201,5 min | +27,2 % | 12 % | 0 | 0 | 0 |
+
+- Con pociones **nadie muere**. El arco gasta unas 6 pociones de vida cada 100 mobs y el mágico unas 10; ninguno necesita pociones de maná.
+- El cuerpo a cuerpo no gasta ninguna (le sobra vida y regeneración), pero queda último: pierde un 12–13 % caminando y la espada larga ya era la más lenta en combate puro.
+
 ## 3. Estructura propuesta del capítulo
 
 1. **Lista cerrada de estadísticas** y a qué categoría pertenece cada una (principal, derivada, neutral, PvP, utilidad).

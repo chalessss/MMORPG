@@ -10,7 +10,7 @@ Pruebas:
 
 - **Jefe**: 20 minutos golpeando un objetivo de 50 millones de vida.
 - **Caza en combate puro**: matar 1.000 mobs de 420 de vida (±10 %), solo daño. El daño que sobra al rematar cada mob se pierde, así que penaliza los golpes grandes. No se gasta una habilidad en un mob que muere con un golpe blanco.
-- **Caza real**: lo mismo, pero el cuerpo a cuerpo camina hasta cada mob, el de distancia pega gratis mientras el mob se acerca, el mob devuelve golpes, las habilidades gastan maná y se descansa para recuperar vida y maná.
+- **Caza real**: lo mismo, pero el cuerpo a cuerpo camina hasta cada mob, el de distancia pega gratis mientras el mob se acerca, el mob devuelve golpes, las habilidades gastan maná, se beben pociones y (si está activado) se descansa para recuperar vida y maná.
 
 ```
 python3 herramientas/simulador/simular.py             # resultados
@@ -27,6 +27,6 @@ Solo necesita Python 3, sin librerías extra. Todos los valores están en `datos
 | `armas.csv` | Segundos entre golpe y golpe, daño por golpe y estadísticas que suma el arma |
 | `habilidades.csv` | Habilidades de cada arquetipo: daño de cada golpe (en múltiplos del arma o en puntos), enfriamiento, duración y coste de maná |
 | `conversion.csv` | Cuánto da cada punto de STR, INT y AGI |
-| `parametros.csv` | Arma de referencia, jefe, mobs (vida, daño, ritmo), desplazamiento, vida y maná base, descansos, crítico base y azar |
+| `parametros.csv` | Arma de referencia, jefe, mobs (vida, daño, ritmo), desplazamiento, vida y maná base, descansos, pociones, crítico base y azar |
 
-Supuestos de esta versión (ver `docs/ESTADISTICAS.md`): nivel 1, sin pociones; una habilidad sin tiempo de lanzamiento ocupa el hueco de un golpe blanco. La caza real tarda un par de minutos en calcularse. En el jefe el crítico cuenta por su valor esperado; en la caza cada golpe tira su crítico con una semilla fija.
+Supuestos de esta versión (ver `docs/ESTADISTICAS.md`): nivel 1; una habilidad sin tiempo de lanzamiento ocupa el hueco de un golpe blanco. La caza real tarda un par de minutos en calcularse. En el jefe el crítico cuenta por su valor esperado; en la caza cada golpe tira su crítico con una semilla fija.

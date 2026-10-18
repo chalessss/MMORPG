@@ -26,3 +26,8 @@ descansar_bajo_mana_pct,35,lo mismo con el maná (solo quien depende de él: el 
 penalizacion_muerte_s,30,segundos perdidos al morir (vuelve con vida y maná llenos)
 margen_descanso,1.25,también se descansa si la vida (o el maná) no alcanza para otro mob como el último multiplicado por este margen
 descansar,0,1 = en la caza real se para a descansar cuando hace falta; 0 = nunca descansa (sigue pegando y, si muere, pierde el tiempo de penalización)
+pociones,1,1 = se beben pociones en la caza real; 0 = sin pociones
+pocion_vida,100,vida que recupera una poción de vida (propuesta)
+pocion_mana,100,maná que recupera una poción de maná (propuesta)
+enfriamiento_pocion_s,20,segundos entre poción y poción del mismo tipo
+usar_pocion_vida_pct,40,se bebe una poción de vida al bajar de este % de vida
