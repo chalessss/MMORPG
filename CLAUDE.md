@@ -6,7 +6,7 @@ Contexto del proyecto para Claude. Léelo al iniciar cada sesión.
 
 - Responder siempre en **español**.
 - El usuario suele enviar **notas de voz transcritas**: pueden traer muletillas o errores de transcripción (p. ej. "Cloud" = "Claude"). Interpretar la intención y preguntar si algo importante es ambiguo.
-- **Niveles y números concretos** que el usuario menciona al describir sistemas ("en el nivel 3", "10 cargas", "300 de oro") son **ejemplos**, salvo que diga explícitamente que es un valor decidido. No señalar contradicciones entre ejemplos; los valores reales se fijan al diseñar cada sistema en detalle.
+- **Niveles y números concretos** que el usuario menciona al describir sistemas ("en el nivel 3", "10 cargas", "300 de oro") son **ejemplos**, salvo que diga explícitamente que es un valor decidido. No señalar contradicciones entre ejemplos; los valores reales se fijan al diseñar cada sistema en detalle. Cuando el usuario dé valores muy exactos y estructurales (como los rangos de nivel de las temporadas: 1–20, 21–40, 41–60) y no esté claro si son definitivos, **preguntar si es un valor cerrado o un ejemplo**.
 - **Mensajes que empiezan con `*`**: son preguntas técnicas o puntuales fuera del flujo del proyecto. Responderlas **sin realizar acciones** sobre el proyecto (no editar archivos, no hacer commits), salvo que se pida explícitamente.
 
 ## El proyecto
