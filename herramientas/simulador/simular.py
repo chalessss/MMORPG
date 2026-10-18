@@ -162,6 +162,7 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
     regen_vida = regen_cada_5s(p["regen_vida_base"] + s["regen_vida"]) / 5
     regen_mana = regen_cada_5s(p["regen_mana_base"] + s["regen_mana"]) / 5
     defensa = {"fisico": s["defensa_fisica_pct"], "magico": s["defensa_magica_pct"]}
+    armadura = p["armadura_por_nivel"] * nivel
 
     e = {"t": 0.0, "vida": vida_max, "mana": mana_max, "util": 0.0, "perdido": 0.0, "muertes": 0,
          "pegando": 0.0, "caminando": 0.0, "descansando": 0.0, "esperando_mana": 0.0, "muerto": 0.0,
@@ -223,7 +224,9 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
             return
         tipo = tipo or {"a_distancia": "0", "tipo_dano": "fisico", "ciclo": "1"}
         # En el juego todos los valores que se ven son enteros: cada golpe se redondea.
-        mob["golpes"] = [round(p["dano_mob"] * float(m) * (1 - defensa[tipo["tipo_dano"]] / 100))
+        # La armadura resta daño plano a cada golpe: 1 punto por cada 100 de armadura.
+        mob["golpes"] = [max(1, int(p["dano_mob"] * float(m) * (1 - defensa[tipo["tipo_dano"]] / 100)
+                                    - armadura / p["armadura_por_punto_de_dano"] + 0.5))
                          for m in tipo["ciclo"].split("|")]
         mob_a_distancia = tipo["a_distancia"] == "1"
         if mob_a_distancia:

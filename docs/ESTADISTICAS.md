@@ -663,6 +663,33 @@ Reparto base (STR / INT / AGI): **mágico 2 / 6 / 2** (antes 1 / 7 / 2) y **fís
 - Ahora **sí bebe pociones** de forma constante (unas 0,4–1,4 por mob), y en los niveles 10–13 además tiene que parar a descansar algo.
 - El **crítico extra apenas suma daño**: con las reglas del 1 al 19 un crítico añade como mucho un +10 % (entre +5,6 y +9,2 % en los niveles 10–19) y la probabilidad ya roza el tope (2,8 % en el nivel 10 → 5 % con la pasiva; 4,6 % en el 19 → 5 %). En total, alrededor de un **+0,1 % de daño**. Si se quiere que el crítico se note, habrá que subir el daño extra del crítico o el tope.
 
+### 2.20 Armadura (decidido)
+
+- **Cada 100 puntos de armadura restan 1 punto de daño plano a cada golpe recibido**, venga de donde venga (mobs, JcJ o cualquier otra fuente). Ejemplo: con 500 de armadura, un golpe de 10 hace 5.
+- Prueba: **50 de armadura en el nivel 1, 500 en el 10 y 1.000 en el 20** (50 por nivel), igual para todos los perfiles. En el simulador, cada golpe recibido hace como mínimo 1 (`armadura_por_nivel`, `armadura_por_punto_de_dano`).
+
+**Pociones bebidas cada 1.000 mobs, sin armadura → con armadura** (los tiempos de caza apenas cambian):
+
+| Nivel | Espada larga | Espada corta | Arco | Mágico |
+|---|---|---|---|---|
+| 1 | 6 → 0 | 4 → 0 | 177 → 126 | 231 → 180 |
+| 3 | 0 → 0 | 0 → 0 | 261 → 213 | 321 → 265 |
+| 5 | 0 → 0 | 0 → 0 | 361 → 259 | 299 → 348 |
+| 7 | 0 → 0 | 0 → 0 | 396 → 372 | 259 → 307 |
+| 9 | 0 → 0 | 0 → 0 | 379 → 433 | 211 → 287 |
+| 10 | 332 → 149 | 300 → 316 | 447 → 402 | 314 → 110 |
+| 11 | 463 → 63 | 412 → 165 | 724 → 331 | 329 → 102 |
+| 12 | 321 → 0 | 357 → 0 | 640 → 405 | 404 → 125 |
+| 13 | 5 → 0 | 4 → 0 | 894 → 271 | 455 → 128 |
+| 15 | 0 → 0 | 0 → 0 | 1.186 → 141 | 719 → 175 |
+| 17 | 0 → 0 | 0 → 0 | 1.438 → 0 | 805 → 95 |
+| 19 | 0 → 0 | 0 → 0 | 1.101 → 0 | 916 → 0 |
+| **Total 1–19** | **1.127 → 212 (−81 %)** | **1.077 → 481 (−55 %)** | **13.011 → 4.343 (−67 %)** | **8.673 → 3.765 (−57 %)** |
+
+- La armadura resta un **~15–17 % del daño de cada golpe** del mob (por ejemplo, 0,5 de 6 en el nivel 1; 5 de 30 en el 10), y eso basta para que la regeneración y el robo de vida cubran mucho más: el consumo de pociones **baja a menos de la mitad** en todos los perfiles.
+- En los niveles 5–9 el mágico bebe algo más que sin armadura porque descansa menos (gana tiempo y caza más rápido: la diferencia sube al 38–44 % en los niveles 5–6).
+- Desde el nivel 16–18 nadie necesita pociones.
+
 ## 3. Estructura propuesta del capítulo
 
 1. **Lista cerrada de estadísticas** y a qué categoría pertenece cada una (principal, derivada, neutral, PvP, utilidad).

@@ -40,3 +40,5 @@ numero_mobs_por_nivel,1000,mobs por nivel en la simulación nivel a nivel (--niv
 nivel_maximo_simulado,19,último nivel de la simulación nivel a nivel
 crecimiento_vida_mob_pct,30,--niveles: la vida del mob sube este % por nivel (compuesto); 0 = al ritmo del daño medio de los perfiles
 rotacion_mobs,1,1 = los mobs salen siempre en el orden de mobs.csv (cuerpo a cuerpo físico / a distancia mágico / cuerpo a cuerpo mágico / a distancia físico); 0 = al azar según su proporción
+armadura_por_nivel,50,armadura del equipo: este valor por nivel (50 en el 1; 500 en el 10; 1000 en el 20)
+armadura_por_punto_de_dano,100,cada tantos puntos de armadura se resta 1 de daño a cada golpe recibido (de cualquier fuente)
