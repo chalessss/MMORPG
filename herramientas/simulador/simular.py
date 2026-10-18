@@ -58,10 +58,13 @@ def secundarias(arquetipo, conversion, parametros):
     for estadistica in ("str", "int", "agi"):
         for secundaria, por_punto in conversion.get(estadistica, {}).items():
             s[secundaria] = s.get(secundaria, 0) + float(arquetipo[estadistica]) * por_punto
-    probabilidad = min(parametros["critico_base_pct"] + s.get("critico_pct", 0),
-                       parametros["tope_critico_pct"]) / 100
+    # El crítico sube con el nivel (y con lo que den las estadísticas), hasta su tope.
+    nivel = float(arquetipo.get("nivel", 1))
+    probabilidad = min(parametros["critico_base_pct"] + parametros["critico_por_nivel_pct"] * (nivel - 1)
+                       + s.get("critico_pct", 0), parametros["tope_critico_pct"]) / 100
     multiplicador = parametros["multiplicador_critico_base"] + min(
-        s.get("critico_aumentado_pct", 0), parametros["tope_critico_aumentado_pct"]) / 100
+        parametros["critico_aumentado_base_pct"] + parametros["critico_aumentado_por_nivel_pct"] * (nivel - 1)
+        + s.get("critico_aumentado_pct", 0), parametros["tope_critico_aumentado_pct"]) / 100
     return {
         "vida": s.get("vida", 0),
         "regen_vida": s.get("regen_vida", 0),
@@ -397,6 +400,7 @@ def perfiles_nivel(armas, arquetipos, habilidades, nivel):
     for arquetipo in arquetipos:
         arma = por_nombre[arquetipo["armas"].split("|")[0]]
         subido = dict(arquetipo)
+        subido["nivel"] = str(nivel)
         for e in ("str", "int", "agi"):
             subido[e] = str(float(arquetipo[e]) + (nivel - 1) * float(arma.get(f"bono_{e}") or 0))
         subidos.append(subido)
@@ -429,16 +433,13 @@ def niveles(parametros, armas, arquetipos, conversion, habilidades):
         cazas = [prueba_caza(pf, conversion, p, supervivencia=True) for pf in lista]
         nombres = [pf["arma"]["arma"] if pf["arquetipo"]["ataque_basico"] == "1" else "Mágico" for pf in lista]
         if cabecera is None:
-            cabecera = f"{'Nivel':>5}{'Vida mob':>9}{'Daño mob':>9}" + "".join(f"{n:>22}" for n in nombres) + f"{'Diferencia':>11}"
+            cabecera = f"{'Nivel':>5}{'Vida mob':>9}" + "".join(f"{n:>22}" for n in nombres) + f"{'Diferencia':>11}"
             print(cabecera)
-            print(f"{'':>23}" + "".join(f"{'s/mob  perdido  poc.':>22}" for _ in nombres))
+            print(f"{'':>14}" + "".join(f"{'min · pociones':>22}" for _ in nombres))
         tiempos = [c["tiempo"] for c in cazas]
-        rapido = min(tiempos)
-        celdas = "".join(
-            f"{c['tiempo'] / p['numero_mobs']:>9.1f}{c['perdido'] / (c['util'] + c['perdido']) * 100:>7.1f}%{c['pociones_vida'] + c['pociones_mana']:>5}"
-            for c in cazas)
-        print(f"{nivel:>5}{p['vida_mob']:>9.0f}{p['dano_mob']:>9.0f}{celdas}{(max(tiempos) / rapido - 1) * 100:>10.1f}%")
-    print("\nPerdido = daño que sobra al rematar · poc. = pociones de vida y de maná bebidas")
+        celdas = "".join(f"{c['tiempo'] / 60:>14.1f}{c['pociones_vida'] + c['pociones_mana']:>8}" for c in cazas)
+        print(f"{nivel:>5}{p['vida_mob']:>9.0f}{celdas}{(max(tiempos) / min(tiempos) - 1) * 100:>10.1f}%")
+    print("\nmin = minutos para matar los mobs del nivel · pociones = de vida y de maná bebidas")
 
 
 def informe(parametros, armas, arquetipos, conversion, habilidades):

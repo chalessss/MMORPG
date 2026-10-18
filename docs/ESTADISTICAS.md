@@ -454,6 +454,38 @@ Mismas armas, mismos mobs (420 de vida) y mismas pociones que 2.7; solo se suman
 
 Nivel 1 con la rotación (caza real, 1.000 mobs): espada larga 165,1 min · espada corta 166,1 (+0,6 %) · mágico 169,1 (+2,4 %) · arco 169,2 (+2,5 %). Pociones de vida: 6 · 4 · 252 · 196. Daño recibido por mob: 36–39 para todos. Prácticamente igual que con 50 % / 50 % al azar, porque la mitad de los mobs siguen pegando a distancia.
 
+### 2.13 Del 1 al 19: vida del mob +30 % por nivel y crítico por nivel
+
+- El potenciado del mob hace **el doble** que un básico (decidido).
+- **Crítico por nivel** (prueba): probabilidad **1 %** a nivel 1, **+0,2 % por nivel**, tope 5 %; daño extra del crítico **+2 %** a nivel 1, **+0,4 % por nivel**, tope +10 %. De momento la AGI no da crítico.
+- Vida del mob **+30 % por nivel** (compuesto); su daño sigue subiendo como la vida media de los jugadores. Rotación de los cuatro tipos de mob, 1.000 mobs por nivel, con pociones y sin descansos.
+
+| Nivel | Vida mob | Espada larga (min · pociones) | Espada corta | Arco | Mágico | Diferencia |
+|---|---|---|---|---|---|---|
+| 1 | 420 | 165 · 6 | 166 · 4 | 169 · 196 | 169 · 251 | 2,5 % |
+| 2 | 546 | 168 · 0 | 162 · 0 | 160 · 282 | 153 · 332 | 10,0 % |
+| 3 | 710 | 177 · 0 | 163 · 0 | 160 · 278 | 146 · 338 | 21,3 % |
+| 4 | 923 | 180 · 0 | 168 · 0 | 165 · 377 | 148 · 404 | 21,9 % |
+| 5 | 1.200 | 200 · 0 | 175 · 0 | 171 · 449 | 175 · 342 | 16,8 % |
+| 6 | 1.559 | 219 · 0 | 186 · 0 | 182 · 486 | 193 · 335 | 20,1 % |
+| 7 | 2.027 | 236 · 0 | 201 · 0 | 207 · 505 | 207 · 338 | 17,3 % |
+| 8 | 2.635 | 259 · 0 | 220 · 0 | 244 · 509 | 222 · 370 | 17,6 % |
+| 9 | 3.426 | 288 · 0 | 239 · 0 | 261 · 511 | 240 · 373 | 20,5 % |
+| 10 | 4.454 | 327 · 0 | 268 · 0 | 296 · 592 | 257 · 394 | 27,1 % |
+| 11 | 5.790 | 354 · 0 | 301 · 0 | 344 · 650 | 288 · 409 | 22,9 % |
+| 12 | 7.527 | 410 · 0 | 342 · 0 | 374 · 729 | 333 · 452 | 23,2 % |
+| 13 | 9.785 | 469 · 0 | 385 · 0 | 436 · 866 | 377 · 504 | 24,6 % |
+| 14 | 12.721 | 542 · 0 | 442 · 0 | 499 · 990 | 416 · 540 | 30,2 % |
+| 15 | 16.537 | 634 · 0 | 509 · 0 | 581 · 1.174 | 482 · 639 | 31,6 % |
+| 16 | 21.498 | 730 · 0 | 591 · 0 | 685 · 1.442 | 583 · 747 | 25,2 % |
+| 17 | 27.947 | 861 · 0 | 688 · 0 | 777 · 1.662 | 616 · 784 | 39,7 % |
+| 18 | 36.332 | 1.010 · 0 | 809 · 0 | 918 · 1.992 | 793 · 999 | 27,4 % |
+| 19 | 47.231 | 1.188 · 0 | 954 · 0 | 1.072 · 2.425 | 824 · 1.027 | 44,1 % |
+
+- Con +30 % por nivel los mobs **crecen más que los jugadores** (cuyo daño sube ~17 % por nivel): matar 1.000 mobs pasa de ~165 min en el nivel 1 a **820–1.190 min** en el 19. Con +10 % (2.11) pasaba lo contrario. El punto de equilibrio está en torno a **+17 % por nivel** con el crecimiento de estadísticas actual.
+- **Pociones**: el cuerpo a cuerpo no necesita ninguna desde el nivel 2; el **arco llega a 2,4 pociones por mob** y el mágico a 1 en el nivel 19. La poción cura siempre 100 mientras la vida de los jugadores sube (el arco tiene 1.660 de vida en el 19): las pociones también tendrán que escalar por nivel.
+- La diferencia entre perfiles va del 2,5 % al **44 %**: la espada larga cada vez más lenta y el mágico el más rápido (el crecimiento desigual de 2.10).
+
 ## 3. Estructura propuesta del capítulo
 
 1. **Lista cerrada de estadísticas** y a qué categoría pertenece cada una (principal, derivada, neutral, PvP, utilidad).
