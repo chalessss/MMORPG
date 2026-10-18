@@ -879,6 +879,19 @@ Solo se clasifica lo que se puede medir de forma objetiva:
 - **Honor (PvP)**: pendiente; se decidirá con el capítulo de PvP.
 - *Propuesta por confirmar*: filtros por clase y por servidor.
 
+### 3.29 Misiones (decidido en lo general)
+
+| Tipo | Descripción |
+|---|---|
+| **Principal** (línea de historia) | **Desbloquea el contenido y enseña los sistemas**. Subir de nivel no basta para acceder a todo. Ejemplos: en el nivel 4 una misión entrega la primera piedra de desarrollo y explica cómo usarla; el encantamiento se aprende con su misión (primero comprando el encantamiento a un NPC de la zona inicial); el PvP se desbloquea con una cadena que lleva a una zona PvP y explica en el minimapa qué zonas son PvP, seguras o especiales. |
+| **Secundarias** | Repartidas por el mundo: NPCs, objetos que sueltan ciertos mobs, recompensas de logros, tras matar a un jefe de banda… Se configuran más adelante. |
+| **Diarias** | Repetibles cada día (recolectar 10 componentes, cazar 10 lobos, hacer 3 mazmorras…), con recompensa concreta. **De cuenta** y **de clan**: las del clan son exclusivas de sus miembros y mejoran (mejores misiones y recompensas) con el desarrollo del clan. |
+| **Semanales** | Contenido semanal con recompensa o logro. |
+| **Únicas** | Solo se pueden hacer una vez, con una recompensa única (eventos, hitos concretos). |
+
+- **Saltar**: los jugadores con experiencia pueden **avanzar rápido** la parte explicativa de la línea principal.
+- **Guía / tomo del jugador**: un libro dentro del juego con un resumen de cómo funciona cada sistema ya desbloqueado y la lista de lo que falta por desbloquear.
+
 ### 3.23 Menú principal del juego (en curso, estilo MIR4)
 
 Un **único menú** desde el que se accede a todos los sistemas del juego, sin tener que abrir ventanas encadenadas. Incluye un panel con todas las monedas del jugador.
@@ -952,6 +965,7 @@ Queda para más adelante:
 ## 7. Preguntas abiertas
 
 **Pendientes para más adelante**
+- **Misiones**: qué se salta exactamente con "avance rápido" (solo explicaciones o también tareas); límite de misiones activas; tipos adicionales propuestos (clase, profesión, reputación de facción, élite de grupo).
 - **Clanes**: coste exacto de fundarlo; qué da cada nivel de clan; mecánica de "ayudar a compañeros" (¿sellado de cofres?); expediciones y desafíos de clan; ramas y técnicas concretas; niveles de desbloqueo de cada función.
 - **Mercado**: porcentajes de comisión y de quema (mercado vs. P2P); si las tiendas privadas funcionan con el jugador desconectado.
 - **Juego automático**: qué objetos exactos se restringen en automático; valores de la experiencia de descanso.
