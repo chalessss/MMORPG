@@ -16,6 +16,7 @@ Pruebas:
 python3 herramientas/simulador/simular.py             # resultados
 python3 herramientas/simulador/simular.py --calibrar  # recalcula el daño de armas y hechizos y lo guarda
 python3 herramientas/simulador/simular.py --calibrar-real  # sube el daño del cuerpo a cuerpo para igualar en la caza real
+python3 herramientas/simulador/simular.py --niveles   # caza real del nivel 1 al 19 con mobs que escalan (tarda unos minutos)
 ```
 
 `--calibrar` deja el arma de referencia (espada larga) como está y ajusta el daño de las demás armas, y el de los hechizos del mágico, para que todos tarden lo mismo en la caza en combate puro. Las habilidades de los físicos se definen como % del daño del arma y suben o bajan con ella.

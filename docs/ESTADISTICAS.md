@@ -397,6 +397,23 @@ Mismas armas, mismos mobs (420 de vida) y mismas pociones que 2.7; solo se suman
 - El **arco** también crece algo más que la espada larga (+10 AGI por nivel = +20 de daño plano por golpe).
 - Siguiente paso: ajustar cuánto da cada punto (sobre todo INT y el daño plano de AGI) para que los cuatro crezcan al mismo ritmo.
 
+### 2.11 Caza nivel a nivel con mobs que escalan
+
+`simular.py --niveles`: caza real del nivel 1 al 19 (300 mobs por nivel y perfil). Cada nivel suma el bono del arma de nivel 1 (2.9); las armas no cambian de daño todavía. **Los mobs escalan**: su vida sube como el daño por segundo medio de los perfiles en ese nivel y su daño, como la vida media.
+
+| Nivel | Vida mob | Daño mob | Espada larga (s/mob · perdido) | Espada corta | Arco | Mágico | Diferencia |
+|---|---|---|---|---|---|---|---|
+| 1 | 420 | 6 | 9,9 · 13,8 % | 9,9 · 7,9 % | 10,1 · 11,1 % | 10,1 · 9,6 % | 2,8 % |
+| 5 | 1.147 | 17 | 11,5 · 12,1 % | 10,2 · 9,0 % | 10,1 · 14,1 % | 8,2 · 9,6 % | 40,2 % |
+| 10 | 2.680 | 30 | 12,9 · 13,7 % | 10,4 · 8,7 % | 10,3 · 13,6 % | 7,4 · 12,3 % | 73,6 % |
+| 15 | 5.054 | 44 | 13,9 · 15,9 % | 10,4 · 6,7 % | 10,4 · 11,3 % | 6,8 · 12,4 % | 103,8 % |
+| 19 | 7.664 | 55 | 15,1 · 19,5 % | 10,5 · 5,5 % | 10,4 · 8,8 % | 6,4 · 10,4 % | 137,4 % |
+
+- Con mobs que escalan, el ritmo medio se mantiene en unos **10 s por mob** en todos los niveles.
+- Pero el reparto entre perfiles se abre nivel a nivel: el **mágico** cada vez más rápido (6,4 s por mob en el 19) y la **espada larga** cada vez más lenta (15,1 s); espada corta y arco se mantienen en la media. Es el crecimiento desigual de 2.10 (INT multiplica todo el daño del mágico; el daño plano de AGI favorece a las armas rápidas).
+- **Daño perdido al rematar**: entre 5 y 20 %; el más alto, la espada larga en los niveles altos (pocos golpes muy grandes por mob).
+- Pociones: el arco deja de necesitarlas desde el nivel 13; el mágico sigue bebiendo (16–58 cada 300 mobs).
+
 ## 3. Estructura propuesta del capítulo
 
 1. **Lista cerrada de estadísticas** y a qué categoría pertenece cada una (principal, derivada, neutral, PvP, utilidad).

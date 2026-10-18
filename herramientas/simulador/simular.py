@@ -402,7 +402,7 @@ def niveles(parametros, armas, arquetipos, conversion, habilidades):
         if cabecera is None:
             cabecera = f"{'Nivel':>5}{'Vida mob':>9}{'Daño mob':>9}" + "".join(f"{n:>22}" for n in nombres) + f"{'Diferencia':>11}"
             print(cabecera)
-            print(f"{'':>23}" + "".join(f"{'s/mob · perdido · poc.':>22}" for _ in nombres))
+            print(f"{'':>23}" + "".join(f"{'s/mob  perdido  poc.':>22}" for _ in nombres))
         tiempos = [c["tiempo"] for c in cazas]
         rapido = min(tiempos)
         celdas = "".join(
