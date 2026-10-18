@@ -192,7 +192,7 @@ Todas las especializaciones tienen **8 habilidades** con la misma distribución:
 | 7 | Área | Torbellino | Fisura | Lluvia de cuchillas | Lluvia de flechas | Lluvia de fuego | Lluvia de estrellas |
 | 8 | Individual | Ejecutar | Embate | Desgarro | Disparo certero | Fuego de alma | Restauración |
 
-- Las habilidades 1–4 son las de la clase de inicio (parte 1) con **nombres nuevos**: la pasiva "Robo de vida" de Física - Melee pasa a llamarse **Sed de sangre** y la de Física - Rango **Ojo de Halcón**; el hechizo fuerte y el débil de Mágica - Rango pasan a ser **Lanza de hielo** y **Bola de fuego** (por confirmar cuál es cada uno). El Asesino cambia el Golpe al suelo por el **Golpe bajo**.
+- Las habilidades 1–4 son las de la clase de inicio (parte 1) con **nombres nuevos**: la pasiva "Robo de vida" de Física - Melee pasa a llamarse **Sed de sangre** y la de Física - Rango **Ojo de Halcón**; el hechizo fuerte y el débil de Mágica - Rango pasan a ser **Bola de fuego** (el fuerte: más tiempo de preparación y lanzamiento) y **Lanza de hielo** (el débil: ligera, se lanza siempre). El Asesino cambia el Golpe al suelo por el **Golpe bajo**.
 - La pasiva de arma de cada especialización es la propuesta aceptada.
 
 Con esta estructura cada especialización tiene **5 habilidades que se activan** (1, 2, 4, 7 y 8) y 3 pasivas; con ellas se ajusta el coste de maná del nivel 20.
@@ -207,12 +207,15 @@ Con esta estructura cada especialización tiene **5 habilidades que se activan**
 | Especialización | Habilidad | Detalle |
 |---|---|---|
 | Combatiente | 7 · Área: **Fisura** | **Solo se puede usar con Ira**; consume poca Ira, pero la necesita |
-| Combatiente (por confirmar: ¿Ejecutar del Luchador?) | 8 · Individual: **Remate / Ejecución** | Golpe de remate. Cuando al objetivo le queda **poca vida (%)**: **la mitad de enfriamiento**, **más daño** y **no pide Ira**. Pensada para usarla sin parar en el tramo final: contra un jefe dispara el daño en su última parte; a un mob pequeño lo mata de un golpe |
+| Luchador | 8 · Individual: **Ejecutar** | Golpe de remate (encaja con su futuro de daño neto a doble espada en la especialización 3). Cuando al objetivo le queda **poca vida (%)**: **la mitad de enfriamiento**, **más daño** y **no pide Ira**. Pensada para usarla sin parar en el tramo final: contra un jefe dispara el daño en su última parte; a un mob pequeño lo mata de un golpe |
+| Combatiente | 8 · Individual: **Embate** | Carga con el arma a dos manos que **empuja al enemigo hacia delante**. Golpe muy fuerte con **enfriamiento largo**; **consume toda la Ira** que tenga en ese momento para hacer daño extra (encaja con su futuro de tanque: Tanque, Paladín…) |
+| Invocador | 8 · Individual: **Restauración** | **Cura**, no daño: el Invocador es **el único curandero** del equipo. Lanzada sobre un aliado le cura la cantidad completa y **el Invocador se cura además una parte** (por ejemplo, 500 al aliado y 100–200 a sí mismo). Si el Invocador tiene la vida llena, esa parte va al **siguiente aliado más débil** |
+| Invocador | 4 · Activa: **Escudo de maná** | Se lo puede poner **a un aliado**: el aliado recibe el escudo al 100 % y el Invocador **un 20–30 %** de ese escudo |
 | Asesino | 1 · Daño | Mantiene el **Golpe doble** |
 | Asesino | 2 · Daño | **Golpe bajo** en lugar del Golpe al suelo (un daguero no salta a golpear el suelo) |
 | Asesino | 7 · Área: **Lluvia de cuchillas** (antes "Danza de cuchillos") | Lanza cuchillos **en círculo a su alrededor** (no en cono ni delante). Daño **no muy alto**; se puede lanzar **varias veces seguidas gastando Energía**, y **solo con Energía**: sin ella pega golpes normales |
 
-Siguiente paso: **parametrizar el daño**, el enfriamiento y el coste de cada habilidad.
+Siguiente paso: **parametrizar el daño**, el enfriamiento y el coste de cada habilidad. Las cantidades de cura y escudo del Invocador se fijarán más adelante, al hablar de cómo se mejoran las habilidades.
 
 ## 2. Trabajo de esta sesión
 
