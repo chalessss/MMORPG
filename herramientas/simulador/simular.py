@@ -16,6 +16,8 @@ Uso:
                                  real (con caminata), y lo guarda
   python3 simular.py --niveles   caza real nivel a nivel con mobs que escalan
   python3 simular.py --ficha     guarda la ficha de estadísticas por nivel en resultados/
+  python3 simular.py --calibrar-mana  ajusta el % de maná de las habilidades para el
+                                 objetivo de pociones de maná del último nivel
 """
 
 import csv
@@ -152,7 +154,6 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
     celeridad = 1 - float(especial["celeridad"]["valor"]) / 100 if "celeridad" in especial else 1.0
     activa = {"furia_hasta": -1.0, "furia_lista": 0.0, "escudo_hasta": -1.0, "escudo_resto": 0.0, "escudo_listo": 0.0}
     golpes = {h["nombre"]: golpes_de(h, dano_arma, s) for h in habilidades}
-    coste = {h["nombre"]: float(h["coste_mana"]) if supervivencia else 0.0 for h in habilidades}
     blanco = (dano_arma + s["plano"]) * s["base"]
     # El remate más barato: un golpe blanco o, si no hay, la habilidad más débil.
     remate = blanco if con_ataque_basico else min((sum(g) for g in golpes.values()), default=0)
@@ -164,6 +165,15 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
     extra_regen = sum(float(h.get("regen_vida_por_str") or 0) for h in desbloqueadas) * float(perfil["arquetipo"]["str"])
     regen_vida = regen_cada_5s(p["regen_vida_base"] + s["regen_vida"] + extra_regen) / 5
     regen_mana = regen_cada_5s(p["regen_mana_base"] + s["regen_mana"]) / 5
+    # Coste de maná: una parte fija y una parte en % del maná máximo (así crece con el personaje).
+    def coste_de(h):
+        return round(float(h.get("coste_mana") or 0) + float(h.get("coste_mana_pct") or 0) * mana_max / 100)
+    coste = {h["nombre"]: coste_de(h) if supervivencia else 0 for h in habilidades}
+    # Una habilidad que cuesta más que todo el maná del personaje no se puede usar nunca.
+    habilidades = [h for h in habilidades if coste[h["nombre"]] <= mana_max]
+    if not habilidades and not con_ataque_basico:
+        return {"tiempo": float("inf"), "util": 0.0, "perdido": 0.0, "usos": {}, "muertes": 0,
+                "pociones_vida": 0, "pociones_mana": 0}
     defensa = {"fisico": s["defensa_fisica_pct"], "magico": s["defensa_magica_pct"]}
     armadura = p["armadura_por_nivel"] * nivel
 
@@ -253,8 +263,8 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
             activa["furia_lista"] = e["t"] + float(furia["enfriamiento"])
             usos[furia["nombre"]] = usos.get(furia["nombre"], 0) + 1
         if (supervivencia and escudo and activa["escudo_listo"] <= e["t"] and mob["proximo_golpe"] is not None
-                and e["mana"] >= float(escudo["coste_mana"])):
-            e["mana"] -= float(escudo["coste_mana"])
+                and e["mana"] >= coste_de(escudo)):
+            e["mana"] -= coste_de(escudo)
             activa["escudo_hasta"] = e["t"] + float(escudo["duracion"])
             activa["escudo_resto"] = vida_max * float(escudo["valor"]) / 100
             activa["escudo_listo"] = e["t"] + float(escudo["enfriamiento"])
@@ -267,6 +277,9 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
                 mob["proximo_golpe"] = None
                 empezar_mob(vidas[indice])
             continue
+        # Si una habilidad está lista pero falta maná, se bebe una poción de maná (si se puede).
+        if supervivencia and any(listo[h["nombre"]] <= e["t"] and coste[h["nombre"]] > e["mana"] for h in habilidades):
+            beber("mana")
         # Una habilidad que cuesta vida solo se usa si después queda más de un 25 % de colchón.
         disponibles = [h for h in habilidades if listo[h["nombre"]] <= e["t"] and coste[h["nombre"]] <= e["mana"]
                        and (not coste_vida[h["nombre"]] or e["vida"] - coste_vida[h["nombre"]] > vida_max * 0.25)]
@@ -473,40 +486,82 @@ def perfiles_nivel(armas, arquetipos, habilidades, nivel):
     return list(perfiles(armas, subidos, habilidades))
 
 
-def niveles(parametros, armas, arquetipos, conversion, habilidades):
-    """Caza real nivel a nivel. La vida de los mobs sube un % fijo por nivel (o,
-    si es 0, como el daño por segundo medio de los perfiles) y su daño, como la
-    vida media de los perfiles."""
+def condiciones_nivel(parametros, armas, arquetipos, conversion, habilidades, nivel):
+    """Parámetros de la caza en un nivel: la vida del mob sube un % fijo por nivel
+    (o, si es 0, como el daño por segundo medio de los perfiles) y su daño, como la
+    vida media de los perfiles respecto al nivel 1."""
     p = dict(parametros)
     p["numero_mobs"] = parametros["numero_mobs_por_nivel"]
-    base = None
+
+    def medias(n):
+        lista = perfiles_nivel(armas, arquetipos, habilidades, n)
+        vida = sum(vida_inicial(pf, conversion, p) for pf in lista) / len(lista)
+        dps = 0 if parametros["crecimiento_vida_mob_pct"] else sum(
+            prueba_jefe(pf, conversion, p)["dps"] for pf in lista) / len(lista)
+        return dps, vida
+
+    (dps1, vida1), (dps, vida) = medias(1), medias(nivel)
+    if parametros["crecimiento_vida_mob_pct"]:
+        p["vida_mob"] = round(parametros["vida_mob"] * (1 + parametros["crecimiento_vida_mob_pct"] / 100) ** (nivel - 1))
+    else:
+        p["vida_mob"] = round(parametros["vida_mob"] * dps / dps1)
+    p["dano_mob"] = round(parametros["dano_mob"] * vida / vida1)
+    return p
+
+
+def niveles(parametros, armas, arquetipos, conversion, habilidades):
+    """Caza real nivel a nivel con mobs que escalan (ver condiciones_nivel)."""
     escala = (f"vida del mob +{parametros['crecimiento_vida_mob_pct']:g} % por nivel" if parametros["crecimiento_vida_mob_pct"]
               else "vida del mob al ritmo del daño medio")
-    print(f"Caza real nivel a nivel · {p['numero_mobs']:.0f} mobs por nivel · {escala}\n")
+    print(f"Caza real nivel a nivel · {parametros['numero_mobs_por_nivel']:.0f} mobs por nivel · {escala}\n")
     cabecera = None
     for nivel in range(1, int(parametros["nivel_maximo_simulado"]) + 1):
+        p = condiciones_nivel(parametros, armas, arquetipos, conversion, habilidades, nivel)
         lista = perfiles_nivel(armas, arquetipos, habilidades, nivel)
-        dps = sum(prueba_jefe(pf, conversion, p)["dps"] for pf in lista) / len(lista)
-        vida = sum(p["vida_base"] + secundarias(pf["arquetipo"], conversion, p)["vida"] for pf in lista) / len(lista)
-        if base is None:
-            base = (dps, vida)
-        if parametros["crecimiento_vida_mob_pct"]:
-            # Vida del mob: sube un % fijo por nivel (compuesto).
-            p["vida_mob"] = round(parametros["vida_mob"] * (1 + parametros["crecimiento_vida_mob_pct"] / 100) ** (nivel - 1))
-        else:
-            p["vida_mob"] = round(parametros["vida_mob"] * dps / base[0])
-        p["dano_mob"] = round(parametros["dano_mob"] * vida / base[1])
         cazas = [prueba_caza(pf, conversion, p, supervivencia=True) for pf in lista]
         nombres = [pf["arma"]["arma"] if pf["arquetipo"]["ataque_basico"] == "1" else "Mágico" for pf in lista]
         if cabecera is None:
-            cabecera = f"{'Nivel':>5}{'Vida mob':>9}" + "".join(f"{n:>24}" for n in nombres) + f"{'Diferencia':>11}"
+            cabecera = f"{'Nivel':>5}{'Vida mob':>9}" + "".join(f"{n:>26}" for n in nombres) + f"{'Diferencia':>11}"
             print(cabecera)
-            print(f"{'':>14}" + "".join(f"{'min · poc. · muertes':>24}" for _ in nombres))
+            print(f"{'':>14}" + "".join(f"{'min · vida · maná · †':>26}" for _ in nombres))
         tiempos = [c["tiempo"] for c in cazas]
-        celdas = "".join(f"{c['tiempo'] / 60:>12.1f}{c['pociones_vida'] + c['pociones_mana']:>6}{c['muertes']:>6}"
+        celdas = "".join(f"{c['tiempo'] / 60:>10.1f}{c['pociones_vida']:>6}{c['pociones_mana']:>6}{c['muertes']:>4}"
                          for c in cazas)
         print(f"{nivel:>5}{p['vida_mob']:>9.0f}{celdas}{(max(tiempos) / min(tiempos) - 1) * 100:>10.1f}%")
-    print("\nmin = minutos para matar los mobs del nivel · poc. = pociones de vida y de maná bebidas · muertes")
+    print("\nmin = minutos para matar los mobs del nivel · vida / maná = pociones bebidas de cada tipo · † = muertes")
+
+
+def calibrar_mana(parametros, armas, arquetipos, conversion, habilidades):
+    """Ajusta, por arquetipo, el % de maná que cuestan sus habilidades para que en el
+    último nivel simulado beba el número objetivo de pociones de maná."""
+    nivel = int(parametros["nivel_maximo_simulado"])
+    p = condiciones_nivel(parametros, armas, arquetipos, conversion, habilidades, nivel)
+    objetivo = parametros["objetivo_pociones_mana"]
+    for arquetipo in arquetipos:
+        propias = [h for h in habilidades if h["arquetipo"] == arquetipo["arquetipo"] and float(h.get("coste_mana_pct") or 0)]
+        originales = [float(h["coste_mana_pct"]) for h in propias]
+
+        def pociones(factor):
+            for h, v in zip(propias, originales):
+                h["coste_mana_pct"] = str(v * factor)
+            lista = [pf for pf in perfiles_nivel(armas, arquetipos, habilidades, nivel)
+                     if pf["arquetipo"]["arquetipo"] == arquetipo["arquetipo"]]
+            return sum(prueba_caza(pf, conversion, p, supervivencia=True)["pociones_mana"] for pf in lista) / len(lista)
+
+        bajo, alto = 0.1, 20.0
+        for _ in range(25):
+            medio = (bajo + alto) / 2
+            if pociones(medio) < objetivo:
+                bajo = medio
+            else:
+                alto = medio
+        factor = (bajo + alto) / 2
+        for h, v in zip(propias, originales):
+            h["coste_mana_pct"] = f"{v * factor:.1f}"
+        print(f"{arquetipo['nombre']}: " + ", ".join(f"{h['nombre']} {h['coste_mana_pct']} %" for h in propias)
+              + f" → {pociones(1.0):.0f} pociones de maná en el nivel {nivel}")
+    escribir("habilidades.csv", habilidades)
+    print("Guardado en datos/habilidades.csv.\n")
 
 
 def ficha(parametros, armas, arquetipos, conversion, habilidades):
@@ -619,6 +674,8 @@ def main():
         calibrar(*datos)
     if "--calibrar-real" in sys.argv:
         calibrar_real(*datos)
+    if "--calibrar-mana" in sys.argv:
+        calibrar_mana(*datos)
     if "--ficha" in sys.argv:
         ficha(*datos)
         return
