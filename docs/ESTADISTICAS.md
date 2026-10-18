@@ -246,6 +246,25 @@ Diseño pedido para los físicos (los valores marcados como propuesta son ajusta
 - El cuerpo a cuerpo, pese a caminar, queda **el más rápido**.
 - Todos estos números (daño del mob, vida y regeneración por punto, costes de maná) son de partida: el siguiente paso es calibrarlos.
 
+### 2.4 Prueba: armas con +10 STR, +10 INT y +5 AGI, sin descansos
+
+Todas las armas dan el mismo bono (columnas `bono_str`, `bono_int`, `bono_agi` de `armas.csv`) y en la caza real **nunca se para a descansar** (`descansar = 0`): si se muere, se pierden 30 s.
+
+| Perfil | Reparto con el arma | Daño por segundo contra jefe (antes → ahora) | Caza puro | Caza real | Frente al más rápido (real) | Caminando | Sin maná | Muertes |
+|---|---|---|---|---|---|---|---|---|
+| Espada larga | 15 / 11 / 9 | 32,6 → 47,1 | 171,3 min | 190,9 min | +32,9 % | 13 % | 0 % | 0 |
+| Espada corta | 15 / 11 / 9 | 31,3 → 48,1 | 158,5 min | 179,2 min | +24,8 % | 14 % | 0 % | 0 |
+| Arco | 12 / 12 / 11 | 31,9 → 48,0 | 166,1 min | 166,1 min | +15,6 % | 0 % | 0 % | 0 |
+| Mágico | 11 / 17 / 7 | 32,2 → 54,3 | 143,6 min | 143,6 min | — | 0 % | 0 % | 0 |
+
+- **Nadie necesita descansar**: con la vida (320–400), la regeneración (2,7–3,5/s) y el maná que dan los bonos, todos aguantan la caza entera sin morir ni quedarse sin maná.
+- **El daño sube un 45–70 %** y la caza es un 30–40 % más rápida.
+- **Se rompe la igualdad de daño** (19 % de diferencia en combate puro):
+  - el **mágico** gana más porque +10 INT (+25 % de daño de hechizos) se aplica a todo su daño, mientras que a los físicos solo les sube las habilidades (~36 % de su daño);
+  - +5 AGI (+10 de daño plano por golpe) favorece a las armas rápidas: la espada corta adelanta a la larga.
+- En la caza real, el **cuerpo a cuerpo** queda último por el tiempo caminando (13–14 %), ahora que nadie descansa.
+- Conclusión: el bono del arma debería ser **propio de cada tipo de arma** (por ejemplo, más STR en espadas, más AGI en arcos, más INT en bastones) y recalibrarse con el simulador.
+
 ## 3. Estructura propuesta del capítulo
 
 1. **Lista cerrada de estadísticas** y a qué categoría pertenece cada una (principal, derivada, neutral, PvP, utilidad).

@@ -25,3 +25,4 @@ descansar_bajo_vida_pct,35,tras matar un mob se descansa si la vida queda por de
 descansar_bajo_mana_pct,35,lo mismo con el maná (solo quien depende de él: el mágico)
 penalizacion_muerte_s,30,segundos perdidos al morir (vuelve con vida y maná llenos)
 margen_descanso,1.25,también se descansa si la vida (o el maná) no alcanza para otro mob como el último multiplicado por este margen
+descansar,0,1 = en la caza real se para a descansar cuando hace falta; 0 = nunca descansa (sigue pegando y, si muere, pierde el tiempo de penalización)

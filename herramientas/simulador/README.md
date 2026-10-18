@@ -24,7 +24,7 @@ Solo necesita Python 3, sin librerías extra. Todos los valores están en `datos
 | Archivo | Contenido |
 |---|---|
 | `arquetipos.csv` | Reparto base de STR/INT/AGI, si usa ataque básico, si pega a distancia y qué armas puede llevar |
-| `armas.csv` | Segundos entre golpe y golpe y daño por golpe |
+| `armas.csv` | Segundos entre golpe y golpe, daño por golpe y estadísticas que suma el arma |
 | `habilidades.csv` | Habilidades de cada arquetipo: daño de cada golpe (en múltiplos del arma o en puntos), enfriamiento, duración y coste de maná |
 | `conversion.csv` | Cuánto da cada punto de STR, INT y AGI |
 | `parametros.csv` | Arma de referencia, jefe, mobs (vida, daño, ritmo), desplazamiento, vida y maná base, descansos, crítico base y azar |

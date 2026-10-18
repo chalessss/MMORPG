@@ -77,8 +77,12 @@ def perfiles(armas, arquetipos, habilidades):
     por_nombre = {a["arma"]: a for a in armas}
     for arquetipo in arquetipos:
         for arma in arquetipo["armas"].split("|"):
+            # Las estadísticas que da el arma se suman al reparto base.
+            con_arma = dict(arquetipo)
+            for e in ("str", "int", "agi"):
+                con_arma[e] = str(float(arquetipo[e]) + float(por_nombre[arma].get(f"bono_{e}") or 0))
             yield {
-                "arquetipo": arquetipo,
+                "arquetipo": con_arma,
                 "arma": por_nombre[arma],
                 "habilidades": [h for h in habilidades if h["arquetipo"] == arquetipo["arquetipo"]],
             }
@@ -227,7 +231,7 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
             indice += 1
             if indice >= len(vidas):
                 break
-            if supervivencia:
+            if supervivencia and p["descansar"]:
                 # Se descansa si no queda para aguantar otro mob como el último
                 # (con margen) o si se baja del % mínimo.
                 margen = p["margen_descanso"]
@@ -241,7 +245,7 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
                     dt = max((vida_max - e["vida"]) / (regen_vida * multiplicador),
                              (mana_max - e["mana"]) / (regen_mana * multiplicador))
                     avanzar(dt, "descansando", multiplicador)
-            else:
+            elif not supervivencia:
                 e["t"] += p["desplazamiento_s"]
             empezar_mob(vidas[indice])
 
@@ -333,9 +337,10 @@ def informe(parametros, armas, arquetipos, conversion, habilidades):
     # 2. Caza real: desplazamiento, golpes del mob, vida, maná y descansos.
     reales = [(pf, prueba_caza(pf, conversion, parametros, supervivencia=True)) for pf in lista]
     rapido = min(c["tiempo"] for _, c in reales)
-    print("\n2) Caza real (desplazamiento, golpes del mob, vida, maná y descansos)\n")
+    descanso = "con descansos" if parametros["descansar"] else "sin descansos"
+    print(f"\n2) Caza real (desplazamiento, golpes del mob, vida y maná; {descanso})\n")
     print(f"{'Perfil':<14}{'Vida':>6}{'Reg/s':>6}{'Maná':>6}{'Reg/s':>6}{'Caza (min)':>11}{'vs + rápido':>12}"
-          f"{'Pegando':>9}{'Caminando':>10}{'Descanso':>9}{'Sin maná':>9}{'Muertes':>8}{'Daño recibido/mob':>18}")
+          f"{'Pegando':>9}{'Caminando':>10}{'Descanso':>9}{'Sin maná':>9}{'Muerto':>8}{'Muertes':>8}{'Daño recibido/mob':>18}")
     for pf, c in reales:
         s = secundarias(pf["arquetipo"], conversion, parametros)
         t = c["tiempo"]
@@ -345,7 +350,7 @@ def informe(parametros, armas, arquetipos, conversion, habilidades):
               f"{t / 60:>11.1f}{(t / rapido - 1) * 100:>+11.1f}%"
               f"{c['pegando'] / t * 100:>8.0f}%{c['caminando'] / t * 100:>9.0f}%"
               f"{c['descansando'] / t * 100:>8.0f}%{c['esperando_mana'] / t * 100:>8.0f}%"
-              f"{c['muertes']:>8}{c['dano_recibido'] / n:>18.1f}")
+              f"{c['muerto'] / t * 100:>7.0f}%{c['muertes']:>8}{c['dano_recibido'] / n:>18.1f}")
     tiempos = [c["tiempo"] for _, c in reales]
     print(f"Diferencia máxima en la caza: {(max(tiempos) / min(tiempos) - 1) * 100:.1f} %")
 
