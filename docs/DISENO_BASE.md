@@ -45,6 +45,12 @@ Los controla una persona.
 - Se comparten el **nivel** del personaje, las mejoras y las bolsas; **no** se comparten armas, armaduras ni habilidades (cada clase tiene las suyas).
 - Algunas clases futuras podrían desbloquearse solo con un pago concreto (cobre, oro, otro recurso o dinero real).
 
+**Equipo al cambiar de subclase (decidido)**
+- **Conjunto de equipo por clase**: el jugador puede **vincular** un conjunto de piezas a cada clase (y actualizarlo cuando quiera). Al activar esa clase, el sistema se lo pone automáticamente.
+- Si no hay conjunto vinculado, se equipa por defecto **el de mayor calidad** que tenga para esa clase.
+- Si no tiene equipo para alguna ranura, esa ranura queda **vacía**.
+- Las piezas sin tipo de armadura (capa, cintura, joyería) pueden compartirse entre clases, pero normalmente cada clase querrá las suyas por sus estadísticas (fuerza y defensa para un guerrero; intelecto, velocidad de lanzamiento y crítico mágico para un mago).
+
 ### 3.2 NPCs de combate — Mobs
 
 Enemigos que pueblan el mundo y las mazmorras.
