@@ -526,6 +526,42 @@ Valores de partida (ajustables en `habilidades.csv`):
 - **Mágico**: el escudo baja las pociones a menos de la mitad en el nivel 1 (251 → 114), pero en niveles altos sigue bebiendo mucho (1.644 en el 19; la poción cura 100 fijo). Como ya no muere, es **el más rápido** desde el nivel 3, y la diferencia sube al 73,5 %. En el nivel 1 el escudo le cuesta tiempo (1 s de lanzamiento cada vez): queda un 10,9 % más lento.
 - **Cuerpo a cuerpo**: la furia le da algo más de daño (espada larga 165 → 160 min en el nivel 1) a cambio de beber algunas pociones en los niveles 1–2 (43 y 27); desde el nivel 3 no necesita ninguna.
 
+### 2.15 Habilidades 3 y 4 desde el nivel 10 (decidido) y ajustes
+
+- Las habilidades de supervivencia **se desbloquean en el nivel 10** (columna `nivel_minimo` de `habilidades.csv`).
+- **Arco**: robo de vida al **4 %**.
+- **Cuerpo a cuerpo**: se descarta la furia. Su habilidad es **Golpe sangriento**: **300 % del arma** a cambio de **un sexto de su vida máxima** en cada uso, para que de verdad le haga daño y tenga que beber pociones. Enfriamiento de 10 s (propuesta); ocupa el hueco de un golpe blanco; solo se usa si después le queda más de un 25 % de vida.
+- **Mágico**: escudo de maná sin cambios (desde el nivel 10).
+
+**Del 1 al 19** (vida del mob +30 % por nivel, rotación de mobs, 1.000 mobs por nivel; min · pociones · muertes):
+
+| Nivel | Vida mob | Espada larga | Espada corta | Arco | Mágico | Diferencia |
+|---|---|---|---|---|---|---|
+| 1 | 420 | 165 · 6 · 0 | 166 · 4 · 0 | 169 · 196 · 0 | 169 · 251 · 0 | 2,5 % |
+| 2 | 546 | 168 · 0 · 0 | 162 · 0 · 0 | 160 · 282 · 0 | 153 · 332 · 0 | 10,0 % |
+| 3 | 710 | 177 · 0 · 0 | 163 · 0 · 0 | 160 · 278 · 0 | 146 · 338 · 0 | 21,3 % |
+| 4 | 923 | 180 · 0 · 0 | 168 · 0 · 0 | 165 · 377 · 0 | 148 · 404 · 8 | 21,9 % |
+| 5 | 1.200 | 200 · 0 · 0 | 175 · 0 · 0 | 171 · 449 · 0 | 175 · 342 · 51 | 16,8 % |
+| 6 | 1.559 | 219 · 0 · 0 | 186 · 0 · 0 | 182 · 486 · 6 | 193 · 335 · 71 | 20,1 % |
+| 7 | 2.027 | 236 · 0 · 0 | 201 · 0 · 0 | 207 · 505 · 16 | 207 · 338 · 82 | 17,3 % |
+| 8 | 2.635 | 259 · 0 · 0 | 220 · 0 · 0 | 244 · 509 · 38 | 222 · 370 · 92 | 17,6 % |
+| 9 | 3.426 | 288 · 0 · 0 | 239 · 0 · 0 | 261 · 511 · 45 | 240 · 373 · 102 | 20,5 % |
+| 10 | 4.454 | 274 · 761 · 0 | 244 · 681 · 0 | 271 · 0 · 0 | 206 · 444 · 0 | 32,9 % |
+| 11 | 5.790 | 308 · 871 · 0 | 273 · 771 · 0 | 310 · 0 · 0 | 227 · 509 · 0 | 36,6 % |
+| 12 | 7.527 | 347 · 981 · 0 | 309 · 872 · 0 | 346 · 0 · 0 | 252 · 619 · 0 | 37,9 % |
+| 13 | 9.785 | 390 · 1.095 · 0 | 348 · 973 · 0 | 398 · 0 · 0 | 281 · 704 · 0 | 41,3 % |
+| 14 | 12.721 | 446 · 1.248 · 0 | 396 · 1.114 · 0 | 458 · 0 · 0 | 316 · 831 · 0 | 45,0 % |
+| 15 | 16.537 | 511 · 1.437 · 0 | 454 · 1.286 · 0 | 528 · 0 · 0 | 359 · 987 · 0 | 47,3 % |
+| 16 | 21.498 | 589 · 1.661 · 0 | 522 · 1.481 · 0 | 638 · 0 · 0 | 411 · 1.103 · 0 | 55,2 % |
+| 17 | 27.947 | 680 · 1.922 · 0 | 606 · 1.731 · 0 | 710 · 0 · 0 | 471 · 1.255 · 0 | 50,9 % |
+| 18 | 36.332 | 796 · 2.234 · 0 | 704 · 1.999 · 0 | 847 · 0 · 0 | 544 · 1.456 · 0 | 55,5 % |
+| 19 | 47.231 | 926 · 2.631 · 0 | 825 · 2.377 · 0 | 998 · 0 · 0 | 630 · 1.644 · 0 | 58,5 % |
+
+- **Niveles 4–9 (antes de las habilidades)**: el arco y el mágico **mueren** (el mágico desde el nivel 4, hasta 102 veces; el arco desde el 6, hasta 45) aun bebiendo 300–500 pociones: la poción de +100 se queda pequeña frente a mobs que pegan cada vez más.
+- **Golpe sangriento**: el cuerpo a cuerpo pasa a beber **0,7–2,6 pociones por mob** (antes ninguna) y caza algo más rápido (espada larga 305 → 274 min en el nivel 10).
+- **Arco con 4 %**: sigue sin necesitar ninguna poción desde el nivel 10. El robo de vida aún cubre todo el daño recibido.
+- **Mágico**: sin cambios respecto a 2.14; es el más rápido desde el nivel 10 y la diferencia llega al 58,5 % en el 19.
+
 ## 3. Estructura propuesta del capítulo
 
 1. **Lista cerrada de estadísticas** y a qué categoría pertenece cada una (principal, derivada, neutral, PvP, utilidad).

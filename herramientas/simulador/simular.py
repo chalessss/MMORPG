@@ -103,6 +103,10 @@ def perfiles(armas, arquetipos, habilidades):
             }
 
 
+def vida_inicial(perfil, conversion, parametros):
+    return parametros["vida_base"] + secundarias(perfil["arquetipo"], conversion, parametros)["vida"]
+
+
 def golpes_de(habilidad, dano_arma, s):
     """Daño de cada golpe de una habilidad, sin crítico."""
     golpes = []
@@ -128,9 +132,14 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
     dano_arma = float(perfil["arma"]["dano"])
     con_ataque_basico = perfil["arquetipo"]["ataque_basico"] == "1"
     a_distancia = perfil["arquetipo"]["a_distancia"] == "1"
-    # Habilidades de daño, y las especiales (pasivas y activas que no pegan).
-    habilidades = [h for h in perfil["habilidades"] if h.get("tipo", "dano") == "dano"]
-    especial = {h["tipo"]: h for h in perfil["habilidades"] if h.get("tipo", "dano") != "dano"}
+    # Solo las habilidades desbloqueadas a este nivel: las de daño y las especiales
+    # (pasivas y activas que no pegan).
+    nivel = float(perfil["arquetipo"].get("nivel", 1))
+    desbloqueadas = [h for h in perfil["habilidades"] if float(h.get("nivel_minimo") or 1) <= nivel]
+    habilidades = [h for h in desbloqueadas if h.get("tipo", "dano") == "dano"]
+    especial = {h["tipo"]: h for h in desbloqueadas if h.get("tipo", "dano") != "dano"}
+    coste_vida = {h["nombre"]: round(vida_inicial(perfil, conversion, parametros) * float(h.get("coste_vida_pct") or 0) / 100)
+                  if supervivencia else 0 for h in habilidades}
     robo_vida = float(especial["robo_vida"]["valor"]) / 100 if "robo_vida" in especial else 0.0
     furia, escudo = especial.get("furia"), especial.get("escudo")
     activa = {"furia_hasta": -1.0, "furia_lista": 0.0, "escudo_hasta": -1.0, "escudo_resto": 0.0, "escudo_listo": 0.0}
@@ -149,7 +158,7 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
 
     e = {"t": 0.0, "vida": vida_max, "mana": mana_max, "util": 0.0, "perdido": 0.0, "muertes": 0,
          "pegando": 0.0, "caminando": 0.0, "descansando": 0.0, "esperando_mana": 0.0, "muerto": 0.0,
-         "dano_recibido": 0.0, "pociones_vida": 0, "pociones_mana": 0, "absorbido": 0.0, "curado": 0.0}
+         "dano_recibido": 0.0, "pociones_vida": 0, "pociones_mana": 0, "absorbido": 0.0, "curado": 0.0, "coste_vida": 0}
     pocion_lista = {"vida": 0.0, "mana": 0.0}  # cuándo sale del enfriamiento cada poción
 
     def beber(tipo):
@@ -245,7 +254,9 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
                 mob["proximo_golpe"] = None
                 empezar_mob(vidas[indice])
             continue
-        disponibles = [h for h in habilidades if listo[h["nombre"]] <= e["t"] and coste[h["nombre"]] <= e["mana"]]
+        # Una habilidad que cuesta vida solo se usa si después queda más de un 25 % de colchón.
+        disponibles = [h for h in habilidades if listo[h["nombre"]] <= e["t"] and coste[h["nombre"]] <= e["mana"]
+                       and (not coste_vida[h["nombre"]] or e["vida"] - coste_vida[h["nombre"]] > vida_max * 0.25)]
         if p["ahorrar_habilidades"] and mob["vida"] <= remate:
             # Al mob le queda poco: no se gasta una habilidad con enfriamiento largo.
             baratas = [h for h in disponibles if sum(golpes[h["nombre"]]) <= remate]
@@ -257,6 +268,8 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
             nombre, danos = h["nombre"], golpes[h["nombre"]]
             listo[nombre] = e["t"] + float(h["enfriamiento"])
             e["mana"] -= coste[nombre]
+            e["vida"] -= coste_vida[nombre]
+            e["coste_vida"] += coste_vida[nombre]
             if furia and e["t"] < activa["furia_hasta"]:
                 # Furia: la habilidad pega más fuerte a cambio de vida.
                 danos = [d * (1 + float(furia["valor"]) / 100) for d in danos]
