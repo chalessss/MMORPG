@@ -18,8 +18,9 @@ mejora_dano_pct,2,cada nivel de habilidad sobre el anterior
 mejora_coste_pct,25,
 desplazamiento_melee_s,1.5,
 acercamiento_mob_s,2.5,
-pocion_vida,100,
-pocion_mana,100,
+pocion_vida,400,pociones mejoradas del nivel 20 (provisional: el valor se fija más adelante)
+pocion_mana,400,pociones mejoradas del nivel 20 (provisional)
+usar_pocion_mana_pct,50,se bebe una poción de maná al bajar de este %
 enfriamiento_pocion_s,20,
 usar_pocion_vida_pct,40,
 descansar_bajo_pct,35,
@@ -46,4 +47,3 @@ duracion_jefe_s,1200,
 vida_jefe,50000000,
 mobs_por_prueba,300,
 semilla,1,
-robo_vida_en_area,combatiente,especializaciones cuyo robo de vida cuenta en cada mob del área (separadas por |)

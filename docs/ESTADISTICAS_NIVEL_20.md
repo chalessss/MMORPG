@@ -199,6 +199,8 @@ Con esta estructura cada especialización tiene **5 habilidades que se activan**
 
 **Habilidad de área (decidido):**
 - **Todas** las especializaciones tienen una habilidad de daño en área.
+- **Todas llevan enfriamiento** (10–15 s o algo más) y no se pueden encadenar, **salvo la Lluvia de fuego del Mago**: es la única clase que puede dedicarse a lanzar su área sin parar para hacer muchísimo daño (limitada solo por el maná).
+- **Robo de vida en área**: cuenta en cada mob golpeado. Si un Combatiente (con curanderos y magos) junta 15–20 mobs y eso le da aguante, está bien. Las habilidades que no deben escalar así lo llevan reducido: la **Lluvia de cuchillas roba vida al 50 %** (lo indica en su descripción).
 - El **Combatiente escala mejor en área** que el resto de físicos (menos enfriamiento o más daño), y su ventaja es que **aguanta** rodeado de mobs.
 - Los **magos escalan tanto en daño** que, contra un grupo de 10–15 mobs, harán **más daño en área que el Combatiente**; el Combatiente no debe llegar a superarlos en daño.
 
@@ -225,26 +227,27 @@ Parámetros de daño cerrados para la simulación (individual, en grupo y contra
 |---|---|---|---|---|---|
 | Luchador | Torbellino (área, a su alrededor) | 150 % del arma a cada mob | 15 s | — | Potenciada por la Ira |
 | Luchador | Ejecutar | 250 %; con el objetivo **por debajo del 20 % de vida**: **500 %** | 12 s; **6 s** en el remate | — | En el remate no pide Ira |
-| Combatiente | Fisura (área) | 200 % del arma a cada mob | **8 s** (el área que más se repite) | — | Cuesta **15 de Ira** |
+| Combatiente | Fisura (área) | 200 % del arma a cada mob | **10 s** | — | Cuesta **15 de Ira** |
 | Combatiente | Embate (carga y empuje) | 400 % + **2 % por punto de Ira** gastado (Ira llena: 600 %) | 30 s | — | Gasta **toda la Ira** |
-| Asesino | Lluvia de cuchillas (círculo a su alrededor) | 80 % del arma a cada mob | 1 s | — | **25 de Energía** por uso |
+| Asesino | Lluvia de cuchillas (círculo a su alrededor) | 80 % del arma a cada mob; **roba vida solo al 50 %** | **10 s** | — | **25 de Energía** por uso |
 | Asesino | Desgarro (remate) | 350 % + sangrado en 6 s según la Energía gastada: **≥ 70 % → 100 %**, **40–70 % → 70 %**, **< 40 % → 50 %** | 12 s | — | Gasta **el 100 % de la Energía** que tenga |
 | Atacante | Lluvia de flechas (zona) | 120 % del arma por segundo durante 4 s a cada mob | 25 s | **No le interrumpe**: la lanza y sigue disparando a su objetivo mientras caen las flechas | — |
 | Atacante | Disparo certero | 400 % | 15 s | 2 s | Gasta el **Foco**: +10 % por punto y **daño verdadero** |
-| Mago | Lluvia de fuego (zona) | **Canalizada**: se queda quieto invocándola; cae **un impacto por segundo** de 60 a cada mob, durante 5 s (300) | 20 s | 5 s canalizando | — |
+| Mago | Lluvia de fuego (zona) | **Canalizada**: se queda quieto invocándola; cae **un impacto por segundo** de 60 a cada mob, durante 5 s (300) | **Sin enfriamiento**: el Mago es el único que puede encadenar su área | 5 s canalizando | — |
 | Mago | Fuego de alma | 250 | 15 s | 3 s | Más fuerte durante el Trance |
-| Invocador | Lluvia de estrellas (zona) | Caen estrellas **más seguidas** que la lluvia del mago, pero cada una hace **menos daño** (por ejemplo, 10 estrellas). Si una estrella cae sobre un **aliado**, le pone un **escudo** igual al daño que habría hecho | 20 s | — | — |
+| Invocador | Lluvia de estrellas (zona) | Caen estrellas **más seguidas** que la lluvia del mago (10 estrellas en 2,5 s) y golpean a **todos** los mobs de la zona, sean 10 o 20, con **daño bajo** para no hacer demasiado daño en área (20 por estrella). A **todos los aliados** de la zona les pone un **escudo** igual al daño de una estrella | 20 s | — | — |
 | Invocador | Restauración (cura) | Cura el **30 % de la vida máxima**. Lanzada sobre un aliado: el aliado recupera el 30 % y el Invocador **el 15 %** si le falta vida; si no, ese 15 % va a otro aliado al que le falte | — | — | Potenciada por la Esencia |
 
-### 1.8 Simulación 1 del nivel 20 (aproximación)
+### 1.8 Simulación del nivel 20 (aproximación)
 
-Simulador nuevo: `python3 herramientas/simulador/simular20.py` (ficha: `--ficha`), con los datos en `herramientas/simulador/datos/nivel20/`. Mob del nivel 20: 61.400 de vida y 59 de daño por golpe básico. Cada prueba son 300 mobs; en los conglomerados **todos los mobs del grupo pegan a la vez** y todos entran en las habilidades de área. Por ahora cada especialización caza **sola** (sin grupo ni curandero).
+Simulador: `python3 herramientas/simulador/simular20.py` (ficha: `--ficha`), con los datos en `herramientas/simulador/datos/nivel20/`. Mob del nivel 20: 61.400 de vida y 59 de daño por golpe básico. Cada prueba son 300 mobs; en los conglomerados **todos los mobs del grupo pegan a la vez** y todos entran en las habilidades de área. En las pruebas 1 y 2 cada especialización caza **sola**; la 3 imita el grupo con mobs que no le pegan (el tanque los aguanta).
 
-**Supuestos añadidos para la simulación** (por validar):
-- Las habilidades de área físicas aplican su % al golpe entero (arma + daño plano de la AGI); si no, el daño plano de la AGI sumado a cada mob del área hacía que la Lluvia de cuchillas valiera tanto como un golpe blanco a cada mob.
-- El **robo de vida** solo cuenta en el objetivo principal, **salvo en el Combatiente**, que roba vida de cada mob del área: cuantos más mobs le rodean, más aguanta. Sin esto el Asesino aguantaba 12 mobs a la vez curándose con la Lluvia de cuchillas, y el Combatiente no.
+**Pociones mejoradas (decidido):** al llegar al nivel 20 se desbloquean pociones mejoradas que recuperan más (por ejemplo, 400 de maná en vez de 100); los valores se fijarán más adelante. En la simulación: 400 de vida o de maná, 20 s de enfriamiento; se bebe maná al bajar de la mitad.
+
+**Supuestos de la simulación** (por validar):
+- Las habilidades de área físicas aplican su % al golpe entero (arma + daño plano de la AGI); las canalizaciones (Lluvia de fuego, Lluvia de estrellas) no suman el daño plano de la AGI en cada impacto.
 - Ajustes: el Invocador saca 1 de daño plano por punto de AGI (en vez de 2); Lluvia de fuego cuesta el 6 % del maná y Fuego de alma el 4 %; el Golpe sangriento solo se usa si deja más de la mitad de la vida.
-- Lluvia de estrellas: 10 estrellas de 20 en 2,5 s (el daño por estrella está por confirmar). Pasivas de arma: Luchador −10 % de tiempo entre golpes; Combatiente +5 % de defensa y +500 de armadura; Asesino +5 % de crítico; Atacante +10 % de daño; Mago +10 % de daño de hechizos y +20 % de regeneración de maná; Invocador +20 % de curas y escudos.
+- Pasivas de arma: Luchador −10 % de tiempo entre golpes; Combatiente +5 % de defensa y +500 de armadura; Asesino +5 % de crítico; Atacante +10 % de daño; Mago +10 % de daño de hechizos y +20 % de regeneración de maná; Invocador +20 % de curas y escudos.
 - Los topes de crítico suben al 50 % de probabilidad y +150 % de daño desde el nivel 20 (provisional).
 
 **Ficha del nivel 20:**
@@ -258,22 +261,23 @@ Simulador nuevo: `python3 herramientas/simulador/simular20.py` (ficha: `--ficha`
 | Mago | 37 | 74 | 259 | 1.580 | 5.230 | 3,7 % | 1.000 | 4,8 % | +9,6 % |
 | Invocador | 74 | 111 | 185 | 2.320 | 2.825 | 7,4 % | 1.000 | 4,8 % | +9,6 % |
 
-**Resultados:**
+**Resultados (simulación 2):**
 
-| Especialización | Jefe (daño/s) | Jefe en remate (< 20 %) | Mobs/hora de uno en uno | Grupos de 6 | Grupos de 12 |
-|---|---|---|---|---|---|
-| Luchador | 1.493 | **1.735** (+16 %) | 89 | 123 | muere |
-| Combatiente | 632 (sin Ira: el jefe no le pega en la prueba) | 632 | 49 | **146** | **288** |
-| Asesino | 1.848 | 1.848 | **103** | muere | muere |
-| Atacante a distancia | 1.885 | 1.885 | 88 | muere | muere |
-| Mago | **2.789** | 2.789 | 97 (39 % del tiempo descansando por maná) | muere | muere |
-| Invocador | 1.110 | 1.110 | 58 | muere | muere |
+| Especialización | Jefe (daño/s) | Jefe en remate (< 20 %) | Mobs/hora de uno en uno | Grupos de 6 | Grupos de 12 | En grupo, 12 mobs que no le pegan |
+|---|---|---|---|---|---|---|
+| Luchador | 1.517 | **1.787** (+18 %) | 90 | 127 | 179 | 181 |
+| Combatiente | 637 (sin Ira: el jefe no le pega en la prueba) | 637 | 49 | **131** | **235** | — (es quien recibe) |
+| Asesino | 1.900 | 1.900 | 105 | 124 | muere | 144 |
+| Atacante a distancia | 2.202 | 2.202 | **120** | muere | muere | 358 |
+| Mago | **2.352** | 2.352 | 90 (28 % del tiempo descansando) | muere | muere | **800** |
+| Invocador | 675 | 675 | 37 | muere | muere | 70 |
 
 Lectura:
-- **Los roles se cumplen**: las de daño son las mejores contra un objetivo (el Mago el que más contra el jefe); el Combatiente hace un daño medio de uno en uno (la mitad que las de daño), pero es **el único que aguanta 12 mobs** y ahí caza mucho más rápido; el Invocador hace unos dos tercios del daño de las de daño, sin quedarse en cero.
-- El Mago, el Atacante y el Invocador **mueren en cuanto les pegan 6 mobs a la vez**, como se esperaba. El Luchador aguanta grupos de 6, pero no de 12.
-- **Para ajustar**: en grupos de 12 el Combatiente caza **3 veces más rápido** que las de daño de uno en uno, y el objetivo es que saque una experiencia parecida (bajar el daño de Fisura, o dar menos experiencia por mob en las zonas de conglomerados). El maná tampoco está calibrado: el Mago descansa mucho en vez de beber y los melee beben 1.500–1.650 pociones de maná cada 1.000 mobs (objetivo: 300–1.000), con pociones que solo recuperan 100.
-- **Pendiente de simular**: la caza en grupo (Combatiente + Mago + Invocador), donde el Mago debe superar en área al Combatiente, y las curas y escudos del Invocador a aliados.
+- **Contra un objetivo** mandan las de daño (Mago y Atacante, las que más contra el jefe). El Combatiente hace un daño medio y el Invocador, el más bajo, sin quedarse en cero.
+- **Solos en conglomerados**: el Combatiente es el que mejor caza con 12 mobs encima; el Luchador también aguanta gracias al robo de vida en área del Torbellino; el Asesino aguanta 6 pero no 12 (su Lluvia de cuchillas roba al 50 %); los de distancia mueren en cuanto les pegan 6.
+- **En grupo**, con alguien que aguante los golpes, el **Mago es con diferencia el que más daño hace en área** (800 mobs/hora, 3,4 veces el Combatiente), como se buscaba.
+- **El Mago casi no bebía pociones** porque solo bebía cuando le faltaba maná para una habilidad, y su Lanza de hielo es barata; además una poción de 100 era el 2 % de su maná. Ahora bebe al bajar de la mitad (279 pociones de 400 cada 300 mobs), pero aún descansa el 28 % del tiempo: **el maná sigue sin calibrar** (objetivo: 300–1.000 pociones cada 1.000 mobs).
+- **Pendiente de simular**: el grupo completo (tanque + curandero + daño) con las curas y escudos del Invocador a aliados.
 
 ## 2. Trabajo de esta sesión
 
