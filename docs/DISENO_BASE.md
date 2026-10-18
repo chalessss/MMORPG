@@ -937,7 +937,17 @@ Modelo inspirado en Lineage 2: **una ciudad principal (capital) controlada por u
 | **Zona de inicio** (como La Guajira: apartada, accesible solo por cierto camino) | Ciudad y zona para principiantes, niveles 1–10 | **Imposible**: guardias muy fuertes; ni siquiera con guerra de clanes se puede atacar aquí |
 | **Primer pueblo** (conecta la zona de inicio con la capital) | Primeras misiones y NPCs, zonas de recolección, zonas de caza para grupo y en solitario | Hay zonas PvP alrededor, pero el pueblo es **neutral**: no se puede conquistar; siempre se podrá subir de nivel y recolectar ahí |
 | **Capital** (centro del mapa) | Ciudad principal; la posee un clan | Conquistable en **asedios** |
-| **Villas** (varios pueblos a los lados y al sur de la capital) | Cada una con su **facción y reputación**; recorrerlas todas desbloquea sus teletransportes y reputaciones | Conquistables por clanes |
+| **Villas** (**4**, a los lados y al sur de la capital) | Cada una con su **facción y reputación**; recorrerlas todas desbloquea sus teletransportes y reputaciones | Conquistables por clanes |
+
+**Boceto del territorio** (`docs/img/mapa_territorios_boceto.png`)
+
+![Boceto de territorios](img/mapa_territorios_boceto.png)
+
+- **1** zona de inicio · **2** pueblo intermedio · **3** capital · **4** villas.
+- Cada recuadro rojo es el **territorio** que cubre ese lugar (no su tamaño de ciudad): una villa incluye su pueblo y, alrededor, sus zonas de caza, recolección u otras zonas especiales.
+- Fuera de los recuadros está el **territorio general** del mapa (en la analogía, "Colombia"; la capital sería Bogotá y las villas, departamentos con su propio pueblo).
+- Las **líneas negras** (invisibles en el juego) unen la capital con las villas. Todo lo que queda dentro de esa figura —capital, villas y el espacio entre ellas— es la **zona de guerra**: durante los eventos PvP, **cualquiera que esté dentro** puede ser atacado, participe o no.
+- Las zonas marcadas con **estrellas** (fuera de la figura) quedan **excluidas** del evento: mobs, recolección y subida de nivel normales para quien no participa.
 
 **Control de territorios**
 - Los días de **evento PvP** (asedios, estilo Lineage 2), la capital y las villas **pierden su protección** contra el PvP.
@@ -1023,7 +1033,7 @@ Queda para más adelante:
 ## 7. Preguntas abiertas
 
 **Pendientes para más adelante**
-- **Mundo y PvP**: número de villas alrededor de la capital; tipos de zona según el PvP (inicio sin PvP, seguras con karma, de combate, de asedio); reglas de guerra entre clanes; niveles lineales o escalados.
+- **Mundo y PvP**: tipos de zona según el PvP (inicio sin PvP, seguras con karma, de combate, de asedio); reglas de guerra entre clanes; niveles lineales o escalados.
 - **Mazmorras y bandas**: detalle del buscador de grupo; escalado exacto de los jefes de mundo.
 
 *Nota: los niveles concretos que aparecen en este documento ("nivel 3", "nivel 8"…) son ejemplos salvo que se indique lo contrario; se fijarán al diseñar la línea principal de misiones y cada sistema.*
