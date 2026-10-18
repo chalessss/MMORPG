@@ -753,6 +753,10 @@ Para bajar su consumo de pociones, el robo de vida del cuerpo a cuerpo pasa del 
 - Las pociones bajan poco (6–9 %); lo que más mejora es el **tiempo**: descansa menos y caza un 5–10 % más rápido (espada larga 1.049 → 965 min en el nivel 19). La diferencia con el mágico baja de ~61 % a 52–63 % según el nivel.
 - Lo que más vida le quita es el **golpe sangriento** (1/6 de la vida cada 10 s). Para bajar de verdad las pociones, la palanca más directa es su coste (1/7 o 1/8) o su enfriamiento.
 
+**Regeneración doble para el cuerpo a cuerpo (decidido):** el golpe sangriento se mantiene tal cual (solo se usa con buena vida). En cambio, su pasiva, igual que la del arco, suma una segunda ventaja: además del robo de vida del 5 %, **duplica su regeneración de vida** (desde el nivel 10: 108 → 216 cada 5 s en el nivel 10; 198 → 396 en el 19).
+
+Resultado: el cuerpo a cuerpo **deja de necesitar pociones y descansos** desde el nivel 10 y vuelve a su ritmo (espada larga: 249 min en el nivel 10, 859 en el 19; espada corta: 231 y 788). El golpe sangriento se sigue usando mucho (en el nivel 19, unas 4.600 veces cada 1.000 mobs): le cuesta más vida que todo el daño que recibe de los mobs, y la regeneración y el robo de vida lo cubren. El arco y el mágico no cambian. Diferencia con el mágico: 48–63 % desde el nivel 10.
+
 ## 3. Ficha de los niveles 1–19 (en revisión: ver 2.21)
 
 Resumen de todo lo decidido en la sección 2 para el tramo **sin clase** (niveles 1 al 19). La ficha completa, nivel a nivel, se genera con `python3 herramientas/simulador/simular.py --ficha` en `herramientas/simulador/resultados/` (`ficha_perfiles_1_19.csv` y `ficha_mobs_1_19.csv`), lista para pasar a DataTables.
@@ -808,7 +812,7 @@ El arma de nivel 1 da el mismo bono que se gana en cada nivel (easter egg).
 | Cuerpo a cuerpo | Golpe doble | 1 | 150 % + 75 % del arma | 20 s | un golpe blanco | 8 |
 | Cuerpo a cuerpo | Golpe al suelo | 1 | 300 % del arma | 40 s | 3 s | 12 |
 | Cuerpo a cuerpo | Golpe sangriento | 10 | 300 % del arma; cuesta 1/6 de la vida máxima | 10 s | un golpe blanco | — |
-| Cuerpo a cuerpo | Robo de vida (pasiva) | 10 | se cura el 5 % del daño que hace (antes 4 %) | — | — | — |
+| Cuerpo a cuerpo | Robo de vida (pasiva) | 10 | se cura el 5 % del daño que hace y duplica su regeneración de vida | — | — | — |
 | Distancia | Disparo cargado | 1 | 200 % del arma | 12 s | 2 s | 6 |
 | Distancia | Ráfaga triple | 1 | 3 × 120 % del arma | 40 s | 1,5 s | 12 |
 | Distancia | Disparo potente | 10 | 350 % del arma | 15 s | 3 s | 10 |

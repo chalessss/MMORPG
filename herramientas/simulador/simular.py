@@ -160,7 +160,9 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
 
     vida_max = p["vida_base"] + s["vida"]
     mana_max = p["mana_base"] + s["mana"]
-    regen_vida = regen_cada_5s(p["regen_vida_base"] + s["regen_vida"]) / 5
+    # Pasivas que suben la regeneración de vida (en %).
+    extra_regen = sum(float(h.get("regen_vida_pct") or 0) for h in desbloqueadas) / 100
+    regen_vida = regen_cada_5s((p["regen_vida_base"] + s["regen_vida"]) * (1 + extra_regen)) / 5
     regen_mana = regen_cada_5s(p["regen_mana_base"] + s["regen_mana"]) / 5
     defensa = {"fisico": s["defensa_fisica_pct"], "magico": s["defensa_magica_pct"]}
     armadura = p["armadura_por_nivel"] * nivel
