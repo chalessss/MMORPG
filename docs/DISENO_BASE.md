@@ -658,6 +658,33 @@ Lista corta a propósito: no se quiere que el jugador necesite 30 consumibles di
   - Objetivo adicional: que a los bots que farmean 24/7 les salga caro, porque valga la pena matarlos.
   - *A resolver*: en Lineage 2, el karma lo gana quien mata a jugadores que no se defienden, y es **él** quien suelta objetos. Un bot que solo farmea no tendría karma, así que matarlo no le haría soltar nada. Hay que encajar ambas ideas (por ejemplo, una probabilidad de soltar componentes recolectados al morir en zonas PvP, aparte del karma).
 
+### 3.23 Menú principal del juego (en curso, estilo MIR4)
+
+Un **único menú** desde el que se accede a todos los sistemas del juego, sin tener que abrir ventanas encadenadas. Incluye un panel con todas las monedas del jugador.
+
+**Propuesta de entradas** (se ajusta a medida que se definen los sistemas):
+
+| Entrada | Contenido | Estado |
+|---|---|---|
+| Personaje | Equipo, joyería, apariencia, estadísticas | Base definida |
+| Habilidades | Habilidades de la clase | Más adelante |
+| Desarrollo | Desarrollo de objeto (+N) y encantamiento | Definido |
+| Profesiones | Fabricación y recolección | Base definida |
+| Códice | Colección de objetos | **Siguiente** |
+| Mercado | Compra y venta entre jugadores | Por definir |
+| Misiones | Misiones y tareas diarias | Por definir |
+| Mazmorras y bandas | Contenido de grupo | Por definir |
+| Clan | Clan, tienda de clan | Por definir |
+| Guerra / territorios | Control de territorios | Por definir |
+| Karma | Estado de karma | Juego avanzado |
+| Teletransporte | Viaje rápido | Por definir |
+| Clasificación | Rankings | Por definir |
+| Espíritus | Acompañantes que dan estadísticas | Más adelante |
+| Entrenamiento | Desarrollo del personaje con energía (conquista, constitución…) | Más adelante |
+| Comunidad, guía, foto, desatascar, ajustes | Utilidades | Por definir |
+
+**Sistemas de MIR4 que no entran en la base del juego**: piedras mágicas, piezas místicas, artefactos de dragón, mejoras de montura, disfraces y equipo de temporada. Se reservan para temporadas futuras (4, 5…, con niveles 80, 90, 100) como formas nuevas de potenciar al personaje **sin tocar la base**. Tampoco entran los propios de móvil o blockchain de MIR4 (ahorro de batería, XDRACO, transferencias).
+
 ## 4. Sistemas principales
 
 Lo que hace funcionar a las entidades anteriores. Se desarrollan por fases según la hoja de ruta.

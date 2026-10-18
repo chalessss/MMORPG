@@ -35,6 +35,7 @@ Implicaciones técnicas:
 - Cada temporada necesita contenido de **endgame** propio en su nivel máximo (mazmorras, jefes, PvP, equipo, crafteo), con parches intermedios.
 - Prever mecánicas de "catch-up" para jugadores que lleguen en temporadas posteriores.
 - **Primera versión del juego = Temporada 1** únicamente.
+- Temporadas futuras (4, 5…) podrían subir el nivel a 80, 90, 100 y añadir nuevas formas de potenciar al personaje sin tocar la base.
 
 ## Documentación
 
