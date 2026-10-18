@@ -36,3 +36,24 @@ Solo necesita Python 3, sin librerías extra. Todos los valores están en `datos
 | `parametros.csv` | Arma de referencia, jefe, mobs (vida, daño, ritmo), desplazamiento, vida y maná base, descansos, pociones, crítico base y azar |
 
 Supuestos de esta versión (ver `docs/ESTADISTICAS.md`): nivel 1; una habilidad sin tiempo de lanzamiento ocupa el hueco de un golpe blanco. La caza real tarda un par de minutos en calcularse. En el jefe el crítico cuenta por su valor esperado; en la caza cada golpe tira su crítico con una semilla fija.
+
+## Nivel 20: especializaciones (`simular20.py`)
+
+Aproximación por rol de las 6 especializaciones del nivel 20 (ver `docs/ESTADISTICAS_NIVEL_20.md`): no busca paridad, sino comprobar que cada rol cumple su papel.
+
+```
+python3 herramientas/simulador/simular20.py           # jefe, caza de uno en uno y conglomerados de 6 y 12 mobs
+python3 herramientas/simulador/simular20.py --ficha   # ficha de estadísticas del nivel 20
+```
+
+Datos en `datos/nivel20/`:
+
+| Archivo | Contenido |
+|---|---|
+| `especializaciones.csv` | Reparto base, arma, si pega con el arma o a distancia y recurso secundario |
+| `armas.csv` | Segundos entre golpes y daño de cada arma |
+| `conversion.csv` | Pasiva de especialización: qué da cada punto (`todas` = valor común; cada especialización sobrescribe lo suyo) |
+| `habilidades.csv` | Las 8 habilidades: las 1-4 de la clase de inicio (`melee`, `rango`, `magico`) y las 5-8 de cada especialización |
+| `parametros.csv` | Mob del nivel 20, puntos totales, crítico, pociones, recursos secundarios (Ira, Energía, Foco, Trance) y remate |
+
+Simula en pasos de 0,1 s. En los conglomerados todos los mobs del grupo pegan a la vez y entran en las habilidades de área; si un personaje muere 20 veces se da por hecho que no puede con esa caza.
