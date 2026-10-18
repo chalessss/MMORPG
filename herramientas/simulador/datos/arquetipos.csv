@@ -1,0 +1,4 @@
+arquetipo,nombre,ataque_basico,referencia,nota
+melee,Físico cuerpo a cuerpo,1,1,80-90 % golpes blancos y un golpe potenciado de vez en cuando; es la referencia de la calibración
+rango,Físico a distancia,1,0,golpes blancos y de vez en cuando un disparo triple
+magico,Mágico,0,0,sin ataque básico: todo el daño sale de dos hechizos

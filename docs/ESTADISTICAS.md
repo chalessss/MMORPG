@@ -79,30 +79,45 @@ Las estadísticas principales forman un sistema de **piedra, papel o tijera**: *
 - **Prueba del muñeco**: un objetivo con vida prácticamente infinita (por ejemplo, 50 millones) al que cada clase golpea durante **20 minutos** a nivel 1. El daño total de todas las clases debe salir casi igual.
 - Cuando haya roles, el objetivo será distinto por rol (valores de ejemplo, se fijarán más adelante): **daño puro** un 3–5 % por encima de la media; **tanque** alrededor de un 5 % por debajo; **curandero** alrededor de un 8 % por debajo, porque dedican la pelea a otras cosas. En la Temporada 1 las 6 clases base son de daño y deben quedar iguales.
 
+### 1.6 Combate del nivel 1 al 20 por arquetipo (decidido)
+
+Hasta la primera especialización (nivel 20) solo hay **tres formas de combatir**, y es lo único que se calibra en esta etapa con las estadísticas base:
+
+| Arquetipo | Cómo hace daño |
+|---|---|
+| **Físico cuerpo a cuerpo** | 80–90 % del daño en **golpes blancos**; de vez en cuando un **golpe potenciado** que pega algo más de lo normal |
+| **Físico a distancia** | Golpes blancos continuos y de vez en cuando una habilidad que **dispara tres flechas** a la vez |
+| **Mágico** | **No hace daño con el arma**: todo sale de **dos hechizos básicos**. Uno se puede lanzar siempre (1 s de enfriamiento, 2 s de lanzamiento) y otro hace mucho daño (10 s de enfriamiento, 2 s de lanzamiento). Rotación: fuerte, 4 básicos, fuerte… |
+
+- **Armas del 1 al 10**: cada arquetipo usa **el mismo tipo de arma** todo el tramo; solo sube su daño por calidad o material (espada larga de bronce → de cobre → de plata…). Todos los mágicos empiezan con **bastón de dos manos**, sin importar en qué se especialicen después.
+- Al subir de nivel crecen las estadísticas (STR, INT, AGI) y el daño del arma, y los mobs también. Matar un mob de nivel 5 o 10 debe costar lo mismo que uno de nivel 1 al personaje del nivel correspondiente.
+- Las **habilidades** son el punto de equilibrio entre arquetipos (y más adelante entre especializaciones).
+
 ## 2. Simulador
 
 `herramientas/simulador/` (ver su README) ejecuta la prueba del muñeco con los datos en CSV.
 
-**Orden de trabajo (decidido):** primero se balancean los **golpes blancos** (ataque básico) con un daño de arma igual para todas; después se revisa qué ajustar; las habilidades se añaden al final, porque todavía se están diseñando.
+**Orden de trabajo (decidido):** primero se calibran los golpes blancos y las habilidades básicas de cada arquetipo (1.6) con el mismo daño de arma para todos; las habilidades de clase se añaden después.
 
 **Prueba actual** (todo ajustable en los CSV):
-- **Todas las armas: 20 de daño por golpe**; cada una conserva su velocidad.
-- **Solo golpes blancos** (`usar_habilidades = 0` en `parametros.csv`).
-- **Fórmula del golpe** (supuesto): (daño del arma + daño base de AGI) × (1 + % daño base de STR) × crítico.
+- **Todas las armas: 20 de daño por golpe**; cada una conserva su velocidad. Los dos mágicos usan bastón.
+- **Habilidades por arquetipo** (`habilidades.csv`, valores de partida): golpe potenciado = 1,6 × arma cada 10 s (instantáneo); disparo triple = 3 flechas de 0,8 × arma cada 10 s (1 s de lanzamiento); hechizo fuerte = 3 × arma (10 s / 2 s); hechizo básico = 1 × arma (1 s / 2 s). El daño de los hechizos se calcula sobre el del bastón para que suba con él (propuesta).
+- **Fórmula del golpe** (supuesto): (daño del arma o de la habilidad + daño base de AGI) × (1 + % daño base de STR) × (1 + % daño de habilidad de INT, solo en habilidades) × crítico.
 - **Por punto** (propuesta inicial): STR → +20 vida, +0,2 vida/s, +0,5 % defensa física y mágica, +1,5 % daño; INT → +15 maná, +0,2 maná/s, +2,5 % daño de habilidad; AGI → +2 daño plano por golpe, +0,5 % crítico, +1 % daño crítico. Crítico base: 5 % y ×1,5.
+- El cuerpo a cuerpo es la **referencia**: el simulador calcula cuánto mover las habilidades de los otros arquetipos para igualarlo.
 
-**Resultado** (20 minutos, nivel 1, solo golpes blancos):
+**Resultado** (20 minutos, nivel 1):
 
-| Clase | Arma (velocidad) | Daño por golpe | Daño total | Frente a la media |
-|---|---|---|---|---|
-| Luchador | Espada (1,0) | 27,4 | 32.817 | −18,2 % |
-| Combatiente | Espada (1,0) | 31,2 | 37.485 | −6,6 % |
-| Asesino | Daga (1,6) | 34,9 | 67.081 | +67,1 % |
-| Atacante a distancia | Arco (1,1) | 34,4 | 45.456 | +13,2 % |
-| Mago | Bastón (0,6) | 25,1 | 18.112 | −54,9 % |
-| Invocador | Varita (1,2) | 27,7 | 39.892 | −0,6 % |
+| Clase | Arquetipo | Arma | Daño total | Frente a la media | Golpes blancos |
+|---|---|---|---|---|---|
+| Luchador | Cuerpo a cuerpo | Espada | 34.581 | −14,6 % | 85 % |
+| Combatiente | Cuerpo a cuerpo | Espada | 39.226 | −3,1 % | 86 % |
+| Asesino | Cuerpo a cuerpo | Daga | 68.798 | +69,9 % | 91 % |
+| Atacante a distancia | Distancia | Arco | 52.275 | +29,1 % | 78 % |
+| Mago | Mágico | Bastón | 23.613 | −41,7 % | 0 % |
+| Invocador | Mágico | Bastón | 24.453 | −39,6 % | 0 % |
 
-Con el mismo daño por golpe, **manda la velocidad del arma**: la daga golpea 2,7 veces más que el bastón. Las estadísticas solo mueven el daño por golpe entre 25 y 35.
+La daga (1,6 golpes por segundo con el mismo daño por golpe) dispara al Asesino y sube la media del cuerpo a cuerpo.
 
 ## 3. Estructura propuesta del capítulo
 

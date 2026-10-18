@@ -1,7 +1,7 @@
-id,clase,str,int,agi,estadistica_principal,arma,rol
-CL_LUC,Luchador,7,1,2,str,Espada,dps
-CL_COM,Combatiente,5,1,4,str,Espada,dps
-CL_ASE,Asesino,3,1,6,agi,Daga,dps
-CL_ATA,Atacante a distancia,2,2,6,agi,Arco,dps
-CL_MAG,Mago,1,7,2,int,Bastón,dps
-CL_INV,Invocador,2,5,3,int,Varita,dps
+id,clase,arquetipo,str,int,agi,estadistica_principal,arma,rol
+CL_LUC,Luchador,melee,7,1,2,str,Espada,dps
+CL_COM,Combatiente,melee,5,1,4,str,Espada,dps
+CL_ASE,Asesino,melee,3,1,6,agi,Daga,dps
+CL_ATA,Atacante a distancia,rango,2,2,6,agi,Arco,dps
+CL_MAG,Mago,magico,1,7,2,int,Bastón,dps
+CL_INV,Invocador,magico,2,5,3,int,Bastón,dps
