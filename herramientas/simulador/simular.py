@@ -68,6 +68,7 @@ def secundarias(arquetipo, conversion, parametros):
         "mana": s.get("mana", 0),
         "regen_mana": s.get("regen_mana", 0),
         "defensa_fisica_pct": s.get("defensa_fisica_pct", 0),
+        "defensa_magica_pct": s.get("defensa_magica_pct", 0),
         "plano": s.get("dano_base", 0),
         "base": 1 + s.get("dano_base_pct", 0) / 100,
         "habilidad": 1 + s.get("dano_habilidad_pct", 0) / 100,
@@ -136,8 +137,7 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
     mana_max = p["mana_base"] + s["mana"]
     regen_vida = regen_cada_5s(p["regen_vida_base"] + s["regen_vida"]) / 5
     regen_mana = regen_cada_5s(p["regen_mana_base"] + s["regen_mana"]) / 5
-    # En el juego todos los valores que se ven son enteros: cada golpe se redondea.
-    dano_recibido = round(p["dano_mob"] * (1 - s["defensa_fisica_pct"] / 100))
+    defensa = {"fisico": s["defensa_fisica_pct"], "magico": s["defensa_magica_pct"]}
 
     e = {"t": 0.0, "vida": vida_max, "mana": mana_max, "util": 0.0, "perdido": 0.0, "muertes": 0,
          "pegando": 0.0, "caminando": 0.0, "descansando": 0.0, "esperando_mana": 0.0, "muerto": 0.0,
@@ -154,7 +154,8 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
         pocion_lista[tipo] = e["t"] + p["enfriamiento_pocion_s"]
         return True
     usos = {}
-    mob = {"vida": 0.0, "proximo_golpe": None}  # proximo_golpe None = el mob no está pegando
+    # proximo_golpe None = el mob no está pegando; golpes = daño de cada ataque de su ciclo.
+    mob = {"vida": 0.0, "proximo_golpe": None, "golpes": [], "ciclo": 0}
 
     def avanzar(dt, motivo, multiplicador_regen=1.0):
         """Pasa el tiempo: regenera y, si el mob está pegando, recibe sus golpes."""
@@ -162,6 +163,8 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
         while supervivencia and mob["proximo_golpe"] is not None and mob["proximo_golpe"] <= fin:
             regenerar(mob["proximo_golpe"] - e["t"], multiplicador_regen)
             e["t"] = mob["proximo_golpe"]
+            dano_recibido = mob["golpes"][mob["ciclo"] % len(mob["golpes"])]
+            mob["ciclo"] += 1
             e["vida"] -= dano_recibido
             e["dano_recibido"] += dano_recibido
             mob["proximo_golpe"] += p["intervalo_mob_s"]
@@ -181,17 +184,30 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
 
     inicio = {}
 
-    def empezar_mob(vida):
+    def empezar_mob(objetivo):
+        vida, tipo = objetivo if isinstance(objetivo, tuple) else (objetivo, None)
         mob["vida"] = vida
+        mob["ciclo"] = 0
         inicio["vida"], inicio["mana"] = e["vida"], e["mana"]
-        if supervivencia:
-            if a_distancia:
-                mob["proximo_golpe"] = e["t"] + p["acercamiento_mob_s"]
-            else:
-                avanzar(p["desplazamiento_melee_s"], "caminando")
-                mob["proximo_golpe"] = e["t"]
-        else:
+        if not supervivencia:
             mob["proximo_golpe"] = None
+            return
+        tipo = tipo or {"a_distancia": "0", "tipo_dano": "fisico", "ciclo": "1"}
+        # En el juego todos los valores que se ven son enteros: cada golpe se redondea.
+        mob["golpes"] = [round(p["dano_mob"] * float(m) * (1 - defensa[tipo["tipo_dano"]] / 100))
+                         for m in tipo["ciclo"].split("|")]
+        mob_a_distancia = tipo["a_distancia"] == "1"
+        if mob_a_distancia:
+            # Un mob a distancia empieza a pegar en cuanto empieza la pelea, también
+            # mientras el cuerpo a cuerpo camina hacia él.
+            mob["proximo_golpe"] = e["t"]
+            if not a_distancia:
+                avanzar(p["desplazamiento_melee_s"], "caminando")
+        elif a_distancia:
+            mob["proximo_golpe"] = e["t"] + p["acercamiento_mob_s"]
+        else:
+            avanzar(p["desplazamiento_melee_s"], "caminando")
+            mob["proximo_golpe"] = e["t"]
 
     indice = 0
     empezar_mob(vidas[0])
@@ -292,7 +308,10 @@ def prueba_jefe(perfil, conversion, parametros):
 def prueba_caza(perfil, conversion, parametros, supervivencia=None):
     azar_vidas = random.Random(int(parametros["semilla"]))
     variacion = parametros["variacion_vida_mob_pct"] / 100
-    vidas = [round(parametros["vida_mob"] * (1 + azar_vidas.uniform(-variacion, variacion)))
+    tipos = leer("mobs.csv")
+    pesos = [float(t["proporcion"]) for t in tipos]
+    vidas = [(round(parametros["vida_mob"] * (1 + azar_vidas.uniform(-variacion, variacion))),
+              azar_vidas.choices(tipos, pesos)[0])
              for _ in range(int(parametros["numero_mobs"]))]
     azar = random.Random(int(parametros["semilla"])) if parametros["critico_aleatorio_en_caza"] else None
     if supervivencia is None:

@@ -31,6 +31,7 @@ Solo necesita Python 3, sin librerías extra. Todos los valores están en `datos
 | `armas.csv` | Segundos entre golpe y golpe, daño por golpe y estadísticas que suma el arma |
 | `habilidades.csv` | Habilidades de cada arquetipo: daño de cada golpe (en múltiplos del arma o en puntos), enfriamiento, duración y coste de maná |
 | `conversion.csv` | Cuánto da cada punto de STR, INT y AGI |
+| `mobs.csv` | Tipos de mob (físico o mágico, cuerpo a cuerpo o a distancia), su ciclo de ataques y en qué proporción aparecen |
 | `parametros.csv` | Arma de referencia, jefe, mobs (vida, daño, ritmo), desplazamiento, vida y maná base, descansos, pociones, crítico base y azar |
 
 Supuestos de esta versión (ver `docs/ESTADISTICAS.md`): nivel 1; una habilidad sin tiempo de lanzamiento ocupa el hueco de un golpe blanco. La caza real tarda un par de minutos en calcularse. En el jefe el crítico cuenta por su valor esperado; en la caza cada golpe tira su crítico con una semilla fija.

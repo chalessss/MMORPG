@@ -1,0 +1,3 @@
+tipo,nombre,a_distancia,tipo_dano,ciclo,proporcion,nota
+fisico,Mob físico,0,fisico,1|1|2,50,se acerca y pega cuerpo a cuerpo: básico básico potenciado (x2) y repite
+magico,Mob mágico,1,magico,1|1|2,50,lanza desde lejos: básico básico potenciado (x2) y repite

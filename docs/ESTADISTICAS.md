@@ -429,6 +429,25 @@ Mismas armas, mismos mobs (420 de vida) y mismas pociones que 2.7; solo se suman
 - Pociones: nadie las necesita desde el nivel 7 (los mobs mueren antes de hacer daño).
 - Para que los mobs puedan crecer un 10 % por nivel, el daño de los jugadores también debería crecer ~10 % por nivel: eso implica un crecimiento de estadísticas por nivel menor (o conversiones por punto menores) que el bono del arma de nivel 1.
 
+### 2.12 Tipos de mob (decidido)
+
+- Los mobs son siempre de **dos tipos: físicos o mágicos**.
+- Todos siguen el mismo ciclo: **dos ataques básicos y un ataque potenciado**, y vuelven a empezar.
+- Supuestos de la simulación (pendientes de confirmar): el físico pega **cuerpo a cuerpo** y el mágico **a distancia** (empieza a pegar en cuanto empieza la pelea: sin golpes gratis para los de distancia y daño también mientras el cuerpo a cuerpo camina hacia él); el potenciado hace **el doble** que un básico; zonas con **50 % físicos y 50 % mágicos** (`mobs.csv`). El daño físico se reduce con la defensa física y el mágico con la mágica.
+
+**Nivel 1** (caza real, 1.000 mobs, con pociones, sin descansos):
+
+| Perfil | Caza real | Frente al más rápido | Daño recibido por mob | Pociones de vida (antes → ahora) |
+|---|---|---|---|---|
+| Espada larga | 164,3 min | — | 36,4 | 0 → 7 |
+| Espada corta | 165,4 min | +0,6 % | 36,5 | 0 → 6 |
+| Arco | 168,1 min | +2,3 % | 38,2 | 56 → 200 |
+| Mágico | 168,6 min | +2,6 % | 39,8 | 94 → 256 |
+
+- El ritmo de caza sigue igualado (**2,6 %**), porque las pociones evitan que nadie muera ni pare.
+- Con mobs mágicos a distancia, los de distancia **pierden la ventaja de los golpes gratis en la mitad de los mobs**: ahora reciben tanto daño como el cuerpo a cuerpo (36–40 por mob) con la mitad de vida, y beben **3–4 veces más pociones** (unas 20–26 cada 100 mobs).
+- El cuerpo a cuerpo apenas necesita pociones.
+
 ## 3. Estructura propuesta del capítulo
 
 1. **Lista cerrada de estadísticas** y a qué categoría pertenece cada una (principal, derivada, neutral, PvP, utilidad).
