@@ -278,6 +278,12 @@ Inspiración (MIR4): material por zona con grados, combinable y ligado → objet
 - **Tipos de bonificación** (referencia MIR4, a definir en el capítulo de estadísticas): estadísticas planas (vida, maná, ataque y defensa física/mágica, precisión, evasión, crítico, evasión de crítico) y porcentuales (daño crítico, reducción de daño crítico, reducción de todo el daño, experiencia de caza, obtención de energía…). Las de Personaje son las más altas; las de Servidor, las más bajas.
 - En MIR4 algunas entradas de la pestaña Personaje piden objetos que no son equipo (gemas, objetos de espíritus…). Para nuestro juego, de momento, el códice solo pide equipo e insignias.
 
+**Qué pide cada entrada (decidido)**
+- Las entradas se agrupan por **estadística** y se numeran ([1], [2], [3]…). Todas las de un grupo dan **la misma bonificación** (por ejemplo, ataque físico +20 cada una).
+- Cada entrada siguiente pide **más objetos** y **más desarrollo**. Ejemplo: [1] → 2 piezas a +4; [2] → 4 piezas a +6; [3] → 6–8 piezas a +8.
+- Así la misma estadística se consigue varias veces, cada vez con más esfuerzo.
+- Las cantidades exactas por calidad y pestaña se fijarán con el capítulo de estadísticas.
+
 **Interfaz del códice (referencia MIR4)**
 - Lista de **entradas**; cada una con nombre y nivel ("[1]", "[6]"…), la bonificación que da (por ejemplo, ataque físico +20) y los **objetos que pide**, cada uno con el **nivel de desarrollo requerido** (+7, +8…).
 - Filtro lateral: **favoritos** (estrella), **todos** y **por calidad** (poco común, raro, épico, legendario…). Filtros superiores: estadística, rango de desarrollo, grado y buscador por nombre.
@@ -801,5 +807,5 @@ Queda para más adelante:
 **Capítulos propios**
 - **Sistemas de juego** (siguiente): sistemas tomados de otros juegos que marcarán a qué deben apuntar las estadísticas.
 - **Estadísticas**: peso de cada estadística por clase, PvE vs. PvP; revisar la hoja (valores base que no coinciden, fórmula que suma el nivel dos veces, nombres de habilidades desplazados, modelo de estadísticas).
-- **Códice**: proporción de entradas por pestaña; qué objetos pide cada entrada y a qué nivel de desarrollo; niveles de entradas; fabricación de objetos con insignias; cuello de botella de MIR4.
+- **Códice**: cantidades exactas de objetos y desarrollo por entrada (con las estadísticas); fabricación de objetos con insignias; cuello de botella de MIR4.
 - **Contenido por temporada**: tipo de armadura de cada especialización y casos dudosos (Espadas duales, Recolector, Carroñero, Mutilador); si el tipo puede cambiar entre la especialización 1 y la final.
