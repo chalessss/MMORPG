@@ -1,32 +1,32 @@
-especializacion,ranura,nombre,tipo,golpes,unidad,enfriamiento,lanzamiento,duracion,coste_mana_pct,coste_vida_pct,valor,nivel_habilidad,mecanica,robo_vida_pct,nota
-melee,1,Golpe doble,dano,1.5|0.75,arma,20,0,0,7,0,0,4,,,Luchador y Combatiente (y Asesino)
-melee,2,Golpe al suelo,dano,3.0,arma,40,3.0,0,11,0,0,4,,,Luchador y Combatiente
-melee,3,Sed de sangre,robo_vida,,,0,0,0,0,0,5,4,,,"pasiva: 5 % de robo de vida y +0,1 vida/s por STR"
-melee,4,Golpe sangriento,dano,3.0,arma,10,0,0,0,16.7,0,4,,,cuesta 1/6 de la vida máxima
-asesino,2,Golpe bajo,dano,2.0,arma,15,0,0,9,0,0,4,,,sustituye al Golpe al suelo (provisional: 200 % sin animación)
-rango,1,Disparo cargado,dano,2.0,arma,12,2.0,0,4,0,0,4,,,
-rango,2,Ráfaga triple,dano,1.2|1.2|1.2,arma,40,1.5,0,9,0,0,4,,,
-rango,3,Ojo de Halcón,robo_vida,,,0,0,0,0,0,0.3,4,,,"pasiva: 0,3 % de robo de vida y +3 % de crítico"
-rango,4,Disparo potente,dano,3.5,arma,15,3.0,0,7,0,0,4,,,
-magico,1,Lanza de hielo,dano,32,puntos,1,2.0,0,2,0,0,4,,,hechizo débil: se lanza siempre
-magico,2,Bola de fuego,dano,97,puntos,8,2.0,0,4,0,0,4,,,hechizo fuerte
-magico,3,Celeridad,celeridad,,,0,0,0,0,0,2,4,,,pasiva: hechizos un 2 % más rápidos
-magico,4,Escudo de maná,escudo,,,20,1.0,8,5,0,20,4,,,absorbe el 20 % de la vida máxima durante 8 s
-luchador,6,Golpes más rápidos con espadas cortas,arma_velocidad,,,0,0,0,0,0,10,1,,,pasiva de arma: -10 % de tiempo entre golpes
-luchador,7,Torbellino,area,1.5,arma,15,0,0,8,0,0,1,,,a su alrededor
-luchador,8,Ejecutar,dano,2.5,arma,12,0,0,5,0,0,1,remate,,remate: por debajo del 20 % de vida pega 500 % con 6 s de enfriamiento
-combatiente,6,Más armadura y defensa con espadas largas,arma_defensa,,,0,0,0,0,0,5,1,,,pasiva de arma: +5 % de defensa y +500 de armadura
-combatiente,7,Fisura,area,2.0,arma,10,0,0,5,0,0,1,requiere_ira,,solo con Ira: cuesta 15; 10 s de enfriamiento
-combatiente,8,Embate,dano,4.0,arma,30,0,0,8,0,0,1,embate,,gasta toda la Ira: +2 % de daño por punto
-asesino,6,Más probabilidad de crítico,arma_critico,,,0,0,0,0,0,5,1,,,pasiva de arma: +5 % de crítico
-asesino,7,Lluvia de cuchillas,area,0.8,arma,10,0,0,3,0,0,1,requiere_energia,50,solo con Energía: cuesta 25; 10 s de enfriamiento; roba vida al 50 %
-asesino,8,Desgarro,dano,3.5,arma,12,0,0,6,0,0,1,desgarro,,gasta toda la Energía: sangrado de 100/70/50 % del arma en 6 s
-atacante,6,Más daño a distancia y más alcance,arma_dano,,,0,0,0,0,0,10,1,,,pasiva de arma: +10 % de daño
-atacante,7,Lluvia de flechas,zona,1.2,arma,25,0,4,8,0,0,1,,,no interrumpe: 120 % por segundo durante 4 s a cada mob
-atacante,8,Disparo certero,dano,4.0,arma,15,2.0,0,6,0,0,1,certero,,gasta el Foco: +10 % por punto y daño verdadero
-mago,6,Más daño de hechizos y regeneración de maná,arma_hechizos,,,0,0,0,0,0,10,1,,,pasiva de arma: +10 % de daño de hechizos y +20 % de regeneración de maná
-mago,7,Lluvia de fuego,canal,60,puntos,0,0,5,6,0,5,1,,,canalizada: un impacto por segundo a cada mob durante 5 s; sin enfriamiento (solo el Mago puede encadenar su área)
-mago,8,Fuego de alma,dano,250,puntos,15,3.0,0,4,0,0,1,,,
-invocador,6,Más potencia de escudos curas y apoyos,arma_apoyo,,,0,0,0,0,0,20,1,,,pasiva de arma: +20 % a escudos y curas
-invocador,7,Lluvia de estrellas,zona,20,puntos,20,1.0,7,8,0,14,1,,,"se lanza en 1 s y no interrumpe: 14 estrellas (2 por segundo) caen durante 7 s sobre todos los mobs de la zona (contra un solo objetivo, todas le caen a él); daño bajo y constante; escudo igual al daño a cada aliado"
-invocador,8,Restauración,cura,,,15,2.0,0,10,0,30,1,,,cura el 30 % de la vida máxima
+especializacion,ranura,nombre,tipo,golpes,unidad,enfriamiento,lanzamiento,duracion,coste_mana,coste_mana_pct,coste_vida_pct,valor,nivel_habilidad,mecanica,robo_vida_pct,nota
+melee,1,Golpe doble,dano,1.5|0.75,arma,20,0,0,,7,0,0,4,,,Luchador y Combatiente (y Asesino)
+melee,2,Golpe al suelo,dano,3.0,arma,40,3.0,0,,11,0,0,4,,,Luchador y Combatiente
+melee,3,Sed de sangre,robo_vida,,,0,0,0,,0,0,5,4,,,"pasiva: 5 % de robo de vida y +0,1 vida/s por STR"
+melee,4,Golpe sangriento,dano,3.0,arma,10,0,0,,0,16.7,0,4,,,cuesta 1/6 de la vida máxima
+asesino,2,Golpe bajo,dano,2.0,arma,15,0,0,,9,0,0,4,,,sustituye al Golpe al suelo (provisional: 200 % sin animación)
+rango,1,Disparo cargado,dano,2.0,arma,12,2.0,0,,4,0,0,4,,,
+rango,2,Ráfaga triple,dano,1.2|1.2|1.2,arma,40,1.5,0,,9,0,0,4,,,
+rango,3,Ojo de Halcón,robo_vida,,,0,0,0,,0,0,0.3,4,,,"pasiva: 0,3 % de robo de vida y +3 % de crítico"
+rango,4,Disparo potente,dano,3.5,arma,15,3.0,0,,7,0,0,4,,,
+magico,1,Lanza de hielo,dano,32,puntos,1,2.0,0,75,0,0,0,4,,,hechizo débil: se lanza siempre
+magico,2,Bola de fuego,dano,97,puntos,8,2.0,0,150,0,0,0,4,,,hechizo fuerte
+magico,3,Celeridad,celeridad,,,0,0,0,,0,0,2,4,,,pasiva: hechizos un 2 % más rápidos
+magico,4,Escudo de maná,escudo,,,20,1.0,8,200,0,0,20,4,,,absorbe el 20 % de la vida máxima durante 8 s
+luchador,6,Golpes más rápidos con espadas cortas,arma_velocidad,,,0,0,0,,0,0,10,1,,,pasiva de arma: -10 % de tiempo entre golpes
+luchador,7,Torbellino,area,1.5,arma,15,0,0,,8,0,0,1,,,a su alrededor
+luchador,8,Ejecutar,dano,2.5,arma,12,0,0,,5,0,0,1,remate,,remate: por debajo del 20 % de vida pega 500 % con 6 s de enfriamiento
+combatiente,6,Más armadura y defensa con espadas largas,arma_defensa,,,0,0,0,,0,0,5,1,,,pasiva de arma: +5 % de defensa y +500 de armadura
+combatiente,7,Fisura,area,2.0,arma,10,0,0,,5,0,0,1,requiere_ira,,solo con Ira: cuesta 15; 10 s de enfriamiento
+combatiente,8,Embate,dano,4.0,arma,30,0,0,,8,0,0,1,embate,,gasta toda la Ira: +2 % de daño por punto
+asesino,6,Más probabilidad de crítico,arma_critico,,,0,0,0,,0,0,5,1,,,pasiva de arma: +5 % de crítico
+asesino,7,Lluvia de cuchillas,area,0.8,arma,10,0,0,,3,0,0,1,requiere_energia,50,solo con Energía: cuesta 25; 10 s de enfriamiento; roba vida al 50 %
+asesino,8,Desgarro,dano,3.5,arma,12,0,0,,6,0,0,1,desgarro,,gasta toda la Energía: sangrado de 100/70/50 % del arma en 6 s
+atacante,6,Más daño a distancia y más alcance,arma_dano,,,0,0,0,,0,0,10,1,,,pasiva de arma: +10 % de daño
+atacante,7,Lluvia de flechas,zona,1.2,arma,25,0,4,,8,0,0,1,,,no interrumpe: 120 % por segundo durante 4 s a cada mob
+atacante,8,Disparo certero,dano,4.0,arma,15,2.0,0,,6,0,0,1,certero,,gasta el Foco: +10 % por punto y daño verdadero
+mago,6,Más daño de hechizos y regeneración de maná,arma_hechizos,,,0,0,0,,0,0,10,1,,,pasiva de arma: +10 % de daño de hechizos y +20 % de regeneración de maná
+mago,7,Lluvia de fuego,canal,60,puntos,0,0,5,300,0,0,5,1,,,canalizada: un impacto por segundo a cada mob durante 5 s; sin enfriamiento (solo el Mago puede encadenar su área)
+mago,8,Fuego de alma,dano,250,puntos,15,3.0,0,200,0,0,0,1,,,
+invocador,6,Más potencia de escudos curas y apoyos,arma_apoyo,,,0,0,0,,0,0,20,1,,,pasiva de arma: +20 % a escudos y curas
+invocador,7,Lluvia de estrellas,zona,20,puntos,20,1.0,7,250,0,0,14,1,,,"se lanza en 1 s y no interrumpe: 14 estrellas (2 por segundo) caen durante 7 s sobre todos los mobs de la zona (contra un solo objetivo, todas le caen a él); daño bajo y constante; escudo igual al daño a cada aliado"
+invocador,8,Restauración,cura,,,15,2.0,0,300,0,0,30,1,,,cura el 30 % de la vida máxima

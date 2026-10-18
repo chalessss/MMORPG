@@ -282,6 +282,36 @@ Lectura:
 - En la simulación 3 se corrigió además un fallo que a veces le quitaba el último impacto a la Lluvia de flechas (el Atacante sube un poco).
 - **Pendiente de simular**: el grupo completo (tanque + curandero + daño) con las curas y escudos del Invocador a aliados.
 
+### 1.9 Coste de maná de Mago e Invocador (decidido)
+
+- **Mago e Invocador** usan el maná de forma constante (las demás especializaciones deberían usarlo bastante menos). Para ellos dos, el coste de los hechizos pasa a ser un **valor exacto de maná**, no un % del maná máximo. Con el %, cada punto de INT subía el maná máximo y encarecía los hechizos más de lo que subía la regeneración, así que más INT nunca cerraba el déficit.
+- El coste **sube con el nivel de la habilidad**: +25 % sobre el nivel anterior en cada nivel, del 1 al **10** (nivel 4: ×1,95; nivel 10: ×7,45).
+- En el nivel de personaje 20 las habilidades llegan **como mucho al nivel 4**. Las habilidades 1–4 llegan al 20 en nivel 4 (lo ganaron en los niveles 5, 10 y 15) y las 5–8 se desbloquean en nivel 1.
+- Más adelante, con habilidades de nivel 10, el equipo legendario dará **miles de puntos de INT** (por ejemplo, 5.000–6.000): sobrará maná, se regenerará mucho más y podrán permitirse hechizos mucho más caros.
+- Las demás especializaciones siguen con el coste en % del maná máximo.
+
+Valores de partida (nivel 1 de la habilidad → coste en el nivel en que se tiene en el nivel 20):
+
+| Hechizo | Quién | Nivel 1 | En el nivel 20 |
+|---|---|---|---|
+| Lanza de hielo | Mago e Invocador | 75 | 146 (nivel 4) |
+| Bola de fuego | Mago e Invocador | 150 | 293 (nivel 4) |
+| Escudo de maná | Mago e Invocador | 200 | 391 (nivel 4) |
+| Lluvia de fuego | Mago | 300 | 300 (nivel 1) |
+| Fuego de alma | Mago | 200 | 200 (nivel 1) |
+| Lluvia de estrellas | Invocador | 250 | 250 (nivel 1) |
+| Restauración | Invocador | 300 | 300 (nivel 1) |
+
+Efecto (caza de uno en uno; pociones de maná de 400 cada 1.000 mobs):
+
+| | Antes (% del maná) | Ahora (valor exacto) |
+|---|---|---|
+| **Mago** | 90 mobs/hora · ~930 pociones · **28 % descansando** | **126 mobs/hora** · ~620 pociones · **sin descansar** |
+| **Invocador** | 41 mobs/hora · ~2.700 pociones · sin descansar | 35 mobs/hora · ~3.700 pociones · **15 % descansando** |
+
+- El Mago queda dentro del objetivo (300–1.000 pociones) y ya no se sienta.
+- El Invocador **sigue sin cuadrar**: con 185 de INT regenera 74 de maná por segundo, menos que el Mago (94), y además de atacar cura y escuda. En la simulación necesitaría unos 110 por segundo (0,6 por punto de INT en vez de 0,4) para quedar en ~430 pociones sin descansar. Pendiente de decidir.
+
 ## 2. Trabajo de esta sesión
 
 1. ~~**Especializaciones por clase de inicio**~~: decidido (1.0b).

@@ -15,7 +15,8 @@ critico_aumentado_base_pct,9.6,daño extra del crítico del nivel 20 (2 % + 0,4 
 tope_critico_pct,50,desde el nivel 20 (provisional)
 tope_critico_aumentado_pct,150,desde el nivel 20 (provisional)
 mejora_dano_pct,2,cada nivel de habilidad sobre el anterior
-mejora_coste_pct,25,
+mejora_coste_pct,25,cada nivel de habilidad sube el coste este % sobre el anterior (nivel 4 = ×1.95; nivel 10 = ×7.45)
+nivel_habilidad_maximo,10,las habilidades suben hasta el nivel 10; en el nivel de personaje 20 se llega como mucho al 4
 desplazamiento_melee_s,1.5,
 acercamiento_mob_s,2.5,
 pocion_vida,400,pociones mejoradas del nivel 20 (provisional: el valor se fija más adelante)

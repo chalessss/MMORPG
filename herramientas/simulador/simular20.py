@@ -133,7 +133,10 @@ def combatir(f, p, grupos, limite_s=None, sin_dano=False, vida_inicial_pct=100, 
         return base ** (num(h["nivel_habilidad"], 1) - 1)
 
     def coste(h):
-        return round(num(h["coste_mana_pct"]) * f["mana"] / 100 * mejora(h, 1 + p["mejora_coste_pct"] / 100))
+        """Coste de maná: un valor exacto (hechizos de Mago e Invocador) y/o un % del
+        maná máximo (el resto), que sube con cada nivel de la habilidad."""
+        base = num(h["coste_mana"]) + num(h["coste_mana_pct"]) * f["mana"] / 100
+        return round(base * mejora(h, 1 + p["mejora_coste_pct"] / 100))
 
     e = {"t": 0.0, "vida": f["vida"], "mana": f["mana"], "dano": 0.0, "muertes": 0, "muertos": 0,
          "pociones_vida": 0, "pociones_mana": 0, "descanso": 0.0, "curado": 0.0, "usos": {}}
