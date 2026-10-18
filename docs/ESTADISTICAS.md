@@ -609,6 +609,35 @@ Reparto base (STR / INT / AGI): **mágico 2 / 6 / 2** (antes 1 / 7 / 2) y **fís
 - Desde el nivel 10 el **cuerpo a cuerpo también descansa**: el golpe sangriento le quita tanta vida que, además de beber, tiene que pararse (espada larga 274 → 336 min en el nivel 10).
 - El **mágico** casi no descansa desde el nivel 10 (el escudo lo protege) y sigue siendo el más rápido: la diferencia vuelve a estar en torno al 60 %.
 
+### 2.18 Cuarta habilidad de cada perfil (desde el nivel 10)
+
+| Perfil | Habilidad 3 | Habilidad 4 (nueva) |
+|---|---|---|
+| Cuerpo a cuerpo | Golpe sangriento (activa) | **Robo de vida** (pasiva): se cura el **4 %** del daño de cada golpe, para recuperar parte de la vida que gasta |
+| Arco | Robo de vida 4 % (pasiva) | **Disparo potente** (activa): **350 % del arma con 3 s de lanzamiento** (el daño de 3,5 golpes en el tiempo de 1,5); enfriamiento 15 s y 10 de maná (propuesta) |
+| Mágico | Escudo de maná (activa), ahora absorbe el **20 %** de la vida máxima (antes 30 %) | **Celeridad** (pasiva): lanza los hechizos un **2 %** más rápido |
+
+**Del 1 al 19** (con descansos y pociones; los niveles 1–9 no cambian respecto a 2.17; min · pociones · muertes):
+
+| Nivel | Espada larga | Espada corta | Arco | Mágico | Diferencia |
+|---|---|---|---|---|---|
+| 9 | 288 · 0 · 0 | 239 · 0 · 0 | 265 · 379 · 0 | 267 · 211 · 0 | 20,5 % |
+| 10 | 256 · 305 · 0 | 249 · 299 · 0 | 248 · 0 · 0 | 205 · 314 · 0 | 24,8 % |
+| 11 | 281 · 463 · 0 | 266 · 412 · 0 | 277 · 0 · 0 | 224 · 329 · 0 | 25,3 % |
+| 12 | 316 · 321 · 0 | 289 · 357 · 0 | 328 · 0 · 0 | 250 · 404 · 0 | 31,1 % |
+| 13 | 353 · 5 · 0 | 328 · 4 · 0 | 358 · 0 · 0 | 280 · 455 · 0 | 27,8 % |
+| 14 | 404 · 0 · 0 | 371 · 0 · 0 | 417 · 0 · 0 | 315 · 584 · 0 | 32,4 % |
+| 15 | 467 · 0 · 0 | 430 · 0 · 0 | 478 · 0 · 0 | 355 · 719 · 0 | 34,6 % |
+| 16 | 539 · 0 · 0 | 496 · 0 · 0 | 560 · 0 · 0 | 407 · 814 · 0 | 37,5 % |
+| 17 | 627 · 0 · 0 | 576 · 0 · 0 | 672 · 0 · 0 | 467 · 805 · 0 | 43,8 % |
+| 18 | 732 · 0 · 0 | 673 · 0 · 0 | 759 · 0 · 0 | 538 · 788 · 0 | 41,0 % |
+| 19 | 859 · 0 · 0 | 788 · 0 · 0 | 897 · 0 · 0 | 625 · 916 · 0 | 43,6 % |
+
+- La diferencia desde el nivel 10 baja de ~60 % (2.17) a **25–44 %**.
+- **Cuerpo a cuerpo**: con el robo de vida ya no necesita descansar y caza más rápido (espada larga 336 → 256 min en el nivel 10); bebe 300–460 pociones en los niveles 10–12 y **ninguna desde el 13**, cuando el robo de vida cubre lo que cuesta el golpe sangriento.
+- **Arco**: el disparo potente le da algo más de ritmo (271 → 248 min en el nivel 10); sigue sin necesitar pociones.
+- **Mágico**: con el escudo al 20 % bebe algo menos que antes en niveles altos (1.271 → 916 en el nivel 19), pero sigue siendo **el más rápido** desde el nivel 10.
+
 ## 3. Estructura propuesta del capítulo
 
 1. **Lista cerrada de estadísticas** y a qué categoría pertenece cada una (principal, derivada, neutral, PvP, utilidad).
