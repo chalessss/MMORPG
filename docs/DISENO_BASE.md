@@ -11,7 +11,8 @@ MMORPG 3D para PC donde cada jugador hace evolucionar a su personaje a lo largo 
 1. **El personaje evoluciona**: empieza sencillo y crece con especializaciones, subclases y equipo.
 2. **Hay más que subir de nivel**: profesiones, recolección, mazmorras, jefes, PvP, economía.
 3. **Temporadas**: el contenido se publica por etapas; cada una tiene su propio endgame.
-4. **Juego limpio**: el servidor decide todo lo importante (combate, botín, recolección) para combatir trampas y bots.
+4. **Todo cuesta moneda**: teletransporte, desarrollo, comercio, ampliaciones… Cada sistema retira moneda para frenar la inflación.
+5. **Juego limpio**: el servidor decide todo lo importante (combate, botín, recolección) para combatir trampas y bots.
 
 ## 3. Entidades del mundo
 
@@ -754,6 +755,18 @@ Lista corta a propósito: no se quiere que el jugador necesite 30 consumibles di
 - **No hay rutas de vuelo con tiempo de viaje** (estilo WoW): se considera tiempo muerto.
 - **No hay teletransporte a cualquier sitio** (como los papiros de MIR4 a un NPC, una puerta o una zona concreta): rompe la exploración.
 - Consumibles de viaje (3.21): pergamino de teletransportación (lleva a un maestro de teletransporte), pergamino de escape (ciudad más cercana) y piedra de hogar (ciudad elegida).
+- **Todo teletransporte cuesta moneda** (NPC o papiro), con precio según la zona; ajustable según la economía.
+- **Los puntos hay que descubrirlos** llegando a ellos la primera vez; no se puede viajar a una zona que no se ha alcanzado.
+
+**Acceso a zonas: progresión controlada**
+- Los mapas tienen **cuellos de botella** de diseño: nada de saltos, atravesar paredes ni atajos entre mapas.
+- Las zonas de nivel alto se protegen con **mobs guardianes estáticos**: solo atacan lo que entra en su rango y no se pueden arrastrar lejos (así no sirve que uno los distraiga para que el resto pase), ni esquivar con invisibilidad, control de masas o trucos de aggro. Muy difícil de saltar a nivel bajo.
+- Además de los guardianes, el paso a zonas nuevas exige **requisitos**: nivel, misiones y, posiblemente, **reputación con facciones** (estilo WoW): cada mapa tiene su facción; sin reputación suficiente, los guardias de la entrada te tratan como enemigo.
+- Si aparecen trucos para colarse, se vigilarán y se cerrarán más adelante.
+
+**Puntos de llegada en zonas PvP**
+- Las zonas PvP tienen puntos de teletransporte y de reaparición, pero rodeados de un **círculo protegido** (por ejemplo, radio de 50 unidades). Al salir del círculo empieza la zona de conflicto.
+- Objetivo: evitar lo peor de MIR4, que unos pocos jugadores muy fuertes maten a todos los que llegan sin darles opción a moverse o a planear una emboscada.
 
 **Caminar sigue importando**
 - Desde el punto de teletransporte se llega al contenido **caminando o en montura**, en recorridos cortos: **1–2 minutos como máximo**.
@@ -843,7 +856,7 @@ Queda para más adelante:
 ## 7. Preguntas abiertas
 
 **Pendientes para más adelante**
-- **Teletransporte**: coste de cada viaje; si hay que descubrir un punto (llegar caminando) antes de poder usarlo; si hay puntos de teletransporte dentro de zonas PvP.
+- **Teletransporte y zonas**: precios por zona; si dentro del círculo protegido de las zonas PvP se puede atacar hacia fuera (propuesta: no se puede atacar ni ser atacado); sistema de reputación con facciones.
 - **Muerte y karma**: sistema de karma y pérdida de objetos (juego avanzado).
 - **Profesiones**: valores de la curva de oro por cambio; si una subclase de Recolector (nivel 60) da acceso al inventor.
 - **Bonus de moneda** por tamaño de grupo: valores.
