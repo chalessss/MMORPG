@@ -1,6 +1,6 @@
 # Capítulo de detalle — Estadísticas
 
-Estado: **en curso**. Primer capítulo de detalle. Este archivo recoge el punto de partida (lo ya decidido y lo que hay en la hoja de cálculo), la propuesta de estructura y las preguntas abiertas. Se irá completando en la sesión.
+Estado: **en curso**. Primer capítulo de detalle. La base de los niveles 1–19 (perfiles, armas, crecimiento y habilidades básicas) está cerrada: ver 2.19. Este archivo recoge el punto de partida (lo ya decidido y lo que hay en la hoja de cálculo), la propuesta de estructura y las preguntas abiertas. Se irá completando en la sesión.
 
 ## 1. Punto de partida
 
@@ -637,6 +637,18 @@ Reparto base (STR / INT / AGI): **mágico 2 / 6 / 2** (antes 1 / 7 / 2) y **fís
 - **Cuerpo a cuerpo**: con el robo de vida ya no necesita descansar y caza más rápido (espada larga 336 → 256 min en el nivel 10); bebe 300–460 pociones en los niveles 10–12 y **ninguna desde el 13**, cuando el robo de vida cubre lo que cuesta el golpe sangriento.
 - **Arco**: el disparo potente le da algo más de ritmo (271 → 248 min en el nivel 10); sigue sin necesitar pociones.
 - **Mágico**: con el escudo al 20 % bebe algo menos que antes en niveles altos (1.271 → 916 en el nivel 19), pero sigue siendo **el más rápido** desde el nivel 10.
+
+### 2.19 Base de los niveles 1–19 cerrada (decidido)
+
+- **Los perfiles quedan así** (reparto base, armas, crecimiento por nivel y las cuatro habilidades de 2.18): son las estadísticas básicas de los personajes.
+- Único ajuste: el **robo de vida del arco baja del 4 % al 2 %**. Un personaje a distancia no debe curarse tanto; debe recibir daño y usar pociones.
+- **El consumo de pociones no preocupa por ahora**: el equipo traerá **armadura**, una mitigación de daño no muy alta que lo reducirá.
+- **No se busca que el juego esté perfectamente equilibrado de principio a fin**: tiene que empezar a verse la diferencia entre perfiles. Que el mágico y el arco hagan más daño está bien:
+  - con las especializaciones, la mitad de los mágicos hará mucho daño y la otra mitad se encargará de curar, y necesitarán ese daño alto;
+  - las clases de daño puro tendrán su propio daño; los tanques serán todavía más resistentes y harán mucho daño, pero en área.
+- En grupo se notará más: guerreros que aguantan y mágicos que hacen mucho daño favorecen el trabajo en equipo.
+
+**Efecto del 2 % en el arco**: solo necesita pociones en el nivel 10 (18 de cada 1.000 mobs); desde el 11 el robo de vida sigue cubriendo todo el daño que recibe. Para obligarle de verdad a beber haría falta bajarlo más (≈0,5–1 %) o esperar a que los mobs y las pociones se ajusten. El resto de la tabla queda igual que en 2.18.
 
 ## 3. Estructura propuesta del capítulo
 

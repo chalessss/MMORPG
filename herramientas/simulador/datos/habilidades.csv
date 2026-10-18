@@ -6,7 +6,7 @@ rango,Disparo cargado,dano,2.0,arma,12,2.0,6,0,0,0,1,carga la flecha 2 s y la su
 rango,Ráfaga triple,dano,1.2|1.2|1.2,arma,40,1.5,12,0,0,0,1,tres disparos seguidos: la habilidad de más daño
 melee,Robo de vida,robo_vida,,,0,0,0,0,4,0,10,pasiva: se cura un valor % del daño de cada golpe
 rango,Disparo potente,dano,3.5,arma,15,3.0,10,0,0,0,10,350 % del arma con 3 s de lanzamiento: el daño de 3,5 golpes en el tiempo de 1,5
-rango,Robo de vida,robo_vida,,,0,0,0,0,4,0,10,pasiva: se cura un valor % del daño de cada golpe
+rango,Robo de vida,robo_vida,,,0,0,0,0,2,0,10,pasiva: se cura un valor % del daño de cada golpe
 magico,Hechizo fuerte,dano,97,puntos,8,2.0,12,0,0,0,1,mucho daño; vuelve a estar listo tras tres hechizos débiles
 magico,Hechizo débil,dano,32,puntos,1,2.0,5,0,0,0,1,se puede lanzar siempre
 magico,Escudo de maná,escudo,,,20,1.0,15,0,20,8,10,activa: absorbe daño hasta un valor % de la vida máxima durante 'duracion' s
