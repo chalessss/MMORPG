@@ -584,6 +584,31 @@ Reparto base (STR / INT / AGI): **mágico 2 / 6 / 2** (antes 1 / 7 / 2) y **fís
 - El punto extra de STR da más vida: **menos muertes** del 4 al 9 (el mágico pasa de 102 a 83 en el nivel 9; el arco, de 45 a 23) y algo menos de pociones.
 - El ritmo de caza apenas cambia; el desequilibrio entre perfiles sigue viniendo del crecimiento por nivel (el mágico sigue siendo el más rápido desde el nivel 2).
 
+### 2.17 Niveles 5–9, descansos del mágico y pociones de misión (decidido)
+
+- **Del nivel 5 al 9 no preocupa** que los de distancia aguanten pocos mobs seguidos: a esos niveles las misiones piden matar **20–50 mobs**, no 100 o 200.
+- **Que el mágico descanse es sano**: mata más rápido, pero tiene que pararse unos segundos a recuperar vida antes de seguir; el guerrero, en cambio, caza sin parar. Esa pausa compensa parte de su ventaja de daño.
+- **Coste en cobre**: los mágicos gastarán mucho más cobre en pociones que los guerreros. Se compensa **dándoles pociones en las misiones**: en el tutorial se les explica que son personajes a distancia pero muy frágiles, que deben cuidar su vida, y reciben **pociones extra**.
+- El simulador pasa a usar **descansos** (`descansar = 1`): tras un mob, se para a recuperarse si no le queda vida para aguantar otro como el último.
+
+**Del 1 al 19 con descansos** (mismas condiciones que 2.16; min · pociones · muertes):
+
+| Nivel | Espada larga | Espada corta | Arco | Mágico | Diferencia |
+|---|---|---|---|---|---|
+| 1 | 165 · 6 · 0 | 166 · 4 · 0 | 170 · 177 · 0 | 169 · 231 · 0 | 2,9 % |
+| 3 | 177 · 0 · 0 | 163 · 0 · 0 | 160 · 261 · 0 | 146 · 321 · 0 | 21,3 % |
+| 5 | 200 · 0 · 0 | 175 · 0 · 0 | 172 · 361 · 0 | 181 · 299 · 0 | 16,3 % |
+| 7 | 236 · 0 · 0 | 201 · 0 · 0 | 220 · 396 · 0 | 229 · 259 · 0 | 17,3 % |
+| 9 | 288 · 0 · 0 | 239 · 0 · 0 | 265 · 379 · 0 | 267 · 211 · 0 | 20,5 % |
+| 10 | 336 · 182 · 0 | 322 · 206 · 0 | 271 · 0 · 0 | 205 · 408 · 0 | 63,7 % |
+| 13 | 453 · 455 · 0 | 412 · 453 · 0 | 396 · 0 · 0 | 280 · 593 · 0 | 61,6 % |
+| 16 | 649 · 1.000 · 0 | 615 · 676 · 0 | 634 · 0 · 0 | 409 · 965 · 0 | 58,5 % |
+| 19 | 1.011 · 1.465 · 0 | 927 · 1.311 · 0 | 998 · 0 · 0 | 628 · 1.271 · 0 | 61,1 % |
+
+- Con descansos **nadie muere** en ningún nivel: del 5 al 9 el arco y el mágico se paran a recuperarse en lugar de morir (el mágico pasa, por ejemplo, de 157 a 181 min en el nivel 5).
+- Desde el nivel 10 el **cuerpo a cuerpo también descansa**: el golpe sangriento le quita tanta vida que, además de beber, tiene que pararse (espada larga 274 → 336 min en el nivel 10).
+- El **mágico** casi no descansa desde el nivel 10 (el escudo lo protege) y sigue siendo el más rápido: la diferencia vuelve a estar en torno al 60 %.
+
 ## 3. Estructura propuesta del capítulo
 
 1. **Lista cerrada de estadísticas** y a qué categoría pertenece cada una (principal, derivada, neutral, PvP, utilidad).
