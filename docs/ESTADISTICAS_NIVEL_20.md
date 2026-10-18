@@ -235,7 +235,7 @@ Parámetros de daño cerrados para la simulación (individual, en grupo y contra
 | Atacante | Disparo certero | 400 % | 15 s | 2 s | Gasta el **Foco**: +10 % por punto y **daño verdadero** |
 | Mago | Lluvia de fuego (zona) | **Canalizada**: se queda quieto invocándola; cae **un impacto por segundo** de 60 a cada mob, durante 5 s (300) | **Sin enfriamiento**: el Mago es el único que puede encadenar su área | 5 s canalizando | — |
 | Mago | Fuego de alma | 250 | 15 s | 3 s | Más fuerte durante el Trance |
-| Invocador | Lluvia de estrellas (zona) | **Se lanza como la Lluvia de flechas**: 1 s de lanzamiento y **no interrumpe**; las 10 estrellas caen durante 5 s mientras el Invocador cura, escuda o sigue atacando. Caen **más seguidas** que la lluvia del mago y golpean a **todos** los mobs de la zona, sean 10 o 20, con **daño bajo** para no hacer demasiado daño en área (20 por estrella). Contra un solo objetivo, **las 10 estrellas le caen a él**. A **todos los aliados** de la zona les pone un **escudo** igual al daño de una estrella | 20 s | 1 s | — |
+| Invocador | Lluvia de estrellas (zona) | **Se lanza como la Lluvia de flechas**: 1 s de lanzamiento y **no interrumpe**; las estrellas caen durante **7 s** (14 estrellas, 2 por segundo) mientras el Invocador cura, escuda o sigue atacando: un **daño constante (dot)**, no una ráfaga. Caen **más seguidas** que la lluvia del mago y golpean a **todos** los mobs de la zona, sean 10 o 20, con **daño bajo** para no hacer demasiado daño en área (20 por estrella). Contra un solo objetivo, **todas las estrellas le caen a él**; con 6, 8 o 10 mobs, **a todos a la vez**, así que rinde sobre todo en grupos grandes. A **todos los aliados** de la zona les pone un **escudo** igual al daño de una estrella | 20 s | 1 s | — |
 | Invocador | Restauración (cura) | Cura el **30 % de la vida máxima**. Lanzada sobre un aliado: el aliado recupera el 30 % y el Invocador **el 15 %** si le falta vida; si no, ese 15 % va a otro aliado al que le falte | — | — | Potenciada por la Esencia |
 
 ### 1.8 Simulación del nivel 20 (aproximación)
@@ -261,7 +261,7 @@ Simulador: `python3 herramientas/simulador/simular20.py` (ficha: `--ficha`), con
 | Mago | 37 | 74 | 259 | 1.580 | 5.230 | 3,7 % | 1.000 | 4,8 % | +9,6 % |
 | Invocador | 74 | 111 | 185 | 2.320 | 2.825 | 7,4 % | 1.000 | 4,8 % | +9,6 % |
 
-**Resultados (simulación 3: Lluvia de estrellas sin interrumpir):**
+**Resultados (simulación 4: Lluvia de estrellas sin interrumpir y de 7 s):**
 
 | Especialización | Jefe (daño/s) | Jefe en remate (< 20 %) | Mobs/hora de uno en uno | Grupos de 6 | Grupos de 12 | En grupo, 12 mobs que no le pegan |
 |---|---|---|---|---|---|---|
@@ -270,7 +270,7 @@ Simulador: `python3 herramientas/simulador/simular20.py` (ficha: `--ficha`), con
 | Asesino | 1.900 | 1.900 | 105 | 124 | muere | 144 |
 | Atacante a distancia | 2.243 | 2.243 | **122** | muere | muere | 417 |
 | Mago | **2.352** | 2.352 | 90 (28 % del tiempo descansando) | muere | muere | **800** |
-| Invocador | 715 | 715 | 39 | muere | muere | 72 |
+| Invocador | 746 | 746 | 41 | muere | muere | 88 |
 
 Lectura:
 - **Contra un objetivo** mandan las de daño (Mago y Atacante, las que más contra el jefe). El Combatiente hace un daño medio y el Invocador, el más bajo, sin quedarse en cero.
@@ -278,7 +278,8 @@ Lectura:
 - **En grupo**, con alguien que aguante los golpes, el **Mago es con diferencia el que más daño hace en área** (800 mobs/hora, 3,4 veces el Combatiente), como se buscaba.
 - **El Mago casi no bebía pociones** porque solo bebía cuando le faltaba maná para una habilidad, y su Lanza de hielo es barata; además una poción de 100 era el 2 % de su maná. Ahora bebe al bajar de la mitad (279 pociones de 400 cada 300 mobs), pero aún descansa el 28 % del tiempo: **el maná sigue sin calibrar** (objetivo: 300–1.000 pociones cada 1.000 mobs).
 - **Lluvia de estrellas sin interrumpir** (antes canalizada 2,5 s): el Invocador gana un **6 %** de daño contra el jefe (675 → 715) y apenas cambia cazando (37 → 39 mobs/hora solo; 70 → 72 en grupo). Las estrellas son una parte pequeña de su daño (unos 80 de daño por segundo a cada mob de los 715), porque su daño se dejó bajo a propósito; lo que gana es tiempo libre para curar y escudar. A cambio, al lanzar más hechizos, gasta más maná (565 → 847 pociones cada 300 mobs).
-- En esta versión se corrigió además un fallo que a veces le quitaba el último impacto a la Lluvia de flechas (el Atacante sube un poco).
+- **Lluvia de estrellas de 7 s** (14 estrellas en vez de 10, al mismo ritmo): contra el jefe +4 % (715 → 746) y solo +5 % cazando de uno en uno (39 → 41), pero **en grupo con 12 mobs +22 %** (72 → 88 mobs/hora). Con el tanque delante: 61 mobs/hora con 6 mobs, 69 con 8, 78 con 10 y 88 con 12.
+- En la simulación 3 se corrigió además un fallo que a veces le quitaba el último impacto a la Lluvia de flechas (el Atacante sube un poco).
 - **Pendiente de simular**: el grupo completo (tanque + curandero + daño) con las curas y escudos del Invocador a aliados.
 
 ## 2. Trabajo de esta sesión

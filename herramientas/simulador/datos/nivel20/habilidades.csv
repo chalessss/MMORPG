@@ -28,5 +28,5 @@ mago,6,Más daño de hechizos y regeneración de maná,arma_hechizos,,,0,0,0,0,0
 mago,7,Lluvia de fuego,canal,60,puntos,0,0,5,6,0,5,1,,,canalizada: un impacto por segundo a cada mob durante 5 s; sin enfriamiento (solo el Mago puede encadenar su área)
 mago,8,Fuego de alma,dano,250,puntos,15,3.0,0,4,0,0,1,,,
 invocador,6,Más potencia de escudos curas y apoyos,arma_apoyo,,,0,0,0,0,0,20,1,,,pasiva de arma: +20 % a escudos y curas
-invocador,7,Lluvia de estrellas,zona,20,puntos,20,1.0,5,8,0,10,1,,,"se lanza en 1 s y no interrumpe: 10 estrellas caen durante 5 s sobre todos los mobs de la zona (contra un solo objetivo, las 10 le caen a él); daño bajo; escudo igual al daño a cada aliado"
+invocador,7,Lluvia de estrellas,zona,20,puntos,20,1.0,7,8,0,14,1,,,"se lanza en 1 s y no interrumpe: 14 estrellas (2 por segundo) caen durante 7 s sobre todos los mobs de la zona (contra un solo objetivo, todas le caen a él); daño bajo y constante; escudo igual al daño a cada aliado"
 invocador,8,Restauración,cura,,,15,2.0,0,10,0,30,1,,,cura el 30 % de la vida máxima
