@@ -59,3 +59,5 @@ Datos en `datos/nivel20/`:
 Simula en pasos de 0,1 s. En los conglomerados todos los mobs del grupo pegan a la vez y entran en las habilidades de área; si un personaje muere 20 veces se da por hecho que no puede con esa caza.
 
 La prueba 4 simula **grupos** (`GRUPOS` en `simular20.py`: un trío Combatiente + Mago + Invocador y un grupo de 5): todos los mobs pegan al tanque, el Invocador cura y escuda a los aliados, y la experiencia se reparte entre los miembros.
+
+**Agro**: cada mob lleva una tabla de amenaza (daño hecho, y una parte de lo curado) y ataca a quien más amenaza tiene, salvo mientras le dura una provocación (`habilidades_provocan`, `provocacion_s`). La prueba 4 se juega sin y con control del agro (con control, nadie usa una habilidad que le haría pasar de la amenaza de los demás). Parámetros para probar soluciones: `provocacion_iguala_amenaza`, `amenaza_tanque_mult`, `amenaza_cura_pct`.

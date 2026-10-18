@@ -120,6 +120,7 @@ def ficha(esp, parametros, armas, conversion, habilidades):
         "robo_vida": num(pasivas["robo_vida"]["valor"]) / 100 if "robo_vida" in pasivas else 0,
         "celeridad": 1 - num(pasivas["celeridad"]["valor"]) / 100 if "celeridad" in pasivas else 1,
         "apoyo": 1 + num(pasivas["arma_apoyo"]["valor"]) / 100 if "arma_apoyo" in pasivas else 1,
+        "mult_amenaza": p["amenaza_tanque_mult"] if esp["recurso"] == "ira_recibida" else 1,
         # Pasiva de arma del Invocador: más daño contra monstruos (no contra jefes).
         "contra_monstruos": 1 + p["apoyo_dano_monstruos_pct"] / 100 if "arma_apoyo" in pasivas else 1,
     }
@@ -129,8 +130,10 @@ class Personaje:
     """Un personaje dentro de un combate: sus estadísticas (la ficha), lo que le
     queda de vida y maná, sus recursos y lo que está haciendo."""
 
-    def __init__(self, f, combate):
+    def __init__(self, f, combate, controla_agro=False):
         self.f, self.c, self.p = f, combate, combate.p
+        # Con control del agro, no lanza áreas que le quitarían el agro al tanque.
+        self.controla_agro = controla_agro
         self.recurso = f["esp"]["recurso"]
         self.con_basico = f["esp"]["ataque_basico"] == "1"
         self.a_distancia = f["esp"]["a_distancia"] == "1"
@@ -195,6 +198,8 @@ class Personaje:
         util = min(d, max(mob["vida"], 0))
         mob["vida"] -= d
         self.e["dano"] += util
+        # Amenaza (aggro): cada punto de daño suma amenaza en ese mob (el tanque, multiplicada).
+        mob["amenaza"][self] = mob["amenaza"].get(self, 0) + util * self.f["mult_amenaza"]
         # El robo de vida cuenta en cada mob golpeado; algunas habilidades lo reducen (robo < 1).
         if self.f["robo_vida"] and not self.c.sin_dano:
             self.e["vida"] = min(self.f["vida"], self.e["vida"] + util * self.f["robo_vida"] * robo)
@@ -242,11 +247,16 @@ class Personaje:
             # la mitad de ese % (o, si no le falta vida, se la da a otro aliado al que le falte).
             pct = num(h["valor"]) / 100 * f["apoyo"] * (1 + self.r["esencia"] * 0.3 / 100)
             self.r["esencia"] = 0
-            self.e["curado"] += objetivo.curar(objetivo.f["vida"] * pct)
+            curado = objetivo.curar(objetivo.f["vida"] * pct)
             if objetivo is not self:
                 otro = self if self.e["vida"] < f["vida"] else c.mas_herido(excluir=(objetivo,))
                 if otro:
-                    self.e["curado"] += otro.curar(otro.f["vida"] * pct / 2)
+                    curado += otro.curar(otro.f["vida"] * pct / 2)
+            self.e["curado"] += curado
+            # Curar también genera amenaza en todos los mobs (una parte de lo curado).
+            for m in c.vivos:
+                if m["vida"] > 0:
+                    m["amenaza"][self] = m["amenaza"].get(self, 0) + curado * p["amenaza_cura_pct"] / 100
             return
         if h["tipo"] == "escudo":
             # Sobre un aliado: el aliado recibe el escudo entero y quien lo lanza una parte.
@@ -266,6 +276,15 @@ class Personaje:
             for m in objetivos:
                 if m["vida"] > 0:
                     self.pegar(m, d, num(h.get("robo_vida_pct"), 100) / 100)
+        if h["nombre"] in str(p["habilidades_provocan"]).split("|"):
+            # Provocación: los mobs golpeados le atacan a él durante unos segundos, tengan
+            # la amenaza que tengan; después vuelven con quien más amenaza tenga.
+            for m in objetivos:
+                if m["vida"] > 0:
+                    m["provocado_hasta"], m["provocador"] = c.t + p["provocacion_s"], self
+                    if p["provocacion_iguala_amenaza"]:
+                        # Provocación clásica: su amenaza sube hasta la más alta de ese mob.
+                        m["amenaza"][self] = max([m["amenaza"].get(self, 0)] + list(m["amenaza"].values()))
         if h["mecanica"] == "desgarro":
             # El sangrado depende de la Energía gastada (100 / 70 / 50 % del arma en 6 s).
             gastada = self.estado["energia_desgarro"]
@@ -278,7 +297,7 @@ class Personaje:
     def elegir(self):
         """Siguiente acción cuando el personaje está libre."""
         f, p, c, e, r = self.f, self.p, self.c, self.e, self.r
-        objetivo = next((m for m in c.vivos if m["vida"] > 0), None)
+        objetivo = c.objetivo_para(self)
         if objetivo is None:
             return None
         n = sum(1 for m in c.vivos if m["vida"] > 0)
@@ -299,9 +318,12 @@ class Personaje:
                     return (h, 1.0, herido, 1e9)
                 continue
             if tipo == "escudo":
-                # Se escuda a quien están golpeando los mobs (a sí mismo, o al tanque si es apoyo).
-                golpeado = c.objetivo_de_mobs()
-                destino = golpeado if (golpeado is self or f.get("apoyo", 1) > 1) else None
+                # Se escuda a quien están golpeando los mobs (a sí mismo, o al más golpeado si es apoyo).
+                golpeado = c.mas_golpeado()
+                if f.get("apoyo", 1) > 1:
+                    destino = golpeado
+                else:
+                    destino = self if any(c.objetivo_de(m) is self for m in c.vivos if m["vida"] > 0) else None
                 if (destino and not c.sin_dano and c.t >= destino.estado["escudo_hasta"]
                         and any(m["proximo"] <= c.t + 2 for m in c.vivos if m["vida"] > 0)):
                     return (h, 1.0, destino, 1e9)
@@ -335,6 +357,9 @@ class Personaje:
                                 for g in h["golpes"].split("|"))
             if tipo == "zona":
                 por_golpe *= num(h["valor"]) or num(h["duracion"])
+            if self.controla_agro and c.quitaria_agro(self, por_golpe,
+                                                      None if tipo in ("area", "zona", "canal") else objetivo):
+                continue
             valor = por_golpe * (n if tipo in ("area", "zona", "canal") else 1)
             ocupa = (num(h["duracion"]) if tipo == "canal" else num(h["lanzamiento"]) if tipo == "zona"
                      else num(h["lanzamiento"]) * f["celeridad"] or (f["intervalo"] if self.con_basico else PASO))
@@ -439,7 +464,7 @@ class Personaje:
             if accion:
                 self.lanzar(accion)
             elif self.con_basico and hay_mobs:
-                objetivo = next(m for m in c.vivos if m["vida"] > 0)
+                objetivo = c.objetivo_para(self)
                 self.pegar(objetivo, self.golpe(f["dano_arma"], False))
                 self.usar("golpe blanco")
                 if self.recurso == "ira_golpe":
@@ -456,18 +481,61 @@ class Combate:
     primero de la lista. Con `jefe`, el objetivo es un jefe (no cuentan los bonos
     contra monstruos); con `sin_dano`, los mobs no pegan."""
 
-    def __init__(self, fichas, p, sin_dano=False, jefe=False, azar=None):
+    def __init__(self, fichas, p, sin_dano=False, jefe=False, azar=None, controla_agro=False):
         self.p, self.sin_dano, self.jefe = p, sin_dano, jefe
         self.azar = azar or random.Random(int(p["semilla"]))
         self.t = 0.0
         self.vivos, self.zonas, self.sangrados = [], [], []
         self.muertos, self.descanso, self.caidas = 0, 0.0, 0
-        self.equipo = [Personaje(f, self) for f in fichas]
+        self.equipo = [Personaje(f, self, controla_agro) for f in fichas]
         # Orden del aggro: el tanque primero; después cuerpo a cuerpo; después el resto.
         self.aggro = sorted(self.equipo, key=lambda a: (a.recurso != "ira_recibida", a.a_distancia))
 
     def objetivo_de_mobs(self):
+        """A quién va un mob que nadie ha tocado todavía: el tanque primero."""
         return next((a for a in self.aggro if a.vivo()), None)
+
+    def objetivo_de(self, m):
+        """A quién ataca un mob: a quien le provocó (mientras dure) o a quien más amenaza tiene."""
+        if self.t < m["provocado_hasta"] and m["provocador"] and m["provocador"].vivo():
+            return m["provocador"]
+        candidatos = [(v, a) for a, v in m["amenaza"].items() if a.vivo() and v > 0]
+        if candidatos:
+            return max(candidatos, key=lambda x: x[0])[1]
+        return self.objetivo_de_mobs()
+
+    def mas_golpeado(self):
+        """El personaje al que atacan más mobs ahora mismo."""
+        cuenta = {}
+        for m in self.vivos:
+            if m["vida"] > 0:
+                a = self.objetivo_de(m)
+                if a:
+                    cuenta[a] = cuenta.get(a, 0) + 1
+        return max(cuenta, key=cuenta.get, default=None)
+
+    def objetivo_para(self, quien):
+        """A qué mob pega un personaje: con control del agro, a uno provocado por el tanque
+        (si lo hay); si no, al primero que quede vivo."""
+        vivos = [m for m in self.vivos if m["vida"] > 0]
+        if quien.controla_agro:
+            provocados = [m for m in vivos if self.t < m["provocado_hasta"]]
+            if provocados:
+                return provocados[0]
+        return vivos[0] if vivos else None
+
+    def quitaria_agro(self, quien, dano_por_mob, solo=None):
+        """¿Algún mob que no esté provocado pasaría a atacar a `quien` si le hace ese daño?
+        Con `solo`, se mira únicamente ese mob (habilidades de un objetivo)."""
+        for m in ([solo] if solo else self.vivos):
+            if m["vida"] <= 0:
+                continue
+            # Aunque el mob esté provocado, al acabar la provocación iría a por quien más
+            # amenaza tenga: se compara con la mayor amenaza de los demás.
+            otros = max((v for a, v in m["amenaza"].items() if a is not quien and a.vivo()), default=0)
+            if m["amenaza"].get(quien, 0) + dano_por_mob * quien.f.get("mult_amenaza", 1) > otros:
+                return True
+        return False
 
     def mas_herido(self, excluir=()):
         heridos = [a for a in self.equipo if a.vivo() and a not in excluir and a.e["vida"] < a.f["vida"]]
@@ -480,7 +548,8 @@ class Combate:
             remoto, ciclo = TIPOS_MOB[(self.muertos + i) % len(TIPOS_MOB)]
             espera = 0 if remoto else (self.p["acercamiento_mob_s"] if objetivo.a_distancia
                                        else self.p["desplazamiento_melee_s"])
-            self.vivos.append({"vida": v, "max": v, "proximo": self.t + espera, "ciclo": ciclo, "n": 0})
+            self.vivos.append({"vida": v, "max": v, "proximo": self.t + espera, "ciclo": ciclo, "n": 0,
+                               "amenaza": {}, "provocado_hasta": -1.0, "provocador": None})
         for a in self.equipo:
             if not a.a_distancia:
                 a.estado["ocupado"] = self.t + self.p["desplazamiento_melee_s"]  # camina hasta el grupo
@@ -493,6 +562,8 @@ class Combate:
         quien.estado.update(pendiente=None, canal=None, escudo=0.0)
         if any(a.vivo() for a in self.equipo if a is not quien):
             quien.estado["caido_hasta"] = self.t + p["penalizacion_muerte_s"]
+            for m in self.vivos:
+                m["amenaza"].pop(quien, None)
             quien.e["vida"], quien.e["mana"] = quien.f["vida"], quien.f["mana"]
             return
         self.caidas += 1
@@ -503,6 +574,7 @@ class Combate:
         for m in self.vivos:
             m["vida"] = m["max"]
             m["proximo"] = self.t + 1
+            m.update(amenaza={}, provocado_hasta=-1.0, provocador=None)
         self.zonas.clear()
         self.sangrados.clear()
 
@@ -516,26 +588,35 @@ class Combate:
         while limite_s is None or self.t < limite_s:
             self.t += PASO
             t = self.t
-            # Golpes de los mobs (todos al que tiene el aggro).
+            # Golpes de los mobs: cada uno a quien tiene su agro.
             if not self.sin_dano:
-                objetivo = self.objetivo_de_mobs()
+                golpeados = []
                 for m in self.vivos:
                     if m["vida"] > 0 and m["proximo"] <= t:
                         bruto = p["dano_mob"] * m["ciclo"][m["n"] % len(m["ciclo"])]
                         m["n"] += 1
                         m["proximo"] += p["intervalo_mob_s"]
+                        objetivo = self.objetivo_de(m)
                         if objetivo:
                             f = objetivo.f
                             objetivo.recibir(max(1, round(bruto * (1 - f["defensa"] / 100)
                                                           - f["armadura"] / p["armadura_por_punto_de_dano"])))
-                if objetivo:
+                            if objetivo not in golpeados:
+                                golpeados.append(objetivo)
+                cayo_el_grupo = False
+                for objetivo in golpeados:
                     if objetivo.e["vida"] < objetivo.f["vida"] * p["usar_pocion_vida_pct"] / 100:
                         objetivo.beber("vida")
-                    if objetivo.e["vida"] <= 0:
+                    if objetivo.e["vida"] <= 0 and objetivo.vivo():
+                        caidas = self.caidas
                         self.caer(objetivo)
-                        if self.caidas >= MUERTES_MAXIMAS:
-                            break  # no puede con este tipo de caza
-                        continue
+                        if self.caidas > caidas:
+                            cayo_el_grupo = True
+                            break
+                if cayo_el_grupo:
+                    if self.caidas >= MUERTES_MAXIMAS:
+                        break  # no puede con este tipo de caza
+                    continue
             # Zonas y sangrados.
             for z in self.zonas:
                 if z["proximo"] <= t + 1e-9 and z["proximo"] <= z["fin"] + 1e-9:
@@ -636,29 +717,30 @@ def informe(parametros, armas, especializaciones, conversion, habilidades):
             continue
         r = combatir(f, p, grupos_de(p, 12), sin_dano=True)
         print(f"{f['esp']['nombre']:22}{r['muertos'] / (r['tiempo'] / 3600):>10.0f}{r['dano'] / r['tiempo']:>14.0f}")
-    print("\n4) Grupo completo: los mobs pegan al tanque (Combatiente); el Invocador cura y escuda\n")
+    print("\n4) Grupo completo: el Combatiente provoca con Fisura; después cada mob ataca a quien más amenaza tiene\n")
     por_id = {f["esp"]["especializacion"]: f for f in fichas}
     for nombre, ids in GRUPOS:
         equipo = [por_id[i] for i in ids]
-        print(f"{nombre}: {', '.join(f['esp']['nombre'] for f in equipo)}")
-        print(f"{'Mobs':>6}{'Mobs/hora':>11}{'Por miembro':>13}{'Caídas':>8}{'Muertes':>9}{'Descanso':>10}"
-              f"{'Poc. vida tanque':>18}{'Curado/s':>10}{'Escudo/s':>10}  Reparto del daño")
-        for tamano in (1, 6, 12, 20):
-            c = Combate(equipo, p).pelear(grupos_de(p, tamano))
-            if c.caidas >= MUERTES_MAXIMAS:
-                print(f"{tamano:>6}{'no puede':>11}  (el grupo cae {c.caidas} veces tras matar {c.muertos} mobs)")
-                continue
-            horas = c.t / 3600
-            total = sum(a.e["dano"] for a in c.equipo) or 1
-            tanque = c.aggro[0]
-            curado = sum(a.e["curado"] for a in c.equipo) / c.t
-            escudo = sum(a.e["escudado"] for a in c.equipo) / c.t
-            reparto = ", ".join(f"{a.nombre} {a.e['dano'] / total * 100:.0f} %" for a in c.equipo)
-            print(f"{tamano:>6}{c.muertos / horas:>11.0f}{c.muertos / horas / len(equipo):>13.0f}{c.caidas:>8}"
-                  f"{sum(a.e['muertes'] for a in c.equipo):>9}{c.descanso / c.t * 100:>9.0f}%"
-                  f"{tanque.e['pociones_vida']:>18}{curado:>10.0f}{escudo:>10.0f}  {reparto}")
-        print()
-    print("Caídas = veces que cae el grupo entero · Muertes = personajes que mueren (vuelven a los 30 s) · "
+        for controla in (False, True):
+            print(f"{nombre}: {', '.join(f['esp']['nombre'] for f in equipo)} · "
+                  f"{'con' if controla else 'sin'} control del agro")
+            print(f"{'Mobs':>6}{'Mobs/hora':>11}{'Por miembro':>13}{'Caídas':>8}{'Descanso':>10}"
+                  f"{'Curado/s':>10}{'Escudo/s':>10}  Muertes · reparto del daño")
+            for tamano in (1, 6, 12):
+                c = Combate(equipo, p, controla_agro=controla).pelear(grupos_de(p, tamano))
+                if c.caidas >= MUERTES_MAXIMAS:
+                    print(f"{tamano:>6}{'no puede':>11}  (el grupo cae {c.caidas} veces tras matar {c.muertos} mobs)")
+                    continue
+                horas = c.t / 3600
+                total = sum(a.e["dano"] for a in c.equipo) or 1
+                curado = sum(a.e["curado"] for a in c.equipo) / c.t
+                escudo = sum(a.e["escudado"] for a in c.equipo) / c.t
+                muertes = ", ".join(f"{a.nombre} {a.e['muertes']}" for a in c.equipo if a.e["muertes"]) or "nadie"
+                reparto = ", ".join(f"{a.nombre} {a.e['dano'] / total * 100:.0f} %" for a in c.equipo)
+                print(f"{tamano:>6}{c.muertos / horas:>11.0f}{c.muertos / horas / len(equipo):>13.0f}{c.caidas:>8}"
+                      f"{c.descanso / c.t * 100:>9.0f}%{curado:>10.0f}{escudo:>10.0f}  muertes: {muertes} · {reparto}")
+            print()
+    print("Caídas = veces que cae el grupo entero · muertes = veces que muere cada uno (vuelve a los 30 s) · "
           "Por miembro = mobs/hora entre los miembros (la experiencia se reparte)")
     print("\nMobs/hora = mobs muertos por hora de caza (la experiencia es por mob) · Descanso = % del tiempo sentado")
 

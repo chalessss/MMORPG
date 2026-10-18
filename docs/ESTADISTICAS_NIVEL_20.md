@@ -346,8 +346,35 @@ Grupo de 5: Combatiente, Invocador, Mago, Atacante a distancia, Asesino.
 Lectura:
 - **Los roles funcionan en grupo**: el Combatiente aguanta hasta 20 mobs sin que nadie muera, el **Mago hace la mayor parte del daño en área** (45–69 %) y el Invocador aporta algo de daño y, sobre todo, escudos.
 - **De uno en uno, el grupo no compensa por sí solo**: por miembro sale como cazar solo (trío 75 frente a una media de 79 de sus miembros solos; grupo de 5, 76 frente a 93). Lo compensará la **bonificación de experiencia de grupo** (+10 % a +25 %, ya decidida).
-- **En conglomerados el grupo caza muchísimo más**: con 12–20 mobs, cada miembro saca **4–7 veces** lo que sacaría solo. Si se quiere evitar, se puede ajustar con la experiencia por mob de las zonas de conglomerados o el tamaño de los grupos de mobs (capítulo de mapas).
+- **En conglomerados el grupo caza muchísimo más**: con 12–20 mobs, cada miembro saca **4–7 veces** lo que sacaría solo.
+- **Decidido:** los conglomerados tendrán **como máximo 12 mobs**. En el nivel 20 (nivel máximo de la Temporada 1) ya no se necesita experiencia: estas zonas sirven sobre todo para **conseguir objetos (botín)**, así que su rendimiento no preocupa.
+- *Nota: esta simulación es anterior al agro (1.11): en ella los mobs pegaban siempre al tanque.*
 - **El curandero casi no tiene que curar**: los escudos (los de las estrellas y el Escudo de maná) y el robo de vida en área del Combatiente cubren casi todo el daño, y el tanque no bebe pociones. Con el mob del nivel 20 (59 de daño por golpe), el daño que entra en grupo es bajo; los mobs de las zonas de conglomerados, los élites y los jefes deberían pegar más para que la cura importe.
+
+### 1.11 Agro (amenaza) en grupo
+
+**Lo que quiere el diseño (decidido):** el Combatiente no debe quedarse con el agro de todos los mobs para siempre por el solo hecho de ser tanque. Lo **sostiene unos segundos** con su habilidad de área que provoca; cuando se acaba, la mayoría de los mobs se van a por quien más daño en zona les ha hecho. El Mago **no puede lanzar Lluvia de fuego sin parar** en grupo: si lo hace, se lleva el agro y muere.
+
+**Cómo lo simula ahora `simular20.py`** (antes los mobs pegaban siempre al tanque):
+- Cada mob lleva una **tabla de amenaza**: cada punto de daño que le hace un personaje suma un punto de amenaza; curar suma en todos los mobs el 50 % de lo curado.
+- **Fisura provoca** a todos los mobs que golpea durante **5 s** (y tiene 10 s de enfriamiento): mientras dura, le atacan a él.
+- Fuera de la provocación, **cada mob ataca a quien más amenaza tiene** en él. Un mob que nadie ha tocado va a por el tanque.
+- Dos formas de jugar: **sin control del agro** (cada uno hace todo el daño que puede) y **con control** (no se usa una habilidad si con ella se pasaría de la amenaza de los demás en algún mob; se pega primero a los mobs provocados).
+
+**Resultados** (mobs/hora del grupo · quién muere cada 300 mobs):
+
+| Grupo | Juego | 6 mobs | 12 mobs |
+|---|---|---|---|
+| Trío (Combatiente, Mago, Invocador) | Sin control | 489 · Mago 1 vez | 821 · **Mago 14 veces**, Invocador 3 |
+| Trío | Con control | 60 · nadie | 58 · **Invocador 127 veces** |
+| Grupo de 5 (+ Atacante y Asesino) | Sin control | 805 · nadie | 1.204 · Mago 7, Invocador 1, Atacante 1 |
+| Grupo de 5 | Con control | 222 · nadie | 209 · Invocador 41, Asesino 18 |
+
+Lectura:
+- **Se cumple lo que se buscaba**: con 12 mobs, si el Mago tira el área sin parar, se lleva el agro en cuanto se acaba la provocación y muere una y otra vez.
+- **Pero el Combatiente genera muy poca amenaza**: hace solo el 15–30 % del daño del grupo, y con amenaza = daño no puede competir con el Mago (55–70 %). Si los demás se contienen para no quitarle el agro, el grupo apenas hace daño (de 821 a 58 mobs/hora en el trío), y entonces las **curas del Invocador** se convierten en lo que más amenaza genera y es él quien muere.
+- Pruebas rápidas de soluciones (12 mobs, trío sin control): con una **provocación clásica** (al provocar, su amenaza sube hasta la más alta del mob) casi no cambia, porque el Mago vuelve a superarle en pocos segundos; con la **amenaza del Combatiente ×3**, el Mago muere 10 veces en vez de 14, y con control el grupo sube de 58 a 119 mobs/hora.
+- **Pendiente de decidir** cómo genera amenaza el Combatiente (ver preguntas en el chat de la sesión): qué habilidad provoca, cuánto dura, si su daño cuenta más como amenaza y cuánta amenaza generan las curas.
 
 ## 2. Trabajo de esta sesión
 
