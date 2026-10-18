@@ -27,7 +27,7 @@ La hoja de ruta completa está en `docs/HOJA_DE_RUTA.md`: mantenerla actualizada
 
 | Temporada | Niveles | Elección | Clases |
 |---|---|---|---|
-| 1 | 1–20 | Arquetipo (Físico/Mágico) + clase base | Luchador, Combatiente, Asesino, Atacante a distancia, Mago, Invocador |
+| 1 | 1–20 | Arquetipo (Físico/Mágico) del 1 al 19; clase base en el nivel 20 | Luchador, Combatiente, Asesino, Atacante a distancia, Mago, Invocador |
 | 2 | 20–40 | Especialización 1 | Dos manos, Espadas duales, Tanque, Daguero, Arquero, Hechicero, Encantador… |
 | 3 | 40–60 | Especialización final | ~19 clases (Paladín, Berserker, Nigromante, Sacerdote, Monje…) |
 

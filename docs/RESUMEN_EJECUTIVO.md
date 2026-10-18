@@ -14,7 +14,7 @@ Vista rápida del proyecto. El detalle de cada decisión está en `docs/DISENO_B
 - **Pilares**: el personaje evoluciona · hay más que subir de nivel · temporadas · todo cuesta moneda · juego limpio · funciones que se desbloquean por nivel.
 
 **Progresión**
-- Temporadas: T1 (1–20, clase base) · T2 (20–40, especialización) · T3 (40–60, especialización final). Futuras: 80, 90, 100.
+- Temporadas: T1 (1–20: arquetipo hasta el 19, clase base en el 20) · T2 (20–40, especialización) · T3 (40–60, especialización final). Futuras: 80, 90, 100.
 - Subclases desde el nivel 60: comparten nivel; cada clase con su conjunto de equipo vinculado.
 
 **Grupo y botín**

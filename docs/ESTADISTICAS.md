@@ -34,7 +34,7 @@ Estado: **en curso**. Primer capítulo de detalle. Este archivo recoge el punto 
 
 Hay además una columna con las anotaciones `AGI>INT`, `INT>STR`, `STR>AGI` (ver 1.3).
 
-**Estadísticas base de las clases de la Temporada 1** — tabla corregida (filas 54–60 de la pestaña principal; la tabla de las filas 45–51 y la de "Habilidades 2.0" son versiones anteriores y **no se usan**). Es el **reparto de nivel 1** que recibe el personaje por ser de esa clase (decidido). Cada clase suma 10 puntos:
+**Estadísticas base de las clases de la Temporada 1** — tabla corregida (filas 54–60 de la pestaña principal; la tabla de las filas 45–51 y la de "Habilidades 2.0" son versiones anteriores y **no se usan**). Es el **reparto base** que recibe el personaje por ser de esa clase (decidido); la clase se elige en el nivel 20 (ver 1.7). Cada clase suma 10 puntos:
 
 | ID | Clase | STR | INT | AGI | Recurso secundario |
 |---|---|---|---|---|---|
@@ -79,9 +79,14 @@ Las estadísticas principales forman un sistema de **piedra, papel o tijera**: *
 - **Prueba del muñeco**: un objetivo con vida prácticamente infinita (por ejemplo, 50 millones) al que cada clase golpea durante **20 minutos** a nivel 1. El daño total de todas las clases debe salir casi igual.
 - Cuando haya roles, el objetivo será distinto por rol (valores de ejemplo, se fijarán más adelante): **daño puro** un 3–5 % por encima de la media; **tanque** alrededor de un 5 % por debajo; **curandero** alrededor de un 8 % por debajo, porque dedican la pelea a otras cosas. En la Temporada 1 las 6 clases base son de daño y deben quedar iguales.
 
-### 1.6 Combate del nivel 1 al 20 por arquetipo (decidido)
+### 1.6 Del nivel 1 al 19: solo arquetipo (decidido)
 
-Hasta la primera especialización (nivel 20) solo hay **tres formas de combatir**, y es lo único que se calibra en esta etapa con las estadísticas base:
+- Del 1 al 19 el personaje es solo **atacante físico** o **atacante mágico**: **sin clase ni especialización**.
+- Es una etapa de **aprendizaje**: atacar, moverse, hacer misiones, leer el mapa, recolectar y entender las profesiones. Debería durar unas **3–4 semanas** de juego (orientativo).
+- **Una sola arma** para todo el tramo, que solo mejora en daño (espada larga de bronce → de cobre → de plata…). Los físicos llevan **espada de dos manos** (por ejemplo, espada larga); los mágicos, **bastón de dos manos**.
+- La velocidad del arma se expresa en **segundos entre golpe y golpe**. Ejemplo: espada larga 2,60 s; espada corta 1,40 s con un 40 % menos de daño por golpe (valores ajustables).
+- Al subir de nivel crecen las estadísticas y el daño del arma, y los mobs también: matar un mob de tu nivel cuesta lo mismo en el nivel 1 que en el 10 o el 19.
+- Formas de combatir en esta etapa:
 
 | Arquetipo | Cómo hace daño |
 |---|---|
@@ -89,9 +94,22 @@ Hasta la primera especialización (nivel 20) solo hay **tres formas de combatir*
 | **Físico a distancia** | Golpes blancos continuos y de vez en cuando una habilidad que **dispara tres flechas** a la vez |
 | **Mágico** | **No hace daño con el arma**: todo sale de **dos hechizos básicos**. Uno se puede lanzar siempre (1 s de enfriamiento, 2 s de lanzamiento) y otro hace mucho daño (10 s de enfriamiento, 2 s de lanzamiento). Rotación: fuerte, 4 básicos, fuerte… |
 
-- **Armas del 1 al 10**: cada arquetipo usa **el mismo tipo de arma** todo el tramo; solo sube su daño por calidad o material (espada larga de bronce → de cobre → de plata…). Todos los mágicos empiezan con **bastón de dos manos**, sin importar en qué se especialicen después.
-- Al subir de nivel crecen las estadísticas (STR, INT, AGI) y el daño del arma, y los mobs también. Matar un mob de nivel 5 o 10 debe costar lo mismo que uno de nivel 1 al personaje del nivel correspondiente.
-- Las **habilidades** son el punto de equilibrio entre arquetipos (y más adelante entre especializaciones).
+- Lo único que se calibra en esta etapa es la **paridad entre arquetipos** (1.4) con las estadísticas base, y las habilidades básicas son el punto de equilibrio.
+
+### 1.7 Nivel 20: elección de clase (decidido)
+
+- Al llegar al 20 se desbloquea una **misión del entrenador de clase**: "ya sabes pelear con armas, pero no te has especializado". Ofrece las clases del arquetipo. Por ejemplo, un físico cuerpo a cuerpo puede ser **Luchador** (espadas), **Asesino** (dagas) o **Combatiente** (espadas).
+- Con la clase llegan:
+  - las **armas propias de la clase**;
+  - el **reparto base de la clase** (tabla de 1.2: 7/1/2, 5/1/4…);
+  - **muchas más estadísticas visibles**;
+  - **4–5 habilidades nuevas**, con activas y pasivas;
+  - equipo especializado (raro) y el contenido de profesiones y desarrollo del personaje.
+- **Cada clase cambia lo que da cada punto de estadística** (valores de ejemplo):
+  - **Luchador**: cada punto de STR da más vida (120 en lugar de 100); INT solo da 20 de maná plano.
+  - **Mago** (bastones): más regeneración de maná y más daño de hechizos.
+  - **Invocador** (varitas): menos daño base, más regeneración de maná y más potencia de escudos y curaciones.
+- Lo que la hoja muestra del 1 al 20 sobre clases y armas es informativo: **todo se desbloquea en el 20**.
 
 ## 2. Simulador
 

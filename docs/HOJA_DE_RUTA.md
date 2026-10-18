@@ -10,7 +10,7 @@ MMORPG en Unreal Engine 5 donde el **personaje es el centro**: empieza sencillo 
 
 | Temporada | Niveles | Elección del jugador |
 |---|---|---|
-| 1 | 1–20 | Arquetipo (Físico / Mágico) + clase base (6 clases) |
+| 1 | 1–20 | Arquetipo (Físico / Mágico) del 1 al 19; clase base (6 clases) en el nivel 20 |
 | 2 | 20–40 | Especialización 1 |
 | 3 | 40–60 | Especialización final (~19 clases) |
 
