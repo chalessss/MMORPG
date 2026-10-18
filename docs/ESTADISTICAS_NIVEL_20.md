@@ -4,15 +4,29 @@ Estado: **en curso**. Segunda sesión del capítulo de estadísticas. La primera
 
 ## 1. Punto de partida
 
+### 1.0 Clases de inicio: nombres oficiales (decidido)
+
+- En el nivel 1 el jugador elige **daño mágico** o **daño físico**. Según lo que elija, el personaje sale con una de estas clases de inicio:
+
+| Elección | Clase de inicio (nombre oficial) | Perfil de la parte 1 |
+|---|---|---|
+| Daño mágico | **Mágica - Rango** | Mágico |
+| Daño físico | **Física - Melee** | Físico cuerpo a cuerpo |
+| Daño físico | **Física - Rango** | Físico a distancia |
+
+- Los nombres de clase que se usaron al describir los perfiles de inicio (Combatiente, Atacante a distancia, Mago…) eran **ejemplos de la especialización que elegirían después**, no el nombre oficial de la clase de inicio.
+- Las estadísticas de estas clases son las de los perfiles cerrados en la parte 1 (reparto, armas, crecimiento y habilidades).
+
+
 ### 1.1 Cómo llega el personaje al nivel 20
 
 Valores del nivel 19 (ficha vigente: `python3 herramientas/simulador/simular.py --ficha`):
 
-| Perfil | Vida | Maná | Armadura | Defensa | Golpe blanco |
+| Clase de inicio | Vida | Maná | Armadura | Defensa | Golpe blanco |
 |---|---|---|---|---|---|
-| Espada larga / corta | 4.975 | 920 | 950 | 19,5 % | 1.072 / 922 |
-| Arco | 2.075 | 1.220 | 950 | 7,9 % | 929 |
-| Mágico | 1.575 | 2.990 | 950 | 5,9 % | — |
+| Física - Melee (espada larga / corta) | 4.975 | 920 | 950 | 19,5 % | 1.072 / 922 |
+| Física - Rango (arco) | 2.075 | 1.220 | 950 | 7,9 % | 929 |
+| Mágica - Rango | 1.575 | 2.990 | 950 | 5,9 % | — |
 
 - Qué da cada punto (común a todos hasta el 19): **STR** +25 vida, +0,2 vida/s, +0,1 % de defensa física y mágica, +1,5 % de daño; **INT** +15 maná, +0,2 maná/s, +2,5 % de daño de habilidades; **AGI** +2 de daño plano por golpe.
 - Cuatro habilidades por perfil, en nivel de habilidad 4 desde el nivel 15.

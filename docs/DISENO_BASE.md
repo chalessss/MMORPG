@@ -35,7 +35,7 @@ Entidades del mundo
 Los controla una persona.
 
 - Arquetipo (Físico / Mágico) → clase base → especialización 1 → especialización final.
-- **Del 1 al 19 solo existe el arquetipo** (físico o mágico, sin clase). En el **nivel 20** una misión del entrenador de clase ofrece las clases base del arquetipo (detalle en `docs/ESTADISTICAS.md`, 1.7).
+- **Del 1 al 19 solo existe la clase de inicio**: en el nivel 1 se elige daño mágico (**Mágica - Rango**) o daño físico (**Física - Melee** o **Física - Rango**). En el **nivel 20** una misión del entrenador de clase ofrece las clases base del arquetipo (detalle en `docs/ESTADISTICAS.md`, 1.7).
 - Varias **subclases** por personaje, cada una con su propio progreso. Se desbloquean en el **nivel 60** (del 1 al 40 se aprende a jugar bien la clase; del 40 al 60 se sube rápido). Reglas detalladas: más adelante.
 - Estadísticas principales (STR / INT / AGI), derivadas y neutrales.
 - Recursos: vida, MP y un recurso secundario según la clase (Ira, Energía, Foco, Iluminación).

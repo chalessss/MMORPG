@@ -16,13 +16,13 @@ Vista rápida de cómo quedaron las estadísticas tras la primera sesión del ca
 
 ## Perfiles de inicio (niveles 1–19)
 
-Del 1 al 19 no hay clase: solo tres perfiles. La clase se elige en el nivel 20 con una misión del entrenador.
+Del 1 al 19 solo hay tres **clases de inicio**: en el nivel 1 se elige daño mágico (**Mágica - Rango**) o daño físico (**Física - Melee** o **Física - Rango**). La especialización se elige en el nivel 20 con una misión del entrenador.
 
 | Perfil | Reparto base (STR / AGI / INT) | Arma | Segundos entre golpes | Daño del arma | Crecimiento por nivel (= bono del arma de nivel 1) |
 |---|---|---|---|---|---|
-| Físico cuerpo a cuerpo | 5 / 4 / 1 | Espada larga o espada corta | 2,6 / 1,4 | 75 / 37 | +10 STR, +5 AGI, +3 INT |
-| Físico a distancia | 3 / 5 / 2 | Arco | 2,0 | 35 | +4 STR, +10 AGI, +4 INT |
-| Mágico | 2 / 2 / 6 | Bastón (nunca pega con él) | — | — | +3 STR, +5 AGI, +10 INT |
+| Física - Melee | 5 / 4 / 1 | Espada larga o espada corta | 2,6 / 1,4 | 75 / 37 | +10 STR, +5 AGI, +3 INT |
+| Física - Rango | 3 / 5 / 2 | Arco | 2,0 | 35 | +4 STR, +10 AGI, +4 INT |
+| Mágica - Rango | 2 / 2 / 6 | Bastón (nunca pega con él) | — | — | +3 STR, +5 AGI, +10 INT |
 
 - El arma de nivel 1 da exactamente lo que se gana en cada nivel (easter egg).
 - Las espadas pegan más fuerte para compensar que el cuerpo a cuerpo camina entre mobs.
