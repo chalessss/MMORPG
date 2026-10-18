@@ -67,7 +67,7 @@ Enemigos que pueblan el mundo y las mazmorras.
 - Al morir dan experiencia y botín. Reaparecen tras un tiempo.
 - Pueden ser fuente de recursos (pieles, carne, materiales) mediante profesiones.
 
-**Familias de mobs (en curso)**: todo mob pertenece a una familia, que define su trofeo de códice y su basura. Base segura: **bestias** y **humanoides**. Otras posibles (por revisar con referencias): elementales, no-muertos/reanimados, etc.
+**Familias de mobs (decidido)**: todo mob pertenece a una familia, que define su trofeo de códice y su basura. Temporada 1: **bestias, humanoides y elementales**; Temporada 2 añade **no-muertos**; Temporada 3, **insectos/arácnidos**; después, una familia nueva por temporada (candidatas: demonios, dragones, constructos…).
 
 ### 3.3 NPCs de combate — Jefes
 
@@ -253,9 +253,16 @@ armadura del grupo → jugador 3 · los jugadores 1, 2, 4 y 5 tiran su armadura 
 
 Sistema de colección que da **estadísticas permanentes a la cuenta**. Por ahora solo se fija lo básico:
 
-- **Los mobs sueltan trofeos**, el material del códice de reputación (objetos de códice en la tabla de botín). *"Trofeo" es el nombre provisional; se descarta "insignia" por ser demasiado de MIR4.*
+- **Los mobs sueltan trofeos**, el material del **códice de caza** (objetos de códice en la tabla de botín). *"Trofeo" es el nombre provisional; se descarta "insignia" por ser demasiado de MIR4.*
 - **Trofeos representativos de cada familia de mob**: no son objetos inventados, sino una parte de la criatura que se caza. Ejemplos: las **bestias** sueltan **dientes**; los **elementales**, **residuo elemental**. Solo cazando esa familia se consigue su trofeo.
 - **Objetos de códice**: se fabrican con los trofeos y llevan su nombre (con dientes, un **collar de dientes**; con residuo elemental, un **collar de residuo elemental**).
+- **Las familias de mobs se introducen por temporada**, y con ellas sus entradas del códice de caza:
+  - **Temporada 1**: bestias, humanoides y elementales.
+  - **Temporada 2**: + no-muertos.
+  - **Temporada 3**: + insectos/arácnidos.
+  - Siguientes temporadas: una familia nueva cada vez.
+- El códice de caza **crece con cada temporada** y lo anterior **nunca se pierde ni queda obsoleto**: las entradas antiguas siguen sumando y sus trofeos se pueden seguir cazando en las zonas anteriores. Conviene guardar trofeos.
+- Los nombres concretos de cada trofeo y objeto se definirán al diseñar los mobs y su botín.
 - **Cada temporada trae un trofeo nuevo por familia** (por ejemplo, bestias: dientes en la Temporada 1 → huesos en la Temporada 2 → …), manteniendo la forma "collar de X".
 - La **basura** también es temática y sencilla (lobos: bolas de pelo; alces: cuernos desgastados…).
 - Con los trofeos se **fabrican** objetos de códice, que se **mejoran** y se **registran**. Fabricación, mejora y niveles de las entradas: por definir.
@@ -271,13 +278,13 @@ Inspiración (MIR4): material por zona con grados, combinable y ligado → objet
 | Pestaña | Qué se registra | Alcance |
 |---|---|---|
 | **Personaje** | Solo el equipo que **mi clase/especialización puede usar** (un guerrero tanque solo ve equipo de guerrero tanque; nunca equipo de mago) | Del personaje |
-| **Reputación** | Objetos de códice fabricados con **trofeos** de cada familia de mob | **Compartido** por todos los personajes de la cuenta en el servidor: lo que registra uno, lo tienen todos |
+| **Caza** | Objetos de códice fabricados con **trofeos** de cada familia de mob | **Compartido** por todos los personajes de la cuenta en el servidor: lo que registra uno, lo tienen todos |
 | **Servidor** | Equipo de **otras clases y especializaciones** (por ejemplo, armaduras de mago para un guerrero). Da pocas estadísticas, pero suma | **Compartido** por todos los personajes de la cuenta en el servidor |
 | ~~Tiempo limitado~~ | — | **No se implementa nunca** (códices temporales de MIR4) |
 
 - El códice de servidor da salida a las piezas de otras clases que caen (armadura de grupo, 3.9): se registran o se venden a quien las necesite.
 - **Cambio de servidor (más adelante)**: al trasladar un personaje a otro servidor, los códices compartidos se los lleva ese personaje y los personajes alternativos del servidor de origen los pierden. Habrá una opción para elegir **qué personaje** se queda con lo compartido y **qué se lleva** en el traslado (oro, códices, etc.).
-- **Proporción de entradas** (referencia MIR4): Personaje ~1.800, Reputación ~350, Servidor ~290 (≈ 74 % / 14 % / 12 %). La pestaña Personaje es la más grande porque el equipo de la propia clase es lo que más se recoge; las otras dan menos estadísticas en total.
+- **Proporción de entradas** (referencia MIR4): Personaje ~1.800, Caza (en MIR4, "Reputación") ~350, Servidor ~290 (≈ 74 % / 14 % / 12 %). La pestaña Personaje es la más grande porque el equipo de la propia clase es lo que más se recoge; las otras dan menos estadísticas en total.
 - **Subclases**: la pestaña Personaje tiene **las mismas entradas y bonificaciones** para todas las clases, pero los **objetos que pide cada entrada cambian** según la **clase activa** (al pasar de guerrero a taoísta, las casillas piden equipo de taoísta). Lo ya registrado **se mantiene** y sus estadísticas siguen sumando.
 - **Panel de progreso** por pestaña: entradas completadas / total, porcentaje, en curso y completadas.
 - Botón **Efectos**: muestra las estadísticas totales obtenidas por cada pestaña y el total general del códice.
@@ -832,5 +839,5 @@ Queda para más adelante:
 **Capítulos propios**
 - **Sistemas de juego** (siguiente): sistemas tomados de otros juegos que marcarán a qué deben apuntar las estadísticas.
 - **Estadísticas**: peso de cada estadística por clase, PvE vs. PvP; revisar la hoja (valores base que no coinciden, fórmula que suma el nivel dos veces, nombres de habilidades desplazados, modelo de estadísticas).
-- **Códice**: cantidades exactas de objetos y desarrollo por entrada (con las estadísticas); fabricación de objetos con trofeos; lista de familias de mobs y su trofeo por temporada; cuello de botella de MIR4.
+- **Códice**: cantidades exactas de objetos y desarrollo por entrada (con las estadísticas); fabricación de objetos con trofeos; nombres de trofeos y objetos por familia; cuello de botella de MIR4.
 - **Contenido por temporada**: tipo de armadura de cada especialización y casos dudosos (Espadas duales, Recolector, Carroñero, Mutilador); si el tipo puede cambiar entre la especialización 1 y la final.
