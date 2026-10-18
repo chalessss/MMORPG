@@ -427,6 +427,8 @@ Dos grupos: **equipo** (ropa y armas) y **joyería**, con **8 ranuras cada uno**
 ### 3.13 Comercio entre jugadores (decidido)
 
 - Los intercambios directos entre jugadores **siempre cobran una comisión en oro**: no se pueden pasar objetos gratis.
+- **Quema en cada transacción entre jugadores**: una parte de lo pagado **desaparece de la economía**. Ejemplo: quien paga entrega 300 de oro y quien cobra recibe 280; los 20 restantes se queman.
+- **El intercambio directo (P2P) se premia** con una comisión **menor que la del mercado** (ejemplo: 20 en P2P frente a 200 en el mercado por la misma operación).
 - El mercado y el comercio no crean objetos, solo los mueven (ver Fuentes en 3.12).
 
 ### 3.14 PvP (decidido)
@@ -787,6 +789,8 @@ Lista corta a propósito: no se quiere que el jugador necesite 30 consumibles di
 
 - **Mercado del servidor** (casa de subastas estilo WoW / MIR4): compra y venta entre jugadores. Cobra comisión (pilar "todo cuesta moneda").
 - **Intercambio directo** entre jugadores, con comisión en oro (3.13).
+- **Encargos de fabricación**: un fabricante (por ejemplo, un inventor en su puesto) ofrece su servicio con una comisión y se acuerda qué componentes pone cada parte (el fabricante aporta unos y el cliente otros). Así quien no tiene todos los componentes también encuentra solución.
+- Fabricar para otros debe dar al fabricante **experiencia, moneda y otras recompensas**.
 - **Tiendas privadas estilo Lineage 2**: un jugador se **sienta en el suelo de una ciudad** y ofrece lo que vende o las **recetas que puede fabricar** (por ejemplo, un inventor ofreciendo piedras santificadas). Las ciudades grandes tendrán zonas llenas de estos puestos, y los jugadores pasearán buscando lo que necesitan.
 - Ciclo de juego que se busca: jornada de caza o recolección → volver a la ciudad → ordenar el almacén → fabricar o encargar a otros → desconectar.
 - **Idea a futuro (si el juego funciona): blockchain / NFT**. Convertir personajes u objetos en NFT para poder venderlos fuera del juego, **pagando recursos del juego** por la conversión (otra forma de retirar moneda).
@@ -798,7 +802,10 @@ El juego busca un equilibrio: **un tercio del día jugando, un tercio en automá
 
 **Caza y recolección automáticas**
 - Habrá **caza automática** y **recolección automática**.
-- **Límite diario**: unas **4 horas al día** al principio, que suben hasta **8 horas** con el progreso del juego. Pasado el límite, el jugador tiene que volver para reactivarlo.
+- **Siempre con el juego abierto**: no hay caza ni recolección con el juego cerrado.
+- **Modo ausente**: el jugador asigna al personaje una tarea mientras no está (cazar, recolectar o quedarse como **puesto comercial**).
+- **Límite diario**: unas **4 horas al día** al principio, que suben hasta **8 horas** con el progreso. Se reinicia cada día, y se puede **encadenar con el del día siguiente**: por ejemplo, empezar 7 h 58 min antes del reinicio y seguir 8 h más tras él (≈16 h seguidas).
+- **Jugar presente tiene ventaja**: en automático **se restringe la caída** de ciertos objetos (por ejemplo, componentes de calidad superior). Los objetos de misión **no** se restringen.
 - En caza automática el personaje **no usa todas sus habilidades**: algunas solo se pueden usar a mano.
 
 **Macros**
@@ -883,8 +890,8 @@ Queda para más adelante:
 ## 7. Preguntas abiertas
 
 **Pendientes para más adelante**
-- **Mercado**: comisión del mercado; si las tiendas privadas siguen abiertas con el jugador desconectado o solo en automático.
-- **Juego automático**: si necesita el juego abierto (sin caza fuera de línea); qué ventaja concreta tiene jugar presente (por ejemplo, el automático da menos recompensa); valores de la experiencia de descanso.
+- **Mercado**: porcentajes de comisión y de quema (mercado vs. P2P); si las tiendas privadas funcionan con el jugador desconectado.
+- **Juego automático**: qué objetos exactos se restringen en automático; valores de la experiencia de descanso.
 - **Teletransporte y zonas**: precios por zona; si dentro del círculo protegido de las zonas PvP se puede atacar hacia fuera (propuesta: no se puede atacar ni ser atacado); sistema de reputación con facciones.
 - **Muerte y karma**: sistema de karma y pérdida de objetos (juego avanzado).
 - **Profesiones**: valores de la curva de oro por cambio; si una subclase de Recolector (nivel 60) da acceso al inventor.
