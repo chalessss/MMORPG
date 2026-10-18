@@ -6,7 +6,7 @@ numero_mobs,1000,prueba de caza: cuántos mobs matar
 vida_mob,420,un guerrero con espada larga lo mata en 6-7 golpes
 desplazamiento_s,0,segundos entre un mob y el siguiente (igual para todos)
 critico_base_pct,5,probabilidad de crítico sin estadísticas
-multiplicador_critico_base,1.5,un crítico hace x1.5 sin estadísticas
+multiplicador_critico_base,1.0,un crítico sin estadísticas no suma daño; el daño extra sale de crítico aumentado
 critico_aleatorio_en_caza,1,1 = en la caza cada golpe tira su crítico; 0 = valor esperado (sin azar)
 semilla,1,semilla del azar: la misma semilla da siempre el mismo resultado
 variacion_vida_mob_pct,10,la vida de cada mob varía al azar este % arriba o abajo
@@ -31,3 +31,5 @@ pocion_vida,100,vida que recupera una poción de vida (propuesta)
 pocion_mana,100,maná que recupera una poción de maná (propuesta)
 enfriamiento_pocion_s,20,segundos entre poción y poción del mismo tipo
 usar_pocion_vida_pct,40,se bebe una poción de vida al bajar de este % de vida
+tope_critico_pct,5,niveles 1-19: la probabilidad de crítico no pasa de este %
+tope_critico_aumentado_pct,10,niveles 1-19: un crítico no suma más de este % de daño

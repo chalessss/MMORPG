@@ -371,7 +371,31 @@ Mismas armas, mismos mobs (420 de vida) y mismas pociones que 2.7; solo se suman
   - **AGI** se acumula por tres vías a la vez: daño plano por golpe, probabilidad de crítico (a nivel 19 el arco pasa del 100 %) y daño crítico (×3,5).
   - **INT** multiplica todo el daño del mágico (+25 % por nivel).
   - **STR** sube el daño solo un 1,5 % por punto.
-- **Conclusión**: con este crecimiento hacen falta **topes y rendimientos decrecientes** (sobre todo en crítico) y revisar cuánto da cada punto, para que la igualdad se mantenga del 1 al 19.
+- Estos números usaban un crítico provisional sin topes: ver 2.10 para los valores con los topes decididos.
+
+### 2.10 Topes de crítico del 1 al 19 (decidido)
+
+- Del nivel 1 al 19 la **probabilidad de crítico no pasa del 5 %** y un crítico **no suma más de un +10 % de daño**. (El ×1,5 y el +0,5 % de crítico por AGI usados hasta ahora eran valores provisionales.)
+- En el simulador: crítico base 5 % con tope 5 %; un crítico sin estadísticas no suma daño y el "crítico aumentado" de AGI suma hasta +10 % (`tope_critico_pct`, `tope_critico_aumentado_pct`).
+
+**Nivel 1 con los topes** (caza real, 1.000 mobs; sin recalibrar nada): espada larga 165,1 min · espada corta 166,1 (+0,6 %) · mágico 169,1 (+2,4 %) · arco 169,2 (+2,5 %). La igualdad se mantiene sin tocar las armas.
+
+**Daño por segundo contra jefe nivel a nivel** (crecimiento = bono del arma de nivel 1; % frente al más bajo):
+
+| Nivel | Espada larga | Espada corta | Arco | Mágico |
+|---|---|---|---|---|
+| 1 | 57 (+22 %) | 54 (+15 %) | 47 | 47 (+1 %) |
+| 2 | 72 (+11 %) | 72 (+11 %) | 64 | 67 (+4 %) |
+| 5 | 128 | 142 (+11 %) | 133 (+3 %) | 155 (+20 %) |
+| 10 | 269 | 321 (+19 %) | 301 (+12 %) | 412 (+53 %) |
+| 19 | 696 | 863 (+24 %) | 817 (+17 %) | 1.349 (+94 %) |
+
+(En el nivel 1 el cuerpo a cuerpo va por delante contra el jefe a propósito: compensa la caminata en la caza, ver 2.7.)
+
+- Sin el crítico, el que se dispara es el **mágico**: +10 INT por nivel son +25 % de daño de hechizos por nivel y multiplican todo su daño.
+- La **espada corta** se separa de la larga por el daño plano de AGI por golpe (+5 AGI por nivel = +10 de daño en cada golpe, y la corta golpea casi el doble).
+- El **arco** también crece algo más que la espada larga (+10 AGI por nivel = +20 de daño plano por golpe).
+- Siguiente paso: ajustar cuánto da cada punto (sobre todo INT y el daño plano de AGI) para que los cuatro crezcan al mismo ritmo.
 
 ## 3. Estructura propuesta del capítulo
 

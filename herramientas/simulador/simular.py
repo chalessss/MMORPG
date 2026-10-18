@@ -57,8 +57,10 @@ def secundarias(arquetipo, conversion, parametros):
     for estadistica in ("str", "int", "agi"):
         for secundaria, por_punto in conversion.get(estadistica, {}).items():
             s[secundaria] = s.get(secundaria, 0) + float(arquetipo[estadistica]) * por_punto
-    probabilidad = (parametros["critico_base_pct"] + s.get("critico_pct", 0)) / 100
-    multiplicador = parametros["multiplicador_critico_base"] + s.get("critico_aumentado_pct", 0) / 100
+    probabilidad = min(parametros["critico_base_pct"] + s.get("critico_pct", 0),
+                       parametros["tope_critico_pct"]) / 100
+    multiplicador = parametros["multiplicador_critico_base"] + min(
+        s.get("critico_aumentado_pct", 0), parametros["tope_critico_aumentado_pct"]) / 100
     return {
         "vida": s.get("vida", 0),
         "regen_vida": s.get("regen_vida", 0),
