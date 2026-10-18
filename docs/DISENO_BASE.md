@@ -34,7 +34,7 @@ Entidades del mundo
 
 Los controla una persona.
 
-- Arquetipo (Físico / Mágico) → clase base → especialización 1 → especialización final.
+- Clase de inicio (Mágica - Rango, Física - Melee, Física - Rango) → especialización 1 (nivel 20) → especialización 2 → especialización 3.
 - **Del 1 al 19 solo existe la clase de inicio**: en el nivel 1 se elige daño mágico (**Mágica - Rango**) o daño físico (**Física - Melee** o **Física - Rango**). En el **nivel 20** una misión del entrenador de clase ofrece las clases base del arquetipo (detalle en `docs/ESTADISTICAS.md`, 1.7).
 - Varias **subclases** por personaje, cada una con su propio progreso. Se desbloquean en el **nivel 60** (del 1 al 40 se aprende a jugar bien la clase; del 40 al 60 se sube rápido). Reglas detalladas: más adelante.
 - Estadísticas principales (STR / INT / AGI), derivadas y neutrales.
@@ -380,7 +380,7 @@ Solo tres tipos: **tela**, **cuero** y **placas** (sin malla). Regla para asigna
 
 **Propuesta de asignación según el árbol de clases** (borrador; se revisará al diseñar el contenido de cada temporada):
 
-| Base (1–20) | Especialización 1 (20–40) | Especialización final (40–60) |
+| Especialización 1 (1–20) | Especialización 2 (20–40) | Especialización 3 (40–60) |
 |---|---|---|
 | Luchador — cuero | Dos manos — placas | Lancero — placas · Guerrero — placas |
 | | Espadas duales — **?** | Gladiador — placas · Danzador — cuero |

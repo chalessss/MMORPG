@@ -27,9 +27,9 @@ La hoja de ruta completa está en `docs/HOJA_DE_RUTA.md`: mantenerla actualizada
 
 | Temporada | Niveles | Elección | Clases |
 |---|---|---|---|
-| 1 | 1–20 | Arquetipo (Físico/Mágico) del 1 al 19; clase base en el nivel 20 | Luchador, Combatiente, Asesino, Atacante a distancia, Mago, Invocador |
-| 2 | 20–40 | Especialización 1 | Dos manos, Espadas duales, Tanque, Daguero, Arquero, Hechicero, Encantador… |
-| 3 | 40–60 | Especialización final | ~19 clases (Paladín, Berserker, Nigromante, Sacerdote, Monje…) |
+| 1 | 1–20 | Clase de inicio del 1 al 19 (Mágica - Rango, Física - Melee, Física - Rango); **especialización 1** en el nivel 20 | Luchador, Combatiente, Asesino, Atacante a distancia, Mago, Invocador |
+| 2 | 20–40 | **Especialización 2** (nivel 40 según la hoja) | Dos manos, Espadas duales, Tanque, Daguero, Arquero, Hechicero, Encantador… |
+| 3 | 40–60 | **Especialización 3** (nivel 60 según la hoja) | ~19 clases (Lancero, Berserker, Carroñero, Explorador, Paladín, Nigromante, Sacerdote, Monje…) |
 
 Implicaciones técnicas:
 - El nivel máximo y las especializaciones disponibles se controlan por **configuración de temporada** (datos), no por código: el sistema debe soportar 60 niveles desde el inicio.

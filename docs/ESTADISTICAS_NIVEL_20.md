@@ -41,6 +41,16 @@ Lista cerrada: son **todas** las especializaciones que habrá en el nivel 20.
 
 - Las dos armas de Física - Melee se reparten entre sus especializaciones: la **espada corta** pasa al Luchador y la **espada larga** al Combatiente.
 - Dagas y varitas no se consiguen como las demás armas: **se fabrican con una profesión**.
+- **Arma inicial (decidido)**: la recompensa de la misión "elige tu especialización" es un objeto propio de la especialización elegida, que solo ella puede usar. Para el Asesino es su **primera daga** y para el Invocador su **primera varita**; las siguientes se fabrican.
+
+### 1.0e Nombres de las etapas (decidido)
+
+| Etapa | Cuándo | Clases |
+|---|---|---|
+| Clase de inicio | Niveles 1–19 | Mágica - Rango, Física - Melee, Física - Rango |
+| **Especialización 1** | Nivel 20 | Luchador, Combatiente, Asesino, Atacante a distancia, Mago, Invocador |
+| **Especialización 2** | Temporada 2 (nivel 40 según la hoja) | Dos manos, Espadas duales, Tanque, Daguero, Arquero, Hechicero, Encantador… |
+| **Especialización 3** | Temporada 3 (nivel 60 según la hoja) | Lancero, Berserker, Carroñero, Explorador… (~19) |
 
 ### 1.0c Transición en el nivel 20: se recalcula todo (decidido)
 
@@ -115,5 +125,4 @@ La velocidad de la hoja está en golpes relativos; en el simulador se expresa en
 
 ## 3. Preguntas abiertas
 
-- **Nombres de las etapas**: con la clase base en el nivel 20, la "especialización 1" (Dos manos, Tanque, Arquero…) parece pasar al nivel 40 y la especialización final al 60, como en la hoja. En los documentos generales aún figura la especialización 1 en el 20. Hay que confirmarlo y unificarlo.
 - **Flecos de la parte 1** que conviene cerrar aquí: validar los valores por punto de INT y AGI, daño de las armas por tramos y pociones que curen según el nivel.

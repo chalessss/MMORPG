@@ -10,9 +10,9 @@ MMORPG en Unreal Engine 5 donde el **personaje es el centro**: empieza sencillo 
 
 | Temporada | Niveles | Elección del jugador |
 |---|---|---|
-| 1 | 1–20 | Arquetipo (Físico / Mágico) del 1 al 19; clase base (6 clases) en el nivel 20 |
-| 2 | 20–40 | Especialización 1 |
-| 3 | 40–60 | Especialización final (~19 clases) |
+| 1 | 1–20 | Clase de inicio (Mágica - Rango, Física - Melee, Física - Rango) del 1 al 19; especialización 1 (6 clases) en el nivel 20 |
+| 2 | 20–40 | Especialización 2 (Dos manos, Tanque, Arquero…) |
+| 3 | 40–60 | Especialización 3 (~19 clases: Lancero, Berserker, Carroñero…) |
 
 - Cada temporada es un lanzamiento de contenido. Su duración **no es fija**: se decidirá según cuánto tarden los jugadores en llegar al nivel máximo y cuánto contenido adicional haya.
 - Cada temporada debe tener actividades en su nivel máximo (endgame), no solo subida de nivel.
@@ -49,7 +49,7 @@ Estadísticas, habilidades, enfriamientos y efectos se construyen sobre el **Gam
 
 Objetivo: tener personajes completos a nivel de datos y reglas, aunque visualmente sean básicos.
 
-- [ ] Modelo de datos: arquetipo → clase base → especialización 1 → especialización final
+- [ ] Modelo de datos: clase de inicio → especialización 1 → especialización 2 → especialización 3
 - [ ] Subclases: un mismo personaje puede tener varias clases y cambiar entre ellas sin crear otro personaje ni empezar de cero (el modelo de datos debe soportarlo desde el inicio, aunque la función se active más adelante)
 - [ ] Estadísticas principales (STR / INT / AGI) y derivadas (vida, maná, daño, crítico, defensas…)
 - [ ] Estadísticas neutrales (evasión, precisión, CDR, PvP, caída de objetos…)
@@ -102,8 +102,8 @@ Objetivo: tener personajes completos a nivel de datos y reglas, aunque visualmen
 
 ## Después del lanzamiento
 
-- Temporada 2 (niveles 20–40, especializaciones)
-- Temporada 3 (niveles 40–60, especializaciones finales)
+- Temporada 2 (niveles 20–40, especialización 2)
+- Temporada 3 (niveles 40–60, especialización 3)
 - Parches de contenido entre temporadas
 
 ---
