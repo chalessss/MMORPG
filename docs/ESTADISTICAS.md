@@ -87,8 +87,8 @@ Las estadísticas principales forman un sistema de **piedra, papel o tijera**: *
 | Perfil de inicio | Reparto (STR/INT/AGI) | Tomado de | Armas |
 |---|---|---|---|
 | Físico cuerpo a cuerpo | 5 / 1 / 4 | Combatiente | Espada larga (lenta, fuerte) o espada corta (rápida, floja) |
-| Físico a distancia | 2 / 2 / 6 | Atacante a distancia | Arco |
-| Mágico | 1 / 7 / 2 | Mago | Bastón de dos manos (nunca pega con él) |
+| Físico a distancia | 3 / 2 / 5 (antes 2 / 2 / 6, ver 2.16) | Atacante a distancia | Arco |
+| Mágico | 2 / 6 / 2 (antes 1 / 7 / 2, ver 2.16) | Mago | Bastón de dos manos (nunca pega con él) |
 
 - Al elegir clase en el nivel 20 se pasa al reparto propio de la clase (tabla de 1.2).
 - Es una etapa de **aprendizaje**: atacar, moverse, hacer misiones, leer el mapa, recolectar y entender las profesiones. Debería durar unas **3–4 semanas** de juego (orientativo).
@@ -561,6 +561,28 @@ Valores de partida (ajustables en `habilidades.csv`):
 - **Golpe sangriento**: el cuerpo a cuerpo pasa a beber **0,7–2,6 pociones por mob** (antes ninguna) y caza algo más rápido (espada larga 305 → 274 min en el nivel 10).
 - **Arco con 4 %**: sigue sin necesitar ninguna poción desde el nivel 10. El robo de vida aún cubre todo el daño recibido.
 - **Mágico**: sin cambios respecto a 2.14; es el más rápido desde el nivel 10 y la diferencia llega al 58,5 % en el 19.
+
+### 2.16 Prueba: nuevo reparto base de mágico y arquero
+
+Reparto base (STR / INT / AGI): **mágico 2 / 6 / 2** (antes 1 / 7 / 2) y **físico a distancia 3 / 2 / 5** (antes 2 / 2 / 6). El crecimiento por nivel sigue siendo el bono del arma de nivel 1, así que el cambio solo mueve un punto de cada estadística.
+
+**Nivel 1** (caza real): espada larga 165,1 min · espada corta 166,1 (+0,6 %) · mágico 169,3 (+2,6 %) · arco 169,9 (+2,9 %). Vida: arco 220 → 240, mágico 180 → 200. Pociones: arco 196 → 177, mágico 251 → 231.
+
+**Del 1 al 19** (mismas condiciones que 2.15; min · pociones · muertes de arco y mágico, que son los que cambian):
+
+| Nivel | Arco (antes → ahora) | Mágico (antes → ahora) | Diferencia (antes → ahora) |
+|---|---|---|---|
+| 1 | 169 · 196 · 0 → 170 · 177 · 0 | 169 · 251 · 0 → 169 · 231 · 0 | 2,5 → 2,9 % |
+| 4 | 165 · 377 · 0 → 165 · 355 · 0 | 148 · 404 · 8 → 143 · 412 · 0 | 21,9 → 26,0 % |
+| 5 | 171 · 449 · 0 → 172 · 361 · 0 | 175 · 342 · 51 → 157 · 384 · 20 | 16,8 → 27,5 % |
+| 7 | 207 · 505 · 16 → 203 · 526 · 9 | 207 · 338 · 82 → 198 · 356 · 65 | 17,3 → 19,0 % |
+| 9 | 261 · 511 · 45 → 247 · 561 · 23 | 240 · 373 · 102 → 227 · 371 · 83 | 20,5 → 26,8 % |
+| 10 | 271 · 0 · 0 → 271 · 0 · 0 | 206 · 444 · 0 → 205 · 408 · 0 | 32,9 → 33,6 % |
+| 15 | 528 · 0 · 0 → 527 · 0 · 0 | 359 · 987 · 0 → 358 · 855 · 0 | 47,3 → 47,4 % |
+| 19 | 998 · 0 · 0 → 998 · 0 · 0 | 630 · 1.644 · 0 → 628 · 1.271 · 0 | 58,5 → 59,0 % |
+
+- El punto extra de STR da más vida: **menos muertes** del 4 al 9 (el mágico pasa de 102 a 83 en el nivel 9; el arco, de 45 a 23) y algo menos de pociones.
+- El ritmo de caza apenas cambia; el desequilibrio entre perfiles sigue viniendo del crecimiento por nivel (el mágico sigue siendo el más rápido desde el nivel 2).
 
 ## 3. Estructura propuesta del capítulo
 
