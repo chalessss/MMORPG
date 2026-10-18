@@ -33,3 +33,5 @@ enfriamiento_pocion_s,20,segundos entre poción y poción del mismo tipo
 usar_pocion_vida_pct,40,se bebe una poción de vida al bajar de este % de vida
 tope_critico_pct,5,niveles 1-19: la probabilidad de crítico no pasa de este %
 tope_critico_aumentado_pct,10,niveles 1-19: un crítico no suma más de este % de daño
+numero_mobs_por_nivel,300,mobs por nivel en la simulación nivel a nivel (--niveles)
+nivel_maximo_simulado,19,último nivel de la simulación nivel a nivel

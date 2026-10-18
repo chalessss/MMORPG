@@ -14,6 +14,7 @@ Uso:
   python3 simular.py --calibrar-real  sube el daño de las armas cuerpo a cuerpo
                                  para igualar a los de distancia en la caza
                                  real (con caminata), y lo guarda
+  python3 simular.py --niveles   caza real nivel a nivel con mobs que escalan
 """
 
 import csv
@@ -366,6 +367,51 @@ def calibrar_real(parametros, armas, arquetipos, conversion, habilidades):
     print("Guardado en datos/armas.csv.\n")
 
 
+def perfiles_nivel(armas, arquetipos, habilidades, nivel):
+    """Perfiles a un nivel dado: cada nivel suma las estadísticas que da el arma
+    de nivel 1 de ese arquetipo (la primera de su lista)."""
+    por_nombre = {a["arma"]: a for a in armas}
+    subidos = []
+    for arquetipo in arquetipos:
+        arma = por_nombre[arquetipo["armas"].split("|")[0]]
+        subido = dict(arquetipo)
+        for e in ("str", "int", "agi"):
+            subido[e] = str(float(arquetipo[e]) + (nivel - 1) * float(arma.get(f"bono_{e}") or 0))
+        subidos.append(subido)
+    return list(perfiles(armas, subidos, habilidades))
+
+
+def niveles(parametros, armas, arquetipos, conversion, habilidades):
+    """Caza real nivel a nivel. Los mobs escalan con los jugadores: su vida sube
+    como el daño por segundo medio de los perfiles y su daño, como la vida media."""
+    p = dict(parametros)
+    p["numero_mobs"] = parametros["numero_mobs_por_nivel"]
+    base = None
+    print(f"Caza real nivel a nivel · {p['numero_mobs']:.0f} mobs por nivel · los mobs escalan con los jugadores\n")
+    cabecera = None
+    for nivel in range(1, int(parametros["nivel_maximo_simulado"]) + 1):
+        lista = perfiles_nivel(armas, arquetipos, habilidades, nivel)
+        dps = sum(prueba_jefe(pf, conversion, p)["dps"] for pf in lista) / len(lista)
+        vida = sum(p["vida_base"] + secundarias(pf["arquetipo"], conversion, p)["vida"] for pf in lista) / len(lista)
+        if base is None:
+            base = (dps, vida)
+        p["vida_mob"] = round(parametros["vida_mob"] * dps / base[0])
+        p["dano_mob"] = round(parametros["dano_mob"] * vida / base[1])
+        cazas = [prueba_caza(pf, conversion, p, supervivencia=True) for pf in lista]
+        nombres = [pf["arma"]["arma"] if pf["arquetipo"]["ataque_basico"] == "1" else "Mágico" for pf in lista]
+        if cabecera is None:
+            cabecera = f"{'Nivel':>5}{'Vida mob':>9}{'Daño mob':>9}" + "".join(f"{n:>22}" for n in nombres) + f"{'Diferencia':>11}"
+            print(cabecera)
+            print(f"{'':>23}" + "".join(f"{'s/mob · perdido · poc.':>22}" for _ in nombres))
+        tiempos = [c["tiempo"] for c in cazas]
+        rapido = min(tiempos)
+        celdas = "".join(
+            f"{c['tiempo'] / p['numero_mobs']:>9.1f}{c['perdido'] / (c['util'] + c['perdido']) * 100:>7.1f}%{c['pociones_vida'] + c['pociones_mana']:>5}"
+            for c in cazas)
+        print(f"{nivel:>5}{p['vida_mob']:>9.0f}{p['dano_mob']:>9.0f}{celdas}{(max(tiempos) / rapido - 1) * 100:>10.1f}%")
+    print("\nPerdido = daño que sobra al rematar · poc. = pociones de vida y de maná bebidas")
+
+
 def informe(parametros, armas, arquetipos, conversion, habilidades):
     lista = list(perfiles(armas, arquetipos, habilidades))
     n = parametros["numero_mobs"]
@@ -423,6 +469,9 @@ def main():
         calibrar(*datos)
     if "--calibrar-real" in sys.argv:
         calibrar_real(*datos)
+    if "--niveles" in sys.argv:
+        niveles(*datos)
+        return
     informe(*datos)
 
 
