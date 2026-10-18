@@ -343,6 +343,36 @@ Mismas armas, mismos mobs (420 de vida) y mismas pociones que 2.7; solo se suman
 - Con +5 de STR nadie necesita pociones (todos ganan 100 de vida).
 - Conclusión: el crecimiento por nivel no puede ser igual para todos; debe seguir el reparto de cada perfil (o ajustarse por perfil) y comprobarse con el simulador nivel a nivel.
 
+### 2.9 Crecimiento por nivel = bono del arma de nivel 1 (decidido)
+
+- Cada nivel, el personaje gana **las mismas estadísticas que da su arma de nivel 1**: cuerpo a cuerpo **+10 STR, +5 AGI, +3 INT**; distancia **+4 STR, +10 AGI, +4 INT**; mágico **+3 STR, +5 AGI, +10 INT** (valores actuales de prueba).
+- **Easter egg**: el arma de nivel 1 "anuncia" el crecimiento nivel a nivel; quien se fije en sus estadísticas sabrá cuánto subirá cada nivel.
+
+**Prueba a nivel 2** (mismas armas, mobs de 420 sin escalar, con pociones):
+
+| Perfil | STR / AGI / INT (con arma) | Daño por segundo contra jefe | Caza real | Frente al más rápido |
+|---|---|---|---|---|
+| Mágico | 4/7/17 → 7/12/27 | 49 → 71 (+45 %) | 160,8 → 114,2 min (−29 %) | — |
+| Arco | 6/16/6 → 10/26/10 | 50 → 73 (+45 %) | 157,3 → 114,8 min (−27 %) | +0,5 % |
+| Espada corta | 15/9/4 → 25/14/7 | 56 → 77 (+36 %) | 159,9 → 127,0 min (−21 %) | +11,2 % |
+| Espada larga | 15/9/4 → 25/14/7 | 60 → 77 (+29 %) | 160,3 → 134,4 min (−16 %) | +17,7 % |
+
+**Daño por segundo contra jefe nivel a nivel** (no depende de los mobs; % frente al más bajo):
+
+| Nivel | Espada larga | Espada corta | Arco | Mágico |
+|---|---|---|---|---|
+| 1 | 60 (+21 %) | 56 (+14 %) | 50 (+2 %) | 49 |
+| 2 | 77 (+7 %) | 77 (+7 %) | 73 (+2 %) | 71 |
+| 5 | 147 | 163 (+11 %) | 178 (+21 %) | 176 (+19 %) |
+| 10 | 356 | 425 (+19 %) | 570 (+60 %) | 539 (+51 %) |
+| 19 | 1.254 | 1.556 (+24 %) | 2.812 (+124 %) | 2.397 (+91 %) |
+
+- Con las conversiones actuales (lineales y sin topes), **el arco y el mágico se disparan** al subir de nivel:
+  - **AGI** se acumula por tres vías a la vez: daño plano por golpe, probabilidad de crítico (a nivel 19 el arco pasa del 100 %) y daño crítico (×3,5).
+  - **INT** multiplica todo el daño del mágico (+25 % por nivel).
+  - **STR** sube el daño solo un 1,5 % por punto.
+- **Conclusión**: con este crecimiento hacen falta **topes y rendimientos decrecientes** (sobre todo en crítico) y revisar cuánto da cada punto, para que la igualdad se mantenga del 1 al 19.
+
 ## 3. Estructura propuesta del capítulo
 
 1. **Lista cerrada de estadísticas** y a qué categoría pertenece cada una (principal, derivada, neutral, PvP, utilidad).
