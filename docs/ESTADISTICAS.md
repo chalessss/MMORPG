@@ -821,6 +821,10 @@ El mágico sí se queda corto de maná a veces y para a recuperarlo (por eso tar
 
 **Rangos: +2 % de daño y +25 % de coste por rango (decidido).** En el nivel 19 (rango 4): +6 % de daño y +75 % de coste. Solo cambia el mágico, que para algo más a recuperar maná: 812 → 863 min en el nivel 19 (espada larga 824, espada corta 765, arco 1.061); sigue sin beberse ninguna poción de maná.
 
+**Cada nivel de habilidad se aplica sobre el anterior (decidido):** nivel 2 = +25 % de coste y +2 % de daño; nivel 3 = ×1,25 y ×1,02 sobre el 2; nivel 4 = ×1,25 y ×1,02 sobre el 3. En el nivel 4: **+95 % de coste y +6,1 % de daño**.
+
+Efecto (nivel 19): espada larga 823 min · espada corta 765 · arco 1.060 (258 pociones de maná) · mágico 928 (para más a recuperar maná). El arco empieza a beber pociones de maná desde el nivel 15 (43–258) y el mágico algunas en los niveles 15–16.
+
 **El coste de maná se resuelve en el nivel 20 (decidido):** con 3 habilidades activables no hay suficiente gasto; al elegir clase tendrán **6–8 habilidades activables**, y entonces se ajustarán los costes para cumplir el objetivo de 300–1.000 pociones de maná.
 
 ## 3. Ficha de los niveles 1–19 (en revisión: ver 2.21)

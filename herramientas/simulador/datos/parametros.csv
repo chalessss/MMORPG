@@ -43,6 +43,6 @@ rotacion_mobs,1,1 = los mobs salen siempre en el orden de mobs.csv (cuerpo a cue
 armadura_por_nivel,50,armadura del equipo: este valor por nivel (50 en el 1; 500 en el 10; 1000 en el 20)
 armadura_por_punto_de_dano,100,cada tantos puntos de armadura se resta 1 de daño a cada golpe recibido (de cualquier fuente)
 objetivo_pociones_mana,650,--calibrar-mana: pociones de maná cada 1.000 mobs en el último nivel simulado (entre 300 y 1.000)
-niveles_rango,5|10|15,libros de habilidad: niveles en los que cada habilidad sube de rango (rango 2 en el 5, rango 3 en el 10, rango 4 en el 15)
-mejora_dano_pct,2,cada rango sube el daño de la habilidad este % (sobre el valor base)
-mejora_coste_pct,25,cada rango sube el coste de maná de la habilidad este % (sobre el valor base)
+niveles_rango,5|10|15,libros de habilidad: niveles de personaje en los que cada habilidad sube de nivel (nivel 2 en el 5, 3 en el 10, 4 en el 15)
+mejora_dano_pct,2,cada nivel de habilidad sube el daño este % sobre el nivel anterior
+mejora_coste_pct,25,cada nivel de habilidad sube el coste de maná este % sobre el nivel anterior
