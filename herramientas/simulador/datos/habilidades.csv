@@ -1,0 +1,9 @@
+clase_id,nombre,tipo,dano,enfriamiento,lanzamiento,duracion,efecto
+CL_LUC,Golpe al suelo,dano,400,8,0.8,0,
+CL_LUC,Golpe de mango,dano,600,15,1.0,0,
+CL_COM,Tajo brutal,dano,650,12,0.8,0,
+CL_ASE,Desgarro,dano,500,12,0.6,0,
+CL_ATA,Disparo triple,dano,800,18,2.2,0,
+CL_MAG,Inmolar,dano,1280,20,2.5,0,
+CL_INV,Misiles arcanos,dano,600,8,2.0,0,
+*,Maestría,mejora,0,0,1.0,600,principal+10

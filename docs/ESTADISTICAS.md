@@ -72,7 +72,26 @@ Las estadísticas principales forman un sistema de **piedra, papel o tijera**: *
 - **Paridad de caza**: las 6 clases base (mágicas, físicas cuerpo a cuerpo y físicas a distancia) deben tener un **ritmo de caza contra mobs casi igual**. Subir de nivel un mago o un atacante físico debe costar el mismo tiempo para conseguir los mismos derribos, y por tanto la misma experiencia y el mismo oro del 1 al 20.
 - Se comprobará con una **simulación** que use las estadísticas base: 100, 200 o 500 mobs por clase, comparando el tiempo total. La diferencia entre clases debe ser muy pequeña.
 
-## 2. Estructura propuesta del capítulo
+### 1.5 Armas y prueba del muñeco (decidido)
+
+- Cada **tipo de arma** tiene su **daño por golpe** y su **velocidad de ataque** propios. Una espada de dos manos no pega como una daga, un libro o una varita.
+- Armas de la Temporada 1 según la hoja: Luchador y Combatiente → espada (1,0); Asesino → daga (1,6); Atacante a distancia → arco (1,1); Mago → bastón (0,6); Invocador → varita (1,2).
+- **Prueba del muñeco**: un objetivo con vida prácticamente infinita (por ejemplo, 50 millones) al que cada clase golpea durante **20 minutos** a nivel 1. El daño total de todas las clases debe salir casi igual.
+- Cuando haya roles, el objetivo será distinto por rol (valores de ejemplo, se fijarán más adelante): **daño puro** un 3–5 % por encima de la media; **tanque** alrededor de un 5 % por debajo; **curandero** alrededor de un 8 % por debajo, porque dedican la pelea a otras cosas. En la Temporada 1 las 6 clases base son de daño y deben quedar iguales.
+
+## 2. Simulador
+
+`herramientas/simulador/` (ver su README) ejecuta la prueba del muñeco con los datos en CSV.
+
+**Propuesta usada en la primera versión** (todo ajustable en los CSV):
+- **Daño de arma normalizado**: daño por golpe = 40 / velocidad, para que todas las armas tengan el mismo daño por segundo en ataque básico (espada 40, daga 25, bastón 66,7…). Las armas lentas pegan más fuerte por golpe.
+- **Fórmula del golpe**: (daño del arma o de la habilidad + daño base de AGI) × (1 + % daño base de STR) × (1 + % daño de habilidad de INT, solo en habilidades) × crítico.
+- **Por punto**: STR → +20 vida, +0,2 vida/s, +0,5 % defensa física y mágica, +1,5 % daño; INT → +15 maná, +0,2 maná/s, +2,5 % daño de habilidad; AGI → +2 daño plano por golpe, +0,5 % crítico, +1 % daño crítico. Crítico base: 5 % de probabilidad y ×1,5.
+- Habilidades de la hoja: las de daño de cada clase (el Luchador tiene dos: Golpe al suelo y Golpe de mango) y Maestría (+10 a la estadística principal durante 600 s) para todas.
+
+**Primer resultado** (20 minutos, nivel 1): diferencia del **28 %** entre la clase más fuerte (Luchador, +15 % sobre la media) y la más débil (Combatiente, −10 %). El simulador calcula cuánto habría que mover el daño de las habilidades de cada clase para igualarlas.
+
+## 3. Estructura propuesta del capítulo
 
 1. **Lista cerrada de estadísticas** y a qué categoría pertenece cada una (principal, derivada, neutral, PvP, utilidad).
 2. **Crecimiento por nivel**: cuántos puntos de principales da cada nivel y si el reparto es fijo por clase o en parte libre.
@@ -84,6 +103,6 @@ Las estadísticas principales forman un sistema de **piedra, papel o tijera**: *
 8. **Puntuación de poder**.
 9. **Implementación**: AttributeSets de GAS y DataTables.
 
-## 3. Preguntas abiertas
+## 4. Preguntas abiertas
 
 Ver la conversación de la sesión; se trasladarán aquí las respuestas como decisiones.
