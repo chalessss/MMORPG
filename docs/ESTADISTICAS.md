@@ -265,6 +265,22 @@ Todas las armas dan el mismo bono (columnas `bono_str`, `bono_int`, `bono_agi` d
 - En la caza real, el **cuerpo a cuerpo** queda último por el tiempo caminando (13–14 %), ahora que nadie descansa.
 - Conclusión: el bono del arma debería ser **propio de cada tipo de arma** (por ejemplo, más STR en espadas, más AGI en arcos, más INT en bastones) y recalibrarse con el simulador.
 
+### 2.5 Prueba: bono propio de cada tipo de arma, sin descansos
+
+Sin tocar mobs, vida ni daño o velocidad de las armas. Bonos (STR / INT / AGI): **espadas 10 / 3 / 5**, **arco 4 / 4 / 10**, **bastón 3 / 10 / 5**.
+
+| Perfil | Reparto con el arma | Daño por segundo contra jefe (sin bono → con bono) | Caza puro | Caza real | Frente al más rápido (real) | Caminando | Muerto | Muertes |
+|---|---|---|---|---|---|---|---|---|
+| Espada larga | 15 / 4 / 9 | 32,6 → 44,5 (+37 %) | 177,3 min | 201,5 min | +16,8 % | 12 % | 0 % | 0 |
+| Espada corta | 15 / 4 / 9 | 31,3 → 46,5 (+49 %) | 162,8 min | 185,9 min | +7,7 % | 13 % | 0 % | 0 |
+| Arco | 6 / 6 / 16 | 31,9 → 50,0 (+57 %) | 158,4 min | 172,5 min | — | 0 % | 8 % | 27 |
+| Mágico | 4 / 17 / 7 | 32,2 → 49,4 (+53 %) | 160,7 min | 195,4 min | +13,3 % | 0 % | 15 % | 58 |
+
+- En combate puro la diferencia baja a **11,9 %** (con el bono igual para todos era 19,2 %), pero la **espada larga queda la última**: los +10 de daño plano por golpe de AGI favorecen a la espada corta, que pega casi el doble de veces.
+- El **arco** es quien más gana: +10 AGI le da daño plano y crítico en cada golpe.
+- **Sin descansos, los de distancia mueren**: el arco y el mágico, con 180–220 de vida y 1,3–1,7 de regeneración, pierden más vida por mob de la que recuperan (el arco 27 muertes, el mágico 58). El cuerpo a cuerpo, con 400 de vida y 3,5/s, aguanta sin morir.
+- El cuerpo a cuerpo pierde un 12–13 % del tiempo caminando.
+
 ## 3. Estructura propuesta del capítulo
 
 1. **Lista cerrada de estadísticas** y a qué categoría pertenece cada una (principal, derivada, neutral, PvP, utilidad).
