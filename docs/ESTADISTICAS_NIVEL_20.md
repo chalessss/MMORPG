@@ -29,6 +29,12 @@ Lista cerrada: son **todas** las especializaciones que habrá en el nivel 20.
 | Mágica - Rango | **Mago**, **Invocador** |
 
 
+### 1.0c Transición en el nivel 20: se recalcula todo (decidido)
+
+- Al elegir especialización **se recalculan todas las estadísticas** con el reparto de la especialización, como si el personaje siempre lo hubiera tenido.
+- **Cada especialización tiene su propia conversión** de STR, INT y AGI: un mismo punto no da lo mismo a todas. Por ejemplo, la STR da **menos daño físico al Asesino** que al Luchador, pero el Asesino saca **más probabilidad de crítico** de su AGI.
+- Se hace un **balance nuevo de las 6 especializaciones** a partir de su reparto base y de esa conversión propia.
+
 ### 1.1 Cómo llega el personaje al nivel 20
 
 Valores del nivel 19 (ficha vigente: `python3 herramientas/simulador/simular.py --ficha`):
@@ -73,7 +79,7 @@ La velocidad de la hoja está en golpes relativos; en el simulador se expresa en
 ## 2. Trabajo de esta sesión
 
 1. ~~**Especializaciones por clase de inicio**~~: decidido (1.0b).
-2. **Transición en el nivel 20**: cómo se pasa del reparto del perfil al de la clase (puntos ya ganados y crecimiento por nivel desde el 20).
+2. ~~**Transición en el nivel 20**~~: se recalcula todo (1.0c). Falta fijar el crecimiento por nivel de cada especialización.
 3. **Pasiva de clase**: qué da cada punto de STR, INT y AGI en cada una de las 6 clases.
 4. **Habilidades de clase** (6–8 activables) en lo que afecta a las estadísticas: daño, enfriamiento y coste de maná.
 5. **Armas de clase**: daño y velocidad de daga, varita y espadas de clase.
@@ -86,5 +92,4 @@ La velocidad de la hoja está en golpes relativos; en el simulador se expresa en
 ## 3. Preguntas abiertas
 
 - **Nombres de las etapas**: con la clase base en el nivel 20, la "especialización 1" (Dos manos, Tanque, Arquero…) parece pasar al nivel 40 y la especialización final al 60, como en la hoja. En los documentos generales aún figura la especialización 1 en el 20. Hay que confirmarlo y unificarlo.
-- **Transición**: ¿se recalculan todas las estadísticas con el reparto de la clase como si siempre hubiera sido de esa clase, o la clase solo cambia lo que se gana del 20 en adelante?
 - **Flecos de la parte 1** que conviene cerrar aquí: validar los valores por punto de INT y AGI, daño de las armas por tramos y pociones que curen según el nivel.
