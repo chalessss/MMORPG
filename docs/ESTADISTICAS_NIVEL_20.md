@@ -188,7 +188,7 @@ Todas las especializaciones tienen **8 habilidades** con la misma distribución:
 | 3 | Pasiva | Sed de sangre | Sed de sangre | Sed de sangre | Ojo de Halcón | Celeridad | Celeridad |
 | 4 | Activa | Golpe sangriento | Golpe sangriento | Golpe sangriento | Disparo potente | Escudo de maná | Escudo de maná |
 | 5 | Pasiva de especialización | Afinidad con la fuerza | Afinidad con la fuerza | Afinidad con la agilidad | Afinidad con la agilidad | Afinidad con el intelecto | Afinidad con el intelecto |
-| 6 | Pasiva de arma | Golpes más rápidos con espadas cortas | Más armadura y defensa con espadas largas | Más probabilidad de crítico | Más daño a distancia y más alcance | Más daño de hechizos y regeneración de maná | Más potencia de escudos, curas y apoyos al grupo; más regeneración de maná por punto de INT; +50 % de daño contra monstruos (no jefes) |
+| 6 | Pasiva de arma | Golpes más rápidos con espadas cortas | Más armadura y defensa con espadas largas; sus golpes y habilidades generan más amenaza que los de cualquier otra clase | Más probabilidad de crítico | Más daño a distancia y más alcance | Más daño de hechizos y regeneración de maná | Más potencia de escudos, curas y apoyos al grupo; más regeneración de maná por punto de INT; +50 % de daño contra monstruos (no jefes) |
 | 7 | Área | Torbellino | Fisura | Lluvia de cuchillas | Lluvia de flechas | Lluvia de fuego | Lluvia de estrellas |
 | 8 | Individual | Ejecutar | Embate | Desgarro | Disparo certero | Fuego de alma | Restauración |
 
@@ -210,7 +210,7 @@ Con esta estructura cada especialización tiene **5 habilidades que se activan**
 |---|---|---|
 | Combatiente | 7 · Área: **Fisura** | **Solo se puede usar con Ira**; consume poca Ira, pero la necesita |
 | Luchador | 8 · Individual: **Ejecutar** | Golpe de remate (encaja con su futuro de daño neto a doble espada en la especialización 3). Cuando al objetivo le queda **poca vida (%)**: **la mitad de enfriamiento**, **más daño** y **no pide Ira**. Pensada para usarla sin parar en el tramo final: contra un jefe dispara el daño en su última parte; a un mob pequeño lo mata de un golpe |
-| Combatiente | 8 · Individual: **Embate** | Carga con el arma a dos manos que **empuja al enemigo hacia delante**. Golpe muy fuerte con **enfriamiento largo**; **consume toda la Ira** que tenga en ese momento para hacer daño extra (encaja con su futuro de tanque: Tanque, Paladín…) |
+| Combatiente | 8 · Individual: **Embate** | Carga con el arma a dos manos que **empuja al enemigo hacia delante**. Golpe muy fuerte; **consume toda la Ira** que tenga en ese momento para hacer daño extra (encaja con su futuro de tanque: Tanque, Paladín…). **Es su habilidad de agro**: provoca a **todos los mobs a su alcance** (ver 1.11) y se va alternando con Fisura |
 | Invocador | 8 · Individual: **Restauración** | **Cura**, no daño: el Invocador es **el único curandero** del equipo. Lanzada sobre un aliado le cura la cantidad completa y **el Invocador se cura además una parte** (por ejemplo, 500 al aliado y 100–200 a sí mismo). Si el Invocador tiene la vida llena, esa parte va al **siguiente aliado más débil** |
 | Invocador | 4 · Activa: **Escudo de maná** | Se lo puede poner **a un aliado**: el aliado recibe el escudo al 100 % y el Invocador **un 20–30 %** de ese escudo |
 | Asesino | 1 · Daño | Mantiene el **Golpe doble** |
@@ -228,7 +228,7 @@ Parámetros de daño cerrados para la simulación (individual, en grupo y contra
 | Luchador | Torbellino (área, a su alrededor) | 150 % del arma a cada mob | 15 s | — | Potenciada por la Ira |
 | Luchador | Ejecutar | 250 %; con el objetivo **por debajo del 20 % de vida**: **500 %** | 12 s; **6 s** en el remate | — | En el remate no pide Ira |
 | Combatiente | Fisura (área) | 200 % del arma a cada mob | **10 s** | — | Cuesta **15 de Ira** |
-| Combatiente | Embate (carga y empuje) | 400 % + **2 % por punto de Ira** gastado (Ira llena: 600 %) | 30 s | — | Gasta **toda la Ira** |
+| Combatiente | Embate (carga, empuje y provocación) | 400 % + **2 % por punto de Ira** gastado (Ira llena: 600 %); provoca a todos los mobs a su alcance durante 7 s | **10 s** (para alternarlo con Fisura) | — | Gasta **toda la Ira** |
 | Asesino | Lluvia de cuchillas (círculo a su alrededor) | 80 % del arma a cada mob; **roba vida solo al 50 %** | **10 s** | — | **25 de Energía** por uso |
 | Asesino | Desgarro (remate) | 350 % + sangrado en 6 s según la Energía gastada: **≥ 70 % → 100 %**, **40–70 % → 70 %**, **< 40 % → 50 %** | 12 s | — | Gasta **el 100 % de la Energía** que tenga |
 | Atacante | Lluvia de flechas (zona) | 120 % del arma por segundo durante 4 s a cada mob | 25 s | **No le interrumpe**: la lanza y sigue disparando a su objetivo mientras caen las flechas | — |
@@ -247,7 +247,7 @@ Simulador: `python3 herramientas/simulador/simular20.py` (ficha: `--ficha`), con
 **Supuestos de la simulación** (por validar):
 - Las habilidades de área físicas aplican su % al golpe entero (arma + daño plano de la AGI); los impactos de las lluvias mágicas (Lluvia de fuego, Lluvia de estrellas) no suman el daño plano de la AGI en cada impacto.
 - Ajustes: el Invocador saca 1 de daño plano por punto de AGI (en vez de 2); Lluvia de fuego cuesta el 6 % del maná y Fuego de alma el 4 %; el Golpe sangriento solo se usa si deja más de la mitad de la vida.
-- Pasivas de arma: Luchador −10 % de tiempo entre golpes; Combatiente +5 % de defensa y +500 de armadura; Asesino +5 % de crítico; Atacante +10 % de daño; Mago +10 % de daño de hechizos y +20 % de regeneración de maná; Invocador +20 % de curas y escudos, **+0,2 de maná por segundo por punto de INT** (decidido, ver 1.9) y **+50 % de daño contra monstruos, no contra jefes** (decidido, ver 1.9).
+- Pasivas de arma: Luchador −10 % de tiempo entre golpes; Combatiente +5 % de defensa, +500 de armadura y amenaza ×5 (ver 1.11); Asesino +5 % de crítico; Atacante +10 % de daño; Mago +10 % de daño de hechizos y +20 % de regeneración de maná; Invocador +20 % de curas y escudos, **+0,2 de maná por segundo por punto de INT** (decidido, ver 1.9) y **+50 % de daño contra monstruos, no contra jefes** (decidido, ver 1.9).
 - Los topes de crítico suben al 50 % de probabilidad y +150 % de daño desde el nivel 20 (provisional).
 
 **Ficha del nivel 20:**
@@ -355,26 +355,32 @@ Lectura:
 
 **Lo que quiere el diseño (decidido):** el Combatiente no debe quedarse con el agro de todos los mobs para siempre por el solo hecho de ser tanque. Lo **sostiene unos segundos** con su habilidad de área que provoca; cuando se acaba, la mayoría de los mobs se van a por quien más daño en zona les ha hecho. El Mago **no puede lanzar Lluvia de fuego sin parar** en grupo: si lo hace, se lleva el agro y muere.
 
-**Cómo lo simula ahora `simular20.py`** (antes los mobs pegaban siempre al tanque):
-- Cada mob lleva una **tabla de amenaza**: cada punto de daño que le hace un personaje suma un punto de amenaza; curar suma en todos los mobs el 50 % de lo curado.
-- **Fisura provoca** a todos los mobs que golpea durante **5 s** (y tiene 10 s de enfriamiento): mientras dura, le atacan a él.
-- Fuera de la provocación, **cada mob ataca a quien más amenaza tiene** en él. Un mob que nadie ha tocado va a por el tanque.
-- Dos formas de jugar: **sin control del agro** (cada uno hace todo el daño que puede) y **con control** (no se usa una habilidad si con ella se pasaría de la amenaza de los demás en algún mob; se pega primero a los mobs provocados).
+**Agro del Combatiente (decidido):**
+- **El Embate es la habilidad de agro**: además de su golpe, **provoca a todos los mobs a su alcance**. El Combatiente **alterna Embate (agro) y Fisura (daño en zona)**.
+- **No debe tener el agro todo el tiempo**: entre provocación y provocación hay **unos 2–3 s** en los que no genera tanto agro. Ahí el Mago tiene que **hacer una pausa** (tras una o dos Lluvias de fuego, uno o dos hechizos a un objetivo) para no llevarse los mobs, hasta que el tanque vuelva a provocar.
+- **Con cualquier golpe o habilidad, el Combatiente genera más amenaza que cualquier otro miembro**: lo da su **pasiva de arma**.
+- **Mobs que se escapan**: es tarea del Combatiente pegarles para recuperarlos. Las curas no deberían ser un problema: el Invocador también hace daño, escuda y se mueve.
 
-**Resultados** (mobs/hora del grupo · quién muere cada 300 mobs):
+**Cómo lo simula `simular20.py`** (valores provisionales):
+- Cada mob lleva una **tabla de amenaza**: cada punto de daño suma 1 de amenaza (**5 si es del Combatiente**, por su pasiva de arma); curar suma en todos los mobs el 50 % de lo curado.
+- **Embate** provoca a todos los mobs durante **7 s** y tiene **10 s** de enfriamiento: quedan unos **3 s** sin provocación. Fisura ya no provoca.
+- Fuera de la provocación, **cada mob ataca a quien más amenaza tiene**. El Combatiente va primero a por los mobs que atacan a otro.
+- **Sin control del agro**: cada uno hace todo el daño que puede. **Con control**: los demás solo lanzan su área si todos los mobs van a seguir provocados mientras dura; si no, hacen una pausa con hechizos a un objetivo (sin pasar de la amenaza del tanque).
+
+**Resultados** (mobs/hora del grupo · golpes que recibe el tanque · muertes cada 300 mobs):
 
 | Grupo | Juego | 6 mobs | 12 mobs |
 |---|---|---|---|
-| Trío (Combatiente, Mago, Invocador) | Sin control | 489 · Mago 1 vez | 821 · **Mago 14 veces**, Invocador 3 |
-| Trío | Con control | 60 · nadie | 58 · **Invocador 127 veces** |
-| Grupo de 5 (+ Atacante y Asesino) | Sin control | 805 · nadie | 1.204 · Mago 7, Invocador 1, Atacante 1 |
-| Grupo de 5 | Con control | 222 · nadie | 209 · Invocador 41, Asesino 18 |
+| Trío (Combatiente, Mago, Invocador) | Sin control | 568 · 85 % · nadie | 1.120 · 88 % · nadie |
+| Trío | Con control | 503 · 96 % · nadie | 999 · 96 % · nadie |
+| Grupo de 5 (+ Atacante y Asesino) | Sin control | 844 · 80 % · nadie | 1.562 · 84 % · Mago 1 |
+| Grupo de 5 | Con control | 754 · 92 % · nadie | 1.443 · 87 % · nadie |
 
 Lectura:
-- **Se cumple lo que se buscaba**: con 12 mobs, si el Mago tira el área sin parar, se lleva el agro en cuanto se acaba la provocación y muere una y otra vez.
-- **Pero el Combatiente genera muy poca amenaza**: hace solo el 15–30 % del daño del grupo, y con amenaza = daño no puede competir con el Mago (55–70 %). Si los demás se contienen para no quitarle el agro, el grupo apenas hace daño (de 821 a 58 mobs/hora en el trío), y entonces las **curas del Invocador** se convierten en lo que más amenaza genera y es él quien muere.
-- Pruebas rápidas de soluciones (12 mobs, trío sin control): con una **provocación clásica** (al provocar, su amenaza sube hasta la más alta del mob) casi no cambia, porque el Mago vuelve a superarle en pocos segundos; con la **amenaza del Combatiente ×3**, el Mago muere 10 veces en vez de 14, y con control el grupo sube de 58 a 119 mobs/hora.
-- **Pendiente de decidir** cómo genera amenaza el Combatiente (ver preguntas en el chat de la sesión): qué habilidad provoca, cuánto dura, si su daño cuenta más como amenaza y cuánta amenaza generan las curas.
+- Con el Embate alternado con Fisura y la amenaza ×5, el **tanque se lleva el 85–96 % de los golpes** con 12 mobs y casi nadie muere. Sin el ×5 (amenaza igual que los demás), el tanque solo recibía el 64–75 % de los golpes.
+- **Pausar le cuesta al grupo un 10 % de caza** (trío con 12 mobs: 1.120 → 999 mobs/hora), pero a cambio el tanque se lleva prácticamente todos los golpes.
+- Antes de este cambio (Fisura provocando 5 s, amenaza = daño para todos), con 12 mobs el Mago moría 14 veces cada 300 mobs si no se contenía.
+- Con el mob del nivel 20 (59 de daño), que el Mago reciba unos pocos golpes en los huecos casi nunca lo mata; con mobs más fuertes (élites, jefes) esos 3 s sin provocación castigarán mucho más.
 
 ## 2. Trabajo de esta sesión
 

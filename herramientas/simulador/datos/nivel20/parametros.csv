@@ -53,8 +53,8 @@ apoyo_dano_monstruos_pct,50,pasiva de arma del Invocador: % de daño extra contr
 escudo_propio_pct,25,escudo sobre un aliado: quien lo lanza recibe este % (20-30 %)
 escudo_estrellas_s,8,duración del escudo que deja cada estrella de la Lluvia de estrellas en los aliados
 curar_bajo_pct,60,el curandero cura al aliado más herido cuando baja de este % de vida
-habilidades_provocan,Fisura,habilidades que provocan a los mobs que golpean (separadas por |)
-provocacion_s,5,segundos que dura la provocación: después cada mob ataca a quien más amenaza tenga
+habilidades_provocan,Embate,habilidades que provocan a los mobs que golpean (separadas por |)
+provocacion_s,7,segundos que dura la provocación: después cada mob ataca a quien más amenaza tenga
 amenaza_cura_pct,50,curar genera en cada mob esta parte de lo curado como amenaza
 provocacion_iguala_amenaza,0,1 = al provocar, la amenaza del tanque sube hasta la más alta de cada mob (provocación clásica)
-amenaza_tanque_mult,1,amenaza del Combatiente por cada punto de daño (1 = como los demás)
+amenaza_tanque_mult,5,pasiva de arma del Combatiente: amenaza por cada punto de daño (provisional; los demás generan 1)

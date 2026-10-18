@@ -15,9 +15,9 @@ magico,4,Escudo de maná,escudo,,,20,1.0,8,200,0,0,20,4,,,absorbe el 20 % de la 
 luchador,6,Golpes más rápidos con espadas cortas,arma_velocidad,,,0,0,0,,0,0,10,1,,,pasiva de arma: -10 % de tiempo entre golpes
 luchador,7,Torbellino,area,1.5,arma,15,0,0,,8,0,0,1,,,a su alrededor
 luchador,8,Ejecutar,dano,2.5,arma,12,0,0,,5,0,0,1,remate,,remate: por debajo del 20 % de vida pega 500 % con 6 s de enfriamiento
-combatiente,6,Más armadura y defensa con espadas largas,arma_defensa,,,0,0,0,,0,0,5,1,,,pasiva de arma: +5 % de defensa y +500 de armadura
+combatiente,6,Más armadura y defensa con espadas largas,arma_defensa,,,0,0,0,,0,0,5,1,,,"pasiva de arma: +5 % de defensa, +500 de armadura y sus golpes generan más amenaza que los de cualquier otra clase"
 combatiente,7,Fisura,area,2.0,arma,10,0,0,,5,0,0,1,requiere_ira,,solo con Ira: cuesta 15; 10 s de enfriamiento
-combatiente,8,Embate,dano,4.0,arma,30,0,0,,8,0,0,1,embate,,gasta toda la Ira: +2 % de daño por punto
+combatiente,8,Embate,dano,4.0,arma,10,0,0,,8,0,0,1,embate,,carga y empuje: gasta toda la Ira (+2 % de daño por punto) y provoca a todos los mobs a su alcance; se alterna con Fisura
 asesino,6,Más probabilidad de crítico,arma_critico,,,0,0,0,,0,0,5,1,,,pasiva de arma: +5 % de crítico
 asesino,7,Lluvia de cuchillas,area,0.8,arma,10,0,0,,3,0,0,1,requiere_energia,50,solo con Energía: cuesta 25; 10 s de enfriamiento; roba vida al 50 %
 asesino,8,Desgarro,dano,3.5,arma,12,0,0,,6,0,0,1,desgarro,,gasta toda la Energía: sangrado de 100/70/50 % del arma en 6 s
