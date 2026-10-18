@@ -247,6 +247,19 @@ Sistema de colección que da **estadísticas permanentes a la cuenta**. Por ahor
 
 Inspiración (MIR4): material por zona con grados, combinable y ligado → objeto de códice (material + moneda) → mejora (p. ej. +2) → entrada que pide un conjunto de objetos → bonificación fija → efectos totales sumados.
 
+**Pestañas del códice (decidido)**
+
+| Pestaña | Qué se registra | Alcance |
+|---|---|---|
+| **Personaje** | Solo el equipo que **mi clase/especialización puede usar** (un guerrero tanque solo ve equipo de guerrero tanque; nunca equipo de mago) | Del personaje |
+| **Reputación** | Objetos de códice fabricados con **insignias** | **Compartido** por todos los personajes de la cuenta en el servidor: lo que registra uno, lo tienen todos |
+| **Servidor** | Equipo de **otras clases y especializaciones** (por ejemplo, armaduras de mago para un guerrero). Da pocas estadísticas, pero suma | **Compartido** por todos los personajes de la cuenta en el servidor |
+| ~~Tiempo limitado~~ | — | **No se implementa nunca** (códices temporales de MIR4) |
+
+- El códice de servidor da salida a las piezas de otras clases que caen (armadura de grupo, 3.9): se registran o se venden a quien las necesite.
+- **Cambio de servidor (más adelante)**: al trasladar un personaje a otro servidor, los códices compartidos se los lleva ese personaje y los personajes alternativos del servidor de origen los pierden. Habrá una opción para elegir **qué personaje** se queda con lo compartido y **qué se lleva** en el traslado (oro, códices, etc.).
+- Proporción de entradas entre pestañas: el usuario enviará una referencia.
+
 **Interfaz del códice (referencia MIR4)**
 - Lista de **entradas**; cada una con nombre y nivel ("[1]", "[6]"…), la bonificación que da (por ejemplo, ataque físico +20) y los **objetos que pide**, cada uno con el **nivel de desarrollo requerido** (+7, +8…).
 - Filtro lateral: **favoritos** (estrella), **todos** y **por calidad** (poco común, raro, épico, legendario…). Filtros superiores: estadística, rango de desarrollo, grado y buscador por nombre.
@@ -770,5 +783,5 @@ Queda para más adelante:
 **Capítulos propios**
 - **Sistemas de juego** (siguiente): sistemas tomados de otros juegos que marcarán a qué deben apuntar las estadísticas.
 - **Estadísticas**: peso de cada estadística por clase, PvE vs. PvP; revisar la hoja (valores base que no coinciden, fórmula que suma el nivel dos veces, nombres de habilidades desplazados, modelo de estadísticas).
-- **Códice**: pestañas del códice (MIR4 tiene personaje, reputación, servidor y tiempo limitado); qué objetos pide cada entrada y a qué nivel de desarrollo; niveles de entradas; fabricación de objetos con insignias; cuello de botella de MIR4.
+- **Códice**: proporción de entradas por pestaña; qué objetos pide cada entrada y a qué nivel de desarrollo; niveles de entradas; fabricación de objetos con insignias; cuello de botella de MIR4.
 - **Contenido por temporada**: tipo de armadura de cada especialización y casos dudosos (Espadas duales, Recolector, Carroñero, Mutilador); si el tipo puede cambiar entre la especialización 1 y la final.
