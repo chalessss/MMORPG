@@ -32,22 +32,47 @@ Estado: **en curso**. Primer capítulo de detalle. Este archivo recoge el punto 
 | | | | Resistencia PvP |
 | | | | Experiencia de caza |
 
-Hay además una columna con anotaciones sin explicar: `AGI>INT`, `INT>STR`, `STR>AGI`.
+Hay además una columna con las anotaciones `AGI>INT`, `INT>STR`, `STR>AGI` (ver 1.3).
 
-**Estadísticas base de las clases de la Temporada 1** (pestaña "Habilidades 2.0"; suman 10 puntos de principales cada una):
+**Estadísticas base de las clases de la Temporada 1** — tabla corregida (filas 54–60 de la pestaña principal; la tabla de las filas 45–51 y la de "Habilidades 2.0" son versiones anteriores y **no se usan**). Cada clase suma 10 puntos:
 
-| Clase | STR | INT | AGI | Evasión | Precisión |
+| ID | Clase | STR | INT | AGI | Recurso secundario |
 |---|---|---|---|---|---|
-| Luchador | 7 | 1 | 2 | 1 | 2 |
-| Combatiente | 6 | 1 | 3 | 1 | 2 |
-| Asesino | 3 | 1 | 6 | 1 | 2 |
-| Atacante a distancia | 2 | 2 | 6 | — | — |
-| Mago | 1 | 6 | 2 | — | — |
-| Invocador | 2 | 5 | 3 | — | — |
+| CL_LUC | Luchador | 7 | 1 | 2 | Ira (Medidor de Ira) |
+| CL_COM | Combatiente | 5 | 1 | 4 | Ira (Medidor de Ira) |
+| CL_ASE | Asesino | 3 | 1 | 6 | Energía (Medidor de Energía) |
+| CL_ATA | Atacante a distancia | 2 | 2 | 6 | Foco (Puntos de Foco) |
+| CL_MAG | Mago | 1 | 7 | 2 | Iluminación (Trance de Iluminación) |
+| CL_INV | Invocador | 2 | 5 | 3 | Iluminación (Esencia de Iluminación) |
+
+Todas usan MP como recurso primario.
+
+La fila 45 añade tres neutrales a la lista: **efecto de pociones**, **% de caída** y **% de caída con suerte**.
+
+En las filas 62–70 hay otro borrador de reparto, con columnas Físico / Mágico:
+
+| Estadística | Da | Y además | Físico | Mágico |
+|---|---|---|---|---|
+| STR | Daño base | Defensa física | 6 | 3 |
+| AGI | Crítico | Evasión | 6 | 5 |
+| INT | Daño de habilidad | Defensa mágica | 3 | 7 |
+| HP | Vida máxima | Regeneración de vida | 7 | 6 |
+| MP | Maná máximo | Regeneración de maná | 3 | 4 |
+| WD (arma) | Daño de arma | Velocidad de ataque | 7 | 3 |
+| ARM (armadura) | Absorción de daño | Reducción de daño de mobs | 6 | 2 |
 
 **Velocidad de ataque por arma** (pestaña "Armas"): lanza 0,9 · espada 1,0 · espada corta 1,3 · daga 1,6 · ballesta 0,8 · arco 1,1 · bastón 0,6 · libro 0,9 · varita 1,2.
 
 **Habilidades de ejemplo** con daño base, enfriamiento, tiempo de lanzamiento y alcance (Golpe al suelo, Golpe de mango, Inmolar…): se tratarán en el capítulo de personajes y habilidades, pero las fórmulas de este capítulo deben encajar con ellas.
+
+### 1.3 Triángulo de ventajas (decidido)
+
+Las estadísticas principales forman un sistema de **piedra, papel o tijera**: **STR > AGI > INT > STR**.
+
+- Cada personaje tiene un tipo que le gana a otro y otro tipo que le gana a él. Nadie le gana a todos.
+- Con condiciones parecidas, un personaje **no debe poder ganarle matemáticamente a su counter** y **debe ganarle con facilidad al tipo débil**.
+- El tipo depende de la clase y de sus estadísticas base. En la Temporada 1: STR = Luchador y Combatiente; AGI = Asesino y Atacante a distancia; INT = Mago e Invocador.
+- **Todas las clases y especializaciones** (hasta las ~19 finales) se encasillarán en el triángulo para saber contra quién son buenas y contra quién son malas.
 
 ## 2. Estructura propuesta del capítulo
 
