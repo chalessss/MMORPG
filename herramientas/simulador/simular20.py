@@ -290,6 +290,8 @@ def combatir(f, p, grupos, limite_s=None, sin_dano=False, vida_inicial_pct=100, 
             magico = h["unidad"] == "puntos"
             if tipo in ("area", "zona") and h["unidad"] == "arma":
                 por_golpe = sum(golpe(0, True, porcentaje=num(g)) for g in h["golpes"].split("|"))
+            elif tipo == "zona":
+                por_golpe = golpe(num(h["golpes"]) - f["plano"], True, magico=True)
             elif tipo == "canal":
                 por_golpe = golpe(num(h["golpes"]) - f["plano"], True, magico=True) * num(h["valor"])
             elif mec == "remate" and golpes == p["remate_dano"] * f["dano_arma"]:
@@ -298,9 +300,9 @@ def combatir(f, p, grupos, limite_s=None, sin_dano=False, vida_inicial_pct=100, 
                 por_golpe = sum(golpe(num(g) * (f["dano_arma"] if h["unidad"] == "arma" else 1), True, magico)
                                 for g in h["golpes"].split("|"))
             if tipo == "zona":
-                por_golpe *= num(h["duracion"])
+                por_golpe *= num(h["valor"]) or num(h["duracion"])
             valor = por_golpe * (n if tipo in ("area", "zona", "canal") else 1)
-            ocupa = (num(h["duracion"]) if tipo == "canal" else 0 if tipo == "zona"
+            ocupa = (num(h["duracion"]) if tipo == "canal" else num(h["lanzamiento"]) if tipo == "zona"
                      else num(h["lanzamiento"]) * f["celeridad"] or (f["intervalo"] if con_basico else PASO))
             candidatas.append((h, mult, objetivo, valor / ocupa if ocupa else float("inf")))
         if not candidatas:
@@ -342,9 +344,16 @@ def combatir(f, p, grupos, limite_s=None, sin_dano=False, vida_inicial_pct=100, 
             mult *= 1 + r["foco"] * p["foco_por_punto_pct"] / 100
             r["foco"] = 0
         if h["tipo"] == "zona":
-            # No interrumpe: cae en la zona mientras el personaje sigue pegando.
+            # No interrumpe: tras su lanzamiento (si tiene) cae en la zona mientras el
+            # personaje sigue con otras cosas. `valor` = número de impactos (si no, uno por segundo).
             e["usos"][h["nombre"]] = e["usos"].get(h["nombre"], 0) + 1
-            zonas.append({"h": h, "fin": e["t"] + num(h["duracion"]), "proximo": e["t"] + 1, "mult": mult})
+            impactos = num(h["valor"]) or num(h["duracion"])
+            cada = num(h["duracion"]) / impactos
+            zonas.append({"h": h, "fin": e["t"] + num(h["duracion"]), "proximo": e["t"] + cada, "cada": cada, "mult": mult})
+            if num(h["lanzamiento"]):
+                estado["ocupado"] = e["t"] + num(h["lanzamiento"]) * f["celeridad"]
+            if h["unidad"] == "puntos":
+                contar_hechizo()
             return
         if h["tipo"] == "canal":
             ticks = int(num(h["valor"]))
@@ -396,13 +405,17 @@ def combatir(f, p, grupos, limite_s=None, sin_dano=False, vida_inicial_pct=100, 
                 continue
         # Zonas, sangrados y canalizaciones.
         for z in zonas:
-            if z["proximo"] <= t <= z["fin"] + 1e-9:
-                z["proximo"] += 1
-                d = golpe(0, True, porcentaje=num(z["h"]["golpes"])) * z["mult"]
+            if z["proximo"] <= t + 1e-9 and z["proximo"] <= z["fin"] + 1e-9:
+                z["proximo"] += z["cada"]
+                if z["h"]["unidad"] == "puntos":
+                    # Impactos mágicos: sin el daño plano de la AGI en cada impacto.
+                    d = golpe(num(z["h"]["golpes"]) - f["plano"], True, magico=True) * z["mult"]
+                else:
+                    d = golpe(0, True, porcentaje=num(z["h"]["golpes"])) * z["mult"]
                 for m in vivos:
                     if m["vida"] > 0:
                         pegar(m, d, num(z["h"].get("robo_vida_pct"), 100) / 100)
-        zonas[:] = [z for z in zonas if z["fin"] > t]
+        zonas[:] = [z for z in zonas if z["proximo"] <= z["fin"] + 1e-9]
         for s in sangrados:
             if s["proximo"] <= t <= s["fin"] + 1e-9:
                 s["proximo"] += 1
