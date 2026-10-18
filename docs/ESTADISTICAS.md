@@ -148,6 +148,26 @@ Las estadísticas principales forman un sistema de **piedra, papel o tijera**: *
 - Cazando, la diferencia máxima es del **1 %** (repetido con varias semillas: 0,9–1,0 %).
 - La espada corta pega un 53 % menos por golpe que la larga (no un 40 %): las estadísticas planas de AGI se suman a cada golpe y favorecen a las armas rápidas, así que hay que bajarle más el daño.
 
+**Prueba con mobs de 100 de vida** (mismos 1.000 mobs, mismas armas calibradas):
+
+| Perfil | Golpe normal / crítico | Golpes por mob | Caza (min) | Frente a la media | Daño perdido |
+|---|---|---|---|---|---|
+| Espada larga | 64,5 / 99,3 | siempre 2 (el crítico se queda a 0,7 de matar de un golpe) | 86,7 | +2,2 % | 25,4 % |
+| Espada corta | 34,7 / 53,5 | 3, a veces 2 | 69,8 | −17,6 % | 7,5 % |
+| Arco | 49,3 / 77,0 | 3 (dos golpes normales suman 98,6), 2 si hay crítico | 94,8 | +11,9 % | 32,0 % |
+| Mágico | fuerte 95,2 / 144,7 · débil 34,9 / 53,1 | depende de la rotación | 87,7 | +3,5 % | 26,6 % |
+
+Diferencia máxima: **35,8 %**. Cuando un mob muere en 2–3 golpes, lo que manda es **cuántos golpes hacen falta para matarlo** (umbrales), no el daño por segundo. Un arma que se queda a 1 punto de un umbral (el arco con 98,6 contra 100 de vida) pierde un golpe entero por mob.
+
+**Diferencia máxima según la vida del mob** (mismas armas):
+
+| Vida del mob | 100 | 150 | 200 | 250 | 300 | 400 | 500 | 750 | 1.000 | 2.000 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Golpes de espada larga por mob (aprox.) | 2 | 2–3 | 3 | 4 | 5 | 6 | 8 | 11 | 15 | 30 |
+| Diferencia entre perfiles | 35,8 % | 20,6 % | 22,9 % | 8,3 % | 5,3 % | 8,2 % | 3,9 % | 3,3 % | 1,0 % | 0,8 % |
+
+**Conclusión:** la igualdad de daño por segundo solo se traslada a la caza si los mobs aguantan **bastantes golpes del arma más lenta**: con unos 8 golpes la diferencia baja a ~4 %, y con 15 o más, a ~1 %.
+
 ## 3. Estructura propuesta del capítulo
 
 1. **Lista cerrada de estadísticas** y a qué categoría pertenece cada una (principal, derivada, neutral, PvP, utilidad).
