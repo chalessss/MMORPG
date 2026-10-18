@@ -827,6 +827,21 @@ Los clanes deben ser **comunidades vivas** que den sentido de pertenencia y prem
 - **Registro de contribución por miembro**: donaciones, ayuda, participación en actividades… Los líderes ven quién contribuye y quién no, y pueden actuar en consecuencia.
 - Monedas de clan y tienda del clan (3.20).
 
+**Referencia (MIR4): técnicas del clan**
+- Pestañas: desarrollo del clan, refinamiento, guerra de clanes y activar técnicas.
+- **Árbol de "edificios"** con niveles y prerrequisitos (líneas que conectan unos con otros). Ejemplos:
+  - **Salón marcial**: aumenta el máximo de miembros (nivel 10: +30 miembros).
+  - **Oficina de impuestos**: aumenta la capacidad de oro del almacén del clan y desbloquea atacar el monolito en la conquista de territorio.
+  - **Depósito comercial**: desbloquea en orden los productos de la tienda del clan; pide nivel de clan y ciertos objetos.
+  - Otros: almacén del clan, acumulador de energía, instalación de almacenamiento, sala de escrituras, técnica de sello, esgrima, expedición.
+- **Cooperar**: cada miembro aporta moneda (por ejemplo, 400 de cobre por aporte, con un **límite diario de aportes**) y la investigación avanza (por ejemplo, 0/19.500). Algunas técnicas aparecen como **recomendadas**.
+
+**Propuesta de árbol para nuestro juego** (por validar):
+- **General**: número de miembros, almacén y tesorería del clan.
+- **Economía**: tienda del clan, descuentos o bonificaciones de fabricación y recolección.
+- **PvE**: bonificaciones de caza, experiencia y botín.
+- **PvP**: bonificaciones en zonas de combate, acceso a la conquista de territorios.
+
 ### 3.23 Menú principal del juego (en curso, estilo MIR4)
 
 Un **único menú** desde el que se accede a todos los sistemas del juego, sin tener que abrir ventanas encadenadas. Incluye un panel con todas las monedas del jugador.
@@ -900,6 +915,7 @@ Queda para más adelante:
 ## 7. Preguntas abiertas
 
 **Pendientes para más adelante**
+- **Clanes**: tamaño máximo; coste de fundarlo; niveles de clan; qué cuenta como contribución (aportes, actividades, guerra…); límite diario de aportes; ramas y técnicas concretas.
 - **Mercado**: porcentajes de comisión y de quema (mercado vs. P2P); si las tiendas privadas funcionan con el jugador desconectado.
 - **Juego automático**: qué objetos exactos se restringen en automático; valores de la experiencia de descanso.
 - **Teletransporte y zonas**: precios por zona; si dentro del círculo protegido de las zonas PvP se puede atacar hacia fuera (propuesta: no se puede atacar ni ser atacado); sistema de reputación con facciones.
