@@ -536,6 +536,8 @@ Máximo total: 9 bolsas.
 - La probabilidad debe estar **equilibrada**: ni un componente por cada mob (el equipo saldría demasiado rápido) ni uno cada miles (frustrante).
 - Objetivo: que el equipo y el códice de la temporada **se puedan completar de verdad**, y que siempre haya **incentivo para subir de nivel** y pasar a la siguiente temporada.
 - Se mantiene la combinación hacia arriba como vía secundaria, para que los componentes de menor calidad no pierdan valor.
+- **Tiempo objetivo (decidido)**: un jugador medio que juega **6 horas al día** consigue los componentes para **una pieza de la calidad máxima por semana** (~42 horas de juego por pieza). Quien juegue más llegará antes. Las probabilidades de caída se calcularán a partir de este objetivo (mobs por hora × componentes por receta) y se ajustarán con datos reales.
+- Consecuencia: un equipo completo de la calidad máxima (16 ranuras) lleva unas **16 semanas (~4 meses)** a ese ritmo, sin contar comercio. Es una referencia útil para la duración de cada temporada.
 
 ### 3.18 Desarrollo de objeto (+1 a +10)
 
