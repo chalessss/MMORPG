@@ -57,4 +57,12 @@ habilidades_provocan,Embate,habilidades que provocan a los mobs que golpean (sep
 provocacion_s,7,segundos que dura la provocación: después cada mob ataca a quien más amenaza tenga
 amenaza_cura_pct,50,curar genera en cada mob esta parte de lo curado como amenaza
 provocacion_iguala_amenaza,0,1 = al provocar, la amenaza del tanque sube hasta la más alta de cada mob (provocación clásica)
-amenaza_tanque_mult,5,pasiva de arma del Combatiente: amenaza por cada punto de daño (provisional; los demás generan 1)
+amenaza_tanque_mult,1,amenaza del Combatiente por punto de daño (1 = como los demás; decidido: sin multiplicador en la Temporada 1)
+elite_mult_dano,3,élites: multiplican el daño del mob normal
+mazmorra_vida_jefe,1500000,jefe de mazmorra del nivel 20 (provisional)
+mazmorra_dano_jefe_mult,10,el jefe pega este múltiplo del mob normal
+oleada_cada_s,30,segundos entre oleadas de adds
+oleada_tamanos,6|7,tamaño de cada oleada (se van alternando)
+primera_oleada_s,20,segundos hasta la primera oleada
+mazmorra_limite_s,900,si el jefe no cae en este tiempo, el intento se da por fallido (furia)
+mazmorra_intentos,5,intentos antes de dar la mazmorra por imposible

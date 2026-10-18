@@ -188,7 +188,7 @@ Todas las especializaciones tienen **8 habilidades** con la misma distribución:
 | 3 | Pasiva | Sed de sangre | Sed de sangre | Sed de sangre | Ojo de Halcón | Celeridad | Celeridad |
 | 4 | Activa | Golpe sangriento | Golpe sangriento | Golpe sangriento | Disparo potente | Escudo de maná | Escudo de maná |
 | 5 | Pasiva de especialización | Afinidad con la fuerza | Afinidad con la fuerza | Afinidad con la agilidad | Afinidad con la agilidad | Afinidad con el intelecto | Afinidad con el intelecto |
-| 6 | Pasiva de arma | Golpes más rápidos con espadas cortas | Más armadura y defensa con espadas largas; sus golpes y habilidades generan más amenaza que los de cualquier otra clase | Más probabilidad de crítico | Más daño a distancia y más alcance | Más daño de hechizos y regeneración de maná | Más potencia de escudos, curas y apoyos al grupo; más regeneración de maná por punto de INT; +50 % de daño contra monstruos (no jefes) |
+| 6 | Pasiva de arma | Golpes más rápidos con espadas cortas | Más armadura y defensa con espadas largas | Más probabilidad de crítico | Más daño a distancia y más alcance | Más daño de hechizos y regeneración de maná | Más potencia de escudos, curas y apoyos al grupo; más regeneración de maná por punto de INT; +50 % de daño contra monstruos (no jefes) |
 | 7 | Área | Torbellino | Fisura | Lluvia de cuchillas | Lluvia de flechas | Lluvia de fuego | Lluvia de estrellas |
 | 8 | Individual | Ejecutar | Embate | Desgarro | Disparo certero | Fuego de alma | Restauración |
 
@@ -247,7 +247,7 @@ Simulador: `python3 herramientas/simulador/simular20.py` (ficha: `--ficha`), con
 **Supuestos de la simulación** (por validar):
 - Las habilidades de área físicas aplican su % al golpe entero (arma + daño plano de la AGI); los impactos de las lluvias mágicas (Lluvia de fuego, Lluvia de estrellas) no suman el daño plano de la AGI en cada impacto.
 - Ajustes: el Invocador saca 1 de daño plano por punto de AGI (en vez de 2); Lluvia de fuego cuesta el 6 % del maná y Fuego de alma el 4 %; el Golpe sangriento solo se usa si deja más de la mitad de la vida.
-- Pasivas de arma: Luchador −10 % de tiempo entre golpes; Combatiente +5 % de defensa, +500 de armadura y amenaza ×5 (ver 1.11); Asesino +5 % de crítico; Atacante +10 % de daño; Mago +10 % de daño de hechizos y +20 % de regeneración de maná; Invocador +20 % de curas y escudos, **+0,2 de maná por segundo por punto de INT** (decidido, ver 1.9) y **+50 % de daño contra monstruos, no contra jefes** (decidido, ver 1.9).
+- Pasivas de arma: Luchador −10 % de tiempo entre golpes; Combatiente +5 % de defensa y +500 de armadura; Asesino +5 % de crítico; Atacante +10 % de daño; Mago +10 % de daño de hechizos y +20 % de regeneración de maná; Invocador +20 % de curas y escudos, **+0,2 de maná por segundo por punto de INT** (decidido, ver 1.9) y **+50 % de daño contra monstruos, no contra jefes** (decidido, ver 1.9).
 - Los topes de crítico suben al 50 % de probabilidad y +150 % de daño desde el nivel 20 (provisional).
 
 **Ficha del nivel 20:**
@@ -358,29 +358,60 @@ Lectura:
 **Agro del Combatiente (decidido):**
 - **El Embate es la habilidad de agro**: además de su golpe, **provoca a todos los mobs a su alcance**. El Combatiente **alterna Embate (agro) y Fisura (daño en zona)**.
 - **No debe tener el agro todo el tiempo**: entre provocación y provocación hay **unos 2–3 s** en los que no genera tanto agro. Ahí el Mago tiene que **hacer una pausa** (tras una o dos Lluvias de fuego, uno o dos hechizos a un objetivo) para no llevarse los mobs, hasta que el tanque vuelva a provocar.
-- **Con cualquier golpe o habilidad, el Combatiente genera más amenaza que cualquier otro miembro**: lo da su **pasiva de arma**.
+- **Sin multiplicador de amenaza en la Temporada 1 (decidido)**: el Combatiente genera la misma amenaza por punto de daño que los demás; solo tiene la provocación del Embate. La amenaza extra llegará en la **especialización 2**, con un tanque de escudo cuyas habilidades generen mucha más amenaza y cuya misión sea solo sostener el agro.
+- **Es parte del juego**: los jugadores tienen que aprender a hacer daño, a controlar el agro y a llevar sus rotaciones. Cuanto peor jueguen, más les castigarán las muertes; quien mejor optimice sus recursos y su forma de jugar será quien más éxito tenga.
 - **Mobs que se escapan**: es tarea del Combatiente pegarles para recuperarlos. Las curas no deberían ser un problema: el Invocador también hace daño, escuda y se mueve.
 
 **Cómo lo simula `simular20.py`** (valores provisionales):
-- Cada mob lleva una **tabla de amenaza**: cada punto de daño suma 1 de amenaza (**5 si es del Combatiente**, por su pasiva de arma); curar suma en todos los mobs el 50 % de lo curado.
-- **Embate** provoca a todos los mobs durante **7 s** y tiene **10 s** de enfriamiento: quedan unos **3 s** sin provocación. Fisura ya no provoca.
+- Cada mob lleva una **tabla de amenaza**: cada punto de daño suma 1 de amenaza (también los del Combatiente); curar suma en todos los mobs el 50 % de lo curado.
+- **Embate** provoca a todos los mobs a su alcance durante **7 s** y tiene **10 s** de enfriamiento: quedan unos **3 s** sin provocación. Fisura ya no provoca.
 - Fuera de la provocación, **cada mob ataca a quien más amenaza tiene**. El Combatiente va primero a por los mobs que atacan a otro.
-- **Sin control del agro**: cada uno hace todo el daño que puede. **Con control**: los demás solo lanzan su área si todos los mobs van a seguir provocados mientras dura; si no, hacen una pausa con hechizos a un objetivo (sin pasar de la amenaza del tanque).
+- **Sin control del agro**: cada uno hace todo el daño que puede. **Con control**: los demás solo lanzan su área si todos los mobs van a seguir provocados mientras dura; si no, hacen una pausa con hechizos a un objetivo (sin pasar de la amenaza del tanque). Es una forma de jugar muy simple, solo para comparar.
 
-**Resultados** (mobs/hora del grupo · golpes que recibe el tanque · muertes cada 300 mobs):
+**Resultados** (mob normal; mobs/hora del grupo · golpes que recibe el tanque · muertes cada 300 mobs):
 
 | Grupo | Juego | 6 mobs | 12 mobs |
 |---|---|---|---|
-| Trío (Combatiente, Mago, Invocador) | Sin control | 568 · 85 % · nadie | 1.120 · 88 % · nadie |
-| Trío | Con control | 503 · 96 % · nadie | 999 · 96 % · nadie |
-| Grupo de 5 (+ Atacante y Asesino) | Sin control | 844 · 80 % · nadie | 1.562 · 84 % · Mago 1 |
-| Grupo de 5 | Con control | 754 · 92 % · nadie | 1.443 · 87 % · nadie |
+| Trío (Combatiente, Mago, Invocador) | Sin control | 552 · 57 % · nadie | 949 · 70 % · Mago 7 |
+| Trío | Con control | 361 · 79 % · nadie | 685 · 75 % · nadie |
+| Grupo de 5 (+ Atacante y Asesino) | Sin control | 825 · 58 % · nadie | 1.375 · 65 % · Mago 1 |
+| Grupo de 5 | Con control | 654 · 76 % · nadie | 1.102 · 72 % · Mago 1 |
 
 Lectura:
-- Con el Embate alternado con Fisura y la amenaza ×5, el **tanque se lleva el 85–96 % de los golpes** con 12 mobs y casi nadie muere. Sin el ×5 (amenaza igual que los demás), el tanque solo recibía el 64–75 % de los golpes.
-- **Pausar le cuesta al grupo un 10 % de caza** (trío con 12 mobs: 1.120 → 999 mobs/hora), pero a cambio el tanque se lleva prácticamente todos los golpes.
-- Antes de este cambio (Fisura provocando 5 s, amenaza = daño para todos), con 12 mobs el Mago moría 14 veces cada 300 mobs si no se contenía.
-- Con el mob del nivel 20 (59 de daño), que el Mago reciba unos pocos golpes en los huecos casi nunca lo mata; con mobs más fuertes (élites, jefes) esos 3 s sin provocación castigarán mucho más.
+- El tanque se lleva entre el 57 y el 79 % de los golpes: **no tiene el agro siempre**, como se buscaba. Si el Mago tira el área sin parar con 12 mobs, muere de vez en cuando; si se contiene, nadie muere, pero el grupo caza un 20–35 % menos.
+- Con el mob normal (59 de daño) los errores casi no se castigan; con élites, sí (1.12).
+
+### 1.12 Élites y mazmorra
+
+**Élites**: mobs que pegan **el triple** (177 por golpe básico), con la misma vida. Muertes cada 300 mobs:
+
+| Grupo | Juego | 6 élites | 12 élites |
+|---|---|---|---|
+| Trío | Sin control | 354 mobs/hora · Mago 47, Invocador 3 | **el grupo no puede** (cae 20 veces) |
+| Trío | Con control | 343 · Mago 11, Invocador 1 | **no puede** |
+| Grupo de 5 | Sin control | 643 · Mago 26, Atacante 7 | 895 · 3 caídas del grupo; mueren todos (Mago 24, Atacante 26) |
+| Grupo de 5 | Con control | 596 · Invocador 3, Mago 2, Atacante 2 | 807 · 2 caídas; Mago 15, Atacante 18 |
+
+- Con élites **las curas sí trabajan** (78–140 de vida curada por segundo, frente a 0–50 con mobs normales) y el tanque bebe pociones.
+- **Controlar el agro salva vidas**: con 6 élites el Mago pasa de morir 47 veces a 11 (trío) y de 26 a 2 (grupo de 5), perdiendo poca caza.
+- **12 élites a la vez es demasiado** para un trío, y para un grupo de 5 solo sale con muchas muertes.
+
+**Mazmorra (simulacro)** con el grupo de 5: un **jefe** de 1.500.000 de vida que pega **10 veces** lo que un mob y **ataca siempre al tanque**, y **oleadas de 6 y 7 adds cada 30 s** (la primera a los 20 s). El bono del Invocador contra monstruos cuenta en los adds, no en el jefe. Se dan 15 minutos por intento (si no, furia) y 5 intentos. Dos estrategias:
+- **El tanque se queda con el jefe**: no va a por los adds; su área y su provocación solo alcanzan al jefe y a los adds que le atacan a él. Los adds se van con quien tenga su amenaza.
+- **Acercan los adds al tanque**: el grupo lleva los adds hasta el tanque, que los provoca con el Embate, les pega con Fisura y va a por los que se escapan, sin soltar al jefe (que le sigue atacando).
+
+| Adds | Estrategia | Sin control del agro | Con control del agro |
+|---|---|---|---|
+| Normales | El tanque se queda con el jefe | Jefe muerto en **7,0 min**, nadie muere | **No lo matan**: los adds no los sujeta nadie, se acumulan y el grupo cae 5 veces |
+| Normales | Acercan los adds al tanque | Jefe muerto en **7,0 min**, nadie muere | Jefe muerto en 12,7 min, nadie muere |
+| Élite (×3) | El tanque se queda con el jefe | **No lo matan** (5 caídas) | **No lo matan** (5 caídas) |
+| Élite (×3) | Acercan los adds al tanque | Jefe muerto en **7,7 min**, 1 caída; muere sobre todo el Mago (6) | **No lo matan**: se contienen tanto que las oleadas se acumulan |
+
+Lectura:
+- **La buena estrategia es acercar los adds al tanque y matarlos rápido**: es la única que funciona con adds de élite. Si el tanque se queda solo con el jefe, los adds de élite acaban con los de daño y con el curandero.
+- **Las oleadas castigan contenerse demasiado**: si el daño baja mucho, los adds se acumulan más rápido de lo que mueren. El equilibrio está entre hacer daño y no llevarse el agro.
+- **El curandero es imprescindible** en la mazmorra: con adds de élite cura 155 de vida por segundo y pone 412 de escudo por segundo, y el tanque bebe 23 pociones.
+- La forma de "controlar el agro" del simulador es muy simple; un jugador bueno lo hará mejor que estas dos formas de jugar.
 
 ## 2. Trabajo de esta sesión
 

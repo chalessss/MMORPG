@@ -61,3 +61,5 @@ Simula en pasos de 0,1 s. En los conglomerados todos los mobs del grupo pegan a 
 La prueba 4 simula **grupos** (`GRUPOS` en `simular20.py`: un trío Combatiente + Mago + Invocador y un grupo de 5): todos los mobs pegan al tanque, el Invocador cura y escuda a los aliados, y la experiencia se reparte entre los miembros.
 
 **Agro**: cada mob lleva una tabla de amenaza (daño hecho, y una parte de lo curado) y ataca a quien más amenaza tiene, salvo mientras le dura una provocación (`habilidades_provocan`, `provocacion_s`). La prueba 4 se juega sin y con control del agro (con control, nadie usa una habilidad que le haría pasar de la amenaza de los demás). Parámetros para probar soluciones: `provocacion_iguala_amenaza`, `amenaza_tanque_mult`, `amenaza_cura_pct`.
+
+La prueba 5 repite la caza en grupo con **élites** (`elite_mult_dano`) y la 6 simula una **mazmorra**: un jefe que siempre ataca al tanque y oleadas de adds (`mazmorra_*`, `oleada_*`), con dos estrategias (el tanque se queda con el jefe o acercan los adds al tanque) y con adds normales o de élite.
