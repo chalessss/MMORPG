@@ -699,26 +699,38 @@ Los valores por punto usados hasta ahora eran una propuesta inicial de Claude qu
 | Vida | 20 | **25** |
 | Regeneración de vida | 0,2/s | 0,2/s (sin cambios) |
 | Defensa física y mágica | 0,5 % | **0,1 %** |
-| % de daño en todos los golpes | 1,5 % | **retirado** (la reducción de daño la dará la armadura) |
+| % de daño en todos los golpes | 1,5 % | **1,5 %** (se mantiene: es daño que se hace, no reducción) |
 
 INT y AGI siguen pendientes de validar.
 
-**Del 1 al 19 con estos valores** (sin recalibrar armas; min · pociones; nadie muere):
+**Del 1 al 19 con estos valores** (min · pociones; nadie muere):
 
 | Nivel | Espada larga | Espada corta | Arco | Mágico | Diferencia |
 |---|---|---|---|---|---|
-| 1 | 194 · 0 | 196 · 0 | 188 · 139 | 178 · 186 | 9,8 % |
-| 5 | 333 · 0 | 293 · 0 | 227 · 564 | 224 · 349 | 48,5 % |
-| 9 | 638 · 0 | 535 · 0 | 453 · 494 | 391 · 306 | 63,0 % |
-| 10 | 908 · 606 | 861 · 657 | 493 · 495 | 296 · 609 | 206,8 % |
-| 15 | 2.147 · 2.535 | 2.010 · 1.976 | 1.160 · 1.045 | 621 · 1.438 | 245,8 % |
-| 19 | 4.337 · 8.627 | 3.876 · 7.233 | 2.480 · 942 | 1.301 · 2.172 | 233,4 % |
+| 1 | 165 · 0 | 166 · 0 | 170 · 129 | 170 · 181 | 2,9 % |
+| 2 | 169 · 0 | 163 · 0 | 163 · 228 | 154 · 284 | 9,6 % |
+| 3 | 177 · 0 | 164 · 0 | 160 · 284 | 146 · 334 | 21,0 % |
+| 4 | 181 · 0 | 169 · 0 | 165 · 316 | 144 · 383 | 25,7 % |
+| 5 | 201 · 0 | 175 · 0 | 171 · 391 | 181 · 295 | 17,1 % |
+| 6 | 218 · 0 | 187 · 0 | 181 · 478 | 218 · 232 | 20,5 % |
+| 7 | 236 · 0 | 202 · 0 | 238 · 300 | 240 · 228 | 19,0 % |
+| 8 | 260 · 0 | 220 · 0 | 275 · 249 | 256 · 249 | 24,7 % |
+| 9 | 288 · 0 | 239 · 0 | 287 · 294 | 271 · 228 | 20,5 % |
+| 10 | 331 · 316 | 321 · 266 | 305 · 295 | 206 · 345 | 60,8 % |
+| 11 | 364 · 366 | 364 · 253 | 344 · 303 | 225 · 428 | 61,8 % |
+| 12 | 404 · 496 | 385 · 408 | 395 · 367 | 251 · 569 | 61,1 % |
+| 13 | 479 · 419 | 433 · 393 | 455 · 395 | 283 · 719 | 69,7 % |
+| 14 | 534 · 582 | 509 · 420 | 516 · 408 | 317 · 829 | 68,2 % |
+| 15 | 603 · 726 | 566 · 505 | 593 · 492 | 372 · 853 | 62,1 % |
+| 16 | 664 · 1.021 | 601 · 808 | 689 · 577 | 468 · 656 | 47,2 % |
+| 17 | 806 · 949 | 714 · 815 | 803 · 627 | 537 · 713 | 50,1 % |
+| 18 | 880 · 1.509 | 800 · 987 | 933 · 854 | 596 · 974 | 56,5 % |
+| 19 | 1.049 · 1.449 | 938 · 1.182 | 1.103 · 873 | 705 · 1.044 | 56,4 % |
 
-- **Vida**: el cuerpo a cuerpo pasa de 400 a 475 en el nivel 1 y de 4.000 a 4.975 en el 19; el arco y el mágico, +35 a +395. La regeneración no cambia (18 cada 5 s en el nivel 1, 198 en el 19 para el cuerpo a cuerpo).
-- **Defensa**: el cuerpo a cuerpo baja del 97,5 % al **19,5 %** en el nivel 19 (arco 7,9 %, mágico 5,9 %).
-- **Daño**: sin el % de daño de STR, el golpe blanco de la espada larga baja de 114 a **93** en el nivel 1 y de 1.072 a **273** en el 19. Todo el cuerpo a cuerpo queda muy por detrás: tarda **3,3 veces más que el mágico** en el nivel 19 y, como sus peleas duran mucho más y el golpe sangriento le sigue costando vida, bebe muchas más pociones (hasta 8.627 cada 1.000 mobs).
-- El arco también pierde algo (su STR también daba daño), pero mucho menos.
-- Las armas y la vida de los mobs se calibraron con el % de daño de STR incluido: hay que **recalibrar** el daño del cuerpo a cuerpo (arma, crecimiento o habilidades) para volver a acercarlo. Las tablas de la sección 3 quedan **pendientes de actualizar** tras esa recalibración.
+- **Vida**: el cuerpo a cuerpo pasa de 400 a 475 en el nivel 1 y de 4.000 a 4.975 en el 19. La regeneración no cambia.
+- **Defensa**: el cuerpo a cuerpo baja del 97,5 % al **19,5 %** en el nivel 19 (arco 7,9 %, mágico 5,9 %). El daño no cambia (golpe blanco de espada larga: 114 en el nivel 1, 1.072 en el 19).
+- Con mucha menos defensa, **todos reciben más daño** en los niveles altos: desde el nivel 10 el cuerpo a cuerpo bebe 250–1.500 pociones cada 1.000 mobs y tiene que descansar (espada larga 859 → 1.049 min en el nivel 19); el arco y el mágico también beben más y tardan algo más que antes.
+- Del 1 al 9 casi nada cambia: hasta el nivel 9 la defensa antigua aún era baja.
 
 ## 3. Ficha de los niveles 1–19 (en revisión: ver 2.21)
 
@@ -739,12 +751,12 @@ El arma de nivel 1 da el mismo bono que se gana en cada nivel (easter egg).
 
 | Estadística | Por punto |
 |---|---|
-| STR | +25 vida · +0,2 vida/s · +0,1 % defensa física y mágica (antes +20 vida, +0,5 % de defensa y +1,5 % de daño: ver 2.21) |
+| STR | +25 vida · +0,2 vida/s · +0,1 % defensa física y mágica · +1,5 % de daño en todos los golpes (antes +20 vida y +0,5 % de defensa: ver 2.21) |
 | INT | +15 maná · +0,2 maná/s · +2,5 % de daño de habilidades |
 | AGI | +2 de daño plano en cada golpe |
 | Base | 100 de vida, 0,5 vida/s, 50 de maná, 0,5 maná/s |
 
-- Daño de un golpe = (daño del arma o de la habilidad + daño plano de AGI) × (1 + % de INT, solo habilidades) × crítico. Se redondea a entero. (La STR ya no da % de daño.)
+- Daño de un golpe = (daño del arma o de la habilidad + daño plano de AGI) × (1 + % de STR) × (1 + % de INT, solo habilidades) × crítico. Se redondea a entero.
 - **Crítico** (no depende de AGI en este tramo): probabilidad 1 % + 0,2 % por nivel, tope 5 %; daño extra 2 % + 0,4 % por nivel, tope +10 %.
 - **Armadura**: 50 por nivel; cada 100 restan 1 de daño a cada golpe recibido (mínimo 1).
 - **Regeneración** mostrada cada 5 s y redondeada. Daño, vida, maná y estadísticas siempre enteros.
@@ -828,7 +840,7 @@ Al llegar al nivel 20 se elige clase y **se reconfiguran las estadísticas**. Ca
 
 **De los niveles 1–19 (para cerrar del todo):**
 - **Validar los valores por punto de INT y AGI** (los de STR ya están: 2.21).
-- **Recalibrar el cuerpo a cuerpo** tras quitar el % de daño de STR (2.21) y actualizar la ficha de la sección 3.
+- **Actualizar la ficha de la sección 3** con los valores de STR de 2.21 (vida y defensa).
 - **Daño de las armas por tramos** (bronce → cobre → plata): de momento el arma no cambia de daño en todo el tramo.
 - **Pociones por nivel**: la poción cura siempre 100.
 - **El crítico apenas se nota** (+10 % de daño como mucho): decidido así por ahora.
