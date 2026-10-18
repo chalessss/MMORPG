@@ -189,6 +189,23 @@ Habilidades 1–4 que ya existen (parte 1, `docs/RESUMEN_ESTADISTICAS.md`):
 
 Con esta estructura cada especialización tiene **5 habilidades que se activan** (1, 2, 4, 7 y 8) y 3 pasivas; con ellas se ajusta el coste de maná del nivel 20.
 
+**Habilidad de área (decidido):**
+- **Todas** las especializaciones tienen una habilidad de daño en área.
+- El **Combatiente escala mejor en área** que el resto de físicos (menos enfriamiento o más daño), y su ventaja es que **aguanta** rodeado de mobs.
+- Los **magos escalan tanto en daño** que, contra un grupo de 10–15 mobs, harán **más daño en área que el Combatiente**; el Combatiente no debe llegar a superarlos en daño.
+
+**Habilidades concretas ya definidas:**
+
+| Especialización | Habilidad | Detalle |
+|---|---|---|
+| Combatiente | 7 · Área | **Solo se puede usar con Ira**; consume poca Ira, pero la necesita |
+| Combatiente | 8 · Individual: **Remate / Ejecución** | Golpe de remate. Cuando al objetivo le queda **poca vida (%)**: **la mitad de enfriamiento**, **más daño** y **no pide Ira**. Pensada para usarla sin parar en el tramo final: contra un jefe dispara el daño en su última parte; a un mob pequeño lo mata de un golpe |
+| Asesino | 1 · Daño | Mantiene el **Golpe doble** |
+| Asesino | 2 · Daño | **Golpe bajo** en lugar del Golpe al suelo (un daguero no salta a golpear el suelo) |
+| Asesino | 7 · Área: **Danza de cuchillos** | Lanza cuchillos **en círculo a su alrededor** (no en cono ni delante). Daño **no muy alto**; se puede lanzar **varias veces seguidas gastando Energía**, y **solo con Energía**: sin ella pega golpes normales |
+
+Pendiente: el usuario enviará la **lista completa de habilidades** de cada especialización (incluidos los cambios del Invocador) para parametrizar su daño.
+
 ## 2. Trabajo de esta sesión
 
 1. ~~**Especializaciones por clase de inicio**~~: decidido (1.0b).
