@@ -946,8 +946,9 @@ Modelo inspirado en Lineage 2: **una ciudad principal (capital) controlada por u
 - **1** zona de inicio · **2** pueblo intermedio · **3** capital · **4** villas.
 - Cada recuadro rojo es el **territorio** que cubre ese lugar (no su tamaño de ciudad): una villa incluye su pueblo y, alrededor, sus zonas de caza, recolección u otras zonas especiales.
 - Fuera de los recuadros está el **territorio general** del mapa (en la analogía, "Colombia"; la capital sería Bogotá y las villas, departamentos con su propio pueblo).
-- Las **líneas negras** (invisibles en el juego) unen la capital con las villas. Todo lo que queda dentro de esa figura —capital, villas y el espacio entre ellas— es la **zona de guerra**: durante los eventos PvP, **cualquiera que esté dentro** puede ser atacado, participe o no.
-- Las zonas marcadas con **estrellas** (fuera de la figura) quedan **excluidas** del evento: mobs, recolección y subida de nivel normales para quien no participa.
+- Las **líneas** que unen la capital con las villas (invisibles en el juego) delimitan la zona de guerra. Todo lo que queda dentro de esa figura —capital, villas y el espacio entre ellas— es la **zona de guerra**: durante los eventos PvP, **cualquiera que esté dentro** puede ser atacado, participe o no.
+- **Rosa** (dentro de la figura): **zona de guerra**. Durante el evento se puede pelear libremente **sin ganar karma**.
+- **Azul claro** (todo lo demás, no solo donde están las estrellas): **no se puede pelear** durante el evento. Ahí siguen los mobs, la recolección y la subida de nivel para quien no participa.
 
 **Control de territorios**
 - Los días de **evento PvP** (asedios, estilo Lineage 2), la capital y las villas **pierden su protección** contra el PvP.
