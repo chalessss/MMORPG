@@ -819,6 +819,10 @@ El mágico sí se queda corto de maná a veces y para a recuperarlo (por eso tar
 
 (min · pociones de vida.) Sigue sin beberse **ninguna poción de maná**. El mágico se queda sin maná más a menudo y **para a descansar** (desde el nivel 10 ya no bebe ni pociones de vida, y tarda algo más: 752 → 812 min en el nivel 19). Los costes de partida siguen siendo bajos para el objetivo de 300–1.000 pociones de maná.
 
+**Rangos: +2 % de daño y +25 % de coste por rango (decidido).** En el nivel 19 (rango 4): +6 % de daño y +75 % de coste. Solo cambia el mágico, que para algo más a recuperar maná: 812 → 863 min en el nivel 19 (espada larga 824, espada corta 765, arco 1.061); sigue sin beberse ninguna poción de maná.
+
+**El coste de maná se resuelve en el nivel 20 (decidido):** con 3 habilidades activables no hay suficiente gasto; al elegir clase tendrán **6–8 habilidades activables**, y entonces se ajustarán los costes para cumplir el objetivo de 300–1.000 pociones de maná.
+
 ## 3. Ficha de los niveles 1–19 (en revisión: ver 2.21)
 
 Resumen de todo lo decidido en la sección 2 para el tramo **sin clase** (niveles 1 al 19). La ficha completa, nivel a nivel, se genera con `python3 herramientas/simulador/simular.py --ficha` en `herramientas/simulador/resultados/` (`ficha_perfiles_1_19.csv` y `ficha_mobs_1_19.csv`), lista para pasar a DataTables.
@@ -927,7 +931,8 @@ Al llegar al nivel 20 se elige clase y **se reconfiguran las estadísticas**. Ca
 
 **De los niveles 1–19 (para cerrar del todo):**
 - **Validar los valores por punto de INT y AGI** (los de STR ya están: 2.21).
-- **Actualizar la ficha de la sección 3** con los valores de STR de 2.21 (vida y defensa).
+- **Actualizar la ficha de la sección 3** con los cambios de 2.21–2.23 (STR, regeneración del cuerpo a cuerpo, costes de maná en %, rangos de habilidad).
+- **Coste de maná**: se ajusta en el nivel 20, con 6–8 habilidades activables (2.23).
 - **Daño de las armas por tramos** (bronce → cobre → plata): de momento el arma no cambia de daño en todo el tramo.
 - **Pociones por nivel**: la poción cura siempre 100.
 - **El crítico apenas se nota** (+10 % de daño como mucho): decidido así por ahora.
