@@ -41,6 +41,7 @@ Implicaciones técnicas:
 ## Documentación
 
 - `docs/RESUMEN_EJECUTIVO.md`: **leer primero** — vista rápida de todo lo decidido, lo pendiente y las recomendaciones.
+- `docs/RESUMEN_ESTADISTICAS.md`: resumen ejecutivo del capítulo de estadísticas (detalle en `docs/ESTADISTICAS.md`; simulador en `herramientas/simulador/`).
 - `docs/HOJA_DE_RUTA.md`: fases del proyecto y decisiones pendientes.
 - Forma de trabajo: la primera conversación fijó los parámetros generales de todos los sistemas; ahora se trabaja **un capítulo de detalle por sesión** (estadísticas, personajes/habilidades, mapas, recursos, objetos, profesiones, contenido por temporada).
 - `docs/DISENO_BASE.md`: qué existe en el juego (personajes, mobs, jefes, NPCs, recursos, objetos) y sistemas principales.

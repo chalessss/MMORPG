@@ -827,7 +827,7 @@ Efecto (nivel 19): espada larga 823 min · espada corta 765 · arco 1.060 (258 p
 
 **El coste de maná se resuelve en el nivel 20 (decidido):** con 3 habilidades activables no hay suficiente gasto; al elegir clase tendrán **6–8 habilidades activables**, y entonces se ajustarán los costes para cumplir el objetivo de 300–1.000 pociones de maná.
 
-## 3. Ficha de los niveles 1–19 (en revisión: ver 2.21)
+## 3. Ficha de los niveles 1–19 (versión anterior a 2.21–2.23; la vigente está en `docs/RESUMEN_ESTADISTICAS.md`)
 
 Resumen de todo lo decidido en la sección 2 para el tramo **sin clase** (niveles 1 al 19). La ficha completa, nivel a nivel, se genera con `python3 herramientas/simulador/simular.py --ficha` en `herramientas/simulador/resultados/` (`ficha_perfiles_1_19.csv` y `ficha_mobs_1_19.csv`), lista para pasar a DataTables.
 
