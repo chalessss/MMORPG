@@ -179,13 +179,21 @@ Todas las especializaciones tienen **8 habilidades** con la misma distribución:
 | 7 | **Área** | Especialización (nivel 20) | Un hechizo o golpe **fuerte de daño en área** |
 | 8 | **Individual** | Especialización (nivel 20) | Un hechizo o golpe **fuerte de daño a un solo objetivo** |
 
-Habilidades 1–4 que ya existen (parte 1, `docs/RESUMEN_ESTADISTICAS.md`):
+**Lista de habilidades por especialización (decidido, nombres del usuario):**
 
-| Clase de inicio | 1 · Daño | 2 · Daño | 3 · Pasiva | 4 · Activa |
-|---|---|---|---|---|
-| Física - Melee | Golpe doble | Golpe al suelo | Robo de vida (5 %, +0,1 vida/s por STR) | Golpe sangriento |
-| Física - Rango | Disparo cargado | Ráfaga triple | Robo de vida (0,3 %, +3 % de crítico) | Disparo potente |
-| Mágica - Rango | Hechizo fuerte | Hechizo débil | Celeridad | Escudo de maná |
+| # | Tipo | Luchador | Combatiente | Asesino | Atacante | Mago | Invocador |
+|---|---|---|---|---|---|---|---|
+| 1 | General de daño | Golpe doble | Golpe doble | Golpe doble | Disparo cargado | Lanza de hielo | Lanza de hielo |
+| 2 | General de daño | Golpe al suelo | Golpe al suelo | Golpe bajo | Ráfaga triple | Bola de fuego | Bola de fuego |
+| 3 | Pasiva | Sed de sangre | Sed de sangre | Sed de sangre | Ojo de Halcón | Celeridad | Celeridad |
+| 4 | Activa | Golpe sangriento | Golpe sangriento | Golpe sangriento | Disparo potente | Escudo de maná | Escudo de maná |
+| 5 | Pasiva de especialización | Afinidad con la fuerza | Afinidad con la fuerza | Afinidad con la agilidad | Afinidad con la agilidad | Afinidad con el intelecto | Afinidad con el intelecto |
+| 6 | Pasiva de arma | Golpes más rápidos con espadas cortas | Más armadura y defensa con espadas largas | Más probabilidad de crítico | Más daño a distancia y más alcance | Más daño de hechizos y regeneración de maná | Más potencia de escudos, curas y apoyos al grupo |
+| 7 | Área | Torbellino | Fisura | Lluvia de cuchillas | Lluvia de flechas | Lluvia de fuego | Lluvia de estrellas |
+| 8 | Individual | Ejecutar | Embate | Desgarro | Disparo certero | Fuego de alma | Restauración |
+
+- Las habilidades 1–4 son las de la clase de inicio (parte 1) con **nombres nuevos**: la pasiva "Robo de vida" de Física - Melee pasa a llamarse **Sed de sangre** y la de Física - Rango **Ojo de Halcón**; el hechizo fuerte y el débil de Mágica - Rango pasan a ser **Lanza de hielo** y **Bola de fuego** (por confirmar cuál es cada uno). El Asesino cambia el Golpe al suelo por el **Golpe bajo**.
+- La pasiva de arma de cada especialización es la propuesta aceptada.
 
 Con esta estructura cada especialización tiene **5 habilidades que se activan** (1, 2, 4, 7 y 8) y 3 pasivas; con ellas se ajusta el coste de maná del nivel 20.
 
@@ -198,13 +206,13 @@ Con esta estructura cada especialización tiene **5 habilidades que se activan**
 
 | Especialización | Habilidad | Detalle |
 |---|---|---|
-| Combatiente | 7 · Área | **Solo se puede usar con Ira**; consume poca Ira, pero la necesita |
-| Combatiente | 8 · Individual: **Remate / Ejecución** | Golpe de remate. Cuando al objetivo le queda **poca vida (%)**: **la mitad de enfriamiento**, **más daño** y **no pide Ira**. Pensada para usarla sin parar en el tramo final: contra un jefe dispara el daño en su última parte; a un mob pequeño lo mata de un golpe |
+| Combatiente | 7 · Área: **Fisura** | **Solo se puede usar con Ira**; consume poca Ira, pero la necesita |
+| Combatiente (por confirmar: ¿Ejecutar del Luchador?) | 8 · Individual: **Remate / Ejecución** | Golpe de remate. Cuando al objetivo le queda **poca vida (%)**: **la mitad de enfriamiento**, **más daño** y **no pide Ira**. Pensada para usarla sin parar en el tramo final: contra un jefe dispara el daño en su última parte; a un mob pequeño lo mata de un golpe |
 | Asesino | 1 · Daño | Mantiene el **Golpe doble** |
 | Asesino | 2 · Daño | **Golpe bajo** en lugar del Golpe al suelo (un daguero no salta a golpear el suelo) |
-| Asesino | 7 · Área: **Danza de cuchillos** | Lanza cuchillos **en círculo a su alrededor** (no en cono ni delante). Daño **no muy alto**; se puede lanzar **varias veces seguidas gastando Energía**, y **solo con Energía**: sin ella pega golpes normales |
+| Asesino | 7 · Área: **Lluvia de cuchillas** (antes "Danza de cuchillos") | Lanza cuchillos **en círculo a su alrededor** (no en cono ni delante). Daño **no muy alto**; se puede lanzar **varias veces seguidas gastando Energía**, y **solo con Energía**: sin ella pega golpes normales |
 
-Pendiente: el usuario enviará la **lista completa de habilidades** de cada especialización (incluidos los cambios del Invocador) para parametrizar su daño.
+Siguiente paso: **parametrizar el daño**, el enfriamiento y el coste de cada habilidad.
 
 ## 2. Trabajo de esta sesión
 
