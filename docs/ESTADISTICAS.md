@@ -323,6 +323,26 @@ El daño de las espadas se sube directamente para que el cuerpo a cuerpo, camina
 - **Regeneración (decidido)**: se expresa **cada 5 segundos**, redondeada al entero más cercano (por ejemplo, 3,5 de vida por segundo → 18 cada 5 s; 1,3 → 7 cada 5 s).
 - La regla de enteros se aplica al daño, la vida, el maná y las estadísticas; **los tiempos y los porcentajes pueden llevar decimales** (2,6 s, 1,4 s, 150 %, 75 %, 120 %).
 
+### 2.8 Prueba: +5 STR, +5 INT y +5 AGI para todos (como subir al nivel 2)
+
+Mismas armas, mismos mobs (420 de vida) y mismas pociones que 2.7; solo se suman 5 puntos a cada estadística principal de todos los perfiles.
+
+| Perfil | STR / AGI / INT | Daño por segundo contra jefe | Acciones por mob | Caza real | Frente al más rápido | Pociones de vida | Vida | Maná |
+|---|---|---|---|---|---|---|---|---|
+| Mágico | 4/7/17 → 9/12/22 | 49 → 68 (**+38 %**) | 4,8 → 3,6 | 160,8 → 118,6 min (−26 %) | — | 94 → 0 | 180 → 280 | 305 → 380 |
+| Arco | 6/16/6 → 11/21/11 | 50 → 65 (+29 %) | 4,8 → 3,8 | 157,3 → 126,3 min (−20 %) | +6,5 % | 56 → 0 | 220 → 320 | 140 → 215 |
+| Espada corta | 15/9/4 → 20/14/9 | 56 → 73 (+30 %) | 5,7 → 4,5 | 159,9 → 131,4 min (−18 %) | +10,8 % | 0 → 0 | 400 → 500 | 110 → 185 |
+| Espada larga | 15/9/4 → 20/14/9 | 60 → 74 (+24 %) | 3,2 → 2,7 | 160,3 → 138,5 min (−14 %) | +16,7 % | 0 → 0 | 400 → 500 | 110 → 185 |
+
+(Reparto con el bono del arma, en orden STR / AGI / INT.)
+
+- Los mismos +5 **no suben a todos por igual**: la diferencia en la caza real pasa de 2,2 % a **16,7 %**.
+  - **Mágico, el que más gana**: +5 INT (+12,5 % de daño de hechizos) multiplica **todo** su daño; a los físicos solo les sube las habilidades.
+  - **Espada larga, la que menos**: +5 AGI suma +10 de daño plano por golpe, que rinde más en armas rápidas (espada corta, arco) que en un arma lenta.
+  - STR (+7,5 % de daño) sube a todos por igual.
+- Con +5 de STR nadie necesita pociones (todos ganan 100 de vida).
+- Conclusión: el crecimiento por nivel no puede ser igual para todos; debe seguir el reparto de cada perfil (o ajustarse por perfil) y comprobarse con el simulador nivel a nivel.
+
 ## 3. Estructura propuesta del capítulo
 
 1. **Lista cerrada de estadísticas** y a qué categoría pertenece cada una (principal, derivada, neutral, PvP, utilidad).
