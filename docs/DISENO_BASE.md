@@ -38,6 +38,13 @@ Los controla una persona.
 - Recursos: vida, MP y un recurso secundario según la clase (Ira, Energía, Foco, Iluminación).
 - Habilidades, equipo, inventario, profesiones, misiones y reputación.
 
+**Cambio de clase / subclase (referencia MIR4, por confirmar al diseñar las subclases)**
+- Pantalla con la **lista de clases**: las que el personaje ya tiene, las disponibles para crear y las bloqueadas.
+- **Condiciones** para crear o cambiar: estar en una ciudad concreta, no estar en grupo ni banda, y que haya pasado el **tiempo de espera** del último cambio (10 minutos en MIR4).
+- **Crear** una clase nueva cuesta recursos (en MIR4, 1 millón de cobre la primera) o un **ticket de creación**; el coste sube con cada clase creada. **Cambiar** entre clases ya creadas es gratis.
+- Se comparten el **nivel** del personaje, las mejoras y las bolsas; **no** se comparten armas, armaduras ni habilidades (cada clase tiene las suyas).
+- Algunas clases futuras podrían desbloquearse solo con un pago concreto (cobre, oro, otro recurso o dinero real).
+
 ### 3.2 NPCs de combate — Mobs
 
 Enemigos que pueblan el mundo y las mazmorras.
@@ -259,7 +266,7 @@ Inspiración (MIR4): material por zona con grados, combinable y ligado → objet
 - El códice de servidor da salida a las piezas de otras clases que caen (armadura de grupo, 3.9): se registran o se venden a quien las necesite.
 - **Cambio de servidor (más adelante)**: al trasladar un personaje a otro servidor, los códices compartidos se los lleva ese personaje y los personajes alternativos del servidor de origen los pierden. Habrá una opción para elegir **qué personaje** se queda con lo compartido y **qué se lleva** en el traslado (oro, códices, etc.).
 - **Proporción de entradas** (referencia MIR4): Personaje ~1.800, Reputación ~350, Servidor ~290 (≈ 74 % / 14 % / 12 %). La pestaña Personaje es la más grande porque el equipo de la propia clase es lo que más se recoge; las otras dan menos estadísticas en total.
-- **Subclases**: la pestaña Personaje muestra las entradas de la **clase activa**. Al cambiar de subclase, la pestaña se actualiza a la nueva clase; lo ya registrado **se mantiene** y sus estadísticas siguen sumando (aunque rindan menos si eran de otra clase).
+- **Subclases**: la pestaña Personaje tiene **las mismas entradas y bonificaciones** para todas las clases, pero los **objetos que pide cada entrada cambian** según la **clase activa** (al pasar de guerrero a taoísta, las casillas piden equipo de taoísta). Lo ya registrado **se mantiene** y sus estadísticas siguen sumando.
 - **Panel de progreso** por pestaña: entradas completadas / total, porcentaje, en curso y completadas.
 - Botón **Efectos**: muestra las estadísticas totales obtenidas por cada pestaña y el total general del códice.
 - **Tipos de bonificación** (referencia MIR4, a definir en el capítulo de estadísticas): estadísticas planas (vida, maná, ataque y defensa física/mágica, precisión, evasión, crítico, evasión de crítico) y porcentuales (daño crítico, reducción de daño crítico, reducción de todo el daño, experiencia de caza, obtención de energía…). Las de Personaje son las más altas; las de Servidor, las más bajas.
