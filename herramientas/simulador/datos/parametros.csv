@@ -2,3 +2,4 @@ parametro,valor,nota
 duracion_s,1200,duración de la prueba del muñeco (20 minutos)
 critico_base_pct,5,probabilidad de crítico sin estadísticas
 multiplicador_critico_base,1.5,un crítico hace x1.5 sin estadísticas
+usar_habilidades,0,1 = la clase usa sus habilidades; 0 = solo golpes blancos (ataque básico)

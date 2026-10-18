@@ -83,13 +83,26 @@ Las estadísticas principales forman un sistema de **piedra, papel o tijera**: *
 
 `herramientas/simulador/` (ver su README) ejecuta la prueba del muñeco con los datos en CSV.
 
-**Propuesta usada en la primera versión** (todo ajustable en los CSV):
-- **Daño de arma normalizado**: daño por golpe = 40 / velocidad, para que todas las armas tengan el mismo daño por segundo en ataque básico (espada 40, daga 25, bastón 66,7…). Las armas lentas pegan más fuerte por golpe.
-- **Fórmula del golpe**: (daño del arma o de la habilidad + daño base de AGI) × (1 + % daño base de STR) × (1 + % daño de habilidad de INT, solo en habilidades) × crítico.
-- **Por punto**: STR → +20 vida, +0,2 vida/s, +0,5 % defensa física y mágica, +1,5 % daño; INT → +15 maná, +0,2 maná/s, +2,5 % daño de habilidad; AGI → +2 daño plano por golpe, +0,5 % crítico, +1 % daño crítico. Crítico base: 5 % de probabilidad y ×1,5.
-- Habilidades de la hoja: las de daño de cada clase (el Luchador tiene dos: Golpe al suelo y Golpe de mango) y Maestría (+10 a la estadística principal durante 600 s) para todas.
+**Orden de trabajo (decidido):** primero se balancean los **golpes blancos** (ataque básico) con un daño de arma igual para todas; después se revisa qué ajustar; las habilidades se añaden al final, porque todavía se están diseñando.
 
-**Primer resultado** (20 minutos, nivel 1): diferencia del **28 %** entre la clase más fuerte (Luchador, +15 % sobre la media) y la más débil (Combatiente, −10 %). El simulador calcula cuánto habría que mover el daño de las habilidades de cada clase para igualarlas.
+**Prueba actual** (todo ajustable en los CSV):
+- **Todas las armas: 20 de daño por golpe**; cada una conserva su velocidad.
+- **Solo golpes blancos** (`usar_habilidades = 0` en `parametros.csv`).
+- **Fórmula del golpe** (supuesto): (daño del arma + daño base de AGI) × (1 + % daño base de STR) × crítico.
+- **Por punto** (propuesta inicial): STR → +20 vida, +0,2 vida/s, +0,5 % defensa física y mágica, +1,5 % daño; INT → +15 maná, +0,2 maná/s, +2,5 % daño de habilidad; AGI → +2 daño plano por golpe, +0,5 % crítico, +1 % daño crítico. Crítico base: 5 % y ×1,5.
+
+**Resultado** (20 minutos, nivel 1, solo golpes blancos):
+
+| Clase | Arma (velocidad) | Daño por golpe | Daño total | Frente a la media |
+|---|---|---|---|---|
+| Luchador | Espada (1,0) | 27,4 | 32.817 | −18,2 % |
+| Combatiente | Espada (1,0) | 31,2 | 37.485 | −6,6 % |
+| Asesino | Daga (1,6) | 34,9 | 67.081 | +67,1 % |
+| Atacante a distancia | Arco (1,1) | 34,4 | 45.456 | +13,2 % |
+| Mago | Bastón (0,6) | 25,1 | 18.112 | −54,9 % |
+| Invocador | Varita (1,2) | 27,7 | 39.892 | −0,6 % |
+
+Con el mismo daño por golpe, **manda la velocidad del arma**: la daga golpea 2,7 veces más que el bastón. Las estadísticas solo mueven el daño por golpe entre 25 y 35.
 
 ## 3. Estructura propuesta del capítulo
 

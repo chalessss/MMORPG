@@ -49,6 +49,8 @@ def simular_clase(clase, parametros, armas, conversion, habilidades):
     arma = armas[clase["arma"]]
     velocidad, dano_arma = float(arma["velocidad"]), float(arma["dano"])
     propias = [h for h in habilidades if h["clase_id"] in (clase["id"], "*")]
+    if not parametros["usar_habilidades"]:
+        propias = []
     ataques = [h for h in propias if h["tipo"] == "dano"]
     mejoras = [h for h in propias if h["tipo"] == "mejora"]
 
@@ -105,7 +107,8 @@ def main():
 
     media = sum(r[3] for r in resultados) / len(resultados)
     duracion = parametros["duracion_s"]
-    print(f"Muñeco de entrenamiento · {duracion / 60:.0f} minutos · nivel 1 · sin defensa\n")
+    modo = "con habilidades" if parametros["usar_habilidades"] else "solo golpes blancos"
+    print(f"Muñeco de entrenamiento · {duracion / 60:.0f} minutos · nivel 1 · sin defensa · {modo}\n")
     print(f"{'Clase':<22}{'Arma':<9}{'Daño total':>12}{'DPS':>8}{'vs media':>10}{'Básicos':>9}")
     for clase, total, golpes, suma, _ in resultados:
         print(f"{clase['clase']:<22}{clase['arma']:<9}{suma:>12,.0f}{suma / duracion:>8.1f}"
@@ -118,6 +121,8 @@ def main():
         partes = ", ".join(f"{n} {d / suma * 100:.0f}% ({golpes[n]} golpes)" for n, d in total.items())
         print(f"  {clase['clase']}: {partes}")
 
+    if not parametros["usar_habilidades"]:
+        return
     print("\nAjuste del daño de las habilidades para que todas las clases igualen la media:")
     for clase, total, golpes, suma, habilidades_base in resultados:
         factor = (media - (suma - habilidades_base)) / habilidades_base
