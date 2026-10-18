@@ -302,22 +302,25 @@ Sin tocar mobs, vida ni daño o velocidad de las armas. Bonos (STR / INT / AGI):
 
 El daño de las espadas se sube directamente para que el cuerpo a cuerpo, caminando entre mobs, cace al mismo ritmo que el arco y el mágico (que no se tocan). Se calcula con `simular.py --calibrar-real`.
 
+**Valores siempre enteros (decidido):** todo lo que se ve en el juego es un número entero. Los datos se redondean (arco 34,5 → 35; hechizos 96,8 → 97 y 32,3 → 32) y el simulador redondea el daño de cada golpe, la vida de cada mob y el daño que hace.
+
 | Arma | Daño por golpe antes | Daño por golpe ahora | Subida |
 |---|---|---|---|
-| Espada larga | 52 | **75,5** | +45 % |
-| Espada corta | 27,7 | **37,1** | +34 % |
+| Espada larga | 52 | **75** | +44 % |
+| Espada corta | 28 | **37** | +32 % |
 
 **Resultado** (bonos de arma de 2.5, sin descansos, con pociones; 1.000 mobs):
 
 | Perfil | Caza real | Frente al más rápido | Caminando | Pociones de vida | Combate puro | Daño por segundo contra jefe |
 |---|---|---|---|---|---|---|
-| Arco | 158,4 min | — | 0 % | 59 | 158,4 min | 50,0 |
-| Espada larga | 159,0 min | +0,4 % | 16 % | 0 | 137,5 min | 60,0 |
-| Espada corta | 159,2 min | +0,5 % | 16 % | 0 | 136,5 min | 56,4 |
-| Mágico | 160,7 min | +1,5 % | 0 % | 99 | 160,7 min | 49,4 |
+| Arco (35) | 157,3 min | — | 0 % | 65 | 157,3 min | 50 |
+| Espada corta (37) | 159,9 min | +1,7 % | 16 % | 0 | 137,3 min | 56 |
+| Espada larga (75) | 160,3 min | +1,9 % | 16 % | 0 | 138,2 min | 60 |
+| Mágico (97 / 32) | 160,8 min | +2,2 % | 0 % | 103 | 160,8 min | 49 |
 
-- En la caza real los cuatro quedan a un **1,5 %** como máximo.
-- A cambio, **sin caminar** (contra un jefe, o con mobs muy juntos) el cuerpo a cuerpo hace un **13–20 % más de daño** que los de distancia. Habrá que tenerlo en cuenta en mazmorras y jefes.
+- En la caza real los cuatro quedan a un **2,2 %** como máximo.
+- A cambio, **sin caminar** (contra un jefe, o con mobs muy juntos) el cuerpo a cuerpo hace un **12–22 % más de daño** que los de distancia. Habrá que tenerlo en cuenta en mazmorras y jefes.
+- **Pendiente**: la regeneración por punto (0,2 de vida o maná por STR/INT) da valores con decimales (1,3/s, 3,5/s). Hay que expresarla de otra forma (por ejemplo, cada 5 s) o cambiar la conversión para que salga entera.
 
 ## 3. Estructura propuesta del capítulo
 

@@ -45,6 +45,8 @@ Implicaciones técnicas:
 - Forma de trabajo: la primera conversación fijó los parámetros generales de todos los sistemas; ahora se trabaja **un capítulo de detalle por sesión** (estadísticas, personajes/habilidades, mapas, recursos, objetos, profesiones, contenido por temporada).
 - `docs/DISENO_BASE.md`: qué existe en el juego (personajes, mobs, jefes, NPCs, recursos, objetos) y sistemas principales.
 
+**Valores siempre enteros (decidido):** todo valor que se muestra en el juego (daño de armas y habilidades, daño de cada golpe, vida, maná, estadísticas…) es un número entero, sin decimales. Los datos de balance se guardan ya redondeados.
+
 Mantener cada fase pequeña y funcional antes de pasar a la siguiente. Datos de balance (estadísticas, escalados) preferiblemente fuera del código (DataTables de Unreal importadas desde CSV/JSON) para poder ajustarlos sin programar.
 
 ## Git

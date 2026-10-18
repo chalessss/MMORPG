@@ -3,5 +3,5 @@ melee,Golpe doble,1.5|0.75,arma,20,0,8,golpe blanco potenciado con remate del ma
 melee,Golpe al suelo,3.0,arma,40,3.0,12,salta y golpea el suelo: animación de 3 s
 rango,Disparo cargado,2.0,arma,12,2.0,6,carga la flecha 2 s y la suelta
 rango,Ráfaga triple,1.2|1.2|1.2,arma,40,1.5,12,tres disparos seguidos: la habilidad de más daño
-magico,Hechizo fuerte,96.8,puntos,8,2.0,12,mucho daño; vuelve a estar listo tras tres hechizos débiles
-magico,Hechizo débil,32.3,puntos,1,2.0,5,se puede lanzar siempre
+magico,Hechizo fuerte,97,puntos,8,2.0,12,mucho daño; vuelve a estar listo tras tres hechizos débiles
+magico,Hechizo débil,32,puntos,1,2.0,5,se puede lanzar siempre

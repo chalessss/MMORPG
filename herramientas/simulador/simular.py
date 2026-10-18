@@ -128,7 +128,8 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
     mana_max = p["mana_base"] + s["mana"]
     regen_vida = p["regen_vida_base"] + s["regen_vida"]
     regen_mana = p["regen_mana_base"] + s["regen_mana"]
-    dano_recibido = p["dano_mob"] * (1 - s["defensa_fisica_pct"] / 100)
+    # En el juego todos los valores que se ven son enteros: cada golpe se redondea.
+    dano_recibido = round(p["dano_mob"] * (1 - s["defensa_fisica_pct"] / 100))
 
     e = {"t": 0.0, "vida": vida_max, "mana": mana_max, "util": 0.0, "perdido": 0.0, "muertes": 0,
          "pegando": 0.0, "caminando": 0.0, "descansando": 0.0, "esperando_mana": 0.0, "muerto": 0.0,
@@ -229,6 +230,8 @@ def combatir(perfil, conversion, parametros, vidas, limite_s=None, azar=None, su
                         dano *= s["critico"]
                     elif azar.random() < s["probabilidad_critico"]:
                         dano *= s["multiplicador_critico"]
+                    if azar is not None:
+                        dano = round(dano)  # con críticos reales cada golpe es un número entero
                     # Si el mob muere a mitad de una habilidad, los golpes que quedan se pierden.
                     e["util"] += min(dano, max(mob["vida"], 0))
                     e["perdido"] += max(dano - max(mob["vida"], 0), 0)
@@ -281,7 +284,7 @@ def prueba_jefe(perfil, conversion, parametros):
 def prueba_caza(perfil, conversion, parametros, supervivencia=None):
     azar_vidas = random.Random(int(parametros["semilla"]))
     variacion = parametros["variacion_vida_mob_pct"] / 100
-    vidas = [parametros["vida_mob"] * (1 + azar_vidas.uniform(-variacion, variacion))
+    vidas = [round(parametros["vida_mob"] * (1 + azar_vidas.uniform(-variacion, variacion)))
              for _ in range(int(parametros["numero_mobs"]))]
     azar = random.Random(int(parametros["semilla"])) if parametros["critico_aleatorio_en_caza"] else None
     if supervivencia is None:
@@ -310,7 +313,7 @@ def calibrar(parametros, armas, arquetipos, conversion, habilidades):
 
         def aplicar(factor, redondear=False):
             for (fila, campo), v in zip(ajustables, originales):
-                fila[campo] = f"{v * factor:.1f}" if redondear else str(v * factor)
+                fila[campo] = f"{v * factor:.0f}" if redondear else str(v * factor)
 
         bajo, alto = 0.2, 5.0
         for _ in range(40):
@@ -349,7 +352,7 @@ def calibrar_real(parametros, armas, arquetipos, conversion, habilidades):
                 bajo = medio
             else:
                 alto = medio
-        arma["dano"] = f"{original * (bajo + alto) / 2:.1f}"
+        arma["dano"] = f"{original * (bajo + alto) / 2:.0f}"
         print(f"{arma['arma']}: {original:g} -> {arma['dano']} de daño por golpe")
     escribir("armas.csv", armas)
     print(f"Igualado a {objetivo / 60:.1f} min de caza real (media de los perfiles a distancia).")
