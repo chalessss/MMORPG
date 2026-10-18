@@ -414,6 +414,21 @@ Mismas armas, mismos mobs (420 de vida) y mismas pociones que 2.7; solo se suman
 - **Daño perdido al rematar**: entre 5 y 20 %; el más alto, la espada larga en los niveles altos (pocos golpes muy grandes por mob).
 - Pociones: el arco deja de necesitarlas desde el nivel 13; el mágico sigue bebiendo (16–58 cada 300 mobs).
 
+**Variante: vida del mob +10 % por nivel** (compuesto; daño del mob igual que antes; `crecimiento_vida_mob_pct = 10`):
+
+| Nivel | Vida mob | Espada larga (s/mob · perdido) | Espada corta | Arco | Mágico | Diferencia |
+|---|---|---|---|---|---|---|
+| 1 | 420 | 9,9 · 13,8 % | 9,9 · 7,9 % | 10,1 · 11,1 % | 10,1 · 9,6 % | 2,8 % |
+| 5 | 615 | 7,2 · 20,5 % | 6,3 · 13,0 % | 5,9 · 20,6 % | 5,0 · 18,0 % | 44,0 % |
+| 10 | 990 | 6,6 · 33,3 % | 5,1 · 20,5 % | 4,7 · 29,4 % | 3,4 · 27,0 % | 97,8 % |
+| 15 | 1.595 | 6,5 · 38,5 % | 5,1 · 30,8 % | 4,3 · 31,0 % | 2,6 · 28,0 % | 146,6 % |
+| 19 | 2.335 | 7,0 · 43,9 % | 5,1 · 32,3 % | 4,3 · 31,6 % | 2,1 · 13,7 % | 236,1 % |
+
+- Un +10 % por nivel se queda muy corto: el daño de los jugadores crece mucho más rápido (el daño medio contra jefe se multiplica por ~18 del nivel 1 al 19, unos **+17 % por nivel**), mientras que la vida del mob solo se multiplica por 5,6.
+- A partir del nivel 5–6 los mobs mueren en **1–3 golpes**, y vuelve el problema de los umbrales: el **daño perdido al rematar sube al 30–44 %** y manda la velocidad de cada acción (la espada larga no baja de ~6,5 s porque cada golpe dura 2,6 s; el mágico mata casi con un hechizo de 2 s).
+- Pociones: nadie las necesita desde el nivel 7 (los mobs mueren antes de hacer daño).
+- Para que los mobs puedan crecer un 10 % por nivel, el daño de los jugadores también debería crecer ~10 % por nivel: eso implica un crecimiento de estadísticas por nivel menor (o conversiones por punto menores) que el bono del arma de nivel 1.
+
 ## 3. Estructura propuesta del capítulo
 
 1. **Lista cerrada de estadísticas** y a qué categoría pertenece cada una (principal, derivada, neutral, PvP, utilidad).
