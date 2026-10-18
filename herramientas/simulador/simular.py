@@ -187,15 +187,19 @@ def informe(parametros, armas, arquetipos, conversion, habilidades):
 
     print(f"Nivel 1 · jefe: {parametros['duracion_jefe_s'] / 60:.0f} min · caza: "
           f"{parametros['numero_mobs']:.0f} mobs de {parametros['vida_mob']:.0f} de vida\n")
-    print(f"{'Arquetipo':<24}{'Arma':<14}{'s/golpe':>8}{'Daño':>7}"
-          f"{'DPS jefe':>10}{'vs media':>10}{'Caza (min)':>12}{'vs media':>10}{'Perdido':>9}")
+    rapido = min(c["tiempo"] for _, _, c in filas)
+    print(f"{'Arquetipo':<24}{'Arma':<14}{'s/golpe':>8}{'Daño':>7}{'DPS jefe':>10}{'vs media':>10}"
+          f"{'Golpes/mob':>11}{'s/mob':>7}{'Caza (min)':>11}{'vs media':>10}{'vs + rápido':>12}{'Perdido':>9}")
     for perfil, jefe, caza in filas:
         a = perfil["arma"]
         con_arma = perfil["arquetipo"]["ataque_basico"] == "1"
-        print(f"{perfil['arquetipo']['nombre']:<24}{a['arma']:<14}"
+        golpes = sum(caza["usos"].values()) / parametros["numero_mobs"]
+        print(f"{perfil['arquetipo']['nombre']:<24}{a['arma'] if con_arma else 'solo hechizos':<14}"
               f"{(a['segundos_entre_golpes'] if con_arma else '—'):>8}{(a['dano'] if con_arma else '—'):>7}"
               f"{jefe['dps']:>10.2f}{(jefe['dps'] / media_dps - 1) * 100:>+9.1f}%"
-              f"{caza['tiempo'] / 60:>12.1f}{(caza['tiempo'] / media_caza - 1) * 100:>+9.1f}%"
+              f"{golpes:>11.2f}{caza['tiempo'] / parametros['numero_mobs']:>7.2f}"
+              f"{caza['tiempo'] / 60:>11.1f}{(caza['tiempo'] / media_caza - 1) * 100:>+9.1f}%"
+              f"{(caza['tiempo'] / rapido - 1) * 100:>+11.1f}%"
               f"{caza['perdido'] / (caza['util'] + caza['perdido']) * 100:>8.1f}%")
 
     dps = [j["dps"] for _, j, _ in filas]

@@ -9,7 +9,7 @@ Compara los tres arquetipos de inicio (niveles 1 a 19) con cada arma que pueden 
 Dos pruebas:
 
 - **Jefe**: 20 minutos golpeando un objetivo de 50 millones de vida.
-- **Caza**: matar 1.000 mobs de 1.000 de vida. El daño que sobra al rematar cada mob se pierde, así que penaliza los golpes grandes.
+- **Caza**: matar 1.000 mobs de 420 de vida (un guerrero con espada larga los mata en 6–7 golpes). El daño que sobra al rematar cada mob se pierde, así que penaliza los golpes grandes.
 
 ```
 python3 herramientas/simulador/simular.py             # resultados
@@ -26,6 +26,6 @@ Solo necesita Python 3, sin librerías extra. Todos los valores están en `datos
 | `armas.csv` | Segundos entre golpe y golpe y daño por golpe |
 | `habilidades.csv` | Hechizos del mágico: daño, enfriamiento y tiempo de lanzamiento |
 | `conversion.csv` | Cuánto da cada punto de STR, INT y AGI |
-| `parametros.csv` | Arma de referencia, duración y vida del jefe, número y vida de los mobs, crítico base y azar |
+| `parametros.csv` | Arma de referencia, duración y vida del jefe, número y vida de los mobs (420: 6–7 golpes de espada larga), crítico base y azar |
 
 Supuestos de esta versión (ver `docs/ESTADISTICAS.md`): nivel 1, sin defensa ni gasto de maná, los físicos solo dan golpes blancos (sus habilidades se añadirán después). En el jefe el crítico cuenta por su valor esperado; en la caza cada golpe tira su crítico con una semilla fija.

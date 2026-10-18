@@ -128,7 +128,7 @@ Las estadísticas principales forman un sistema de **piedra, papel o tijera**: *
 
 **Pruebas:**
 - **Jefe**: 20 minutos contra un objetivo de 50 millones de vida.
-- **Caza**: 1.000 mobs de 1.000 de vida. El daño que sobra al rematar se pierde (penaliza los golpes grandes); cada golpe tira su crítico.
+- **Caza**: 1.000 mobs. El daño que sobra al rematar se pierde (penaliza los golpes grandes); cada golpe tira su crítico.
 
 **Supuestos** (todo ajustable en los CSV):
 - **Fórmula del golpe**: (daño del arma o del hechizo + daño base de AGI) × (1 + % daño base de STR) × (1 + % daño de habilidad de INT, solo en hechizos) × crítico.
@@ -167,6 +167,24 @@ Diferencia máxima: **35,8 %**. Cuando un mob muere en 2–3 golpes, lo que mand
 | Diferencia entre perfiles | 35,8 % | 20,6 % | 22,9 % | 8,3 % | 5,3 % | 8,2 % | 3,9 % | 3,3 % | 1,0 % | 0,8 % |
 
 **Conclusión:** la igualdad de daño por segundo solo se traslada a la caza si los mobs aguantan **bastantes golpes del arma más lenta**: con unos 8 golpes la diferencia baja a ~4 %, y con 15 o más, a ~1 %.
+
+### 2.1 Vida del mob (decidido)
+
+- Se prefiere **matar muchos mobs rápido** a pasar minutos con uno solo (la probabilidad de botín lo exige).
+- Al empezar, un **guerrero con espada larga mata un mob normal en 6–7 golpes**. Con las armas calibradas, eso es **420 de vida** a nivel 1.
+
+**1.000 mobs de 420 de vida** (nivel 1):
+
+| Perfil | Golpes por mob | Segundos por mob | Tiempo total | Frente al más rápido | Daño perdido al rematar |
+|---|---|---|---|---|---|
+| Arco | 8,50 | 16,99 | 283,2 min | — | 4,3 % |
+| Espada larga | 6,64 | 17,26 | 287,6 min | +1,6 % | 5,6 % |
+| Espada corta | 12,36 | 17,30 | 288,4 min | +1,8 % | 5,9 % |
+| Mágico | 8,79 | 17,59 | 293,2 min | +3,5 % | 7,5 % |
+
+- Diferencia máxima: **3,5 %**. El mágico es el que más pierde porque su hechizo fuerte (95 de daño) suele caer cuando al mob le queda poca vida.
+- Con 6–7 golpes los umbrales todavía pesan: según la vida exacta (380–480) la diferencia oscila entre 2,8 % y 8,6 %. Con **vida variable de ±10 %** (378–462) la diferencia se queda en 3,5 % y deja de depender del número exacto.
+- **Ritmo**: unos 17 s por mob, unos **3,5 mobs por minuto** a nivel 1 en un contra uno. Para llegar a decenas de mobs por minuto harían falta golpes más rápidos o más fuertes, mobs con menos vida o ataques en área.
 
 ## 3. Estructura propuesta del capítulo
 

@@ -3,7 +3,7 @@ arma_referencia,Espada larga,las demás armas y los hechizos se calibran para ig
 duracion_jefe_s,1200,prueba del jefe: 20 minutos contra un objetivo de vida casi infinita
 vida_jefe,50000000,
 numero_mobs,1000,prueba de caza: cuántos mobs matar
-vida_mob,100,
+vida_mob,420,un guerrero con espada larga lo mata en 6-7 golpes
 desplazamiento_s,0,segundos entre un mob y el siguiente (igual para todos)
 critico_base_pct,5,probabilidad de crítico sin estadísticas
 multiplicador_critico_base,1.5,un crítico hace x1.5 sin estadísticas
