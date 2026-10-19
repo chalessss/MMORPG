@@ -465,7 +465,7 @@ Base común: **STR** 25 de vida, 0,2 de vida/s, 0,1 % de defensa **física** (no
 | Mago | 37 | 74 | 259 | 1.580 | 40 | 5.230 | 469 | 3,7 % | 0 % | 1.000 | — | 4,8 % | +9,6 % | — |
 | Invocador | 74 | 111 | 185 | 2.320 | 76 | 2.825 | 558 | 7,4 % | 0 % | 1.000 | — | 4,8 % | +9,6 % | — |
 
-- Crítico base del nivel 20: 4,8 % y +9,6 % de daño. Desde el 20 los topes suben al 50 % y +150 % (provisional).
+- Crítico base del nivel 20: 4,8 % y +9,6 % de daño. Desde el 20 los topes suben al **50 % de probabilidad y +150 % de daño crítico** (decidido).
 - Armadura del equipo: 1.000 en el nivel 20 (cada 100 restan 1 de daño a cada golpe).
 - **La STR solo da defensa física** (decidido después de cerrar la ficha): la defensa mágica la darán collares, brazaletes y demás joyería, y el equipo de grado raro. Efecto en el nivel 20: ver 2.8.
 

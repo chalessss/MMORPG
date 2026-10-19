@@ -12,8 +12,8 @@ mana_base,50,
 regen_mana_base,0.5,
 critico_base_pct,4.8,probabilidad de crítico del nivel 20 (1 % + 0,2 % por nivel)
 critico_aumentado_base_pct,9.6,daño extra del crítico del nivel 20 (2 % + 0,4 % por nivel)
-tope_critico_pct,50,desde el nivel 20 (provisional)
-tope_critico_aumentado_pct,150,desde el nivel 20 (provisional)
+tope_critico_pct,50,desde el nivel 20 (decidido)
+tope_critico_aumentado_pct,150,desde el nivel 20 (decidido)
 mejora_dano_pct,2,cada nivel de habilidad sobre el anterior
 mejora_coste_pct,25,cada nivel de habilidad sube el coste este % sobre el anterior (nivel 4 = ×1.95; nivel 10 = ×7.45)
 nivel_habilidad_maximo,10,las habilidades suben hasta el nivel 10; en el nivel de personaje 20 se llega como mucho al 4

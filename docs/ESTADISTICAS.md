@@ -934,7 +934,7 @@ Al llegar al nivel 20 se elige clase y **se reconfiguran las estadísticas**. Ca
 ## 6. Preguntas abiertas
 
 **De los niveles 1–19 (para cerrar del todo):**
-- **Validar los valores por punto de INT y AGI** (los de STR ya están: 2.21).
+- ~~**Validar los valores por punto de INT y AGI**~~: **validados** (decidido en la parte 2: el nivel 20 se balanceó con ellos y funcionan).
 - **Actualizar la ficha de la sección 3** con los cambios de 2.21–2.23 (STR, regeneración del cuerpo a cuerpo, costes de maná en %, rangos de habilidad).
 - **Coste de maná**: se ajusta en el nivel 20, con 6–8 habilidades activables (2.23).
 - **Daño de las armas por tramos** (bronce → cobre → plata): de momento el arma no cambia de daño en todo el tramo.

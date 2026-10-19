@@ -32,8 +32,8 @@ Del 1 al 19 solo hay tres **clases de inicio**: en el nivel 1 se elige daño má
 | Estadística | Por punto | Estado |
 |---|---|---|
 | **STR** | +25 vida · +0,2 vida/s · +0,1 % defensa **física** (la mágica la da la joyería) · +1,5 % de daño en todos los golpes | Validado |
-| **INT** | +15 maná · +0,2 maná/s · +2,5 % de daño de habilidades | Pendiente de validar |
-| **AGI** | +2 de daño plano en cada golpe | Pendiente de validar |
+| **INT** | +15 maná · +0,2 maná/s · +2,5 % de daño de habilidades | Validado |
+| **AGI** | +2 de daño plano en cada golpe | Validado |
 | **Base** | 100 vida · 0,5 vida/s · 50 maná · 0,5 maná/s | — |
 
 **Fórmula del golpe**: (daño del arma o de la habilidad + daño plano de AGI) × (1 + % de STR) × (1 + % de INT, solo habilidades) × crítico, redondeado a entero.
