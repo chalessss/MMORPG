@@ -175,7 +175,7 @@ Lectura:
 
 ### 7.3 Velocidad de fabricación (decidido)
 
-- Funciona **igual que la velocidad de recolección gratuita** de minería y herboristería: al llegar a **100 puntos** en una profesión de fabricación (encantamiento, joyería, peletería, herrería…), se recibe un **bonus de especialización**: las recetas de esa profesión se fabrican **un 50 % más rápido**.
-- Así se iguala la velocidad de fabricación con la de recolección.
-- Por confirmar: si se aplica con la misma fórmula que la recolección (con +50 % el tiempo queda en el 71 %) o si "un 50 % más rápido" significa fabricar en dos tercios del tiempo (67 %) o en la mitad.
-
+- Al llegar a **100 puntos** en una profesión de fabricación (encantamiento, joyería, peletería, herrería…), se recibe un **bonus de especialización**: **el tiempo de fabricación se reduce a la mitad** en las recetas de esa profesión. Una receta de 10 s pasa a **5 s exactos**.
+- Se expresa así, "se reduce a la mitad", y no como un %, para que no se confunda con la velocidad de recolección.
+- **Es lo más rápido que se puede fabricar**: no hay ningún otro bonus ni mejora de velocidad de fabricación.
+- **Alerta de seguridad**: si alguien fabrica algo en **4,9 s o menos** (más rápido que la mitad del tiempo de la receta), el servidor avisa al equipo de seguridad con todo el detalle: quién, con qué velocidad, qué receta, qué materiales, su equipo y su configuración completa, para saber si es un fallo de programación o cómo lo consiguió (como la alerta de 7.1).

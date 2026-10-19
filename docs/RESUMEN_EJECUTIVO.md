@@ -85,6 +85,6 @@ Vista rápida del proyecto. El detalle de cada decisión está en `docs/DISENO_B
 2. **Resolver pronto la arquitectura de servidor**: el servidor dedicado de Unreal soporta del orden de cien jugadores por instancia; un MMO necesita repartir el mundo entre varios servidores.
 3. **Modelar la economía en una hoja de cálculo** (entradas vs. salidas de moneda) antes de fijar precios.
 4. **Cuidar la monetización** para que no se perciba como "pagar para ganar". Steam no admite juegos con NFT.
-5. **Detección de bots en el servidor**, además de los límites del automático. Decidido: alertas automáticas al staff cuando una estadística llega a valores irregulares (por ejemplo, más de 200 % de velocidad de recolección en la Temporada 1), con el informe completo del personaje; detalle en `docs/ESTADISTICAS_NEUTRALES.md`, 7.1.
+5. **Detección de bots en el servidor**, además de los límites del automático. Decidido: alertas automáticas al staff cuando una estadística llega a valores irregulares (por ejemplo, más de 200 % de velocidad de recolección en la Temporada 1, o fabricar más rápido que la mitad del tiempo de una receta), con el informe completo del personaje; detalle en `docs/ESTADISTICAS_NEUTRALES.md`, 7.1.
 6. **Dividir `DISENO_BASE.md`** en un archivo por sistema cuando empiecen los capítulos de detalle.
 7. **Empezar la parte técnica en paralelo**: proyecto de Unreal con C++ y Git LFS, y prototipo de personajes y estadísticas.
