@@ -190,4 +190,4 @@ Vale para todas las alertas (recolección, fabricación y las que se añadan):
   2. **Informe de 5 minutos**: el registro completo de **todas** las recolecciones o fabricaciones de los 5 minutos siguientes (hora exacta, recurso o receta, tiempo de cada una, todo).
   3. **Informe de 1 hora**: el mismo registro durante la hora siguiente.
 - Así se distingue un **pico puntual** (algo raro en un segundo que no se repite en los 5 minutos ni en la hora) de una **velocidad anormal sostenida**.
-- **Suspensión de la cuenta**: solo con **tres informes consecutivos** (instantáneo, 5 minutos y 1 hora) que confirmen la irregularidad, nunca por un único aviso.
+- **Suspensión de la cuenta**: solo con **tres informes consecutivos** (instantáneo, 5 minutos y 1 hora) que confirmen la irregularidad, nunca por un único aviso. Sanción, apelación, contenido completo de los informes y demás: `docs/SEGURIDAD.md`.
