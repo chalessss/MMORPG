@@ -83,13 +83,14 @@ Estado: **en curso**. Este archivo recoge el punto de partida (lo ya decidido en
 
 | Color | Cuándo | Puntos al fabricar |
 |---|---|---|
-| **Naranja** | La receta **nunca se ha fabricado** | **×2**: la primera fabricación da **2 puntos** con los mismos materiales |
+| **Naranja** | La receta **nunca se ha fabricado** y la profesión está **dentro de su tramo amarillo** (menos de 7 puntos por encima del punto en que se aprende) | **×2**: la primera fabricación da **2 puntos** con los mismos materiales |
 | **Amarillo** | Desde la primera fabricación hasta **7 puntos** por encima del punto en que se aprende la receta | **1 punto seguro** |
 | **Verde** | Después de esos 7 puntos | **Probabilidad** de ganar 1 punto (60 % al empezar, y baja); si falla, no se gana punto (el objeto se fabrica igual) |
 | **Gris** | Cuando la receta ya no da puntos | 0 |
 
 - El ×2 del naranja **incentiva fabricar una vez cada receta** en vez de repetir siempre la misma, y consume menos materiales para subir.
 - Ejemplo: una receta que se aprende con 0 puntos → la primera fabricación pasa de 0 a **2**; cinco fabricaciones en amarillo llevan a **7**; desde ahí, verde con un 60 %.
+- **El ×2 caduca (decidido)**: si la profesión llega al final del tramo amarillo de una receta (7 puntos por encima del punto en que se aprende) sin haberla fabricado nunca, la receta pasa **directamente de naranja a verde** y su primera fabricación ya no da 2 puntos: sigue la regla del verde. Así nadie puede **guardarse** primeras fabricaciones para gastarlas en la zona verde y subir de 7 a 9 y de 9 a 10 sin riesgo.
 
 ### 3.3 Rangos del entrenador (decidido)
 
