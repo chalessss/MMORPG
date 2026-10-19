@@ -67,7 +67,7 @@ Vista rápida del proyecto. El detalle de cada decisión está en `docs/DISENO_B
 ## Pendiente
 
 **Capítulos de detalle** (uno por sesión):
-1. **Estadísticas** (en curso, `docs/ESTADISTICAS.md`; resumen en `docs/RESUMEN_ESTADISTICAS.md`) — cerrados los niveles 1–19 (tres perfiles de inicio, armas, crecimiento por nivel, cuatro habilidades por perfil, crítico, armadura, mobs; ficha en la sección 3) con un simulador de balance en `herramientas/simulador/`. Cerrado también el **nivel 20** (parte 2, `docs/ESTADISTICAS_NIVEL_20.md`): 6 especializaciones con su conversión propia, 8 habilidades cada una, recursos secundarios, maná, agro y simulación solo, en grupo, con élites y en mazmorra. Siguiente: estadísticas visibles del nivel 20, primer balance PvP, neutrales, topes y poder.
+1. **Estadísticas** (en curso, `docs/ESTADISTICAS.md`; resumen en `docs/RESUMEN_ESTADISTICAS.md`) — cerrados los niveles 1–19 (tres perfiles de inicio, armas, crecimiento por nivel, cuatro habilidades por perfil, crítico, armadura, mobs; ficha en la sección 3) con un simulador de balance en `herramientas/simulador/`. Cerrado también el **nivel 20** (parte 2, `docs/ESTADISTICAS_NIVEL_20.md`): 6 especializaciones con su conversión propia, 8 habilidades cada una, recursos secundarios, maná, agro y simulación solo, en grupo, con élites y en mazmorra. En curso: **neutrales** (parte 3, `docs/ESTADISTICAS_NEUTRALES.md`), empezando por precisión y evasión. Después: primer balance PvP, topes y poder.
 2. Personajes → habilidades.
 3. Mapas (incluye guerra de territorios, asedios, cementerios).
 4. Recursos.

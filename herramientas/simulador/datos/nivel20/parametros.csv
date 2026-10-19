@@ -66,3 +66,15 @@ oleada_tamanos,6|7,tamaño de cada oleada (se van alternando)
 primera_oleada_s,20,segundos hasta la primera oleada
 mazmorra_limite_s,900,si el jefe no cae en este tiempo, el intento se da por fallido (furia)
 mazmorra_intentos,5,intentos antes de dar la mazmorra por imposible
+acierto_base_pct,100,probabilidad de acertar con la misma precisión que la evasión del objetivo (100 = sin fallos hasta decidir; propuesta en --precision)
+acierto_por_punto_pct,1,% de acierto por cada punto de precisión por encima (o por debajo) de la evasión del objetivo
+acierto_minimo_pct,50,
+acierto_maximo_pct,100,
+precision_jugador,0,precisión del jugador (de joyería y encantamientos)
+evasion_jugador,0,evasión del jugador
+precision_mob,0,precisión del mob del nivel 20
+evasion_mob,0,evasión del mob del nivel 20
+prueba_acierto_base_pct,95,--precision: acierto con precisión igual a la evasión
+prueba_acierto_por_punto_pct,1,--precision: % por punto de diferencia
+prueba_acierto_minimo_pct,50,--precision: acierto mínimo
+prueba_neutral_mob,20,--precision: precisión y evasión de los mobs del nivel 20

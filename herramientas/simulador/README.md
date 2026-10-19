@@ -63,3 +63,5 @@ La prueba 4 simula **grupos** (`GRUPOS` en `simular20.py`: un trío Combatiente 
 **Agro**: cada mob lleva una tabla de amenaza (daño hecho, y una parte de lo curado) y ataca a quien más amenaza tiene, salvo mientras le dura una provocación (`habilidades_provocan`, `provocacion_s`). La prueba 4 se juega sin y con control del agro (con control, nadie usa una habilidad que le haría pasar de la amenaza de los demás). Parámetros para probar soluciones: `provocacion_iguala_amenaza`, `amenaza_tanque_mult`, `amenaza_cura_pct`.
 
 La prueba 5 repite la caza en grupo con **élites** (`elite_mult_dano`) y la 6 simula una **mazmorra**: un jefe que siempre ataca al tanque y oleadas de adds (`mazmorra_*`, `oleada_*`), con dos estrategias (el tanque se queda con el jefe o acercan los adds al tanque) y con adds normales o de élite.
+
+**Precisión y evasión** (`python3 herramientas/simulador/simular20.py --precision`): cada golpe acierta con `acierto_base_pct` + `acierto_por_punto_pct` × (precisión − evasión), entre el mínimo y el máximo. Por defecto está desactivado (acierto del 100 %); la prueba usa los valores `prueba_*` de `parametros.csv`.
