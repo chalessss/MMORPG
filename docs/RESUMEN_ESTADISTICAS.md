@@ -4,7 +4,8 @@ Vista rápida de cómo quedaron las estadísticas tras la primera sesión del ca
 
 ## Estado
 
-- **Niveles 1–19 (sin clase): cerrados**, salvo los flecos de la última sección.
+- **Capítulo cerrado para la Temporada 1** (partes 1, 2 y 3).
+- **Niveles 1–19 (clases de inicio): cerrados**.
 - **Nivel 20** (especialización 1 y estadísticas finales con ella): **cerrado** en `docs/ESTADISTICAS_NIVEL_20.md` (ficha en la sección 2). Resumen al final de este archivo.
 
 ## Principios decididos
@@ -90,18 +91,11 @@ Ficha completa nivel a nivel: `python3 herramientas/simulador/simular.py --ficha
 
 (Pociones de vida y maná sumadas. Nadie muere.) El mágico es el más rápido hasta el nivel 10 y luego para más a recuperar maná; el guerrero aguanta sin pociones salvo en los niveles 10–14; el arco es el que más pociones gasta.
 
-## Pendiente
+## Pendiente (de la parte 1)
 
-**Para cerrar del todo el 1–19:**
-1. Validar los valores por punto de **INT** y **AGI**.
-2. **Daño de las armas por tramos** (bronce → cobre → plata).
-3. **Pociones por nivel** (ahora curan siempre 100).
-
-**Nivel 20 (próxima sesión):**
-- Pasivas de clase que cambian lo que da cada punto: INT ×3 para los mágicos; cada pocos puntos de AGI, crítico o robo de vida; STR con más vida y armadura para los que aguantan.
-- **6–8 habilidades activables** por clase y ajuste del coste de maná (objetivo: 300–1.000 pociones de maná cada 1.000 mobs en el nivel máximo, con menos de 150 de diferencia entre perfiles).
-
-**Más adelante en el capítulo:** neutrales, topes y rendimientos decrecientes, puntuación de poder e implementación en GAS.
+- Valores por punto de INT y AGI: **validados** en la parte 2.
+- Daño de las armas por tramos y pociones por nivel: pasan al **capítulo de objetos**.
+- Coste de maná y habilidades del nivel 20: resueltos en la parte 2.
 
 ## Parte 2 — Nivel 20: especialización 1 (cerrada)
 
@@ -124,9 +118,9 @@ Detalle: `docs/ESTADISTICAS_NIVEL_20.md` · simulador: `herramientas/simulador/s
 | Mago | 1.580 | 5.230 | 3,7 % | 4,8 % | 2.367 | 126 |
 | Invocador | 2.320 | 2.825 | 7,4 % | 4,8 % | 746 | 61 |
 
-**Pendiente**: estadísticas visibles nuevas del nivel 20, primer balance PvP, cantidades de curas, escudos, pociones mejoradas y recursos secundarios; después, neutrales, topes, poder e implementación en GAS.
+**Fuera del capítulo**: cantidades de curas, escudos y recursos secundarios (habilidades); pociones, armas por tramos y poder (objetos); balance PvP y crecimiento desde el 20 (Temporada 2).
 
-## Parte 3 — Neutrales (en curso)
+## Parte 3 — Neutrales (cerrada para la Temporada 1)
 
 Detalle: `docs/ESTADISTICAS_NEUTRALES.md`.
 
@@ -139,3 +133,5 @@ Detalle: `docs/ESTADISTICAS_NEUTRALES.md`.
 - **Velocidad de recolección**: 10 s por recogida en el nivel 1; general para todos los recursos; minería +25 %, herboristería +25 % y encantamientos raros; cada 100 % reduce el tiempo a la mitad (5 s, 2,5 s, 1,25 s…), nunca llega a 0. Alerta automática al staff si alguien supera el 200 % (Temporada 1), con el informe completo del personaje.
 - **Velocidad de fabricación**: a 100 puntos de una profesión de fabricación, el tiempo de sus recetas se reduce a la mitad (10 s → 5 s). Es el máximo; si alguien fabrica en 4,9 s o menos, alerta automática al equipo de seguridad.
 - **CDR**: resta un % a los enfriamientos (no al Embate, para mantener el hueco de agro); en la Temporada 1, 10 % con equipo normal y 15 % como máximo; tope absoluto 40 %.
+- **Poder**: sin clasificación por nivel; la clasificación de poder es por región y filtrable por clase; los pesos de cada estadística (distintos por especialización) se calibrarán con el equipo perfecto en el capítulo de objetos.
+- **Seguridad**: alertas silenciosas de recolección y fabricación, origen de los objetos y sanciones en `docs/SEGURIDAD.md`.

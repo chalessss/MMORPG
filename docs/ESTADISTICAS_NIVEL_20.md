@@ -1,6 +1,6 @@
 # Capítulo de detalle — Estadísticas (parte 2): nivel 20 y clases
 
-Estado: **nivel 20 cerrado** (ficha en la sección 2). Segunda sesión del capítulo de estadísticas. La primera sesión cerró las estadísticas **previas** a la elección de clase (niveles 1–19, tres perfiles sin clase): ver `docs/RESUMEN_ESTADISTICAS.md` y el detalle en `docs/ESTADISTICAS.md`. Esta sesión cubre las **estadísticas finales de los personajes ya afectados por el cambio de clase en el nivel 20** (primera especialización).
+Estado: **cerrado** (ficha en la sección 2). Segunda sesión del capítulo de estadísticas. La primera sesión cerró las estadísticas **previas** a la elección de clase (niveles 1–19, tres perfiles sin clase): ver `docs/RESUMEN_ESTADISTICAS.md` y el detalle en `docs/ESTADISTICAS.md`. Esta sesión cubre las **estadísticas finales de los personajes ya afectados por el cambio de clase en el nivel 20** (primera especialización).
 
 ## 1. Punto de partida
 
@@ -512,14 +512,13 @@ Las 1–4 llegan al nivel 20 en **nivel de habilidad 4** (+6,1 % de daño, coste
 
 En grupo, con élites y en la mazmorra: ver 1.11 y 1.12 (calculados cuando la STR aún daba defensa mágica). **Sin la defensa mágica de la STR**: con mobs normales el grupo apenas cambia; el grupo de 5 ya **no puede con 12 élites** (antes caía 2–3 veces) y la mazmorra con adds de élite **ya no se supera** (antes, en 7,7 min). Es intencionado: al llegar al nivel 20 los personajes están débiles, tienen que fabricar su equipo y empezar por bandas con élites de solo ×2, optimizar recursos, hacer pausas y aprender a juntar mobs; el Combatiente será el primero en llegar con resistencias suficientes usando el equipo básico.
 
-## 3. Pendiente
+## 3. Lo que queda (fuera de este capítulo)
 
-**Del nivel 20:**
-- **Estadísticas visibles nuevas** desde el nivel 20 (las neutrales de la hoja que se muestran y empiezan a contar).
-- **Primer balance PvP** con el triángulo STR > AGI > INT > STR (desde el nivel 20 cuenta el PvP).
-- **Cantidades** de las curas y escudos del Invocador, de las pociones mejoradas y de los recursos secundarios (ahora provisionales).
-- **Crecimiento por nivel** de cada especialización a partir del 20 (para la Temporada 2).
+Capítulo cerrado para la Temporada 1. Lo que no se cerró aquí pertenece a otros capítulos o a la Temporada 2:
 
-**Del capítulo:** neutrales, topes y rendimientos decrecientes, puntuación de poder e implementación en GAS.
-
-**Flecos de la parte 1:** validar los valores por punto de INT y AGI, daño de las armas por tramos y pociones que curen según el nivel.
+- **Ya resuelto**: estadísticas visibles desde el 20 (las neutrales de la Temporada 1, `docs/ESTADISTICAS_NEUTRALES.md`), valores por punto de INT y AGI (validados), topes de crítico (50 % y +150 %), coste de maná.
+- **Capítulo de habilidades**: cantidades de curas y escudos del Invocador y valores de los recursos secundarios.
+- **Capítulo de objetos**: pociones según el nivel y pociones mejoradas del 20, daño de las armas por tramos, simulación con el equipo completo y calibración del poder.
+- **Capítulo de mapas / contenido**: élites (×2 en las primeras bandas), conglomerados, jefes y curva de experiencia.
+- **Temporada 2**: primer balance PvP con el triángulo STR > AGI > INT, crecimiento por nivel desde el 20 y neutrales de la Temporada 2.
+- **Parte técnica**: implementación en GAS.

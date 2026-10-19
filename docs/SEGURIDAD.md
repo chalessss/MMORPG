@@ -56,7 +56,7 @@ Estado: **en curso**. Reúne las decisiones de seguridad que van saliendo en los
 - **Alerta de objeto perfecto**: cuando aparece un objeto perfecto, llega una notificación al servidor con todo su origen: la fuente (el mob exacto que lo soltó o la receta), sus estadísticas al aparecer, la hora, el lugar y **todas las modificaciones**, por ejemplo cuántos papiros de encantamiento le puso el encantador (5, 7, 10, 20…) hasta llegar a esas estadísticas.
 - Para no llenar los registros, el **historial completo** solo se envía con las alertas (objetos perfectos y demás).
 - **Recomendación técnica**: que cada objeto tenga desde que se crea un **identificador único** y sus datos de origen guardados en el servidor (es barato y es lo que permite detectar duplicados), y que el historial de cambios de manos y modificaciones se envíe completo solo cuando salte una alerta o pase por el mercado.
-- **Por validar**: si además cada pieza que el jugador se equipa debe guardar un registro de su origen (de dónde salió, qué encantamientos tiene, si llegó por intercambio o por el mercado).
+- Cada pieza lleva su origen gracias a su identificador único; no se guarda un registro aparte cada vez que se equipa (decidido al cerrar el capítulo; se puede revisar en la parte técnica de seguridad).
 
 ## 7. Preguntas abiertas
 
