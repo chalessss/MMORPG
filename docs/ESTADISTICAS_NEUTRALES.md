@@ -179,3 +179,15 @@ Lectura:
 - Se expresa así, "se reduce a la mitad", y no como un %, para que no se confunda con la velocidad de recolección.
 - **Es lo más rápido que se puede fabricar**: no hay ningún otro bonus ni mejora de velocidad de fabricación.
 - **Alerta de seguridad**: si alguien fabrica algo en **4,9 s o menos** (más rápido que la mitad del tiempo de la receta), el servidor avisa al equipo de seguridad con todo el detalle: quién, con qué velocidad, qué receta, qué materiales, su equipo y su configuración completa, para saber si es un fallo de programación o cómo lo consiguió (como la alerta de 7.1).
+
+### 7.4 Protocolo de las alertas de seguridad (decidido)
+
+Vale para todas las alertas (recolección, fabricación y las que se añadan):
+
+- **Silenciosas**: al jugador **no se le avisa de ninguna forma** y **no se le bloquea**. Puede seguir recolectando o fabricando a esa velocidad; solo le llega la notificación al equipo.
+- **Tres informes, no uno por acción**. Si alguien consigue fabricar en 0,1 s, enviar un aviso por objeto serían más de 600 correos por minuto y podría saturar o tumbar los sistemas. En su lugar:
+  1. **Primer informe**, en el momento en que se cruza el límite: la notificación con la configuración completa del personaje.
+  2. **Informe de 5 minutos**: el registro completo de **todas** las recolecciones o fabricaciones de los 5 minutos siguientes (hora exacta, recurso o receta, tiempo de cada una, todo).
+  3. **Informe de 1 hora**: el mismo registro durante la hora siguiente.
+- Así se distingue un **pico puntual** (algo raro en un segundo que no se repite en los 5 minutos ni en la hora) de una **velocidad anormal sostenida**.
+- **Suspensión de la cuenta**: solo con **tres informes consecutivos** (instantáneo, 5 minutos y 1 hora) que confirmen la irregularidad, nunca por un único aviso.
