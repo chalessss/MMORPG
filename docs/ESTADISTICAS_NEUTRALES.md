@@ -99,4 +99,5 @@ Lectura:
 - **Porcentaje** que se suma al daño de cada golpe blanco y de cada habilidad contra **monstruos** (no contra jefes: para ellos llegará "daño a jefes" en la Temporada 2). Ejemplo: con un 1 %, un golpe de 300 contra un mob hace 303.
 - **Temporada 1 (niveles 1–20)**: con el equipo normal se llega a **un 15 %**; como **máximo un 20 %** sumando todo el equipo, y solo con objetos concretos o encantamientos concretos.
 - Se controla con **porcentajes planos** en el equipo y, en temporadas siguientes, con **multiplicadores de vida de los mobs**: si alguien llega, por ejemplo, a un 200 %, la vida de los mobs debe subir lo suficiente para que no mueran de un golpe, sin olvidar que habrá jugadores con muy poco daño a monstruos que también tienen que poder matarlos.
+- **Invocador**: el daño a monstruos del equipo **se suma** al +50 % de su pasiva de arma: **65 %** con equipo normal y **70 %** como máximo con encantamientos y objetos concretos.
 - Efecto aproximado: un 15 % de daño a monstruos acelera la caza en algo menos de un 15 % (el daño que sobra al rematar cada mob se pierde).
