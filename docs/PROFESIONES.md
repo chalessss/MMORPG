@@ -41,7 +41,7 @@ Estado: **en curso**. Este archivo recoge el punto de partida (lo ya decidido en
 | Profesión | Fabrica (decidido) |
 |---|---|
 | **Las seis principales** (sastre, peletero, herrero, joyero, encantamiento, inventor) | **Primera receta de todas:** piedras **potenciadas** y **pacificadas** (piedras generales + un **objeto intermedio** de cualquier principal + cristales + oro) |
-| Las seis principales | Su **objeto intermedio** propio: llave de tuercas (herrero), madeja de lana (sastre), papiro en blanco (encantamiento), uno propio del inventor… Cualquiera sirve para la receta de piedras de cualquier profesión |
+| Las seis principales | Su **objeto intermedio** propio: llave de tuercas (herrero), madeja de lino (sastre), papiro en blanco (encantamiento), uno propio del inventor… Cualquiera sirve para la receta de piedras de cualquier profesión |
 | Herrero | **Armas de todo tipo**, de todas las clases. Desde la Temporada 2, también **placas**, con especialización de herrería: **armas** o **armaduras** |
 | Inventor | Además, piedras **santificadas**, en exclusiva (generales + potenciadas + pacificadas + oro) |
 | Encantamiento | **Papiro en blanco** (primera receta; se vende) y su **inscripción**; el papiro inscrito se aplica a la pieza. Las estadísticas salen **al azar**; para cambiarlas se aplica otro encantamiento. El número de estadísticas depende de la calidad del objeto y del nivel de encantamiento |
@@ -64,7 +64,7 @@ Estado: **en curso**. Este archivo recoge el punto de partida (lo ya decidido en
 
 5. **Inventor (decidido):** abierto a **cualquier personaje**, así que ya hay piedras santificadas en la Temporada 1. El **Recolector** recibirá bonificaciones extra exclusivas por ser inventor, que se diseñarán al añadir esa especialización.
 6. **Herrero (decidido):** fabrica **armas de todo tipo**.
-7. **Receta de las piedras (decidido):** cada principal fabrica su **objeto intermedio** (llave de tuercas, madeja de lana, papiro en blanco…) y **cualquiera vale** para cualquier receta de piedras, sin restricción. Motivo: que nadie tenga que cambiar de profesión solo para usar un objeto que fabricó antes.
+7. **Receta de las piedras (decidido):** cada principal fabrica su **objeto intermedio** (llave de tuercas, madeja de lino, papiro en blanco…) y **cualquiera vale** para cualquier receta de piedras, sin restricción. Motivo: que nadie tenga que cambiar de profesión solo para usar un objeto que fabricó antes.
 8. **"Encantamiento"**: nombre compartido por la profesión y el sistema; se mantiene.
 
 9. **Estadísticas del encantamiento (decidido):** **aleatorias**; quien quiera otras aplica **otro encantamiento**. Más adelante, la **reforja**: el inventor (y las clases con bonificación de inventor, probablemente más de una) podrá cambiar **una** estadística concreta de un objeto encantado por otra (crítico → regeneración de vida). Se detalla en la temporada en que llegue.
@@ -126,7 +126,7 @@ Aprender una profesión, cada receta, cada rango del entrenador y cada especiali
 
 
 1. ~~**Progresión de puntos**~~: decidida (sección 3).
-2. **Mapa de materiales**: qué secundaria alimenta a qué principal (propuesta en 4.1).
+2. ~~**Mapa de materiales**~~: decidido en lo general (4.1 y 4.2).
 3. **Qué fabrica cada profesión** en la Temporada 1, por ranura y calidad.
 4. **Recetas**: cómo se consiguen (entrenador, botín, reputación, misiones) y cuántas hay.
 5. **Coste de cambiar de principal**: la curva de oro.
@@ -134,17 +134,38 @@ Aprender una profesión, cada receta, cada rango del entrenador y cada especiali
 7. **Encargos y tiendas privadas**: lo que gana el fabricante.
 8. **Datos para Unreal**: tablas de profesiones, recetas y materiales (DataTables desde CSV).
 
-### 4.1 Mapa de materiales (propuesta para discutir)
+### 4.1 Mapa de materiales (decidido en lo general)
 
-| Principal | Materiales principales | De dónde salen |
+**Dos familias de principales:**
+
+| Familia | Profesiones |
+|---|---|
+| **Fibras y plantas** | Sastre, peletero, encantamiento |
+| **Minerales** | Herrero, joyero, inventor |
+
+**Cadena de la familia de fibras** (estilo WoW: el primer material se procesa primero en sastrería y las demás lo reutilizan):
+
+| Paso | Quién | Receta |
 |---|---|---|
-| Sastre (tela) | Telas | Botín de humanoides |
-| Peletero (cuero) | Pieles, cuero | Desollador (bestias) |
-| Herrero (armas de todo tipo) | Lingotes, minerales | Minero |
-| Joyero (joyería) | Gemas, metales preciosos | Minero (gemas en vetas) |
-| Encantamiento (papiros) | Esencias, residuo elemental | Botín de elementales; ¿desencantar objetos? |
-| Inventor (piedras santificadas, ¿artefactos?) | Piedras de desarrollo, componentes de todas | Comercio y otras profesiones |
-| Cocinero (comida y elixires) | Carne, pescado, hierbas | Desollador, pesca, herborista |
+| Material base | Botín de **humanoides** | **Bolas de lino** (la tela que sueltan) |
+| 1 | **Sastre** (primera receta; es también su objeto intermedio) | 2 bolas de lino → 1 **madeja de lino** |
+| 2 | **Encantamiento** | 2 madejas de lino → 1 **papiro** (en blanco) |
+| 3 | **Peletero** | 1 **cuero** + 1 madeja de lino → material exclusivo de peletería |
+| Cuero | **Cocinero** (primeras recetas) | Cualquier **carne** del juego → **cuero** |
+
+**Familia de minerales**: el joyero se apoya sobre todo en el botín de **elementales** (para potenciar lo que fabrica con las menas); el herrero, en minería y en otra familia de mobs que se decidirá al detallar sus recetas, para repartir la demanda entre bestias, humanoides y elementales.
+
+**Inventor**: tiene **materiales propios**; no depende de lo que fabriquen las demás profesiones.
+
+**Regla para diseñar recetas**: cada paso de una cadena pide **o bien** un producto de una profesión secundaria, **o bien** dos unidades del objeto anterior (2 bolas → 1 madeja; 2 madejas → 1 papiro). El resto de cadenas se organizará con esta regla al detallar cada profesión.
+
+**Riesgo anotado**: los sastres necesitarán cazar muchos humanoides. Se equilibra repartiendo los materiales del resto de profesiones entre las demás familias de mobs (elementales para los joyeros, etc.).
+
+### 4.2 Sin desencantar (decidido)
+
+- **No existe** destruir equipo para sacar materiales (el "desencantar" de WoW).
+- La única forma de destruir objetos es la del **desarrollo**: si falla en la zona de peligro (por ejemplo, de +7 a +8), el objeto se destruye y deja **cristales**. Aparte, el **códice** consume los objetos que se registran.
+- Objetivo: que haya **un único método de destrucción** y que solo se use cuando interesa conseguir cristales para fabricar piedras.
 
 ## 5. Preguntas abiertas
 

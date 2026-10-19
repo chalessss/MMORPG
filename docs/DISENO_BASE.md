@@ -668,13 +668,14 @@ Mezcla de MIR4 y Lineage 2.
 
 Las piedras generales caen **solo por caza**. Las profesiones secundarias no fabrican piedras.
 
-**Objeto intermedio (decidido)**: cada profesión principal fabrica su propio objeto intermedio (por ejemplo, el herrero una **llave de tuercas**, el sastre una **madeja de lana**, encantamiento un **papiro en blanco**), y **cualquiera sirve** para la receta de cualquier profesión, sin restricción. Así nadie tiene que cambiar de profesión solo para usar un objeto que fabricó antes con otra.
+**Objeto intermedio (decidido)**: cada profesión principal fabrica su propio objeto intermedio (por ejemplo, el herrero una **llave de tuercas**, el sastre una **madeja de lino**, encantamiento un **papiro en blanco**), y **cualquiera sirve** para la receta de cualquier profesión, sin restricción. Así nadie tiene que cambiar de profesión solo para usar un objeto que fabricó antes con otra.
 
 **Destrucción con residuo (cambio respecto a MIR4, idea de Lineage 2)**
 - Cuando un objeto se destruye deja **cristales de su misma calidad** (un objeto raro deja cristales raros).
 - La **cantidad** de cristales aumenta con el nivel de desarrollo que tenía (un +9 deja más que un +6).
 - Los cristales son un componente de las piedras **potenciadas** y **pacificadas** de su misma calidad. Para piedras cósmicas hacen falta cristales cósmicos, es decir, objetos cósmicos destruidos.
 - Así la destrucción alimenta la economía de las profesiones en vez de ser una pérdida total.
+- **Sin desencantar (decidido)**: no se puede destruir equipo para sacar materiales; el fallo del desarrollo es el único método de destrucción (aparte de registrar en el códice).
 
 **Pendiente de configurar**: las probabilidades de cada salto y de cada piedra.
 

@@ -54,6 +54,7 @@ Vista rápida del proyecto. El detalle de cada decisión está en `docs/DISENO_B
 - 5 secundarias (todas): cocinero, desollador, minero, herborista, pesca.
 - **Recolección**: 10 s por recogida de base; la velocidad de recolección es general y cada 100 % reduce el tiempo a la mitad. Minería y herboristería suben por puntos como en WoW y a 100 puntos dan +25 % cada una. Las vetas enriquecidas piden 50 puntos, dan el material del grado más alto de la temporada y se recogen 1–3 veces. La energía no tiene profesión.
 - **Puntos**: una rama de 1–100 por temporada (Herrería del Vacío, de la Iluminación…), sin repetir la anterior; recetas naranja (primera fabricación, ×2, solo en el tramo amarillo), amarilla (1 punto seguro hasta +5), verde (60 % → 40 % de +5 a +10) y gris; un rango del entrenador cada 10 puntos con hasta 3 recetas; sin requisito de nivel, pero los materiales altos salen de mobs de nivel 20. El bonus de los 100 puntos solo vale en los recursos y recetas de su temporada. Todo lo que se aprende cuesta oro.
+- **Materiales**: familia de fibras (sastre, peletero, encantamiento: bolas de lino de humanoides → madeja → papiro; el cuero lo hace el cocinero con carne) y de minerales (herrero, joyero, inventor; el joyero tira de elementales; el inventor tiene materiales propios). Sin desencantar.
 - **Fabricación**: a 100 puntos de una profesión, el tiempo de sus recetas se reduce a la mitad (el máximo).
 
 **Inventario y economía**
