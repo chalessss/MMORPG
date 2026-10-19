@@ -75,3 +75,6 @@ acierto_paso,5,por debajo de la evasión: cada 5 puntos (o fracción) que falten
 acierto_paso_pct,10,…se pierde este % de acierto (30 de precisión contra 45 de evasión: 70 %)
 precision_mob,20,precisión de los mobs del nivel 20 (= su nivel)
 evasion_mob,20,evasión de los mobs del nivel 20 (= su nivel)
+defensa_pct_por_punto,0.005,% de reducción por punto de defensa física o mágica del equipo (lineal hasta la Temporada 3: 10.000 puntos = 50 %)
+defensa_fisica_jugador,0,puntos de defensa física del equipo (neutral)
+defensa_magica_jugador,0,puntos de defensa mágica del equipo (neutral)

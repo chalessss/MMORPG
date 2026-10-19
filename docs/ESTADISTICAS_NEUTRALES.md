@@ -58,3 +58,33 @@ Lectura:
 - Con poca precisión las peleas duran más: gasta **más maná** (104 → 151 pociones) y, con 12 mobs, empieza a necesitar pociones de vida.
 - **Su evasión no hace nada hasta superar la precisión de los mobs**: con 5–15 puntos los mobs le aciertan siempre; con 20, un 95 % (esquiva 300–540 golpes cada 300 mobs). Para que los mobs fallen de verdad necesita **25 o más**.
 - Pendiente: el resto de especializaciones y la evasión por encima de 20.
+
+## 3. Escalado de las neutrales (decidido)
+
+- **Lineal hasta la Temporada 3.** Las estadísticas suben en línea recta. En la Temporada 3, cuando los escalados empiecen a ser muy altos, se pondrá un **punto óptimo** (curva logarítmica): a partir de ahí cada punto rinde cada vez menos (por ejemplo, 100 puntos ya no dan 10 de evasión sino 3–4) y compensa más repartirlos en otras estadísticas (regeneración, precisión…). Ese punto **no debe llegar antes de la Temporada 3**.
+- Las cantidades exactas de cada pieza de equipo se fijarán más adelante: solo una o, como mucho, dos piezas darán precisión, y el escalado dependerá del equipo.
+
+## 4. Defensa física y defensa mágica
+
+### 4.1 Reglas (decidido)
+
+- Son **puntos exactos** que da el equipo. Cada punto da un **porcentaje de reducción** del daño de su tipo: la defensa física reduce el daño físico recibido y la mágica, el mágico.
+- **Lineal** (ver 3): **10.000 puntos = 50 % de reducción**, es decir, **0,005 % por punto** (1 % cada 200 puntos). Hacen falta miles de puntos para llegar a un 30–50 %.
+- **Se suma** a la defensa que dan las estadísticas principales: la del Combatiente es la de su STR **más** la de su equipo. Los tanques tendrán que seguir subiendo la reducción de daño físico porque recibirán cada vez más daño.
+- Los personajes de **fuerza** reciben sobre todo **menos daño físico**; buscarán **reducción mágica** en el equipo para equilibrarse, y así quedarán mejor equilibrados que otras clases.
+
+| Puntos de defensa | Reducción |
+|---|---|
+| 10 | 0,05 % |
+| 200 | 1 % |
+| 1.000 | 5 % |
+| 2.000 | 10 % |
+| 6.000 | 30 % |
+| 10.000 | 50 % |
+
+- Con **10 puntos de defensa física y 10 de mágica**, en el nivel 20 la reducción sube un **0,05 %** de cada tipo: en la Temporada 1 la defensa del equipo apenas se notará.
+- En el simulador: `defensa_pct_por_punto`, `defensa_fisica_jugador` y `defensa_magica_jugador`; los mobs ya pegan con daño físico o mágico (la mitad de cada tipo) y cada uno se reduce con su defensa.
+
+### 4.2 Pendiente
+
+- **¿La STR deja de dar defensa mágica?** Hoy cada punto de STR da 0,1 % de defensa física **y** mágica (0,2 % en el Combatiente). Si la STR solo diera defensa física, el Combatiente pasaría de 42 % a 5 % de defensa mágica y el Luchador de 25,9 % a 0 %. Probado en el simulador: el Luchador ya no aguanta 12 mobs a la vez, el Asesino muere 8 veces con 6, el grupo de 5 ya no puede con 12 élites y falla la mazmorra con adds de élite. Como en la Temporada 1 la defensa mágica del equipo da muy poco (0,005 % por punto), no podría compensarlo.

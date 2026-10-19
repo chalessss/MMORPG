@@ -81,10 +81,14 @@ def ficha(esp, parametros, armas, conversion, habilidades):
     critico = s.get("critico_pct", 0) + (3 if "Ojo de Halcón" in [h["nombre"] for h in lista] else 0)
     if "arma_critico" in pasivas:
         critico += num(pasivas["arma_critico"]["valor"])
-    defensa = s.get("defensa_fisica_pct", 0)
+    # Defensa física y mágica: la de las estadísticas principales y la de los puntos de
+    # defensa del equipo (neutral), que se suman. Por ahora crece en línea recta.
+    defensa = s.get("defensa_fisica_pct", 0) + p["defensa_fisica_jugador"] * p["defensa_pct_por_punto"]
+    defensa_magica = s.get("defensa_magica_pct", 0) + p["defensa_magica_jugador"] * p["defensa_pct_por_punto"]
     armadura = p["armadura"]
     if "arma_defensa" in pasivas:
         defensa += num(pasivas["arma_defensa"]["valor"])
+        defensa_magica += num(pasivas["arma_defensa"]["valor"])
         armadura += 500
     arma = armas[esp["arma"]]
     intervalo = num(arma["segundos_entre_golpes"])
@@ -110,7 +114,7 @@ def ficha(esp, parametros, armas, conversion, habilidades):
         "vida": round(p["vida_base"] + s.get("vida", 0)),
         "mana": round(p["mana_base"] + s.get("mana", 0)),
         "regen_vida": round(regen_vida * 5) / 5, "regen_mana": round(regen_mana * 5) / 5,
-        "defensa": defensa, "armadura": armadura,
+        "defensa": defensa, "defensa_magica": defensa_magica, "armadura": armadura,
         "plano": s.get("dano_base", 0), "base": 1 + s.get("dano_base_pct", 0) / 100,
         "habilidad": 1 + s.get("dano_habilidad_pct", 0) / 100,
         "prob_critico": min(p["critico_base_pct"] + critico, p["tope_critico_pct"]) / 100,
@@ -663,7 +667,8 @@ class Combate:
                         objetivo = None
                     if objetivo:
                         f = objetivo.f
-                        objetivo.recibir(max(1, round(bruto * (1 - f["defensa"] / 100)
+                        defensa = f["defensa"] if m.get("tipo", "fisico") == "fisico" else f["defensa_magica"]
+                        objetivo.recibir(max(1, round(bruto * (1 - defensa / 100)
                                                       - f["armadura"] / p["armadura_por_punto_de_dano"])))
                         if not m.get("jefe"):
                             objetivo.e["golpes_adds"] += 1
@@ -914,7 +919,8 @@ def mostrar_ficha(parametros, armas, especializaciones, conversion, habilidades)
         filas.append({"especializacion": esp["nombre"], "str": f["puntos"]["str"], "agi": f["puntos"]["agi"],
                       "int": f["puntos"]["int"], "vida": f["vida"], "regen_vida_5s": round(f["regen_vida"] * 5),
                       "mana": f["mana"], "regen_mana_5s": round(f["regen_mana"] * 5),
-                      "defensa_pct": round(f["defensa"], 1), "armadura": round(f["armadura"]),
+                      "defensa_fisica_pct": round(f["defensa"], 1), "defensa_magica_pct": round(f["defensa_magica"], 1),
+                      "armadura": round(f["armadura"]),
                       "dano_arma": round(f["dano_arma"]), "segundos_entre_golpes": round(f["intervalo"], 2),
                       "dano_plano": round(f["plano"]), "dano_base_pct": round((f["base"] - 1) * 100, 1),
                       "dano_habilidad_pct": round((f["habilidad"] - 1) * 100, 1),
@@ -927,13 +933,13 @@ def mostrar_ficha(parametros, armas, especializaciones, conversion, habilidades)
         escritor.writeheader()
         escritor.writerows(filas)
     print(f"{'Especialización':22}{'STR':>5}{'AGI':>5}{'INT':>5}{'Vida':>7}{'Reg/5s':>7}{'Maná':>7}{'Reg/5s':>7}"
-          f"{'Defensa':>9}{'Armadura':>9}{'Crítico':>9}{'+Crítico':>9}{'Golpe':>7}")
+          f"{'Def. fís.':>10}{'Def. mág.':>10}{'Armadura':>9}{'Crítico':>9}{'+Crítico':>9}{'Golpe':>7}")
     for esp in especializaciones:
         f = ficha(esp, parametros, armas, conversion, habilidades)
         golpe = round((f["dano_arma"] + f["plano"]) * f["base"] * f["mult_dano"]) if f["dano_arma"] else 0
         print(f"{esp['nombre']:22}{f['puntos']['str']:>5}{f['puntos']['agi']:>5}{f['puntos']['int']:>5}"
               f"{f['vida']:>7}{round(f['regen_vida'] * 5):>7}{f['mana']:>7}{round(f['regen_mana'] * 5):>7}"
-              f"{f['defensa']:>8.1f}%{f['armadura']:>9.0f}{f['prob_critico'] * 100:>8.1f}%"
+              f"{f['defensa']:>9.1f}%{f['defensa_magica']:>9.1f}%{f['armadura']:>9.0f}{f['prob_critico'] * 100:>8.1f}%"
               f"{(f['mult_critico'] - 1) * 100:>8.1f}%{golpe:>7}")
 
 
