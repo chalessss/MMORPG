@@ -111,8 +111,18 @@ Lectura:
 - El % extra viene de **varias fuentes**, cada una con su aporte, y el panel las detalla (en MIR4: espíritus, tesoro, conquista, códice, entrenamiento…; cada una aparece multiplicada por ×1,5 mientras el vigor está activo).
 - En el registro de combate se ve la experiencia **base** del mob y, entre paréntesis, la **extra** de todas las fuentes: "Exp +9.472 (+7.384)".
 
-### 6.2 Encaje en el juego (propuesta por validar)
+### 6.2 Potenciación de caza (decidido)
 
-- El vigor sería la versión concreta de la **experiencia de descanso** que ya se apuntaba en el diseño base (3.26: "posiblemente un híbrido que también se cargue con la recolección"), pero cargada **solo con la recolección** y con píldoras.
-- **Experiencia de caza** (la neutral) sería una de las fuentes del % extra, junto con otras que ya existen en el diseño: códice, técnicas de clan, consumibles y, más adelante, espíritus. La bonificación de grupo (+10 % a +25 %) iría aparte.
-- Mostrar siempre la experiencia base y la extra por separado, como en MIR4, y un panel con el detalle de las fuentes.
+- **Nombre:** el vigor del juego se llamará **potenciación de caza** ("porcentaje de potenciación de caza").
+- Cada mob da una **experiencia base**. Mientras la potenciación de caza está activa, el personaje recibe **+100 % de experiencia** sobre esa base (el doble), como el vigor de MIR4 o la experiencia de descanso de WoW.
+- **Todas las demás fuentes de experiencia extra se suman a ese 100 %**: códice, piedras, espíritus, encantamientos, joyería (la neutral **experiencia de caza**) o cualquier otra que haya en el juego. Es una suma simple de porcentajes (sin el ×1,5 de MIR4). Ejemplo: 100 % + 10 % de joyería + 5 % de códice = +115 %.
+- **Funciona por tiempo**, como en MIR4 (no como la barra de WoW), y **solo se gasta el tiempo en combate**: estar quieto no lo consume.
+- Hay un **máximo de tiempo acumulado** (por ejemplo, 8 horas). Al gastarlo, lo que más conviene es recargarlo haciendo otras cosas: **recolectar**, **fabricar con una profesión** u otras acciones; quizá también **estando desconectado**, como en WoW.
+- En combate se muestra la experiencia base y, entre paréntesis, la extra; un panel detalla cada fuente.
+
+### 6.3 Preguntas abiertas
+
+- **Sin potenciación activa**, ¿las demás fuentes (joyería, códice…) siguen dando su %, o solo se recibe la experiencia base?
+- **Máximo acumulado**: ¿8 horas es el valor o un ejemplo?
+- **¿Se recarga también desconectado?** ¿Y cuánto tiempo carga cada acción (recolectar, fabricar…)?
+- **Píldoras de potenciación**: ¿existen y de dónde salen (profesión, NPC, tienda premium)?
