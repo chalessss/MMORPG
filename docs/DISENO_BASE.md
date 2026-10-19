@@ -794,6 +794,7 @@ Lista corta a propósito: no se quiere que el jugador necesite 30 consumibles di
 ### 3.25 Mercado y comercio (en curso)
 
 - **Mercado del servidor** (casa de subastas estilo WoW / MIR4): compra y venta entre jugadores. Cobra comisión (pilar "todo cuesta moneda").
+- **Mercado regional** (decidido): todos los servidores de una misma región (NA1, NA2, NA3…) comparten **un único mercado**, igual que la clasificación.
 - **Intercambio directo** entre jugadores, con comisión en oro (3.13).
 - **Encargos de fabricación**: un fabricante (por ejemplo, un inventor en su puesto) ofrece su servicio con una comisión y se acuerda qué componentes pone cada parte (el fabricante aporta unos y el cliente otros). Así quien no tiene todos los componentes también encuentra solución.
 - Fabricar para otros debe dar al fabricante **experiencia, moneda y otras recompensas**.
@@ -884,7 +885,8 @@ Solo se clasifica lo que se puede medir de forma objetiva:
 - **Sin clasificación por nivel** (decidido): el nivel tiene tope en cada temporada y todos acabarán en el máximo, así que no tendría sentido (en MIR4 funciona porque el nivel no tiene tope).
 - **Honor (PvP)**: pendiente; se decidirá con el capítulo de PvP.
 - **Clasificación por clase** (decidido): la clasificación de poder se puede filtrar por clase o especialización (ver solo los Combatientes, los Atacantes, los Invocadores…). Como cada estadística dará un poder distinto según la especialización, comparar entre clases distintas puede engañar; dentro de cada clase sí sirve para ver quién está más fuerte.
-- *Propuesta por confirmar*: filtro por servidor.
+- **Clasificación por región** (decidido): en el juego solo se ve la clasificación de **la propia región** (por ejemplo, Norteamérica). Si una región tiene varios servidores (NA1, NA2, NA3…), la clasificación es **común a toda la región**: no hay clasificación por servidor.
+- **Otras regiones**: quien quiera comparar con otras regiones (Europa, China…) lo verá en el **sitio web**, que publicará cada día los **100 personajes más fuertes de cada región**. Así el juego no tiene que consultar las bases de datos de otras regiones.
 
 ### 3.29 Misiones (decidido en lo general)
 

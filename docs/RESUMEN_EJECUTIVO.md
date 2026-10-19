@@ -82,7 +82,7 @@ Vista rápida del proyecto. El detalle de cada decisión está en `docs/DISENO_B
 ## Recomendaciones
 
 1. **Recortar la primera versión jugable** a una porción vertical (una zona, 6 clases 1–20, caza en grupo, un jefe de mundo, recolección, 2–3 profesiones, desarrollo y códice básico).
-2. **Resolver pronto la arquitectura de servidor**: el servidor dedicado de Unreal soporta del orden de cien jugadores por instancia; un MMO necesita repartir el mundo entre varios servidores.
+2. **Resolver pronto la arquitectura de servidor**: el servidor dedicado de Unreal soporta del orden de cien jugadores por instancia; un MMO necesita repartir el mundo entre varios servidores. Decidido: los servidores se agrupan por **región**, y cada región comparte un mismo mercado y una misma clasificación; las clasificaciones de otras regiones se ven en el sitio web (top 100 diario).
 3. **Modelar la economía en una hoja de cálculo** (entradas vs. salidas de moneda) antes de fijar precios.
 4. **Cuidar la monetización** para que no se perciba como "pagar para ganar". Steam no admite juegos con NFT.
 5. **Detección de bots en el servidor**, además de los límites del automático. Decidido: alertas automáticas al staff cuando una estadística llega a valores irregulares (por ejemplo, más de 200 % de velocidad de recolección en la Temporada 1, o fabricar más rápido que la mitad del tiempo de una receta), con el informe completo del personaje (incluido con quién comerció y habló), en tres informes (instantáneo, 5 minutos y 1 hora) y ban de un año si se confirma; detalle en `docs/SEGURIDAD.md`.
