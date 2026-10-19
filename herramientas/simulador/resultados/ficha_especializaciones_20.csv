@@ -1,7 +1,7 @@
-especializacion,str,agi,int,vida,regen_vida_5s,mana,regen_mana_5s,defensa_pct,armadura,dano_arma,segundos_entre_golpes,dano_plano,dano_base_pct,dano_habilidad_pct,critico_pct,critico_aumentado_pct,robo_vida_pct,recurso
-Luchador,259,74,37,6575,391,605,40,25.9,1000,37,1.26,148,518.0,92.5,4.8,9.6,5.0,ira_golpe
-Combatiente,185,148,37,7500,280,605,40,42.0,1500,75,2.6,259,185.0,92.5,4.8,9.6,5.0,ira_recibida
-Asesino,111,222,37,3985,169,605,40,11.1,1000,20,1.0,333,111.0,92.5,23.1,65.1,5.0,energia
-Atacante a distancia,74,222,74,2320,76,1160,76,7.4,1000,35,2.0,444,111.0,185.0,18.9,76.2,0.3,foco
-Mago,37,74,259,1580,40,5230,469,3.7,1000,0,3.0,148,55.5,1100.8,4.8,9.6,0,trance
-Invocador,74,111,185,2320,76,2825,558,7.4,1000,0,3.0,111,111.0,277.5,4.8,9.6,0,esencia
+especializacion,str,agi,int,vida,regen_vida_5s,mana,regen_mana_5s,defensa_fisica_pct,defensa_magica_pct,armadura,dano_arma,segundos_entre_golpes,dano_plano,dano_base_pct,dano_habilidad_pct,critico_pct,critico_aumentado_pct,robo_vida_pct,recurso
+Luchador,259,74,37,6575,391,605,40,25.9,0.0,1000,37,1.26,148,518.0,92.5,4.8,9.6,5.0,ira_golpe
+Combatiente,185,148,37,7500,280,605,40,42.0,5.0,1500,75,2.6,259,185.0,92.5,4.8,9.6,5.0,ira_recibida
+Asesino,111,222,37,3985,169,605,40,11.1,0.0,1000,20,1.0,333,111.0,92.5,23.1,65.1,5.0,energia
+Atacante a distancia,74,222,74,2320,76,1160,76,7.4,0.0,1000,35,2.0,444,111.0,185.0,18.9,76.2,0.3,foco
+Mago,37,74,259,1580,40,5230,469,3.7,0.0,1000,0,3.0,148,55.5,1100.8,4.8,9.6,0,trance
+Invocador,74,111,185,2320,76,2825,558,7.4,0.0,1000,0,3.0,111,111.0,277.5,4.8,9.6,0,esencia

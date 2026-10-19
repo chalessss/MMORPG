@@ -12,8 +12,8 @@ mana_base,50,
 regen_mana_base,0.5,
 critico_base_pct,4.8,probabilidad de crítico del nivel 20 (1 % + 0,2 % por nivel)
 critico_aumentado_base_pct,9.6,daño extra del crítico del nivel 20 (2 % + 0,4 % por nivel)
-tope_critico_pct,50,desde el nivel 20 (provisional)
-tope_critico_aumentado_pct,150,desde el nivel 20 (provisional)
+tope_critico_pct,50,desde el nivel 20 (decidido)
+tope_critico_aumentado_pct,150,desde el nivel 20 (decidido)
 mejora_dano_pct,2,cada nivel de habilidad sobre el anterior
 mejora_coste_pct,25,cada nivel de habilidad sube el coste este % sobre el anterior (nivel 4 = ×1.95; nivel 10 = ×7.45)
 nivel_habilidad_maximo,10,las habilidades suben hasta el nivel 10; en el nivel de personaje 20 se llega como mucho al 4
@@ -66,3 +66,18 @@ oleada_tamanos,6|7,tamaño de cada oleada (se van alternando)
 primera_oleada_s,20,segundos hasta la primera oleada
 mazmorra_limite_s,900,si el jefe no cae en este tiempo, el intento se da por fallido (furia)
 mazmorra_intentos,5,intentos antes de dar la mazmorra por imposible
+precision_jugador,0,precisión del jugador (de joyería y encantamientos)
+evasion_jugador,0,evasión del jugador
+precision_activa,0,1 = los golpes físicos pueden fallar según precisión y evasión (0 = desactivado hasta cerrar los valores)
+acierto_umbral,5,con esta ventaja de precisión sobre la evasión (o más) se acierta siempre
+acierto_cercano_pct,95,acierto con una ventaja de 0 a 4 puntos: falla muy de vez en cuando
+acierto_paso,5,por debajo de la evasión: cada 5 puntos (o fracción) que falten…
+acierto_paso_pct,10,…se pierde este % de acierto (30 de precisión contra 45 de evasión: 70 %)
+precision_mob,20,precisión de los mobs del nivel 20 (= su nivel)
+evasion_mob,20,evasión de los mobs del nivel 20 (= su nivel)
+defensa_pct_por_punto,0.005,% de reducción por punto de defensa física o mágica del equipo (lineal hasta la Temporada 3: 10.000 puntos = 50 %)
+defensa_fisica_jugador,0,puntos de defensa física del equipo (neutral)
+defensa_magica_jugador,0,puntos de defensa mágica del equipo (neutral)
+cdr_jugador_pct,0,reducción de enfriamiento del jugador (% que se resta a cada enfriamiento)
+cdr_tope_pct,40,tope absoluto de la CDR (para todas las temporadas)
+cdr_excluidas,Embate,habilidades a las que no afecta la CDR (separadas por |)

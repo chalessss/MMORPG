@@ -934,11 +934,11 @@ Al llegar al nivel 20 se elige clase y **se reconfiguran las estadísticas**. Ca
 ## 6. Preguntas abiertas
 
 **De los niveles 1–19 (para cerrar del todo):**
-- **Validar los valores por punto de INT y AGI** (los de STR ya están: 2.21).
+- ~~**Validar los valores por punto de INT y AGI**~~: **validados** (decidido en la parte 2: el nivel 20 se balanceó con ellos y funcionan).
 - **Actualizar la ficha de la sección 3** con los cambios de 2.21–2.23 (STR, regeneración del cuerpo a cuerpo, costes de maná en %, rangos de habilidad).
-- **Coste de maná**: se ajusta en el nivel 20, con 6–8 habilidades activables (2.23).
-- **Daño de las armas por tramos** (bronce → cobre → plata): de momento el arma no cambia de daño en todo el tramo.
-- **Pociones por nivel**: la poción cura siempre 100.
+- ~~**Coste de maná**~~: resuelto en el nivel 20 (`docs/ESTADISTICAS_NIVEL_20.md`, 1.9).
+- **Daño de las armas por tramos** (bronce → cobre → plata): pasa al capítulo de objetos.
+- **Pociones por nivel**: pasa al capítulo de objetos (con las pociones mejoradas del nivel 20).
 - **El crítico apenas se nota** (+10 % de daño como mucho): decidido así por ahora.
 
-**Para la próxima sesión:** nivel 20 y clases (ver 4).
+**Capítulo cerrado para la Temporada 1**: nivel 20 en `docs/ESTADISTICAS_NIVEL_20.md` y neutrales en `docs/ESTADISTICAS_NEUTRALES.md`.

@@ -137,6 +137,8 @@ Hay **dos sistemas de recolección** (decidido):
 
 Todos los valores (cargas, tiempos, cantidades, probabilidades) son datos ajustables.
 
+**Ampliado en el capítulo de estadísticas** (`docs/ESTADISTICAS_NEUTRALES.md`, 7): 10 s por recogida de base; velocidad de recolección general (cada 100 % reduce el tiempo a la mitad); minería y herboristería suben por puntos como en WoW y a 100 puntos dan +25 % cada una; las vetas enriquecidas piden 50 puntos, dan el material del grado más alto de la temporada en mayor cantidad y solo se recogen 1–3 veces (sustituye las ~10 cargas de arriba); la energía no tiene profesión ni vetas enriquecidas y da una cantidad según la calidad del punto.
+
 ### 3.6 Objetos interactivos del mundo
 
 Elementos con los que se puede interactuar y que no son NPCs ni recursos.
@@ -792,10 +794,12 @@ Lista corta a propósito: no se quiere que el jugador necesite 30 consumibles di
 ### 3.25 Mercado y comercio (en curso)
 
 - **Mercado del servidor** (casa de subastas estilo WoW / MIR4): compra y venta entre jugadores. Cobra comisión (pilar "todo cuesta moneda").
+- **Mercado regional** (decidido): todos los servidores de una misma región (NA1, NA2, NA3…) comparten **un único mercado**, igual que la clasificación.
 - **Intercambio directo** entre jugadores, con comisión en oro (3.13).
 - **Encargos de fabricación**: un fabricante (por ejemplo, un inventor en su puesto) ofrece su servicio con una comisión y se acuerda qué componentes pone cada parte (el fabricante aporta unos y el cliente otros). Así quien no tiene todos los componentes también encuentra solución.
 - Fabricar para otros debe dar al fabricante **experiencia, moneda y otras recompensas**.
 - **Tiendas privadas estilo Lineage 2**: un jugador se **sienta en el suelo de una ciudad** y ofrece lo que vende o las **recetas que puede fabricar** (por ejemplo, un inventor ofreciendo piedras santificadas). Las ciudades grandes tendrán zonas llenas de estos puestos, y los jugadores pasearán buscando lo que necesitan.
+- **Publicación con retraso** (decidido): un objeto publicado sale de la bolsa y queda "pendiente por confirmarse"; se puede cancelar hasta que aparece en el mercado, a una hora aleatoria entre 15 y 20 minutos después (sin decirle al jugador cuándo). Queda a la venta 14 días; si no se vende, vuelve por correo, y al venderse llega un correo con el precio, la comisión y lo recibido (`docs/SEGURIDAD.md`, 5).
 - Ciclo de juego que se busca: jornada de caza o recolección → volver a la ciudad → ordenar el almacén → fabricar o encargar a otros → desconectar.
 - **Idea a futuro (si el juego funciona): blockchain / NFT**. Convertir personajes u objetos en NFT para poder venderlos fuera del juego, **pagando recursos del juego** por la conversión (otra forma de retirar moneda).
   - *A tener en cuenta*: Steam prohíbe en sus normas los juegos que permiten intercambiar NFT o criptomonedas, y hay implicaciones legales según el país. Habría que evaluarlo antes de decidir dónde se distribuye el juego.
@@ -873,14 +877,16 @@ Solo se clasifica lo que se puede medir de forma objetiva:
 
 | Clasificación | Qué mide |
 |---|---|
-| **Nivel** | Experiencia acumulada del personaje |
-| **Poder** | Puntuación de poder del personaje (fórmula a definir en el capítulo de estadísticas) |
+| **Poder** | Puntuación de poder del personaje (se calibrará en el capítulo de objetos: `docs/ESTADISTICAS_NEUTRALES.md`, 9) |
 | **Códice** | Cuántas entradas del códice ha completado la cuenta |
 | **Clanes — nivel** | Experiencia acumulada del clan |
 | **Clanes — poder** | Suma del poder de todos sus miembros |
 
+- **Sin clasificación por nivel** (decidido): el nivel tiene tope en cada temporada y todos acabarán en el máximo, así que no tendría sentido (en MIR4 funciona porque el nivel no tiene tope).
 - **Honor (PvP)**: pendiente; se decidirá con el capítulo de PvP.
-- *Propuesta por confirmar*: filtros por clase y por servidor.
+- **Clasificación por clase** (decidido): la clasificación de poder se puede filtrar por clase o especialización (ver solo los Combatientes, los Atacantes, los Invocadores…). Como cada estadística dará un poder distinto según la especialización, comparar entre clases distintas puede engañar; dentro de cada clase sí sirve para ver quién está más fuerte.
+- **Clasificación por región** (decidido): en el juego solo se ve la clasificación de **la propia región** (por ejemplo, Norteamérica). Si una región tiene varios servidores (NA1, NA2, NA3…), la clasificación es **común a toda la región**: no hay clasificación por servidor.
+- **Otras regiones**: quien quiera comparar con otras regiones (Europa, China…) lo verá en el **sitio web**, que publicará cada día los **100 personajes más fuertes de cada región**. Así el juego no tiene que consultar las bases de datos de otras regiones.
 
 ### 3.29 Misiones (decidido en lo general)
 
@@ -1000,6 +1006,14 @@ Modelo inspirado en Lineage 2: **una ciudad principal (capital) controlada por u
 - **A. Lineal**: cada zona tiene su rango de nivel y se recorren en orden.
 - **B. Escalado**: a partir del nivel 20, los mobs se ajustan al nivel del jugador (mobs de misión a su nivel + 3).
 
+### 3.32 Correo (decidido)
+
+Sistema de correo dentro del juego, como el de WoW:
+- **De jugador a jugador**: **solo mensajes de texto**. No se pueden adjuntar monedas, recursos, armas ni ningún objeto.
+- **Del mercado al jugador**: aviso de venta (objeto, precio, comisión y lo recibido) y devolución de los objetos que no se vendieron en 14 días.
+- **Del equipo del juego al jugador**: avisos y **envío de recompensas**.
+- Los objetos solo llegan por correo desde el **mercado** o desde el **equipo del juego**.
+
 ### 3.23 Menú principal del juego (en curso, estilo MIR4)
 
 Un **único menú** desde el que se accede a todos los sistemas del juego, sin tener que abrir ventanas encadenadas. Incluye un panel con todas las monedas del jugador.
@@ -1048,6 +1062,7 @@ Lo que hace funcionar a las entidades anteriores. Se desarrollan por fases segú
 | Social | Grupos, clanes, chat, amigos |
 | PvP | Duelos, arenas, zonas PvP |
 | Economía | Moneda, comercio entre jugadores, subastas |
+| Correo | Mensajes entre jugadores, avisos del mercado y recompensas del equipo del juego |
 
 ## 5. Base técnica común (Unreal Engine)
 
