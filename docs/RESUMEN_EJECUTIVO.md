@@ -55,7 +55,7 @@ Vista rápida del proyecto. El detalle de cada decisión está en `docs/DISENO_B
 - **Clanes**: se crean en el nivel 10 con cobre; 30 → 100 miembros; árbol de técnicas por cooperación (sin moneda premium); contribución semanal visible.
 - **Misiones**: principal (desbloquea y enseña; incluye clase y profesiones), secundarias, diarias (cuenta y clan), semanales, únicas. Reputación de facción con misiones no principales.
 - **Mazmorras** de 5 desde T2 (también asistidas con IA); **bandas** flexibles de 10 a 40 más adelante.
-- **Clasificación**: nivel, poder, códice y clanes (nivel y poder).
+- **Clasificación**: poder, códice y clanes (nivel y poder). Sin clasificación por nivel del personaje.
 - **Menú principal** único con submenús desplegables (estilo MIR4).
 
 **PvP**

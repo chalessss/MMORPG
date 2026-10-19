@@ -217,38 +217,14 @@ Efecto en el nivel 20 (daño por segundo contra el jefe · mobs/hora de uno en u
 
 Con esto quedan vistas todas las neutrales de la Temporada 1.
 
-## 9. Puntuación de poder (propuesta por validar)
+## 9. Puntuación de poder (se calibra en el capítulo de objetos)
 
-La clasificación de la Temporada 1 incluye el **poder** (diseño base, 3.28). Hace falta una fórmula que dé puntos por cada estadística.
-
-### 9.1 Primera prueba descartada: sumar las estadísticas finales
-
-Dar puntos a cada estadística final del personaje (vida, defensa, % de daño, crítico…) hace que el poder dependa de la **clase** y no del progreso: con la misma tabla, en el nivel 20 y sin equipo, el Luchador saldría con unos 3.200 y el Invocador o el Atacante con unos 2.000, solo porque la vida y la defensa pesan más que el daño de un frágil. La clasificación premiaría siempre a los de fuerza.
-
-### 9.2 Propuesta: poder = progreso del personaje
-
-**Poder = poder de nivel + poder de habilidades + poder de equipo + poder de otras fuentes** (códice, técnicas de clan…).
-
-- **Nivel**: 100 por nivel, igual para todas las clases (nivel 20 = 2.000).
-- **Habilidades**: 20 por cada nivel de habilidad (en el nivel 20: cuatro habilidades en nivel 4 y cuatro en nivel 1 = 20 niveles = 400).
-- **Equipo y demás fuentes**: cada estadística que den vale puntos según una **tabla de equivalencias igual para todas las clases** (tomando como unidad 1 punto de estadística principal):
-
-| Estadística que da el equipo | Poder |
-|---|---|
-| +1 STR, INT o AGI | 3 |
-| +10 de vida | 1 |
-| +20 de maná | 1 |
-| +1 de vida o maná cada 5 s | 1 |
-| +100 de armadura | 2 |
-| +100 de defensa física o mágica (puntos) | 2 |
-| +1 de precisión o evasión | 5 |
-| +1 % de daño a monstruos | 15 |
-| +1 % de CDR | 15 |
-| +1 % de probabilidad de crítico | 10 |
-| +1 % de daño crítico | 3 |
-| +1 de daño del arma | 1 |
-| Experiencia de caza, velocidad de recolección | 0 (no son de combate) |
-
-- El **desarrollo** (+1 a +10) y los **encantamientos** suman a través de las estadísticas que añaden.
-- Así, dos personajes del mismo nivel con equipo de la misma calidad tienen un poder parecido aunque sean de clases distintas, y el poder mide **cuánto ha progresado** cada uno. Ejemplo: nivel 20 sin equipo = 2.000 + 400 = **2.400** para todas las especializaciones.
-- La tabla es un dato (DataTable) y se ajustará al diseñar los objetos, con la simulación de personajes con el equipo completo.
+- **Sin clasificación por nivel** (decidido): el nivel tiene tope y todos llegarán al máximo. Queda la clasificación por **poder** (además de la de códice y las de clanes).
+- **La calibración del poder se hace en el capítulo de objetos** (decidido), cuando existan los equipos ideales:
+  - Para cada especialización se monta su **equipo perfecto**: todas las piezas posibles, con todas las mejoras perfectas, eligiendo lo que más rinda para su clase. Ese personaje marca el **poder máximo**.
+  - **Cada estadística da un poder distinto según la especialización**, en función de lo que le sirve. Por ejemplo, al Combatiente la STR le daría unos 10 puntos de poder, la AGI 3 y la INT 1.
+  - Hay que evitar que una estadística dé tanto poder que convenga acumularla aunque no sirva: por ejemplo, un Mago con 150 % de crítico y sin INT, sin regeneración de maná y sin daño de habilidades.
+  - Se calibrará con **pruebas en el simulador**: por ejemplo, quitarle a un personaje 20 de precisión, poner ese hueco en crítico y ver si su daño sube o baja. El poder de cada estadística debe reflejar lo que aporta de verdad.
+- Pruebas hechas en esta sesión (sirven de punto de partida):
+  - Sumar las estadísticas finales con una tabla igual para todos hace depender el poder de la clase: en el nivel 20 sin equipo, el Luchador saldría con unos 3.200 y el Invocador o el Atacante con unos 2.000.
+  - Idea propuesta: poder = nivel (100 por nivel) + niveles de habilidad (20 por nivel) + equipo y otras fuentes con una tabla de equivalencias. Queda como referencia; los pesos serán por especialización.

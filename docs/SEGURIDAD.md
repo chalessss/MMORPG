@@ -50,6 +50,14 @@ Estado: **en curso**. Reúne las decisiones de seguridad que van saliendo en los
 - Pasado ese tiempo ya **no se puede cancelar**: el objeto pasa a la bóveda del mercado y queda a la venta **hasta 14 días**. Si no se vende, vuelve al vendedor **por correo**.
 - Al venderse, el vendedor recibe un **correo** (como en WoW): qué se vendió, por cuánto, la comisión del mercado y lo que recibe.
 
-## 6. Preguntas abiertas
+## 6. Origen de los objetos (decidido)
+
+- **Todo objeto que se publique en el mercado** tiene que llevar su origen verificado, **sin excepción**: el mercado recibe internamente de dónde se creó el objeto, en qué momento, a qué hora y por qué vía. Así, si alguien duplica objetos, los datos coincidirán (por ejemplo, 50 objetos que dice haber soltado el mismo mob) y se podrá rastrear el primero, quién lo recogió, si lo comerció y si lo obtuvo de forma lícita, hasta dar con quien aprovechó el fallo.
+- **Alerta de objeto perfecto**: cuando aparece un objeto perfecto, llega una notificación al servidor con todo su origen: la fuente (el mob exacto que lo soltó o la receta), sus estadísticas al aparecer, la hora, el lugar y **todas las modificaciones**, por ejemplo cuántos papiros de encantamiento le puso el encantador (5, 7, 10, 20…) hasta llegar a esas estadísticas.
+- Para no llenar los registros, el **historial completo** solo se envía con las alertas (objetos perfectos y demás).
+- **Recomendación técnica**: que cada objeto tenga desde que se crea un **identificador único** y sus datos de origen guardados en el servidor (es barato y es lo que permite detectar duplicados), y que el historial de cambios de manos y modificaciones se envíe completo solo cuando salte una alerta o pase por el mercado.
+- **Por validar**: si además cada pieza que el jugador se equipa debe guardar un registro de su origen (de dónde salió, qué encantamientos tiene, si llegó por intercambio o por el mercado).
+
+## 7. Preguntas abiertas
 
 - Ninguna por ahora.
