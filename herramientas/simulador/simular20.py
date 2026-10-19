@@ -13,7 +13,7 @@ datos de datos/nivel20/ y prueba cada especialización en:
 Uso:
   python3 simular20.py           muestra los resultados
   python3 simular20.py --ficha   muestra la ficha de estadísticas del nivel 20 y la guarda en resultados/
-  python3 simular20.py --precision  prueba de precisión y evasión (jugador contra mobs)
+  python3 simular20.py --precision  prueba de precisión y evasión (por ahora, el Combatiente)
 """
 
 import csv
@@ -25,8 +25,8 @@ DATOS = Path(__file__).parent / "datos" / "nivel20"
 PASO = 0.1  # segundos por paso de la simulación
 MUERTES_MAXIMAS = 20  # si muere tantas veces, se da por hecho que no puede con esa caza
 
-# Tipos de mob en rotación: (a distancia, ciclo de golpes).
-TIPOS_MOB = [(False, (1, 1, 2)), (True, (1, 1, 2)), (False, (1, 1, 2)), (True, (1, 1, 2))]
+# Tipos de mob en rotación: (a distancia, ciclo de golpes, tipo de daño), como en datos/mobs.csv.
+TIPOS_MOB = [(False, (1, 1, 2), "fisico"), (True, (1, 1, 2), "magico"), (False, (1, 1, 2), "magico"), (True, (1, 1, 2), "fisico")]
 # Grupos que se prueban en la caza en grupo.
 GRUPOS = [("Trío", ["combatiente", "mago", "invocador"]),
           ("Grupo de 5", ["combatiente", "invocador", "mago", "atacante", "asesino"])]
@@ -194,9 +194,10 @@ class Personaje:
                 d *= 1 + self.p["trance_dano_pct"] / 100
         return d
 
-    def pegar(self, mob, d, robo=1.0, puede_fallar=True):
-        if puede_fallar:
-            # Precisión contra evasión: el golpe puede fallar (los sangrados no fallan).
+    def pegar(self, mob, d, robo=1.0, puede_fallar=True, magico=False):
+        if puede_fallar and not magico:
+            # Precisión contra evasión: un golpe físico puede fallar. Los hechizos no fallan
+            # nunca (la evasión solo vale contra ataques físicos) y los sangrados tampoco.
             self.e["golpes"] += 1
             if self.c.falla(self.precision, mob.get("evasion", self.p.get("evasion_mob", 0))):
                 self.e["fallos"] += 1
@@ -288,7 +289,7 @@ class Personaje:
             d *= mult * self.mejora(h, 1 + p["mejora_dano_pct"] / 100)
             for m in objetivos:
                 if m["vida"] > 0:
-                    self.pegar(m, d, num(h.get("robo_vida_pct"), 100) / 100)
+                    self.pegar(m, d, num(h.get("robo_vida_pct"), 100) / 100, magico=magico)
         if h["nombre"] in str(p["habilidades_provocan"]).split("|"):
             # Provocación: todos los mobs a su alcance le atacan a él durante unos segundos,
             # tengan la amenaza que tengan; después vuelven con quien más amenaza tenga.
@@ -469,7 +470,7 @@ class Personaje:
             d = self.golpe(num(canal["h"]["golpes"]) - f["plano"], True, magico=True) * canal["mult"]
             for m in c.vivos:
                 if m["vida"] > 0:
-                    self.pegar(m, d, num(canal["h"].get("robo_vida_pct"), 100) / 100)
+                    self.pegar(m, d, num(canal["h"].get("robo_vida_pct"), 100) / 100, magico=True)
             if canal["quedan"] <= 0:
                 estado["canal"] = None
                 self.contar_hechizo()
@@ -515,11 +516,21 @@ class Combate:
         self.aggro = sorted(self.equipo, key=lambda a: (a.recurso != "ira_recibida", a.a_distancia))
 
     def acierto(self, precision, evasion):
-        """Probabilidad de acertar: la base más un tanto por cada punto de precisión por
-        encima de la evasión del objetivo (o menos si está por debajo), entre un mínimo y un máximo."""
+        """Probabilidad de acertar un golpe físico, por escalones:
+        - precisión al menos `acierto_umbral` puntos por encima de la evasión: acierta siempre;
+        - entre igual y ese umbral: casi siempre (`acierto_cercano_pct`);
+        - por debajo: pierde `acierto_paso_pct` por cada `acierto_paso` puntos (o fracción) que
+          le falten, hasta el 0 %."""
         p = self.p
-        pct = p.get("acierto_base_pct", 100) + (precision - evasion) * p.get("acierto_por_punto_pct", 1)
-        return min(max(pct, p.get("acierto_minimo_pct", 50)), p.get("acierto_maximo_pct", 100)) / 100
+        if not p.get("precision_activa", 0):
+            return 1.0
+        diferencia = precision - evasion
+        if diferencia >= p["acierto_umbral"]:
+            return 1.0
+        if diferencia >= 0:
+            return p["acierto_cercano_pct"] / 100
+        pasos = -(-(-diferencia) // p["acierto_paso"])  # pasos de 5 puntos (o fracción) por debajo
+        return max(0.0, 1 - pasos * p["acierto_paso_pct"] / 100)
 
     def falla(self, precision, evasion):
         a = self.acierto(precision, evasion)
@@ -599,10 +610,10 @@ class Combate:
         objetivo = self.objetivo_de_mobs()
         self.vivos.clear()
         for i, v in enumerate(vidas):
-            remoto, ciclo = TIPOS_MOB[(self.muertos + i) % len(TIPOS_MOB)]
+            remoto, ciclo, tipo = TIPOS_MOB[(self.muertos + i) % len(TIPOS_MOB)]
             espera = 0 if remoto else (self.p["acercamiento_mob_s"] if objetivo.a_distancia
                                        else self.p["desplazamiento_melee_s"])
-            self.vivos.append({"vida": v, "max": v, "proximo": self.t + espera, "ciclo": ciclo, "n": 0,
+            self.vivos.append({"vida": v, "max": v, "proximo": self.t + espera, "ciclo": ciclo, "n": 0, "tipo": tipo,
                                "amenaza": {}, "provocado_hasta": -1.0, "provocador": None})
         for a in self.equipo:
             if not a.a_distancia:
@@ -646,7 +657,8 @@ class Combate:
                     m["n"] += 1
                     m["proximo"] += p["intervalo_mob_s"]
                     objetivo = self.objetivo_de(m)
-                    if objetivo and self.falla(m.get("precision", p.get("precision_mob", 0)), objetivo.evasion):
+                    if (objetivo and m.get("tipo", "fisico") == "fisico"
+                            and self.falla(m.get("precision", p.get("precision_mob", 0)), objetivo.evasion)):
                         objetivo.e["esquivas"] += 1  # el jugador esquiva el golpe
                         objetivo = None
                     if objetivo:
@@ -677,7 +689,7 @@ class Combate:
                     d = a.golpe(0, True, porcentaje=num(h["golpes"])) * z["mult"]
                 for m in self.vivos:
                     if m["vida"] > 0 and self.al_alcance(a, m):
-                        a.pegar(m, d, num(h.get("robo_vida_pct"), 100) / 100)
+                        a.pegar(m, d, num(h.get("robo_vida_pct"), 100) / 100, magico=h["unidad"] == "puntos")
                 if h["mecanica"] == "escudo_aliados" and not self.sin_dano:
                     # Cada impacto escuda a los aliados (no a quien la lanza) con el daño que hace.
                     for aliado in self.equipo:
@@ -750,8 +762,9 @@ class Combate:
         while self.t - inicio_intento < p["mazmorra_limite_s"]:
             if self.t >= siguiente:
                 for i in range(tamanos[oleada % len(tamanos)]):
-                    remoto, ciclo = TIPOS_MOB[i % len(TIPOS_MOB)]
+                    remoto, ciclo, tipo = TIPOS_MOB[i % len(TIPOS_MOB)]
                     self.vivos.append({"vida": p["vida_mob"], "max": p["vida_mob"], "proximo": self.t + 2, "ciclo": ciclo,
+                                       "tipo": tipo,
                                        "n": 0, "amenaza": {}, "provocado_hasta": -1.0, "provocador": None,
                                        "mult_dano": p.get("oleada_mult_dano", 1)})
                 oleada += 1
@@ -924,56 +937,37 @@ def mostrar_ficha(parametros, armas, especializaciones, conversion, habilidades)
               f"{(f['mult_critico'] - 1) * 100:>8.1f}%{golpe:>7}")
 
 
-def precision_evasion(*datos):
-    """Prueba de precisión y evasión (opción --precision): cómo cambian la caza y las
-    pociones según la precisión y la evasión del jugador frente a las de los mobs."""
-    d = datos
-    base = dict(d[0], acierto_base_pct=d[0]['prueba_acierto_base_pct'], acierto_por_punto_pct=d[0]['prueba_acierto_por_punto_pct'],
-                acierto_minimo_pct=d[0]['prueba_acierto_minimo_pct'], acierto_maximo_pct=100,
-                evasion_mob=d[0]['prueba_neutral_mob'], precision_mob=d[0]['prueba_neutral_mob'])
-    esps = d[2]
-    def con(e, p):
-        return ficha(e, p, d[1], d[3], d[4])
-    print("A) Precisión del jugador contra un mob con 20 de evasión (caza de uno en uno, mobs/hora)")
-    print(f"{'':22}" + "".join(f"{'prec '+str(x)+' ('+str(round(min(95+x-20,100)))+'%)':>18}" for x in (0, 10, 20, 30, 40)) + f"{'sin fallos':>12}")
-    for e in esps:
-        fila = []
-        for x in (0, 10, 20, 30, 40):
-            p = dict(base, precision_jugador=x, precision_mob=0)
-            r = combatir(con(e, p), p, grupos_de(p, 1))
-            fila.append(f"{r['muertos'] / (r['tiempo'] / 3600):>18.0f}")
-        r = combatir(con(e, d[0]), d[0], grupos_de(d[0], 1))
-        print(f"{e['nombre']:22}" + "".join(fila) + f"{r['muertos'] / (r['tiempo'] / 3600):>12.0f}")
-    print()
-    print("B) Evasión del jugador contra mobs con 20 de precisión (pociones de vida cada 300 mobs · muertes)")
-    for e in esps:
-        fila = []
-        for x in (0, 20, 30, 40, 60):
-            p = dict(base, evasion_jugador=x, evasion_mob=0, precision_jugador=0)
-            r = combatir(con(e, p), p, grupos_de(p, 1))
-            fila.append(f"{str(r['pociones_vida'])+' · '+str(r['muertes'])+' · '+str(round(r['muertos']/(r['tiempo']/3600)))+'/h':>18}")
-        print(f"{e['nombre']:22}" + "".join(fila))
-    print("   columnas: evasión 0 (100 % de golpes recibidos), 20 (95 %), 30 (85 %), 40 (75 %), 60 (55 %)")
-    print()
-    print("C) Conglomerados y élites (evasión del jugador; mobs con 20 de precisión)")
-    por = {e['especializacion']: e for e in esps}
-    for nombre, esp, tam, mult in (("Combatiente, 12 mobs", "combatiente", 12, 1), ("Combatiente, 12 élites", "combatiente", 12, 3),
-                                   ("Luchador, 12 mobs", "luchador", 12, 1), ("Asesino, 6 mobs", "asesino", 6, 1)):
-        fila = []
-        for x in (0, 20, 40, 60):
-            p = dict(base, evasion_jugador=x, evasion_mob=0, dano_mob=d[0]['dano_mob'] * mult)
-            r = combatir(con(por[esp], p), p, grupos_de(p, tam))
-            fila.append(f"{('muere' if r['muertes'] >= 20 else str(round(r['muertos']/(r['tiempo']/3600)))+'/h · '+str(r['pociones_vida'])+' poc'):>18}")
-        print(f"{nombre:24}" + "".join(fila))
-    print("   columnas: evasión 0, 20, 40, 60")
-    print()
-    print("D) Grupo de 5 con 12 élites (sin control del agro): evasión de todos")
-    equipo = [por[i] for i in ("combatiente", "invocador", "mago", "atacante", "asesino")]
-    for x in (0, 20, 40):
-        p = dict(base, evasion_jugador=x, evasion_mob=0, dano_mob=d[0]['dano_mob'] * 3)
-        c = Combate([con(e, p) for e in equipo], p).pelear(grupos_de(p, 12))
-        muertes = ", ".join(f"{a.nombre} {a.e['muertes']}" for a in c.equipo if a.e["muertes"]) or "nadie"
-        print(f"  evasión {x}: {c.muertos/(c.t/3600):.0f} mobs/h · caídas {c.caidas} · muertes: {muertes} · curado {sum(a.e['curado'] for a in c.equipo)/c.t:.0f}/s")
+def precision_evasion(parametros, armas, especializaciones, conversion, habilidades, quienes=("combatiente",)):
+    """Prueba de precisión y evasión (opción --precision): el personaje con 5, 10, 15 y 20
+    puntos de precisión y de evasión contra mobs del nivel 20 (20 de precisión y 20 de
+    evasión). La evasión solo vale contra los golpes físicos (la mitad de los mobs)."""
+    p = dict(parametros, precision_activa=1)
+    c = Combate([], p)
+    print(f"Mobs del nivel 20: {p['precision_mob']:g} de precisión y {p['evasion_mob']:g} de evasión · "
+          f"{p['mobs_por_prueba']:.0f} mobs por prueba\n")
+    for esp in [e for e in especializaciones if e["especializacion"] in quienes]:
+        print(esp["nombre"])
+        print(f"{'Precisión y evasión':>20}{'Acierta':>9}{'Le aciertan':>13}{'Mobs':>6}{'Mobs/hora':>11}"
+              f"{'Poc. vida':>11}{'Poc. maná':>11}{'Muertes':>9}{'Fallos':>8}{'Esquivas':>10}")
+        for puntos in (None, 5, 10, 15, 20):
+            q = dict(p, precision_jugador=puntos or 0, evasion_jugador=puntos or 0)
+            if puntos is None:
+                q["precision_activa"] = 0
+            f = ficha(esp, q, armas, conversion, habilidades)
+            for tamano in (1, 6, 12):
+                r = combatir(f, q, grupos_de(q, tamano))
+                etiqueta = "sin fallos" if puntos is None else str(puntos)
+                acierta = 1.0 if puntos is None else c.acierto(puntos, p["evasion_mob"])
+                le_aciertan = 1.0 if puntos is None else c.acierto(p["precision_mob"], puntos)
+                if r["muertes"] >= MUERTES_MAXIMAS:
+                    print(f"{etiqueta:>20}{acierta * 100:>8.0f}%{le_aciertan * 100:>12.0f}%{tamano:>6}{'muere':>11}")
+                    continue
+                print(f"{etiqueta:>20}{acierta * 100:>8.0f}%{le_aciertan * 100:>12.0f}%{tamano:>6}"
+                      f"{r['muertos'] / (r['tiempo'] / 3600):>11.0f}{r['pociones_vida']:>11}{r['pociones_mana']:>11}"
+                      f"{r['muertes']:>9}{r['fallos']:>8}{r['esquivas']:>10}")
+        print()
+    print("Acierta = sus golpes físicos contra el mob · Le aciertan = golpes físicos de los mobs contra él "
+          "(los mágicos aciertan siempre) · Fallos / Esquivas = golpes suyos fallados / golpes de mobs esquivados")
 
 
 def main():
@@ -982,6 +976,7 @@ def main():
         mostrar_ficha(*datos)
     elif "--precision" in sys.argv:
         precision_evasion(*datos)
+
     else:
         informe(*datos)
 

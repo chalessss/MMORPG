@@ -64,4 +64,4 @@ La prueba 4 simula **grupos** (`GRUPOS` en `simular20.py`: un trío Combatiente 
 
 La prueba 5 repite la caza en grupo con **élites** (`elite_mult_dano`) y la 6 simula una **mazmorra**: un jefe que siempre ataca al tanque y oleadas de adds (`mazmorra_*`, `oleada_*`), con dos estrategias (el tanque se queda con el jefe o acercan los adds al tanque) y con adds normales o de élite.
 
-**Precisión y evasión** (`python3 herramientas/simulador/simular20.py --precision`): cada golpe acierta con `acierto_base_pct` + `acierto_por_punto_pct` × (precisión − evasión), entre el mínimo y el máximo. Por defecto está desactivado (acierto del 100 %); la prueba usa los valores `prueba_*` de `parametros.csv`.
+**Precisión y evasión** (`python3 herramientas/simulador/simular20.py --precision`): los golpes físicos aciertan por escalones según la precisión del atacante frente a la evasión del defensor (`acierto_*` en `parametros.csv`); los hechizos aciertan siempre. Está desactivado en las pruebas generales (`precision_activa` = 0); la prueba lo activa con los mobs del nivel 20 (20 de precisión y 20 de evasión).

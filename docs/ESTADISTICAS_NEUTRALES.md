@@ -18,67 +18,43 @@ Estado: **en curso**. Tercera parte del capítulo de estadísticas (parte 1: `do
 - La **Temporada 1 es casi todo PvE**: sus neutrales se valoran por cómo afectan al **farmeo** (matar mobs, gastar pociones, recolectar). Las del PvP llegan en la Temporada 2.
 - Orden de trabajo: primero **evasión y precisión**; después las demás de la Temporada 1.
 
-## 2. Precisión y evasión (en estudio)
+## 2. Precisión y evasión
 
-### 2.1 Propuesta de fórmula
+### 2.1 Reglas (decidido)
 
-Cada golpe (del jugador o del mob) puede **fallar**:
+- **La evasión solo vale contra ataques físicos.** Los hechizos aciertan siempre: la evasión no restringe nada de los ataques mágicos.
+- **Triángulo (PvP, Temporada 2):** los personajes de fuerza (Combatiente y los que buscarán estadísticas defensivas en el equipo) acumularán evasión para aguantar a los mobs; eso les dará **ventaja clara contra los de agilidad**, cuyos golpes (y críticos) dejarán de entrar y les bajará mucho el daño. Un mago les seguirá pegando siempre.
+- **Cuidado con el mago:** hay que evitar que un mago se llene de evasión y el de agilidad ya no le pueda hacer nada. La joyería y las estadísticas que busque el mago tienen que ser **distintas de la evasión**. (La armadura ya separa mucho: los golpes del Asesino entran casi enteros a un mago, pero la armadura y la evasión de un Combatiente serán muy superiores.)
+- **Mobs:** su precisión y su evasión **igualan su nivel** (un mob del nivel 20 tiene 20 de precisión y 20 de evasión). Los **élites** tendrán más evasión, vida y daño.
+- **Equipo base:** con el equipo mínimo, un personaje debería llegar a **unos 15 puntos** de precisión; para acertar de verdad tendrá que buscar precisión extra en su equipo.
+- **Fórmula por escalones** (golpes físicos; igual para el jugador contra el mob y para el mob contra el jugador):
 
-**Acierto = 95 % + 1 % × (precisión del atacante − evasión del defensor)**, entre un **mínimo del 50 %** y un **máximo del 100 %**.
+| Precisión del atacante frente a la evasión del defensor | Acierto |
+|---|---|
+| 5 puntos o más por encima | **100 %** (acierta siempre) |
+| Igual o hasta 4 por encima | 95 % (falla muy de vez en cuando) |
+| De 1 a 5 por debajo | 90 % |
+| De 6 a 10 por debajo | 80 % |
+| De 11 a 15 por debajo | 70 % (por ejemplo, 30 de precisión contra 45 de evasión) |
+| … | −10 % por cada 5 puntos (o fracción) más, hasta el **0 %** |
 
-- Con la misma precisión que la evasión del objetivo se acierta el 95 %; cada punto de diferencia mueve un 1 %.
-- Fallan los golpes blancos, las habilidades y cada impacto de las áreas (por separado en cada mob). **Los sangrados no fallan.**
-- Para la prueba, los mobs del nivel 20 tienen **20 de precisión y 20 de evasión**; el jugador, sin joyería, 0 de cada una.
-- En el simulador está desactivada por defecto (`acierto_base_pct` = 100) hasta decidirla; la prueba se ejecuta con `python3 herramientas/simulador/simular20.py --precision`.
+- Así se puede llegar a **acertar siempre** (100 %) y a **no acertar nunca** (0 %), y lo mismo con la evasión.
+- En el simulador: `precision_activa` y los valores `acierto_*`, `precision_mob` y `evasion_mob` de `parametros.csv`. Está desactivada en las pruebas generales hasta cerrar los valores; la prueba se lanza con `python3 herramientas/simulador/simular20.py --precision`.
 
-### 2.2 Precisión: cuánto daño se pierde
+### 2.2 Primera simulación: el Combatiente (5, 10, 15 y 20 puntos de precisión y de evasión)
 
-Caza de uno en uno contra un mob con 20 de evasión (mobs/hora):
+Contra mobs del nivel 20 (20 de precisión y 20 de evasión). La mitad de los mobs pega con daño físico (se puede esquivar) y la otra mitad con daño mágico (no). Pociones cada 300 mobs.
 
-| Especialización | Precisión 0 (acierta 75 %) | 10 (85 %) | 20 (95 %) | 30 o más (100 %) | Sin fallos |
-|---|---|---|---|---|---|
-| Luchador | 68 | 77 | 86 | 90 | 90 |
-| Combatiente | 36 | 41 | 46 | 48 | 49 |
-| Asesino | 90 | 96 | 101 | 105 | 105 |
-| Atacante | 92 | 103 | 116 | 123 | 122 |
-| Mago | 95 | 107 | 119 | 126 | 126 |
-| Invocador | 46 | 52 | 58 | 61 | 61 |
-
-- La caza cae **en proporción a los fallos**: sin precisión (75 % de acierto) se caza un **20–25 % menos**.
-- **Por encima del 100 % de acierto la precisión no sirve** (tope): en este ejemplo, a partir de 25–30 puntos.
-
-### 2.3 Evasión: cuánto daño se evita
-
-Mobs con 20 de precisión. Evasión 0 → recibe el 100 % de los golpes; 20 → 95 %; 30 → 85 %; 40 → 75 %; 60 → 55 %.
-
-Caza de uno en uno (pociones de vida cada 300 mobs; nadie muere en ningún caso):
-
-| Especialización | Evasión 0 | 20 | 30 | 40 | 60 |
-|---|---|---|---|---|---|
-| Atacante | 219 | 185 | 110 | 41 | 0 |
-| Mago | 266 | 247 | 197 | 153 | 66 |
-| Luchador, Asesino, Invocador | 0 | 0 | 0 | 0 | 0 |
-| Combatiente (mobs/hora) | 46 | 46 | 45 | 44 | 42 |
-
-Conglomerados (mobs/hora · pociones de vida cada 300 mobs):
-
-| Caso | Evasión 0 | 20 | 40 | 60 |
-|---|---|---|---|---|
-| Luchador, 12 mobs | 170 · 172 | 170 · 142 | 173 · 37 | 172 · 0 |
-| Asesino, 6 mobs | 117 · 208 | 118 · 155 | 121 · 16 | 121 · 0 |
-| Combatiente, 12 mobs | 224 · 0 | 222 · 0 | 217 · 0 | 212 · 0 |
-| Combatiente, 12 élites | muere | muere | muere | muere |
-
-Grupo de 5 con 12 élites (sin control del agro): con evasión 0 el grupo cae 2 veces y el Mago muere 29 veces; con evasión 40 no cae nunca y el Mago muere 20 veces (el Atacante, de 23 a 10).
+| Precisión y evasión | Acierta | Le aciertan (golpes físicos) | De uno en uno | Grupos de 6 | Grupos de 12 | Pociones de maná (uno en uno) |
+|---|---|---|---|---|---|---|
+| Sin fallos (referencia) | 100 % | 100 % | 49 mobs/h | 129 | 239 | 104 |
+| 5 | 70 % | 100 % | 33 (−33 %) | 89 | 160 (17 pociones de vida) | 151 |
+| 10 | 80 % | 100 % | 38 (−22 %) | 103 | 182 (8) | 134 |
+| 15 | 90 % | 100 % | 43 (−12 %) | 114 | 211 (1) | 118 |
+| 20 | 95 % | 95 % | 46 (−6 %) | 122 | 224 | 108 |
 
 Lectura:
-- La evasión **ahorra pociones y muertes**, sobre todo a los frágiles (Atacante, Mago) y a los cuerpo a cuerpo que cazan en grupo de mobs. Con 40 de evasión el Atacante gasta un 80 % menos de pociones.
-- **La evasión perjudica al Combatiente**: si esquiva, no recibe el golpe y **no gana Ira**, así que caza algo más despacio (46 → 42 mobs/hora con 60 de evasión). Habría que decidir si esquivar también le da Ira, o asumir que la evasión no es su estadística.
-- Contra élites la evasión ayuda, pero no sustituye al curandero ni al control del agro.
-
-### 2.4 Preguntas abiertas
-
-1. **¿Te sirve la fórmula** (95 % con la misma precisión que evasión, 1 % por punto, entre 50 % y 100 %)?
-2. **¿Los hechizos pueden fallar** como los golpes, o los mágicos aciertan siempre (y la evasión solo vale contra físicos)?
-3. **Precisión y evasión de los mobs**: ¿suben con su nivel (por ejemplo, 1 por nivel: 20 en el nivel 20) y son más altas en élites y jefes? Un mob de más nivel que el jugador sería más difícil de acertar, lo que frena cazar por encima del nivel (capítulo de mapas).
-4. **Combatiente y evasión**: ¿esquivar le da Ira, o la evasión simplemente no es para él?
+- Con el equipo base (~15 puntos) el Combatiente pierde un **12 %** de caza contra mobs de su nivel; con 5 puntos, un tercio. **Buscar precisión compensa**.
+- Con poca precisión las peleas duran más: gasta **más maná** (104 → 151 pociones) y, con 12 mobs, empieza a necesitar pociones de vida.
+- **Su evasión no hace nada hasta superar la precisión de los mobs**: con 5–15 puntos los mobs le aciertan siempre; con 20, un 95 % (esquiva 300–540 golpes cada 300 mobs). Para que los mobs fallen de verdad necesita **25 o más**.
+- Pendiente: el resto de especializaciones y la evasión por encima de 20.
