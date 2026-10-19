@@ -41,10 +41,10 @@ Estado: **en curso**. Este archivo recoge el punto de partida (lo ya decidido en
 | Profesión | Fabrica (decidido) |
 |---|---|
 | **Las seis principales** (sastre, peletero, herrero, joyero, encantamiento, inventor) | **Primera receta de todas:** piedras **potenciadas** y **pacificadas** (piedras generales + un **objeto intermedio** de cualquier principal + cristales + oro) |
-| Las seis principales | Su **objeto intermedio** propio: llave de tuercas (herrero), madeja de lana (sastre), papiro en blanco (encantamiento)… Cualquiera sirve para la receta de piedras de cualquier profesión |
-| Herrero | **Armas de todo tipo**, de todas las clases |
+| Las seis principales | Su **objeto intermedio** propio: llave de tuercas (herrero), madeja de lana (sastre), papiro en blanco (encantamiento), uno propio del inventor… Cualquiera sirve para la receta de piedras de cualquier profesión |
+| Herrero | **Armas de todo tipo**, de todas las clases. Desde la Temporada 2, también **placas**, con especialización de herrería: **armas** o **armaduras** |
 | Inventor | Además, piedras **santificadas**, en exclusiva (generales + potenciadas + pacificadas + oro) |
-| Encantamiento | **Papiro en blanco** (primera receta; se vende) y su **inscripción** con una estadística (por ejemplo, velocidad de ataque); el papiro inscrito se aplica a la pieza. El número de estadísticas depende de la calidad del objeto y del nivel de encantamiento |
+| Encantamiento | **Papiro en blanco** (primera receta; se vende) y su **inscripción**; el papiro inscrito se aplica a la pieza. Las estadísticas salen **al azar**; para cambiarlas se aplica otro encantamiento. El número de estadísticas depende de la calidad del objeto y del nivel de encantamiento |
 | Cocinero | Elixir defensivo, elixir ofensivo y comida; mejoran con el nivel de la profesión; la estadística depende del ingrediente (pescado, carne, planta…) |
 | Todas | Una **bolsa** mayor con sus propios materiales; los especializados la hacen un poco más grande (34 → 36–38 espacios) |
 
@@ -67,10 +67,9 @@ Estado: **en curso**. Este archivo recoge el punto de partida (lo ya decidido en
 7. **Receta de las piedras (decidido):** cada principal fabrica su **objeto intermedio** (llave de tuercas, madeja de lana, papiro en blanco…) y **cualquiera vale** para cualquier receta de piedras, sin restricción. Motivo: que nadie tenga que cambiar de profesión solo para usar un objeto que fabricó antes.
 8. **"Encantamiento"**: nombre compartido por la profesión y el sistema; se mantiene.
 
-**Nuevas preguntas:**
-9. **Papiro inscrito vs. azar**: el sistema de encantamiento (`DISENO_BASE.md` 3.19) decía que las estadísticas salen **al azar**. Con la inscripción ("póngale velocidad de ataque"), ¿quien inscribe **elige la estadística** y el azar queda solo en el **valor** (o en las estadísticas extra), o se inscribe a ciegas?
-10. **Objeto intermedio del inventor**: ¿el inventor fabrica también su propio objeto intermedio, o compra el de otras profesiones?
-11. **Placas**: cuando lleguen en la Temporada 2, ¿las fabrica el herrero o se reparten de otra forma?
+9. **Estadísticas del encantamiento (decidido):** **aleatorias**; quien quiera otras aplica **otro encantamiento**. Más adelante, la **reforja**: el inventor (y las clases con bonificación de inventor, probablemente más de una) podrá cambiar **una** estadística concreta de un objeto encantado por otra (crítico → regeneración de vida). Se detalla en la temporada en que llegue.
+10. **Objeto intermedio del inventor (decidido):** tiene el suyo, como las demás.
+11. **Placas (decidido):** las fabrica el **herrero**. En la Temporada 2 el herrero elige una **especialización de herrería** (como en WoW): **armas** o **armaduras**. Pendiente: si la elección es definitiva o se puede cambiar, y qué conserva quien elige armaduras de las recetas de armas de la T1.
 
 ## 3. Propuesta de estructura del capítulo
 

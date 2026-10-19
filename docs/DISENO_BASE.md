@@ -463,7 +463,7 @@ Dos grupos: **equipo** (ropa y armas) y **joyería**, con **8 ranuras cada uno**
   - Cada cambio cuesta **oro**, y el coste **sube con cada cambio** siguiendo una curva suave (logarítmica, no exponencial). Objetivo: que se cambie cuando de verdad hace falta, no ir subiendo todas a la vez saltando de una a otra.
 - **Inventor (decidido, cambia lo anterior)**: lo puede aprender **cualquier personaje**, como las demás principales (cuenta como una de las 2 activas). La especialización **Recolector** (Combatiente → Recolector → Carroñero / Explorador) recibirá **bonificaciones extra exclusivas** cuando sea inventor; se diseñarán al añadir esa especialización (Temporada 2).
 - **Inventor**: profesión de artesano avanzado, inspirada en los enanos artesanos de Lineage 2 (personajes dedicados a fabricar cosas muy potentes más que a cazar). Es la única que fabrica **piedras santificadas**, ya desde la Temporada 1.
-- **Herrero (decidido)**: fabrica las **armas de todo tipo** (de todas las clases).
+- **Herrero (decidido)**: fabrica las **armas de todo tipo** (de todas las clases). Cuando lleguen las **placas** (Temporada 2), también las fabrica el herrero, que elegirá una **especialización** (estilo WoW): **armas** o **armaduras**.
 - **Encantamiento**: profesión separada, la única que fabrica **papiros de encantamiento** (sección 3.19). Como las demás principales, también fabrica piedras potenciadas y pacificadas. Un jugador puede combinarla con otra principal (por ejemplo, sastre + encantamiento). **Nombre (decidido)**: la profesión se llama **encantamiento** y la especialización 2 del Invocador, **Encantador**, para no confundirlas.
 - Detalle de cada profesión (recetas, niveles, qué fabrica): capítulo propio más adelante.
 
@@ -682,7 +682,8 @@ Las piedras generales caen **solo por caza**. Las profesiones secundarias no fab
 Sistema distinto del desarrollo: **añade estadísticas adicionales** a equipo y joyería, en lugar de potenciar las estadísticas base.
 
 - Se aplica con un **papiro de encantamiento**, que solo fabrica la profesión de **encantamiento**.
-- **Flujo (decidido)**: la primera receta de encantamiento es el **papiro en blanco**, que se puede vender. El comprador lo lleva a alguien con la profesión (un amigo, un encargo) para que lo **inscriba** (por ejemplo, con velocidad de ataque) y después aplica el papiro inscrito a la pieza que quiera encantar. Cómo encaja la elección de estadística con el azar: en `docs/PROFESIONES.md`.
+- **Flujo (decidido)**: la primera receta de encantamiento es el **papiro en blanco**, que se puede vender. El comprador lo lleva a alguien con la profesión (un amigo, un encargo) para que lo **inscriba** (por ejemplo, con velocidad de ataque) y después aplica el papiro inscrito a la pieza que quiera encantar. Las estadísticas que da siguen siendo **aleatorias** (decidido); para cambiarlas, se aplica **otro encantamiento**.
+- **Reforja (más adelante)**: el inventor (y alguna clase con bonificación de inventor) podrá cambiar **una** estadística de un objeto ya encantado por otra (por ejemplo, crítico → regeneración de vida). Se detallará en la temporada en que llegue.
 - Las estadísticas se eligen **al azar de todo el conjunto de estadísticas** del juego (ataque físico o mágico, defensa, resistencias, precisión…).
 - La **cantidad de estadísticas** (3, 4, 5…) depende de la **calidad del objeto** y del **nivel de la profesión de encantamiento** de quien encanta.
 - Referencia (MIR4): bloque "Propiedades adicionales" del objeto, con cada estadística extra y su grado.
