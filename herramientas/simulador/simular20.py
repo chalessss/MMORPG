@@ -171,6 +171,13 @@ class Personaje:
         base = num(h["coste_mana"]) + num(h["coste_mana_pct"]) * self.f["mana"] / 100
         return round(base * self.mejora(h, 1 + self.p["mejora_coste_pct"] / 100))
 
+    def reduccion(self, h):
+        """CDR: multiplica el enfriamiento de las habilidades activas, salvo las excluidas
+        (la provocación del Embate tiene que dejar su hueco de agro)."""
+        if h["nombre"] in str(self.p.get("cdr_excluidas", "")).split("|"):
+            return 1.0
+        return 1 - min(self.p.get("cdr_jugador_pct", 0), self.p.get("cdr_tope_pct", 100)) / 100
+
     def usar(self, nombre):
         self.e["usos"][nombre] = self.e["usos"].get(nombre, 0) + 1
 
@@ -404,13 +411,13 @@ class Personaje:
     def lanzar(self, accion):
         h, mult, objetivo, _ = accion
         f, p, c, e, r = self.f, self.p, self.c, self.e, self.r
-        self.listo[h["nombre"]] = c.t + num(h["enfriamiento"])
+        self.listo[h["nombre"]] = c.t + num(h["enfriamiento"]) * self.reduccion(h)
         e["mana"] -= self.coste(h)
         if num(h["coste_vida_pct"]):
             e["vida"] -= f["vida"] * num(h["coste_vida_pct"]) / 100
         mec = h["mecanica"]
         if mec == "remate" and objetivo["vida"] < objetivo["max"] * p["remate_umbral_pct"] / 100:
-            self.listo[h["nombre"]] = c.t + p["remate_enfriamiento"]
+            self.listo[h["nombre"]] = c.t + p["remate_enfriamiento"] * self.reduccion(h)
             h = dict(h, golpes=str(p["remate_dano"]))
         # Recurso secundario que potencia la habilidad.
         if self.recurso == "ira_golpe" and h["tipo"] != "cura":

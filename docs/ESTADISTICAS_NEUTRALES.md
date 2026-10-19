@@ -191,3 +191,28 @@ Vale para todas las alertas (recolección, fabricación y las que se añadan):
   3. **Informe de 1 hora**: el mismo registro durante la hora siguiente.
 - Así se distingue un **pico puntual** (algo raro en un segundo que no se repite en los 5 minutos ni en la hora) de una **velocidad anormal sostenida**.
 - **Suspensión de la cuenta**: solo con **tres informes consecutivos** (instantáneo, 5 minutos y 1 hora) que confirmen la irregularidad, nunca por un único aviso. Sanción, apelación, contenido completo de los informes y demás: `docs/SEGURIDAD.md`.
+
+## 8. CDR — reducción de enfriamiento (configuración estándar)
+
+El usuario pidió configurarla "según el estándar"; estos son los valores propuestos:
+
+- **Qué hace**: resta un % al **enfriamiento** de las habilidades activas. **Enfriamiento final = enfriamiento × (1 − CDR)**. Con un 10 %, una habilidad de 20 s pasa a 18 s. Lineal, como el resto de neutrales hasta la Temporada 3.
+- **A qué no afecta**: tiempos de lanzamiento y canalización (eso es la Celeridad), pociones, recursos secundarios (Ira, Energía, Foco, Trance, Esencia) ni habilidades sin enfriamiento (Lluvia de fuego).
+- **Excepción: el Embate**. Su provocación dura 7 s y su enfriamiento es de 10 s; si la CDR lo acortara, el hueco de 2–3 s sin agro desaparecería (con un 30 % el Combatiente tendría el agro siempre). Por eso **la CDR no afecta al Embate**.
+- **Valores por temporada** (como el daño a monstruos): en la Temporada 1, **10 % con equipo normal** y **15 % como máximo** con objetos o encantamientos concretos. **Tope absoluto del 40 %** en cualquier temporada, para que ninguna habilidad se pueda encadenar.
+- En el simulador: `cdr_jugador_pct`, `cdr_tope_pct` y `cdr_excluidas` en `parametros.csv`.
+
+Efecto en el nivel 20 (daño por segundo contra el jefe · mobs/hora de uno en uno):
+
+| Especialización | Sin CDR | 10 % | 15 % |
+|---|---|---|---|
+| Luchador | 1.517 · 90 | 1.564 · 94 | 1.602 · 96 |
+| Combatiente | 637 · 48 | 664 · 50 | 665 · 50 |
+| Asesino | 1.900 · 105 | 1.989 · 110 | 2.001 · 112 |
+| Atacante | 2.243 · 122 | 2.417 · 130 | 2.518 · 135 |
+| Mago | 2.367 · 126 | 2.378 · 127 | 2.408 · 129 |
+| Invocador | 746 · 61 | 757 · 62 | 767 · 62 |
+
+- Con el 15 % máximo, la CDR da entre un **1 y un 12 %** más de daño. Quien más gana es el **Atacante** (sus disparos fuertes tienen enfriamiento); el **Mago** casi nada, porque su daño sale de la Lanza de hielo y de la Lluvia de fuego, que no tienen enfriamiento.
+
+Con esto quedan vistas todas las neutrales de la Temporada 1.
