@@ -137,6 +137,8 @@ Hay **dos sistemas de recolección** (decidido):
 
 Todos los valores (cargas, tiempos, cantidades, probabilidades) son datos ajustables.
 
+**Ampliado en el capítulo de estadísticas** (`docs/ESTADISTICAS_NEUTRALES.md`, 7): 10 s por recogida de base; velocidad de recolección general (cada 100 % reduce el tiempo a la mitad); minería y herboristería suben por puntos como en WoW y a 100 puntos dan +25 % cada una; las vetas enriquecidas piden 50 puntos y dan materiales raros (las épicas, épicos); la energía no tiene profesión ni vetas enriquecidas y da una cantidad según la calidad del punto.
+
 ### 3.6 Objetos interactivos del mundo
 
 Elementos con los que se puede interactuar y que no son NPCs ni recursos.

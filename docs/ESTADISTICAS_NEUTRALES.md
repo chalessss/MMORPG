@@ -146,8 +146,9 @@ Lectura:
 | Profesión secundaria de **herboristería** | +25 % |
 | **Encantamientos** en el equipo: muy raros, +1–3 % por pieza; hay que reforjar o ajustar todo el equipo para llegar | hasta +25 % |
 
-- **No habrá profesión de energía** (decidido): la energía no tiene profesión propia; su recolección solo se acelera con la velocidad general (profesiones de minería y herboristería y encantamientos del equipo).
-- Pendiente: si el máximo pasa a ser **75 %** (25 + 25 + 25) o si los encantamientos pueden dar hasta un **50 %** para llegar al 100 %.
+- **No habrá profesión de energía** (decidido): la energía no tiene profesión propia; su recolección solo se acelera con la velocidad general.
+- **Sin tope en la estadística** (decidido): se controla con el valor que dé cada objeto o encantamiento (por ejemplo, un objeto con +5 % o un encantamiento con +3 %), que se fijará al diseñar cada objeto. Habrá quien monte un **equipo exclusivo de recolección** poniendo velocidad en todas las piezas (pecho, guantes…) y supere el 50 %: no es un problema.
+- **Lo "gratuito" en el nivel 20**: el 25 % de minería y el 25 % de herboristería (50 % en total). Se consigue al llegar a **100 puntos** de cada profesión.
 
 - **Fórmula (decidido): cada 100 % de velocidad reduce el tiempo a la mitad.** **Tiempo = 10 s × 0,5^(velocidad ÷ 100)**: con 100 % se tarda **5 s**; con 200 %, **2,5 s**; con 300 %, **1,25 s**. Nunca llega a 0: por mucha velocidad que se consiga (aunque sea con un fallo o un exploit), siempre hay que tardar algo en recoger.
 
@@ -162,4 +163,11 @@ Lectura:
 - **Umbral de la Temporada 1: 200 %** (lo normal es 25 % de minería + 25 % de herboristería + lo poco que den los encantamientos). Se **ajusta temporada a temporada**. Cualquiera que lo supere genera la alerta.
 - El informe llega **completo**: estadísticas base del personaje, **todo su equipo**, **de dónde sale cada % de recolección** (para detectar, por ejemplo, que la minería esté dando 100 % en vez de 25 % por un exploit) y, más adelante, la **información del dispositivo** (se diseñará en la parte de seguridad del juego).
 - **Principio general**: cualquier estadística o ventaja que llegue a valores irregulares debe poder detectarse y generar su informe. Los **términos y condiciones** del juego indicarán que, al alcanzar ciertos límites irregulares, se envía la configuración del personaje y del juego para revisarla.
+
+### 7.2 Puntos de profesión y vetas (decidido)
+
+- Las profesiones de recolección suben **como en WoW**: según la veta o la planta que se recoja, se gana o no un punto de habilidad. Al llegar a **100 puntos** se obtiene su +25 % de velocidad de recolección.
+- Con más puntos se pueden recoger vetas de más calidad. Por ejemplo, las **vetas enriquecidas** piden **50 puntos** de la profesión: 50 de minería para minerales, 50 de herboristería para hierbas.
+- Una veta de minerales puede dar materiales distintos (acero, aleaciones, lingotes, piedras o fragmentos de algún material…). Las **enriquecidas** dan materiales de grado **raro** (no común ni poco común); una veta **épica**, de grado épico.
+- **La energía es distinta**: se acumula como el cobre, no tiene materiales distintos ni vetas enriquecidas, y la puede recoger cualquiera. Cada punto de energía da una **cantidad que depende de su calidad**.
 
