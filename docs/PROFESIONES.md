@@ -12,13 +12,13 @@ Estado: **en curso**. Este archivo recoge el punto de partida (lo ya decidido en
 | Peletero | Desollador |
 | Herrero | Minero |
 | Joyero | Herborista |
-| Encantador | Pesca |
+| Encantamiento | Pesca |
 | Inventor (solo la rama Recolector) | |
 
 - Todas disponibles desde el nivel 1. La misión de la línea principal que las presenta (hacia el nivel 3) desbloquea la casilla de la bolsa de componentes; se puede elegir una profesión ya o más tarde.
 - **2 principales activas**; las demás quedan inhabilitadas **sin perder progreso**. Cada cambio cuesta oro con una curva suave (logarítmica) que sube con cada cambio.
 - **Inventor**: lo ofrece una misión al convertirse en Recolector; para aprenderlo hay que inhabilitar una de las dos principales. Es el único que fabrica **piedras santificadas**.
-- **Encantador**: el único que fabrica **papiros de encantamiento**; no fabrica piedras de desarrollo.
+- **Encantamiento**: la única que fabrica **papiros de encantamiento**.
 - Entrenador de profesión: enseña la profesión y la sube de rango.
 
 ### 1.2 Recolección (`ESTADISTICAS_NEUTRALES.md` 7 y 7.2)
@@ -40,9 +40,9 @@ Estado: **en curso**. Este archivo recoge el punto de partida (lo ya decidido en
 
 | Profesión | Fabrica (decidido) |
 |---|---|
-| Sastre, peletero, herrero, joyero | Piedras **potenciadas** y **pacificadas** (piedras generales + un objeto de su profesión + cristales + oro) |
-| Inventor | Piedras potenciadas, pacificadas y **santificadas** (generales + potenciadas + pacificadas + oro) |
-| Encantador | Papiros de encantamiento (el número de estadísticas depende de la calidad del objeto y del nivel de encantamiento) |
+| **Las seis principales** (sastre, peletero, herrero, joyero, encantamiento, inventor) | **Primera receta de todas:** piedras **potenciadas** y **pacificadas** (piedras generales + un objeto de sastre, peletero, herrero, joyero o encantamiento + cristales + oro) |
+| Inventor | Además, piedras **santificadas**, en exclusiva (generales + potenciadas + pacificadas + oro) |
+| Encantamiento | Papiros de encantamiento (el número de estadísticas depende de la calidad del objeto y del nivel de encantamiento) |
 | Cocinero | Elixir defensivo, elixir ofensivo y comida; mejoran con el nivel de la profesión; la estadística depende del ingrediente (pescado, carne, planta…) |
 | Todas | Una **bolsa** mayor con sus propios materiales; los especializados la hacen un poco más grande (34 → 36–38 espacios) |
 
@@ -54,12 +54,17 @@ Estado: **en curso**. Este archivo recoge el punto de partida (lo ya decidido en
 
 ## 2. Incoherencias detectadas
 
-1. **Tala** aparece en la tabla de recursos (`DISENO_BASE.md` 3.5: "Madera — Tala") pero no en la lista de profesiones. ¿Se quita la madera, se añade la tala como secundaria o la recoge cualquiera sin profesión (como la energía)?
-2. **Alquimia** aparece en 3.5 ("herrería, alquimia, cocina") pero no existe como profesión; las pociones de vida y maná son de NPC (3.21). Propuesta: borrar la mención.
-3. **Encantador** es a la vez una profesión y una especialización 2 (Invocador → Encantador). Puede confundir en la interfaz y en las misiones. ¿Se renombra una de las dos?
-4. **La hoja de cálculo** (pestaña "asd") marca que el encantador fabrica piedras potenciadas y pacificadas; los documentos dicen que no. Propuesta: vale lo de los documentos y se corrige la hoja.
+**Resueltas:**
+1. **Tala y madera — retiradas (decidido).** No hay madera como recurso ni profesión de tala. Más adelante podría volver como componente que **vende un NPC** (por ejemplo, un lote de madera para alguna receta de sastre o de peletero).
+2. **Alquimia — retirada (decidido).** Era una mención antigua; no existe como profesión.
+3. **Nombres (decidido):** la profesión se llama **encantamiento**; la especialización 2 del Invocador sigue llamándose **Encantador**.
+4. **Piedras de desarrollo (decidido):** las generales caen **solo por caza**; las **potenciadas** (suben de +1 a +4 al azar) y las **pacificadas** las fabrican **las seis principales**, encantamiento incluida; las **santificadas**, solo el inventor. Se corrige el documento base; la hoja ya lo recogía así.
+
+**Pendientes:**
 5. **Inventor en la Temporada 1**: el Recolector es especialización 2, así que en la T1 no habría inventores ni **piedras santificadas**. ¿Es lo buscado (la santificada llega en la T2) o la T1 necesita otra vía?
 6. **Placas en la T1**: los niveles 1–20 solo usan tela y cuero, así que el herrero no tendría armaduras que fabricar en la T1. ¿Fabrica las **armas** de todas las clases?
+7. **Receta de las piedras**: piden "un objeto de sastre, peletero, herrero, joyero o encantamiento". ¿Cada profesión usa un objeto **propio** (el sastre una tela, encantamiento un papiro…) o vale el de cualquiera?
+8. **"Encantamiento"** es ahora el nombre de la profesión y del sistema que añade estadísticas (`DISENO_BASE.md` 3.19). Como la profesión es justo la que fabrica los papiros de ese sistema, no debería confundir; se deja así salvo que se prefiera otro nombre.
 
 ## 3. Propuesta de estructura del capítulo
 
@@ -80,7 +85,7 @@ Estado: **en curso**. Este archivo recoge el punto de partida (lo ya decidido en
 | Peletero (cuero) | Pieles, cuero | Desollador (bestias) |
 | Herrero (armas, placas) | Lingotes, minerales | Minero |
 | Joyero (joyería) | Gemas, metales preciosos | Minero (gemas en vetas) |
-| Encantador (papiros) | Esencias, residuo elemental | Botín de elementales; ¿desencantar objetos? |
+| Encantamiento (papiros) | Esencias, residuo elemental | Botín de elementales; ¿desencantar objetos? |
 | Inventor (piedras santificadas, ¿artefactos?) | Piedras de desarrollo, componentes de todas | Comercio y otras profesiones |
 | Cocinero (comida y elixires) | Carne, pescado, hierbas | Desollador, pesca, herborista |
 

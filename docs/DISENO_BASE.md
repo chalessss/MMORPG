@@ -109,11 +109,10 @@ Puntos del mundo donde se obtienen materiales.
 |---|---|---|
 | Minerales | Minería | Cobre, hierro, plata, gemas |
 | Plantas | Herboristería | Hierbas para pociones |
-| Madera | Tala | Troncos para armas y construcción |
 | Pesca | Pesca | Peces para cocina |
 | Pieles / partes de mobs | Desuello | Cuero, colmillos, escamas |
 
-Los materiales alimentan las profesiones de fabricación (herrería, alquimia, cocina, etc.). Los materiales útiles para el equipo de nivel alto solo los dan mobs y recursos de nivel alto.
+Los materiales alimentan las profesiones de fabricación (herrería, cocina, etc.). Los materiales útiles para el equipo de nivel alto solo los dan mobs y recursos de nivel alto.
 
 Hay **dos sistemas de recolección** (decidido):
 
@@ -337,7 +336,7 @@ Es la primera clasificación de todo objeto.
 | Fabricación | Profesiones, objetos de códice hechos con trofeos |
 | Compra a NPC | Comerciantes |
 | Logros | Recompensas por cumplir objetivos |
-| Recolección | Minerales, plantas, madera, pesca |
+| Recolección | Minerales, plantas, pesca |
 | Eventos | Recompensas de eventos temporales o de temporada |
 | PvP | Recompensas de arenas y zonas PvP |
 | Cofres del mundo | Cofres y objetos interactivos |
@@ -457,14 +456,14 @@ Dos grupos: **equipo** (ropa y armas) y **joyería**, con **8 ranuras cada uno**
 | 2. Peletero | Desollador |
 | 3. Herrero | Minero |
 | 4. Joyero | Herborista |
-| 5. Encantador | Pesca |
+| 5. Encantamiento | Pesca |
 | 6. Inventor | |
 
 - **Cambio de profesión principal**: solo hay **2 principales activas** a la vez, pero ninguna se olvida. Para aprender otra, se habla con el entrenador de la nueva profesión y se elige cuál de las dos activas se **inhabilita** (queda guardada con su progreso y se puede reactivar más tarde).
   - Cada cambio cuesta **oro**, y el coste **sube con cada cambio** siguiendo una curva suave (logarítmica, no exponencial). Objetivo: que se cambie cuando de verdad hace falta, no ir subiendo todas a la vez saltando de una a otra.
 - **Inventor — cómo se obtiene**: al convertirse en **Recolector** (nivel 20) aparece una misión que ofrece la profesión de inventor; para aprenderla, el jugador elige cuál de sus dos principales inhabilitar. **Nunca hay más de 2 principales activas**, tampoco para el Recolector.
 - **Inventor**: profesión de artesano avanzado, inspirada en los enanos artesanos de Lineage 2 (personajes dedicados a fabricar cosas muy potentes más que a cazar). Es la única que fabrica **piedras santificadas**. **Exclusiva de la rama Recolector** (Combatiente → Recolector → Carroñero / Explorador): una clase pensada para quien quiere centrarse en recolectar y fabricar en vez de cazar.
-- **Encantador**: profesión separada, la única que fabrica **papiros de encantamiento** (sección 3.19). **No fabrica piedras de desarrollo**. Un jugador puede combinarla con otra principal (por ejemplo, sastre + encantador).
+- **Encantamiento**: profesión separada, la única que fabrica **papiros de encantamiento** (sección 3.19). Como las demás principales, también fabrica piedras potenciadas y pacificadas. Un jugador puede combinarla con otra principal (por ejemplo, sastre + encantamiento). **Nombre (decidido)**: la profesión se llama **encantamiento** y la especialización 2 del Invocador, **Encantador**, para no confundirlas.
 - Detalle de cada profesión (recetas, niveles, qué fabrica): capítulo propio más adelante.
 
 ### 3.16 Monturas (decidido)
@@ -507,7 +506,7 @@ Máximo total: 9 bolsas.
 **Tamaño de las pilas**: lo define **cada objeto** al crearlo, según su calidad y lo frecuente que sea. Los objetos muy abundantes (por ejemplo, trofeos del códice, de las que se acumulan 10.000–20.000) tienen pilas muy grandes para no ocupar espacio.
 
 **De dónde salen las bolsas**:
-- La fuente principal son las **profesiones**: cada profesión puede fabricar una bolsa mayor usando **solo sus propios materiales** (el desollador con componentes de desuello, el encantador con componentes de encantamiento…). Así cualquier jugador que suba una profesión puede hacerse una bolsa.
+- La fuente principal son las **profesiones**: cada profesión puede fabricar una bolsa mayor usando **solo sus propios materiales** (el desollador con componentes de desuello, la de encantamiento con sus propios componentes…). Así cualquier jugador que suba una profesión puede hacerse una bolsa.
 - Los jugadores **especializados en profesiones** pueden fabricar bolsas un poco más grandes (por ejemplo, de 34 a 36 o 38 espacios): una ventaja pequeña, no abismal.
 
 **Desbloqueo progresivo, ligado a la introducción del juego**:
@@ -661,11 +660,11 @@ Mezcla de MIR4 y Lineage 2.
 | Piedra | Cómo se obtiene | Requisitos |
 |---|---|---|
 | **General** | **Caza** (botín de mobs) | — |
-| **Potenciada** | Fabricación por sastre, peletero, herrero, joyero o inventor | Piedras generales + un objeto de sastre, peletero, herrero o joyero (1–4) + **cristales** + oro |
-| **Pacificada** | Fabricación por sastre, peletero, herrero, joyero o inventor | Piedras generales + un objeto de sastre, peletero, herrero o joyero (1–4) + **cristales** + oro |
+| **Potenciada** | Fabricación por **las seis principales** (sastre, peletero, herrero, joyero, encantamiento e inventor) | Piedras generales + un objeto de sastre, peletero, herrero, joyero o encantamiento + **cristales** + oro |
+| **Pacificada** | Fabricación por **las seis principales** (sastre, peletero, herrero, joyero, encantamiento e inventor) | Piedras generales + un objeto de sastre, peletero, herrero, joyero o encantamiento + **cristales** + oro |
 | **Santificada** | Fabricación **exclusiva del inventor** | Piedras generales + potenciadas + pacificadas + oro (sin cristales) |
 
-El **encantador** y las profesiones secundarias no fabrican piedras. Quien no tenga una de las profesiones 1–4 (por ejemplo, un inventor) debe conseguir el objeto de esas profesiones comerciando.
+Las piedras generales caen **solo por caza**. Las profesiones secundarias no fabrican piedras. Quien no tenga una de las profesiones 1–5 (por ejemplo, un inventor) debe conseguir el objeto de esas profesiones comerciando.
 
 **Destrucción con residuo (cambio respecto a MIR4, idea de Lineage 2)**
 - Cuando un objeto se destruye deja **cristales de su misma calidad** (un objeto raro deja cristales raros).
@@ -679,7 +678,7 @@ El **encantador** y las profesiones secundarias no fabrican piedras. Quien no te
 
 Sistema distinto del desarrollo: **añade estadísticas adicionales** a equipo y joyería, en lugar de potenciar las estadísticas base.
 
-- Se aplica con un **papiro de encantamiento**, que solo fabrican los **encantadores**.
+- Se aplica con un **papiro de encantamiento**, que solo fabrica la profesión de **encantamiento**.
 - Las estadísticas se eligen **al azar de todo el conjunto de estadísticas** del juego (ataque físico o mágico, defensa, resistencias, precisión…).
 - La **cantidad de estadísticas** (3, 4, 5…) depende de la **calidad del objeto** y del **nivel de la profesión de encantamiento** de quien encanta.
 - Referencia (MIR4): bloque "Propiedades adicionales" del objeto, con cada estadística extra y su grado.

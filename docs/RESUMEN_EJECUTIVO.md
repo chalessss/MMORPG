@@ -42,7 +42,7 @@ Vista rápida del proyecto. El detalle de cada decisión está en `docs/DISENO_B
 - 9 fuentes · 7 calidades (gris → cian) · armaduras de tela, cuero y placas.
 - 16 ranuras (8 equipo + 8 joyería; la mitad desde el nivel 41), todas con apariencia y transfiguración. Sin casco ni hombreras.
 - **Desarrollo +1 a +10**: piedras general, potenciada, pacificada y santificada con tablas cerradas; zona segura hasta +5; los objetos destruidos dejan cristales.
-- **Encantamiento**: estadísticas aleatorias con papiros que fabrican los encantadores.
+- **Encantamiento**: estadísticas aleatorias con papiros que fabrica la profesión de encantamiento.
 - **Fabricación**: los mobs de nivel máximo de cada temporada sueltan componentes de la calidad máxima; objetivo: 1 pieza por semana con 6 h/día.
 
 **Códice**
@@ -50,7 +50,7 @@ Vista rápida del proyecto. El detalle de cada decisión está en `docs/DISENO_B
 - Objetos que se consumen al registrar; entradas que piden más piezas y más desarrollo; crece cada temporada.
 
 **Profesiones**
-- 6 principales (2 activas; se cambian con coste progresivo sin perder progreso): sastre, peletero, herrero, joyero, encantador, inventor (exclusivo de la rama Recolector).
+- 6 principales (2 activas; se cambian con coste progresivo sin perder progreso): sastre, peletero, herrero, joyero, encantamiento, inventor (exclusivo de la rama Recolector). Las seis fabrican piedras potenciadas y pacificadas; solo el inventor, santificadas. Sin tala ni alquimia.
 - 5 secundarias (todas): cocinero, desollador, minero, herborista, pesca.
 - **Recolección**: 10 s por recogida de base; la velocidad de recolección es general y cada 100 % reduce el tiempo a la mitad. Minería y herboristería suben por puntos como en WoW y a 100 puntos dan +25 % cada una. Las vetas enriquecidas piden 50 puntos, dan el material del grado más alto de la temporada y se recogen 1–3 veces. La energía no tiene profesión.
 - **Fabricación**: a 100 puntos de una profesión, el tiempo de sus recetas se reduce a la mitad (el máximo).
