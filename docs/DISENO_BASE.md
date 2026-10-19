@@ -798,7 +798,7 @@ Lista corta a propósito: no se quiere que el jugador necesite 30 consumibles di
 - **Encargos de fabricación**: un fabricante (por ejemplo, un inventor en su puesto) ofrece su servicio con una comisión y se acuerda qué componentes pone cada parte (el fabricante aporta unos y el cliente otros). Así quien no tiene todos los componentes también encuentra solución.
 - Fabricar para otros debe dar al fabricante **experiencia, moneda y otras recompensas**.
 - **Tiendas privadas estilo Lineage 2**: un jugador se **sienta en el suelo de una ciudad** y ofrece lo que vende o las **recetas que puede fabricar** (por ejemplo, un inventor ofreciendo piedras santificadas). Las ciudades grandes tendrán zonas llenas de estos puestos, y los jugadores pasearán buscando lo que necesitan.
-- **Publicación con retraso** (decidido): un objeto publicado queda "pendiente por confirmarse" y aparece en el mercado a una hora aleatoria entre 15 y 20 minutos después, sin decirle al jugador cuándo (`docs/SEGURIDAD.md`, 5).
+- **Publicación con retraso** (decidido): un objeto publicado sale de la bolsa y queda "pendiente por confirmarse"; se puede cancelar hasta que aparece en el mercado, a una hora aleatoria entre 15 y 20 minutos después (sin decirle al jugador cuándo). Queda a la venta 14 días; si no se vende, vuelve por correo, y al venderse llega un correo con el precio, la comisión y lo recibido (`docs/SEGURIDAD.md`, 5).
 - Ciclo de juego que se busca: jornada de caza o recolección → volver a la ciudad → ordenar el almacén → fabricar o encargar a otros → desconectar.
 - **Idea a futuro (si el juego funciona): blockchain / NFT**. Convertir personajes u objetos en NFT para poder venderlos fuera del juego, **pagando recursos del juego** por la conversión (otra forma de retirar moneda).
   - *A tener en cuenta*: Steam prohíbe en sus normas los juegos que permiten intercambiar NFT o criptomonedas, y hay implicaciones legales según el país. Habría que evaluarlo antes de decidir dónde se distribuye el juego.
@@ -1003,6 +1003,13 @@ Modelo inspirado en Lineage 2: **una ciudad principal (capital) controlada por u
 - **A. Lineal**: cada zona tiene su rango de nivel y se recorren en orden.
 - **B. Escalado**: a partir del nivel 20, los mobs se ajustan al nivel del jugador (mobs de misión a su nivel + 3).
 
+### 3.32 Correo (decidido el principio)
+
+Sistema de correo dentro del juego, como el de WoW:
+- **De jugador a jugador**: mensajes (y, por definir, objetos o moneda adjuntos).
+- **Del mercado al jugador**: aviso de venta (objeto, precio, comisión y lo recibido) y devolución de los objetos que no se vendieron en 14 días.
+- **Del equipo del juego al jugador**: avisos y **envío de recompensas**.
+
 ### 3.23 Menú principal del juego (en curso, estilo MIR4)
 
 Un **único menú** desde el que se accede a todos los sistemas del juego, sin tener que abrir ventanas encadenadas. Incluye un panel con todas las monedas del jugador.
@@ -1051,6 +1058,7 @@ Lo que hace funcionar a las entidades anteriores. Se desarrollan por fases segú
 | Social | Grupos, clanes, chat, amigos |
 | PvP | Duelos, arenas, zonas PvP |
 | Economía | Moneda, comercio entre jugadores, subastas |
+| Correo | Mensajes entre jugadores, avisos del mercado y recompensas del equipo del juego |
 
 ## 5. Base técnica común (Unreal Engine)
 
