@@ -149,5 +149,17 @@ Lectura:
 - **No habrá profesión de energía** (decidido): la energía no tiene profesión propia; su recolección solo se acelera con la velocidad general (profesiones de minería y herboristería y encantamientos del equipo).
 - Pendiente: si el máximo pasa a ser **75 %** (25 + 25 + 25) o si los encantamientos pueden dar hasta un **50 %** para llegar al 100 %.
 
-- **Fórmula propuesta: tiempo = 10 s × (1 − velocidad ÷ 2)**. Cada 1 % de velocidad quita un 0,5 % del tiempo: con 50 % (minería y herboristería) se tarda **7,5 s**; con el máximo de 100 %, **5 s**. Con 100 %, 4 horas recolectando recuperan las 8 horas de potenciación (objetivo de 6.3).
+- **Fórmula (decidido): cada 100 % de velocidad reduce el tiempo a la mitad.** **Tiempo = 10 s × 0,5^(velocidad ÷ 100)**: con 100 % se tarda **5 s**; con 200 %, **2,5 s**; con 300 %, **1,25 s**. Nunca llega a 0: por mucha velocidad que se consiga (aunque sea con un fallo o un exploit), siempre hay que tardar algo en recoger.
+
+| Velocidad | 0 % | 25 % | 50 % | 75 % | 100 % | 200 % | 300 % |
+|---|---|---|---|---|---|---|---|
+| Tiempo por recogida | 10 s | 8,4 s | 7,1 s | 5,9 s | 5 s | 2,5 s | 1,25 s |
 - Cómo se ven las vetas, cuántas recogidas tienen por calidad (común, poco común, raro…) y demás: en el capítulo de objetos.
+
+### 7.1 Alerta contra bots y exploits (decidido)
+
+- Cuando un personaje **supere un umbral de velocidad de recolección**, el servidor envía automáticamente una **alerta al equipo del juego** (como un ticket de Jira o un correo a un desarrollador o al staff): "este personaje llegó a X % con esta configuración".
+- **Umbral de la Temporada 1: 200 %** (lo normal es 25 % de minería + 25 % de herboristería + lo poco que den los encantamientos). Se **ajusta temporada a temporada**. Cualquiera que lo supere genera la alerta.
+- El informe llega **completo**: estadísticas base del personaje, **todo su equipo**, **de dónde sale cada % de recolección** (para detectar, por ejemplo, que la minería esté dando 100 % en vez de 25 % por un exploit) y, más adelante, la **información del dispositivo** (se diseñará en la parte de seguridad del juego).
+- **Principio general**: cualquier estadística o ventaja que llegue a valores irregulares debe poder detectarse y generar su informe. Los **términos y condiciones** del juego indicarán que, al alcanzar ciertos límites irregulares, se envía la configuración del personaje y del juego para revisarla.
+
