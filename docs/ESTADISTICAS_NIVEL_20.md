@@ -244,7 +244,7 @@ Simulador: `python3 herramientas/simulador/simular20.py` (ficha: `--ficha`), con
 
 **Pociones mejoradas (decidido):** al llegar al nivel 20 se desbloquean pociones mejoradas que recuperan más (por ejemplo, 400 de maná en vez de 100); los valores se fijarán más adelante. En la simulación: 400 de vida o de maná, 20 s de enfriamiento; se bebe maná al bajar de la mitad.
 
-**Supuestos de la simulación** (por validar):
+**Supuestos de la simulación** (aceptados al cerrar el capítulo):
 - Las habilidades de área físicas aplican su % al golpe entero (arma + daño plano de la AGI); los impactos de las lluvias mágicas (Lluvia de fuego, Lluvia de estrellas) no suman el daño plano de la AGI en cada impacto.
 - Ajustes: el Invocador saca 1 de daño plano por punto de AGI (en vez de 2); Lluvia de fuego cuesta el 6 % del maná y Fuego de alma el 4 %; el Golpe sangriento solo se usa si deja más de la mitad de la vida.
 - Pasivas de arma: Luchador −10 % de tiempo entre golpes; Combatiente +5 % de defensa y +500 de armadura; Asesino +5 % de crítico; Atacante +10 % de daño; Mago +10 % de daño de hechizos y +20 % de regeneración de maná; Invocador +20 % de curas y escudos, **+0,2 de maná por segundo por punto de INT** (decidido, ver 1.9) y **+50 % de daño contra monstruos, no contra jefes** (decidido, ver 1.9).
@@ -280,7 +280,7 @@ Lectura:
 - **Lluvia de estrellas sin interrumpir** (antes canalizada 2,5 s): el Invocador gana un **6 %** de daño contra el jefe (675 → 715) y apenas cambia cazando (37 → 39 mobs/hora solo; 70 → 72 en grupo). Las estrellas son una parte pequeña de su daño (unos 80 de daño por segundo a cada mob de los 715), porque su daño se dejó bajo a propósito; lo que gana es tiempo libre para curar y escudar. A cambio, al lanzar más hechizos, gasta más maná (565 → 847 pociones cada 300 mobs).
 - **Lluvia de estrellas de 7 s** (14 estrellas en vez de 10, al mismo ritmo): contra el jefe +4 % (715 → 746) y solo +5 % cazando de uno en uno (39 → 41), pero **en grupo con 12 mobs +22 %** (72 → 88 mobs/hora). Con el tanque delante: 61 mobs/hora con 6 mobs, 69 con 8, 78 con 10 y 88 con 12.
 - En la simulación 3 se corrigió además un fallo que a veces le quitaba el último impacto a la Lluvia de flechas (el Atacante sube un poco).
-- **Pendiente de simular**: el grupo completo (tanque + curandero + daño) con las curas y escudos del Invocador a aliados.
+- El grupo completo (tanque + curandero + daño) se simuló después: ver 1.10–1.12.
 
 ### 1.9 Coste de maná de Mago e Invocador (decidido)
 
