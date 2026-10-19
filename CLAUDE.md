@@ -43,7 +43,7 @@ Implicaciones técnicas:
 - `docs/RESUMEN_EJECUTIVO.md`: **leer primero** — vista rápida de todo lo decidido, lo pendiente y las recomendaciones.
 - `docs/RESUMEN_ESTADISTICAS.md`: resumen ejecutivo del capítulo de estadísticas (detalle en `docs/ESTADISTICAS.md`; simulador en `herramientas/simulador/`). Parte 1: niveles 1–19, sin clase (cerrada).
 - `docs/ESTADISTICAS_NIVEL_20.md`: parte 2 del capítulo de estadísticas — nivel 20 y estadísticas finales con la especialización 1 (cerrada; ficha en la sección 2; simulador `herramientas/simulador/simular20.py`).
-- `docs/ESTADISTICAS_NEUTRALES.md`: parte 3 del capítulo de estadísticas — neutrales por temporada (en curso: decididas precisión y evasión, defensa física y mágica, daño a monstruos y potenciación de caza).
+- `docs/ESTADISTICAS_NEUTRALES.md`: parte 3 del capítulo de estadísticas — neutrales por temporada (en curso: decididas precisión y evasión, defensa física y mágica, daño a monstruos, potenciación de caza y velocidad de recolección).
 - `docs/HOJA_DE_RUTA.md`: fases del proyecto y decisiones pendientes.
 - Forma de trabajo: la primera conversación fijó los parámetros generales de todos los sistemas; ahora se trabaja **un capítulo de detalle por sesión** (estadísticas, personajes/habilidades, mapas, recursos, objetos, profesiones, contenido por temporada).
 - `docs/DISENO_BASE.md`: qué existe en el juego (personajes, mobs, jefes, NPCs, recursos, objetos) y sistemas principales.

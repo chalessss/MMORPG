@@ -131,3 +131,21 @@ Lectura:
   - Si alguien se pone todo el equipo de velocidad de recolección (por ejemplo, un inventor) y baja una veta a 3–4 s, no es un problema: recogerá más rápido y cargará más potenciación, que normalmente no usará porque quien vive de recolectar apenas caza.
 - **Sin píldoras de potenciación** (decidido): en MIR4 se pueden acumular hasta tres días de vigor con píldoras y dejar el personaje cazando solo esos tres días, lo que parece injusto. Aquí la única forma de recargar es desconectarse, recolectar o fabricar.
 - **Objetivo de diseño:** que mientras se sube de nivel la gente **pare a recolectar**. Al llegar al nivel 20 deben tener materiales para fabricar **dos o tres objetos**, y al subir del 20 al 40 tendrán que recolectar los materiales de las zonas nuevas para poder fabricar al llegar al 40. En el nivel máximo la potenciación ya no importa.
+
+## 7. Velocidad de recolección (decidido el principio; fórmula por confirmar)
+
+- **Cómo se recolecta** (como en MIR4): zonas de recolección con 20, 30 o 40 plantas, vetas o puntos de energía. El personaje se acerca y recoge con una animación: **picar** (minerales), **escarbar** matas (hierbas) o una especie de **baile** (energía).
+- **Tiempo base: 10 s** por cada recogida en el nivel 1, sin ninguna bonificación. Cada recogida suma a la potenciación de caza esos 10 s de base, se tarde lo que se tarde (6.3).
+- La **velocidad de recolección** reduce ese tiempo. Es **general**: vale para todos los recursos, no solo para el de la profesión que la da.
+- **Máximo: 100 %** sumando todas las fuentes.
+- **Fuentes:**
+
+| Fuente | Velocidad |
+|---|---|
+| Profesión secundaria de **minería** | +25 % |
+| Profesión secundaria de **herboristería** | +25 % |
+| Profesión que recoja **energía** (más adelante; hoy la energía es el único recurso sin aceleración) | +25 % (por confirmar) |
+| **Encantamientos** en el equipo: muy raros, +1–3 % por pieza; hay que reforjar o ajustar todo el equipo para llegar | hasta +25 % |
+
+- **Fórmula propuesta: tiempo = 10 s × (1 − velocidad ÷ 2)**. Cada 1 % de velocidad quita un 0,5 % del tiempo: con 50 % (minería y herboristería) se tarda **7,5 s**; con el máximo de 100 %, **5 s**. Con 100 %, 4 horas recolectando recuperan las 8 horas de potenciación (objetivo de 6.3).
+- Cómo se ven las vetas, cuántas recogidas tienen por calidad (común, poco común, raro…) y demás: en el capítulo de objetos.
