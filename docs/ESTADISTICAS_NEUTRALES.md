@@ -144,8 +144,10 @@ Lectura:
 |---|---|
 | Profesión secundaria de **minería** | +25 % |
 | Profesión secundaria de **herboristería** | +25 % |
-| Profesión que recoja **energía** (más adelante; hoy la energía es el único recurso sin aceleración) | +25 % (por confirmar) |
 | **Encantamientos** en el equipo: muy raros, +1–3 % por pieza; hay que reforjar o ajustar todo el equipo para llegar | hasta +25 % |
+
+- **No habrá profesión de energía** (decidido): la energía no tiene profesión propia; su recolección solo se acelera con la velocidad general (profesiones de minería y herboristería y encantamientos del equipo).
+- Pendiente: si el máximo pasa a ser **75 %** (25 + 25 + 25) o si los encantamientos pueden dar hasta un **50 %** para llegar al 100 %.
 
 - **Fórmula propuesta: tiempo = 10 s × (1 − velocidad ÷ 2)**. Cada 1 % de velocidad quita un 0,5 % del tiempo: con 50 % (minería y herboristería) se tarda **7,5 s**; con el máximo de 100 %, **5 s**. Con 100 %, 4 horas recolectando recuperan las 8 horas de potenciación (objetivo de 6.3).
 - Cómo se ven las vetas, cuántas recogidas tienen por calidad (común, poco común, raro…) y demás: en el capítulo de objetos.
