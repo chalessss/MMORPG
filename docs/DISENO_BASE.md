@@ -1003,12 +1003,13 @@ Modelo inspirado en Lineage 2: **una ciudad principal (capital) controlada por u
 - **A. Lineal**: cada zona tiene su rango de nivel y se recorren en orden.
 - **B. Escalado**: a partir del nivel 20, los mobs se ajustan al nivel del jugador (mobs de misión a su nivel + 3).
 
-### 3.32 Correo (decidido el principio)
+### 3.32 Correo (decidido)
 
 Sistema de correo dentro del juego, como el de WoW:
-- **De jugador a jugador**: mensajes (y, por definir, objetos o moneda adjuntos).
+- **De jugador a jugador**: **solo mensajes de texto**. No se pueden adjuntar monedas, recursos, armas ni ningún objeto.
 - **Del mercado al jugador**: aviso de venta (objeto, precio, comisión y lo recibido) y devolución de los objetos que no se vendieron en 14 días.
 - **Del equipo del juego al jugador**: avisos y **envío de recompensas**.
+- Los objetos solo llegan por correo desde el **mercado** o desde el **equipo del juego**.
 
 ### 3.23 Menú principal del juego (en curso, estilo MIR4)
 
