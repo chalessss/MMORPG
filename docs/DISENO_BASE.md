@@ -447,7 +447,8 @@ Dos grupos: **equipo** (ropa y armas) y **joyería**, con **8 ranuras cada uno**
 
 ### 3.15 Profesiones (decidido, estilo WoW)
 
-- **Todas las profesiones disponibles desde el nivel 1** (Temporada 1 incluida).
+- **Todas las profesiones disponibles desde el nivel 1** (Temporada 1 incluida), sin requisito de nivel para subirlas.
+- **Profesiones por temporada (decidido)**: cada profesión tiene una rama de 1 a 100 puntos por temporada, con nombre propio (por ejemplo, Herrería del Vacío, Herrería de la Iluminación); no hace falta subir la de la temporada anterior. Colores de receta, rangos del entrenador y demás: `docs/PROFESIONES.md`.
 - **2 profesiones principales** por personaje y **todas las secundarias** que se quieran.
 
 | Principales (elegir 2) | Secundarias (todas) |

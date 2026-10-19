@@ -71,10 +71,42 @@ Estado: **en curso**. Este archivo recoge el punto de partida (lo ya decidido en
 10. **Objeto intermedio del inventor (decidido):** tiene el suyo, como las demás.
 11. **Placas (decidido):** las fabrica el **herrero**. En la Temporada 2 el herrero elige una **especialización de herrería** (como en WoW): **armas** o **armaduras**. Pendiente: si la elección es definitiva o se puede cambiar, y qué conserva quien elige armaduras de las recetas de armas de la T1.
 
-## 3. Propuesta de estructura del capítulo
+## 3. Progresión de puntos
 
-1. **Progresión de puntos**: 1–100 por temporada o tope que sube cada temporada (100 en T1, 200 en T2…); cómo se gana cada punto (colores de receta estilo WoW: naranja siempre, amarillo a veces, verde casi nunca, gris nunca); rangos del entrenador (aprendiz, oficial, experto…).
-2. **Mapa de materiales**: qué secundaria alimenta a qué principal (propuesta en 3.1).
+### 3.1 Profesiones por temporada (decidido, estilo WoW actual)
+
+- Cada profesión se divide **por temporadas**, y cada temporada tiene su propia rama de **1 a 100 puntos**, con nombre propio. Ejemplo (los nombres son provisionales): si la Temporada 1 es "del Vacío" y la 2 "de la Iluminación", existirán **Herrería del Vacío** y **Herrería de la Iluminación**, **Encantamiento del Vacío** y **Encantamiento de la Iluminación**…
+- Para aprender la rama de una temporada **no hace falta** haber subido la anterior: quien empieza herrería en la Temporada 2 va directo a Herrería de la Iluminación, sin repetir los 100 puntos de la Temporada 1.
+- Así el jugador sabe que solo avanza en la profesión **de la temporada en la que está jugando**, y nadie tiene que volver a empezar desde cero cada temporada.
+
+### 3.2 Colores de receta (decidido)
+
+| Color | Cuándo | Puntos al fabricar |
+|---|---|---|
+| **Naranja** | La receta **nunca se ha fabricado** | **×2**: la primera fabricación da **2 puntos** con los mismos materiales |
+| **Amarillo** | Desde la primera fabricación hasta **7 puntos** por encima del punto en que se aprende la receta | **1 punto seguro** |
+| **Verde** | Después de esos 7 puntos | **Probabilidad** de ganar 1 punto (60 % al empezar, y baja); si falla, no se gana punto (el objeto se fabrica igual) |
+| **Gris** | Cuando la receta ya no da puntos | 0 |
+
+- El ×2 del naranja **incentiva fabricar una vez cada receta** en vez de repetir siempre la misma, y consume menos materiales para subir.
+- Ejemplo: una receta que se aprende con 0 puntos → la primera fabricación pasa de 0 a **2**; cinco fabricaciones en amarillo llevan a **7**; desde ahí, verde con un 60 %.
+
+### 3.3 Rangos del entrenador (decidido)
+
+- Un **rango cada 10 puntos** (1–10, 11–20… 91–100).
+- Cada rango enseña **como máximo 3 recetas**.
+- Con 3 recetas por rango, sus tres primeras fabricaciones (naranja) ya dan 6 de los 10 puntos del rango.
+
+### 3.4 Requisitos de nivel (decidido)
+
+- **Ninguno**: un personaje de cualquier nivel puede subir una profesión hasta 100.
+- El freno son los **materiales**: los de los últimos rangos salen de zonas con mobs de **nivel 20**. Quien no tenga nivel tiene que **comprarlos** (con oro, en el mercado) o ir subiendo nivel y profesión a la vez.
+
+## 4. Propuesta de estructura del capítulo (resto)
+
+
+1. ~~**Progresión de puntos**~~: decidida (sección 3).
+2. **Mapa de materiales**: qué secundaria alimenta a qué principal (propuesta en 4.1).
 3. **Qué fabrica cada profesión** en la Temporada 1, por ranura y calidad.
 4. **Recetas**: cómo se consiguen (entrenador, botín, reputación, misiones) y cuántas hay.
 5. **Coste de cambiar de principal**: la curva de oro.
@@ -82,7 +114,7 @@ Estado: **en curso**. Este archivo recoge el punto de partida (lo ya decidido en
 7. **Encargos y tiendas privadas**: lo que gana el fabricante.
 8. **Datos para Unreal**: tablas de profesiones, recetas y materiales (DataTables desde CSV).
 
-### 3.1 Mapa de materiales (propuesta para discutir)
+### 4.1 Mapa de materiales (propuesta para discutir)
 
 | Principal | Materiales principales | De dónde salen |
 |---|---|---|
@@ -94,6 +126,6 @@ Estado: **en curso**. Este archivo recoge el punto de partida (lo ya decidido en
 | Inventor (piedras santificadas, ¿artefactos?) | Piedras de desarrollo, componentes de todas | Comercio y otras profesiones |
 | Cocinero (comida y elixires) | Carne, pescado, hierbas | Desollador, pesca, herborista |
 
-## 4. Preguntas abiertas
+## 5. Preguntas abiertas
 
-Ver el orden propuesto en la sección 3. Se responden en la sesión y pasan a "decidido" en este documento.
+Ver el orden propuesto en la sección 4. Se responden en la sesión y pasan a "decidido" en este documento.
