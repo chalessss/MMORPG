@@ -31,7 +31,7 @@ Del 1 al 19 solo hay tres **clases de inicio**: en el nivel 1 se elige daño má
 
 | Estadística | Por punto | Estado |
 |---|---|---|
-| **STR** | +25 vida · +0,2 vida/s · +0,1 % defensa física y mágica · +1,5 % de daño en todos los golpes | Validado |
+| **STR** | +25 vida · +0,2 vida/s · +0,1 % defensa **física** (la mágica la da la joyería) · +1,5 % de daño en todos los golpes | Validado |
 | **INT** | +15 maná · +0,2 maná/s · +2,5 % de daño de habilidades | Pendiente de validar |
 | **AGI** | +2 de daño plano en cada golpe | Pendiente de validar |
 | **Base** | 100 vida · 0,5 vida/s · 50 maná · 0,5 maná/s | — |
@@ -64,7 +64,7 @@ Del 1 al 19 solo hay tres **clases de inicio**: en el nivel 1 se elige daño má
 
 ## Valores clave por nivel
 
-| Nivel | Perfil | Vida | Maná | Armadura | Defensa | Golpe blanco |
+| Nivel | Perfil | Vida | Maná | Armadura | Defensa física | Golpe blanco |
 |---|---|---|---|---|---|---|
 | 1 | Espada larga / corta | 475 | 110 | 50 | 1,5 % | 114 / 67 |
 | 1 | Arco | 275 | 140 | 50 | 0,7 % | 72 |
@@ -115,7 +115,7 @@ Detalle: `docs/ESTADISTICAS_NIVEL_20.md` · simulador: `herramientas/simulador/s
 - **Maná**: Mago e Invocador pagan sus hechizos con un valor exacto que sube con el nivel de la habilidad (hasta el 10); los físicos, un % del maná máximo.
 - **Agro**: el Combatiente provoca con el Embate (7 s cada 10 s) y lo alterna con Fisura; sin amenaza extra en la Temporada 1: los jugadores tienen que aprender a controlar el agro.
 
-| Especialización | Vida | Maná | Defensa | Crítico | Jefe (daño/s) | Mobs/hora de uno en uno |
+| Especialización | Vida | Maná | Defensa física | Crítico | Jefe (daño/s) | Mobs/hora de uno en uno |
 |---|---|---|---|---|---|---|
 | Luchador | 6.575 | 605 | 25,9 % | 4,8 % | 1.517 | 90 |
 | Combatiente | 7.500 | 605 | 42,0 % | 4,8 % | 637 | 49 (239 con 12 mobs) |
@@ -125,4 +125,13 @@ Detalle: `docs/ESTADISTICAS_NIVEL_20.md` · simulador: `herramientas/simulador/s
 | Invocador | 2.320 | 2.825 | 7,4 % | 4,8 % | 746 | 61 |
 
 **Pendiente**: estadísticas visibles nuevas del nivel 20, primer balance PvP, cantidades de curas, escudos, pociones mejoradas y recursos secundarios; después, neutrales, topes, poder e implementación en GAS.
+
+## Parte 3 — Neutrales (en curso)
+
+Detalle: `docs/ESTADISTICAS_NEUTRALES.md`.
+
+- **Temporada 1**: evasión, precisión, defensa física, defensa mágica, daño a monstruos, experiencia de caza, velocidad de recolección y CDR. **Temporada 2**: debilitación y su resistencia, daño y resistencia PvP, efecto de pociones, % de caída, % de caída con suerte y daño a jefes.
+- **Lineales hasta la Temporada 3**; allí llegará un punto óptimo (rendimientos decrecientes).
+- **Precisión y evasión**: la evasión solo vale contra golpes físicos (los hechizos aciertan siempre); acierto por escalones de 5 puntos (5 o más por encima: 100 %; −10 % por cada 5 por debajo, hasta 0 %); los mobs tienen precisión y evasión igual a su nivel.
+- **Defensa física y mágica**: puntos del equipo, 10.000 = 50 % de reducción (lineal), que se suman a la de la STR. **La STR solo da defensa física**; la mágica la dan collares, brazaletes y demás joyería.
 

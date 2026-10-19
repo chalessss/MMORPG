@@ -85,6 +85,11 @@ Lectura:
 - Con **10 puntos de defensa física y 10 de mágica**, en el nivel 20 la reducción sube un **0,05 %** de cada tipo: en la Temporada 1 la defensa del equipo apenas se notará.
 - En el simulador: `defensa_pct_por_punto`, `defensa_fisica_jugador` y `defensa_magica_jugador`; los mobs ya pegan con daño físico o mágico (la mitad de cada tipo) y cada uno se reduce con su defensa.
 
-### 4.2 Pendiente
+### 4.2 La STR solo da defensa física (decidido)
 
-- **¿La STR deja de dar defensa mágica?** Hoy cada punto de STR da 0,1 % de defensa física **y** mágica (0,2 % en el Combatiente). Si la STR solo diera defensa física, el Combatiente pasaría de 42 % a 5 % de defensa mágica y el Luchador de 25,9 % a 0 %. Probado en el simulador: el Luchador ya no aguanta 12 mobs a la vez, el Asesino muere 8 veces con 6, el grupo de 5 ya no puede con 12 élites y falla la mazmorra con adds de élite. Como en la Temporada 1 la defensa mágica del equipo da muy poco (0,005 % por punto), no podría compensarlo.
+- Cada punto de STR da **solo reducción de daño físico** (0,1 %; 0,2 % en el Combatiente). Deja de dar defensa mágica, en todos los niveles.
+- La defensa mágica que se pierde la darán **collares, brazaletes y demás joyería**; con el equipo de **grado raro** se debería recuperar.
+- Efecto en la simulación:
+  - **Niveles 1–19** (`simular.py --niveles`): casi nada. Nadie muere; los cuerpo a cuerpo tardan un 1–3 % más entre los niveles 10 y 14 y beben más pociones de vida entre el 10 y el 17 (por ejemplo, en el nivel 14 la espada larga pasa de 307 a 648 pociones cada 1.000 mobs).
+  - **Nivel 20**: el Luchador ya no aguanta 12 mobs a la vez, el Asesino muere 8 veces con 6, el grupo de 5 no puede con 12 élites y la mazmorra con adds de élite ya no se supera. Con mobs normales en grupo casi no cambia.
+- **Es intencionado**: los grupos grandes de mobs solo llegan en el nivel 20, y los élites fuertes piden antes fabricar equipo y empezar por bandas con **élites de solo ×2**. Los personajes llegan débiles al 20 y tienen que optimizar recursos, hacer pausas y aprender a juntar mobs. El **Combatiente** debe ser el primero en llegar a tener resistencias suficientes para pelear solo con el equipo básico.

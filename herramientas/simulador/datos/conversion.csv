@@ -2,7 +2,7 @@ estadistica,secundaria,por_punto,nota
 str,vida,25,puntos de vida
 str,regen_vida,0.2,vida por segundo
 str,defensa_fisica_pct,0.1,% de defensa física
-str,defensa_magica_pct,0.1,% de defensa mágica
+str,defensa_magica_pct,0,% de defensa mágica (decidido: la STR solo da reducción física)
 str,dano_base_pct,1.5,% de daño en todos los golpes
 int,mana,15,puntos de maná
 int,regen_mana,0.2,maná por segundo

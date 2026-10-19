@@ -77,13 +77,13 @@ Lista cerrada: son **todas** las especializaciones que habrá en el nivel 20.
 
 Valores del nivel 19 (ficha vigente: `python3 herramientas/simulador/simular.py --ficha`):
 
-| Clase de inicio | Vida | Maná | Armadura | Defensa | Golpe blanco |
+| Clase de inicio | Vida | Maná | Armadura | Defensa física | Golpe blanco |
 |---|---|---|---|---|---|
 | Física - Melee (espada larga / corta) | 4.975 | 920 | 950 | 19,5 % | 1.072 / 922 |
 | Física - Rango (arco) | 2.075 | 1.220 | 950 | 7,9 % | 929 |
 | Mágica - Rango | 1.575 | 2.990 | 950 | 5,9 % | — |
 
-- Qué da cada punto (común a todos hasta el 19): **STR** +25 vida, +0,2 vida/s, +0,1 % de defensa física y mágica, +1,5 % de daño; **INT** +15 maná, +0,2 maná/s, +2,5 % de daño de habilidades; **AGI** +2 de daño plano por golpe.
+- Qué da cada punto (común a todos hasta el 19): **STR** +25 vida, +0,2 vida/s, +0,1 % de defensa física (antes también mágica), +1,5 % de daño; **INT** +15 maná, +0,2 maná/s, +2,5 % de daño de habilidades; **AGI** +2 de daño plano por golpe.
 - Cuatro habilidades por perfil, en nivel de habilidad 4 desde el nivel 15.
 - Caza de 1.000 mobs en el nivel 19: espada larga 823 min, espada corta 765, arco 1.060, mágico 928 (38,5 % de diferencia, intencionada).
 
@@ -432,12 +432,12 @@ Todos los valores están en `herramientas/simulador/datos/nivel20/` y se reprodu
 
 ### 2.2 Pasiva de especialización (qué da cada punto)
 
-Base común: **STR** 25 de vida, 0,2 de vida/s, 0,1 % de defensa física y mágica, 1,5 % de daño · **INT** 15 de maná, 0,2 de maná/s, 2,5 % de daño de habilidades · **AGI** 2 de daño plano por golpe. Cada especialización cambia:
+Base común: **STR** 25 de vida, 0,2 de vida/s, 0,1 % de defensa **física** (no mágica: ver `docs/ESTADISTICAS_NEUTRALES.md`, 4), 1,5 % de daño · **INT** 15 de maná, 0,2 de maná/s, 2,5 % de daño de habilidades · **AGI** 2 de daño plano por golpe. Cada especialización cambia:
 
 | Especialización | Cambios |
 |---|---|
 | Luchador (Afinidad con la fuerza) | STR: **2 % de daño** |
-| Combatiente (Afinidad con la fuerza) | STR: **40 de vida**, **0,2 % de defensa**, 1 % de daño · AGI: 1,75 de daño plano |
+| Combatiente (Afinidad con la fuerza) | STR: **40 de vida**, **0,2 % de defensa física**, 1 % de daño · AGI: 1,75 de daño plano |
 | Asesino (Afinidad con la agilidad) | STR: 35 de vida, 1 % de daño · AGI: 1,5 de daño plano, **+0,06 % de crítico**, **+0,25 % de daño crítico** |
 | Atacante (Afinidad con la agilidad) | STR: 30 de vida · AGI: **+0,05 % de crítico**, **+0,3 % de daño crítico** |
 | Mago (Afinidad con el intelecto) | STR: 40 de vida · INT: 20 de maná, 0,3 de maná/s, **4,25 % de daño de habilidades** |
@@ -456,17 +456,18 @@ Base común: **STR** 25 de vida, 0,2 de vida/s, 0,1 % de defensa física y mági
 
 ### 2.4 Ficha del nivel 20
 
-| Especialización | STR | AGI | INT | Vida | Vida cada 5 s | Maná | Maná cada 5 s | Defensa | Armadura | Golpe blanco | Crítico | Daño crítico | Robo de vida |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Luchador | 259 | 74 | 37 | 6.575 | 391 | 605 | 40 | 25,9 % | 1.000 | 1.143 (cada 1,26 s) | 4,8 % | +9,6 % | 5 % |
-| Combatiente | 185 | 148 | 37 | 7.500 | 280 | 605 | 40 | 42,0 % | 1.500 | 952 (cada 2,6 s) | 4,8 % | +9,6 % | 5 % (también en área) |
-| Asesino | 111 | 222 | 37 | 3.985 | 169 | 605 | 40 | 11,1 % | 1.000 | 745 (cada 1,0 s) | 23,1 % | +65,1 % | 5 % |
-| Atacante a distancia | 74 | 222 | 74 | 2.320 | 76 | 1.160 | 76 | 7,4 % | 1.000 | 1.112 (cada 2,0 s) | 18,9 % | +76,2 % | 0,3 % |
-| Mago | 37 | 74 | 259 | 1.580 | 40 | 5.230 | 469 | 3,7 % | 1.000 | — | 4,8 % | +9,6 % | — |
-| Invocador | 74 | 111 | 185 | 2.320 | 76 | 2.825 | 558 | 7,4 % | 1.000 | — | 4,8 % | +9,6 % | — |
+| Especialización | STR | AGI | INT | Vida | Vida cada 5 s | Maná | Maná cada 5 s | Defensa física | Defensa mágica | Armadura | Golpe blanco | Crítico | Daño crítico | Robo de vida |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Luchador | 259 | 74 | 37 | 6.575 | 391 | 605 | 40 | 25,9 % | 0 % | 1.000 | 1.143 (cada 1,26 s) | 4,8 % | +9,6 % | 5 % |
+| Combatiente | 185 | 148 | 37 | 7.500 | 280 | 605 | 40 | 42,0 % | 5 % (pasiva de arma) | 1.500 | 952 (cada 2,6 s) | 4,8 % | +9,6 % | 5 % (también en área) |
+| Asesino | 111 | 222 | 37 | 3.985 | 169 | 605 | 40 | 11,1 % | 0 % | 1.000 | 745 (cada 1,0 s) | 23,1 % | +65,1 % | 5 % |
+| Atacante a distancia | 74 | 222 | 74 | 2.320 | 76 | 1.160 | 76 | 7,4 % | 0 % | 1.000 | 1.112 (cada 2,0 s) | 18,9 % | +76,2 % | 0,3 % |
+| Mago | 37 | 74 | 259 | 1.580 | 40 | 5.230 | 469 | 3,7 % | 0 % | 1.000 | — | 4,8 % | +9,6 % | — |
+| Invocador | 74 | 111 | 185 | 2.320 | 76 | 2.825 | 558 | 7,4 % | 0 % | 1.000 | — | 4,8 % | +9,6 % | — |
 
 - Crítico base del nivel 20: 4,8 % y +9,6 % de daño. Desde el 20 los topes suben al 50 % y +150 % (provisional).
 - Armadura del equipo: 1.000 en el nivel 20 (cada 100 restan 1 de daño a cada golpe).
+- **La STR solo da defensa física** (decidido después de cerrar la ficha): la defensa mágica la darán collares, brazaletes y demás joyería, y el equipo de grado raro. Efecto en el nivel 20: ver 2.8.
 
 ### 2.5 Habilidades
 
@@ -502,14 +503,14 @@ Las 1–4 llegan al nivel 20 en **nivel de habilidad 4** (+6,1 % de daño, coste
 
 | Especialización | Jefe (daño/s) | De uno en uno (mobs/h) | Solo con 6 | Solo con 12 | Pociones de maná cada 1.000 mobs |
 |---|---|---|---|---|---|
-| Luchador | 1.517 (1.787 en remate) | 90 | 128 | 181 | ~660 |
-| Combatiente | 637 | 49 | 129 | 239 | ~350 |
-| Asesino | 1.900 | 105 | 124 | muere | ~730 |
+| Luchador | 1.517 (1.787 en remate) | 90 | 126 | muere (antes 181) | ~660 |
+| Combatiente | 637 | 48 | 127 | 236 | ~360 |
+| Asesino | 1.900 | 105 | 113 (muere 8 veces) | muere | ~730 |
 | Atacante | 2.243 | 122 | muere | muere | ~1.020 |
 | Mago | 2.367 | 126 | muere | muere | ~620 |
 | Invocador | 746 | 61 | muere | muere | ~430 |
 
-En grupo, con élites y en la mazmorra: ver 1.11 y 1.12.
+En grupo, con élites y en la mazmorra: ver 1.11 y 1.12 (calculados cuando la STR aún daba defensa mágica). **Sin la defensa mágica de la STR**: con mobs normales el grupo apenas cambia; el grupo de 5 ya **no puede con 12 élites** (antes caía 2–3 veces) y la mazmorra con adds de élite **ya no se supera** (antes, en 7,7 min). Es intencionado: al llegar al nivel 20 los personajes están débiles, tienen que fabricar su equipo y empezar por bandas con élites de solo ×2, optimizar recursos, hacer pausas y aprender a juntar mobs; el Combatiente será el primero en llegar con resistencias suficientes usando el equipo básico.
 
 ## 3. Pendiente
 
