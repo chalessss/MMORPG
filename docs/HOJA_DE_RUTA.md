@@ -51,13 +51,13 @@ Objetivo: tener personajes completos a nivel de datos y reglas, aunque visualmen
 
 - [ ] Modelo de datos: clase de inicio → especialización 1 → especialización 2 → especialización 3
 - [ ] Subclases: un mismo personaje puede tener varias clases y cambiar entre ellas sin crear otro personaje ni empezar de cero (el modelo de datos debe soportarlo desde el inicio, aunque la función se active más adelante)
-- [ ] Estadísticas principales (STR / INT / AGI) y derivadas (vida, maná, daño, crítico, defensas…)
-- [ ] Estadísticas neutrales (evasión, precisión, CDR, PvP, caída de objetos…)
-- [ ] Recursos: MP + recurso secundario por clase (Ira, Energía, Foco, Iluminación)
+- [x] Estadísticas principales (STR / INT / AGI) y derivadas (vida, maná, daño, crítico, defensas…) — diseño cerrado para la Temporada 1
+- [x] Estadísticas neutrales de la Temporada 1 (evasión, precisión, defensas, daño a monstruos, CDR, recolección y fabricación) — las de PvP y caída de objetos, en la Temporada 2
+- [x] Recursos: MP + recurso secundario por clase (Ira, Energía, Foco, Iluminación) — mecánica decidida; cantidades en el capítulo de habilidades
 - [ ] Niveles, experiencia y crecimiento de estadísticas por nivel
 - [ ] Sistema de habilidades (activas / pasivas, enfriamiento, lanzamiento, alcance, coste)
-- [ ] Fórmulas de daño y defensa
-- [ ] Armas y su influencia (velocidad de ataque, tipo de arma por clase)
+- [x] Fórmulas de daño y defensa (diseño y simulador)
+- [x] Armas y su influencia (velocidad de ataque, tipo de arma por clase) — daño por tramos en el capítulo de objetos
 - [ ] Importación de datos desde la hoja de cálculo a DataTables de Unreal
 - [ ] Pruebas automáticas de las fórmulas
 - [ ] Escena de prueba: crear un personaje, subirlo de nivel y atacar a un muñeco de entrenamiento

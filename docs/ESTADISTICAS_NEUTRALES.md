@@ -1,6 +1,6 @@
 # Capítulo de detalle — Estadísticas (parte 3): neutrales
 
-Estado: **en curso**. Tercera parte del capítulo de estadísticas (parte 1: `docs/ESTADISTICAS.md`, niveles 1–19; parte 2: `docs/ESTADISTICAS_NIVEL_20.md`, nivel 20). Las neutrales no dependen de STR, INT ni AGI: vienen de la **joyería y los encantamientos** (decidido en la parte 1).
+Estado: **cerrado para la Temporada 1** (las neutrales de la Temporada 2 se diseñarán más adelante). Tercera parte del capítulo de estadísticas (parte 1: `docs/ESTADISTICAS.md`, niveles 1–19; parte 2: `docs/ESTADISTICAS_NIVEL_20.md`, nivel 20). Las neutrales no dependen de STR, INT ni AGI: vienen de la **joyería y los encantamientos** (decidido en la parte 1).
 
 ## 1. Neutrales por temporada (decidido)
 
@@ -57,7 +57,7 @@ Lectura:
 - Con el equipo base (~15 puntos) el Combatiente pierde un **12 %** de caza contra mobs de su nivel; con 5 puntos, un tercio. **Buscar precisión compensa**.
 - Con poca precisión las peleas duran más: gasta **más maná** (104 → 151 pociones) y, con 12 mobs, empieza a necesitar pociones de vida.
 - **Su evasión no hace nada hasta superar la precisión de los mobs**: con 5–15 puntos los mobs le aciertan siempre; con 20, un 95 % (esquiva 300–540 golpes cada 300 mobs). Para que los mobs fallen de verdad necesita **25 o más**.
-- Pendiente: el resto de especializaciones y la evasión por encima de 20.
+- No hacen falta más pruebas por ahora (decidido): solo una o, como mucho, dos piezas darán precisión, y los escalados se harán con el equipo.
 
 ## 3. Escalado de las neutrales (decidido)
 
@@ -132,7 +132,7 @@ Lectura:
 - **Sin píldoras de potenciación** (decidido): en MIR4 se pueden acumular hasta tres días de vigor con píldoras y dejar el personaje cazando solo esos tres días, lo que parece injusto. Aquí la única forma de recargar es desconectarse, recolectar o fabricar.
 - **Objetivo de diseño:** que mientras se sube de nivel la gente **pare a recolectar**. Al llegar al nivel 20 deben tener materiales para fabricar **dos o tres objetos**, y al subir del 20 al 40 tendrán que recolectar los materiales de las zonas nuevas para poder fabricar al llegar al 40. En el nivel máximo la potenciación ya no importa.
 
-## 7. Velocidad de recolección (decidido el principio; fórmula por confirmar)
+## 7. Velocidad de recolección (decidido)
 
 - **Cómo se recolecta** (como en MIR4): zonas de recolección con 20, 30 o 40 plantas, vetas o puntos de energía. El personaje se acerca y recoge con una animación: **picar** (minerales), **escarbar** matas (hierbas) o una especie de **baile** (energía).
 - **Tiempo base: 10 s** por cada recogida en el nivel 1, sin ninguna bonificación. Cada recogida suma a la potenciación de caza esos 10 s de base, se tarde lo que se tarde (6.3).
