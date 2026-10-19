@@ -83,14 +83,22 @@ Estado: **en curso**. Este archivo recoge el punto de partida (lo ya decidido en
 
 | Color | Cuándo | Puntos al fabricar |
 |---|---|---|
-| **Naranja** | La receta **nunca se ha fabricado** y la profesión está **dentro de su tramo amarillo** (menos de 7 puntos por encima del punto en que se aprende) | **×2**: la primera fabricación da **2 puntos** con los mismos materiales |
-| **Amarillo** | Desde la primera fabricación hasta **7 puntos** por encima del punto en que se aprende la receta | **1 punto seguro** |
-| **Verde** | Después de esos 7 puntos | **Probabilidad** de ganar 1 punto (60 % al empezar, y baja); si falla, no se gana punto (el objeto se fabrica igual) |
-| **Gris** | Cuando la receta ya no da puntos | 0 |
+| **Naranja** | La receta **nunca se ha fabricado** y la profesión está **dentro de su tramo amarillo** (menos de 5 puntos por encima del punto en que se aprende) | **×2**: la primera fabricación da **2 puntos** con los mismos materiales |
+| **Amarillo** | Desde la primera fabricación hasta **5 puntos** por encima del punto en que se aprende la receta | **1 punto seguro** |
+| **Verde** | De +5 a +10 por encima del punto en que se aprende | **Probabilidad** de ganar 1 punto, escalonada (tabla de abajo). El objeto **siempre se fabrica**; lo que puede fallar es el punto |
+| **Gris** | Desde +10 (cuando llega el rango siguiente) | 0 |
+
+**Probabilidad en verde (decidido)**, contando desde el punto en que se aprende la receta:
+
+| Punto | +5 → +6 | +6 → +7 | +7 → +8 | +8 → +9 | +9 → +10 |
+|---|---|---|---|---|---|
+| Probabilidad | 60 % | 55 % | 50 % | 45 % | 40 % |
+
+Los últimos cinco puntos de cada tramo piden **más materiales**. *Supuesto por confirmar*: la receta pasa a gris al llegar a +10.
 
 - El ×2 del naranja **incentiva fabricar una vez cada receta** en vez de repetir siempre la misma, y consume menos materiales para subir.
-- Ejemplo: una receta que se aprende con 0 puntos → la primera fabricación pasa de 0 a **2**; cinco fabricaciones en amarillo llevan a **7**; desde ahí, verde con un 60 %.
-- **El ×2 caduca (decidido)**: si la profesión llega al final del tramo amarillo de una receta (7 puntos por encima del punto en que se aprende) sin haberla fabricado nunca, la receta pasa **directamente de naranja a verde** y su primera fabricación ya no da 2 puntos: sigue la regla del verde. Así nadie puede **guardarse** primeras fabricaciones para gastarlas en la zona verde y subir de 7 a 9 y de 9 a 10 sin riesgo.
+- Ejemplo: una receta que se aprende con 0 puntos → la primera fabricación pasa de 0 a **2**; tres fabricaciones en amarillo llevan a **5**; desde ahí, verde: 60 % para pasar a 6, 55 % a 7, 50 % a 8, 45 % a 9 y 40 % a 10.
+- **El ×2 caduca (decidido)**: si la profesión llega al final del tramo amarillo de una receta (5 puntos por encima del punto en que se aprende) sin haberla fabricado nunca, la receta pasa **directamente de naranja a verde** y su primera fabricación ya no da 2 puntos: sigue la regla del verde. Así nadie puede **guardarse** primeras fabricaciones para gastarlas en la zona verde y subir los puntos con riesgo de forma segura.
 
 ### 3.3 Rangos del entrenador (decidido)
 
@@ -102,6 +110,17 @@ Estado: **en curso**. Este archivo recoge el punto de partida (lo ya decidido en
 
 - **Ninguno**: un personaje de cualquier nivel puede subir una profesión hasta 100.
 - El freno son los **materiales**: los de los últimos rangos salen de zonas con mobs de **nivel 20**. Quien no tenga nivel tiene que **comprarlos** (con oro, en el mercado) o ir subiendo nivel y profesión a la vez.
+
+### 3.5 Bonus de los 100 puntos, por temporada (decidido)
+
+- El bonus de llegar a 100 en una rama vale **solo para lo de su temporada**. Al recolectar, el servidor mira primero **de qué temporada es el recurso** (por ejemplo, un mineral de una zona de la Temporada 1 o de la 2) y solo aplica el +25 % de la rama de **esa** temporada.
+- Lo mismo con la fabricación: el tiempo a la mitad vale para las recetas de la rama que llegó a 100.
+- **Lo que no se pierde**: la velocidad de recolección de **objetos y encantamientos** es general y vale en todas las zonas. Quien llega a la Temporada 2 con, por ejemplo, un 15–20 % de su equipo lo conserva, y al subir las ramas nuevas a 100 vuelve a sumar el 50 % de minería y herboristería.
+- Objetivo: que el bonus de profesión sea **exclusivo de las zonas de cada temporada**.
+
+### 3.6 Todo cuesta oro (decidido)
+
+Aprender una profesión, cada receta, cada rango del entrenador y cada especialización de profesión (por ejemplo, la de herrería) **cuesta oro**. Las cantidades se fijarán con el modelo de economía.
 
 ## 4. Propuesta de estructura del capítulo (resto)
 

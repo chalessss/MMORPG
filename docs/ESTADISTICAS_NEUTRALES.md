@@ -148,7 +148,7 @@ Lectura:
 
 - **No habrá profesión de energía** (decidido): la energía no tiene profesión propia; su recolección solo se acelera con la velocidad general.
 - **Sin tope en la estadística** (decidido): se controla con el valor que dé cada objeto o encantamiento (por ejemplo, un objeto con +5 % o un encantamiento con +3 %), que se fijará al diseñar cada objeto. Habrá quien monte un **equipo exclusivo de recolección** poniendo velocidad en todas las piezas (pecho, guantes…) y supere el 50 %: no es un problema.
-- **Lo "gratuito" en el nivel 20**: el 25 % de minería y el 25 % de herboristería (50 % en total). Se consigue al llegar a **100 puntos** de cada profesión.
+- **Lo "gratuito" en el nivel 20**: el 25 % de minería y el 25 % de herboristería (50 % en total). Se consigue al llegar a **100 puntos** de cada profesión. Cada temporada tiene su propia rama de profesión, y el bonus solo se aplica a los recursos de su temporada; la velocidad de los objetos y encantamientos vale en todas partes (`docs/PROFESIONES.md`, 3.5).
 
 - **Fórmula (decidido): cada 100 % de velocidad reduce el tiempo a la mitad.** **Tiempo = 10 s × 0,5^(velocidad ÷ 100)**: con 100 % se tarda **5 s**; con 200 %, **2,5 s**; con 300 %, **1,25 s**. Nunca llega a 0: por mucha velocidad que se consiga (aunque sea con un fallo o un exploit), siempre hay que tardar algo en recoger.
 
