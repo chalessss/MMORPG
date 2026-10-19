@@ -101,3 +101,18 @@ Lectura:
 - Se controla con **porcentajes planos** en el equipo y, en temporadas siguientes, con **multiplicadores de vida de los mobs**: si alguien llega, por ejemplo, a un 200 %, la vida de los mobs debe subir lo suficiente para que no mueran de un golpe, sin olvidar que habrá jugadores con muy poco daño a monstruos que también tienen que poder matarlos.
 - **Invocador**: el daño a monstruos del equipo **se suma** al +50 % de su pasiva de arma: **65 %** con equipo normal y **70 %** como máximo con encantamientos y objetos concretos.
 - Efecto aproximado: un 15 % de daño a monstruos acelera la caza en algo menos de un 15 % (el daño que sobra al rematar cada mob se pierde).
+
+## 6. Experiencia de caza y vigor (en estudio)
+
+### 6.1 Referencia: el vigor de MIR4 (lo que le gusta al usuario)
+
+- El **vigor** es un tiempo acumulado durante el cual el personaje recibe **experiencia extra al matar mobs** ("Hunting EXP Boost"). Se ve en un panel con el % total y el tiempo que queda (por ejemplo, +353,65 % durante 2 h 36 min).
+- **Solo se consigue recolectando** (o con **píldoras de vigor**); descansar no da vigor. Así obliga a recolectar o a usar píldoras.
+- El % extra viene de **varias fuentes**, cada una con su aporte, y el panel las detalla (en MIR4: espíritus, tesoro, conquista, códice, entrenamiento…; cada una aparece multiplicada por ×1,5 mientras el vigor está activo).
+- En el registro de combate se ve la experiencia **base** del mob y, entre paréntesis, la **extra** de todas las fuentes: "Exp +9.472 (+7.384)".
+
+### 6.2 Encaje en el juego (propuesta por validar)
+
+- El vigor sería la versión concreta de la **experiencia de descanso** que ya se apuntaba en el diseño base (3.26: "posiblemente un híbrido que también se cargue con la recolección"), pero cargada **solo con la recolección** y con píldoras.
+- **Experiencia de caza** (la neutral) sería una de las fuentes del % extra, junto con otras que ya existen en el diseño: códice, técnicas de clan, consumibles y, más adelante, espíritus. La bonificación de grupo (+10 % a +25 %) iría aparte.
+- Mostrar siempre la experiencia base y la extra por separado, como en MIR4, y un panel con el detalle de las fuentes.
