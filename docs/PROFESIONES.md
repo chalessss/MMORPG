@@ -13,11 +13,11 @@ Estado: **en curso**. Este archivo recoge el punto de partida (lo ya decidido en
 | Herrero | Minero |
 | Joyero | Herborista |
 | Encantamiento | Pesca |
-| Inventor (solo la rama Recolector) | |
+| Inventor | |
 
 - Todas disponibles desde el nivel 1. La misión de la línea principal que las presenta (hacia el nivel 3) desbloquea la casilla de la bolsa de componentes; se puede elegir una profesión ya o más tarde.
 - **2 principales activas**; las demás quedan inhabilitadas **sin perder progreso**. Cada cambio cuesta oro con una curva suave (logarítmica) que sube con cada cambio.
-- **Inventor**: lo ofrece una misión al convertirse en Recolector; para aprenderlo hay que inhabilitar una de las dos principales. Es el único que fabrica **piedras santificadas**.
+- **Inventor**: lo puede aprender cualquiera (decidido); el único que fabrica **piedras santificadas**. La especialización Recolector tendrá bonificaciones extra exclusivas como inventor (se diseñan en la Temporada 2).
 - **Encantamiento**: la única que fabrica **papiros de encantamiento**.
 - Entrenador de profesión: enseña la profesión y la sube de rango.
 
@@ -40,9 +40,11 @@ Estado: **en curso**. Este archivo recoge el punto de partida (lo ya decidido en
 
 | Profesión | Fabrica (decidido) |
 |---|---|
-| **Las seis principales** (sastre, peletero, herrero, joyero, encantamiento, inventor) | **Primera receta de todas:** piedras **potenciadas** y **pacificadas** (piedras generales + un objeto de sastre, peletero, herrero, joyero o encantamiento + cristales + oro) |
+| **Las seis principales** (sastre, peletero, herrero, joyero, encantamiento, inventor) | **Primera receta de todas:** piedras **potenciadas** y **pacificadas** (piedras generales + un **objeto intermedio** de cualquier principal + cristales + oro) |
+| Las seis principales | Su **objeto intermedio** propio: llave de tuercas (herrero), madeja de lana (sastre), papiro en blanco (encantamiento)… Cualquiera sirve para la receta de piedras de cualquier profesión |
+| Herrero | **Armas de todo tipo**, de todas las clases |
 | Inventor | Además, piedras **santificadas**, en exclusiva (generales + potenciadas + pacificadas + oro) |
-| Encantamiento | Papiros de encantamiento (el número de estadísticas depende de la calidad del objeto y del nivel de encantamiento) |
+| Encantamiento | **Papiro en blanco** (primera receta; se vende) y su **inscripción** con una estadística (por ejemplo, velocidad de ataque); el papiro inscrito se aplica a la pieza. El número de estadísticas depende de la calidad del objeto y del nivel de encantamiento |
 | Cocinero | Elixir defensivo, elixir ofensivo y comida; mejoran con el nivel de la profesión; la estadística depende del ingrediente (pescado, carne, planta…) |
 | Todas | Una **bolsa** mayor con sus propios materiales; los especializados la hacen un poco más grande (34 → 36–38 espacios) |
 
@@ -60,11 +62,15 @@ Estado: **en curso**. Este archivo recoge el punto de partida (lo ya decidido en
 3. **Nombres (decidido):** la profesión se llama **encantamiento**; la especialización 2 del Invocador sigue llamándose **Encantador**.
 4. **Piedras de desarrollo (decidido):** las generales caen **solo por caza**; las **potenciadas** (suben de +1 a +4 al azar) y las **pacificadas** las fabrican **las seis principales**, encantamiento incluida; las **santificadas**, solo el inventor. Se corrige el documento base; la hoja ya lo recogía así.
 
-**Pendientes:**
-5. **Inventor en la Temporada 1**: el Recolector es especialización 2, así que en la T1 no habría inventores ni **piedras santificadas**. ¿Es lo buscado (la santificada llega en la T2) o la T1 necesita otra vía?
-6. **Placas en la T1**: los niveles 1–20 solo usan tela y cuero, así que el herrero no tendría armaduras que fabricar en la T1. ¿Fabrica las **armas** de todas las clases?
-7. **Receta de las piedras**: piden "un objeto de sastre, peletero, herrero, joyero o encantamiento". ¿Cada profesión usa un objeto **propio** (el sastre una tela, encantamiento un papiro…) o vale el de cualquiera?
-8. **"Encantamiento"** es ahora el nombre de la profesión y del sistema que añade estadísticas (`DISENO_BASE.md` 3.19). Como la profesión es justo la que fabrica los papiros de ese sistema, no debería confundir; se deja así salvo que se prefiera otro nombre.
+5. **Inventor (decidido):** abierto a **cualquier personaje**, así que ya hay piedras santificadas en la Temporada 1. El **Recolector** recibirá bonificaciones extra exclusivas por ser inventor, que se diseñarán al añadir esa especialización.
+6. **Herrero (decidido):** fabrica **armas de todo tipo**.
+7. **Receta de las piedras (decidido):** cada principal fabrica su **objeto intermedio** (llave de tuercas, madeja de lana, papiro en blanco…) y **cualquiera vale** para cualquier receta de piedras, sin restricción. Motivo: que nadie tenga que cambiar de profesión solo para usar un objeto que fabricó antes.
+8. **"Encantamiento"**: nombre compartido por la profesión y el sistema; se mantiene.
+
+**Nuevas preguntas:**
+9. **Papiro inscrito vs. azar**: el sistema de encantamiento (`DISENO_BASE.md` 3.19) decía que las estadísticas salen **al azar**. Con la inscripción ("póngale velocidad de ataque"), ¿quien inscribe **elige la estadística** y el azar queda solo en el **valor** (o en las estadísticas extra), o se inscribe a ciegas?
+10. **Objeto intermedio del inventor**: ¿el inventor fabrica también su propio objeto intermedio, o compra el de otras profesiones?
+11. **Placas**: cuando lleguen en la Temporada 2, ¿las fabrica el herrero o se reparten de otra forma?
 
 ## 3. Propuesta de estructura del capítulo
 
@@ -83,7 +89,7 @@ Estado: **en curso**. Este archivo recoge el punto de partida (lo ya decidido en
 |---|---|---|
 | Sastre (tela) | Telas | Botín de humanoides |
 | Peletero (cuero) | Pieles, cuero | Desollador (bestias) |
-| Herrero (armas, placas) | Lingotes, minerales | Minero |
+| Herrero (armas de todo tipo) | Lingotes, minerales | Minero |
 | Joyero (joyería) | Gemas, metales preciosos | Minero (gemas en vetas) |
 | Encantamiento (papiros) | Esencias, residuo elemental | Botín de elementales; ¿desencantar objetos? |
 | Inventor (piedras santificadas, ¿artefactos?) | Piedras de desarrollo, componentes de todas | Comercio y otras profesiones |

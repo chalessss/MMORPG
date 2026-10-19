@@ -461,8 +461,9 @@ Dos grupos: **equipo** (ropa y armas) y **joyería**, con **8 ranuras cada uno**
 
 - **Cambio de profesión principal**: solo hay **2 principales activas** a la vez, pero ninguna se olvida. Para aprender otra, se habla con el entrenador de la nueva profesión y se elige cuál de las dos activas se **inhabilita** (queda guardada con su progreso y se puede reactivar más tarde).
   - Cada cambio cuesta **oro**, y el coste **sube con cada cambio** siguiendo una curva suave (logarítmica, no exponencial). Objetivo: que se cambie cuando de verdad hace falta, no ir subiendo todas a la vez saltando de una a otra.
-- **Inventor — cómo se obtiene**: al convertirse en **Recolector** (nivel 20) aparece una misión que ofrece la profesión de inventor; para aprenderla, el jugador elige cuál de sus dos principales inhabilitar. **Nunca hay más de 2 principales activas**, tampoco para el Recolector.
-- **Inventor**: profesión de artesano avanzado, inspirada en los enanos artesanos de Lineage 2 (personajes dedicados a fabricar cosas muy potentes más que a cazar). Es la única que fabrica **piedras santificadas**. **Exclusiva de la rama Recolector** (Combatiente → Recolector → Carroñero / Explorador): una clase pensada para quien quiere centrarse en recolectar y fabricar en vez de cazar.
+- **Inventor (decidido, cambia lo anterior)**: lo puede aprender **cualquier personaje**, como las demás principales (cuenta como una de las 2 activas). La especialización **Recolector** (Combatiente → Recolector → Carroñero / Explorador) recibirá **bonificaciones extra exclusivas** cuando sea inventor; se diseñarán al añadir esa especialización (Temporada 2).
+- **Inventor**: profesión de artesano avanzado, inspirada en los enanos artesanos de Lineage 2 (personajes dedicados a fabricar cosas muy potentes más que a cazar). Es la única que fabrica **piedras santificadas**, ya desde la Temporada 1.
+- **Herrero (decidido)**: fabrica las **armas de todo tipo** (de todas las clases).
 - **Encantamiento**: profesión separada, la única que fabrica **papiros de encantamiento** (sección 3.19). Como las demás principales, también fabrica piedras potenciadas y pacificadas. Un jugador puede combinarla con otra principal (por ejemplo, sastre + encantamiento). **Nombre (decidido)**: la profesión se llama **encantamiento** y la especialización 2 del Invocador, **Encantador**, para no confundirlas.
 - Detalle de cada profesión (recetas, niveles, qué fabrica): capítulo propio más adelante.
 
@@ -660,11 +661,13 @@ Mezcla de MIR4 y Lineage 2.
 | Piedra | Cómo se obtiene | Requisitos |
 |---|---|---|
 | **General** | **Caza** (botín de mobs) | — |
-| **Potenciada** | Fabricación por **las seis principales** (sastre, peletero, herrero, joyero, encantamiento e inventor) | Piedras generales + un objeto de sastre, peletero, herrero, joyero o encantamiento + **cristales** + oro |
-| **Pacificada** | Fabricación por **las seis principales** (sastre, peletero, herrero, joyero, encantamiento e inventor) | Piedras generales + un objeto de sastre, peletero, herrero, joyero o encantamiento + **cristales** + oro |
+| **Potenciada** | Fabricación por **las seis principales** (sastre, peletero, herrero, joyero, encantamiento e inventor) | Piedras generales + un **objeto intermedio** de cualquier profesión principal + **cristales** + oro |
+| **Pacificada** | Fabricación por **las seis principales** (sastre, peletero, herrero, joyero, encantamiento e inventor) | Piedras generales + un **objeto intermedio** de cualquier profesión principal + **cristales** + oro |
 | **Santificada** | Fabricación **exclusiva del inventor** | Piedras generales + potenciadas + pacificadas + oro (sin cristales) |
 
-Las piedras generales caen **solo por caza**. Las profesiones secundarias no fabrican piedras. Quien no tenga una de las profesiones 1–5 (por ejemplo, un inventor) debe conseguir el objeto de esas profesiones comerciando.
+Las piedras generales caen **solo por caza**. Las profesiones secundarias no fabrican piedras.
+
+**Objeto intermedio (decidido)**: cada profesión principal fabrica su propio objeto intermedio (por ejemplo, el herrero una **llave de tuercas**, el sastre una **madeja de lana**, encantamiento un **papiro en blanco**), y **cualquiera sirve** para la receta de cualquier profesión, sin restricción. Así nadie tiene que cambiar de profesión solo para usar un objeto que fabricó antes con otra.
 
 **Destrucción con residuo (cambio respecto a MIR4, idea de Lineage 2)**
 - Cuando un objeto se destruye deja **cristales de su misma calidad** (un objeto raro deja cristales raros).
@@ -679,6 +682,7 @@ Las piedras generales caen **solo por caza**. Las profesiones secundarias no fab
 Sistema distinto del desarrollo: **añade estadísticas adicionales** a equipo y joyería, en lugar de potenciar las estadísticas base.
 
 - Se aplica con un **papiro de encantamiento**, que solo fabrica la profesión de **encantamiento**.
+- **Flujo (decidido)**: la primera receta de encantamiento es el **papiro en blanco**, que se puede vender. El comprador lo lleva a alguien con la profesión (un amigo, un encargo) para que lo **inscriba** (por ejemplo, con velocidad de ataque) y después aplica el papiro inscrito a la pieza que quiera encantar. Cómo encaja la elección de estadística con el azar: en `docs/PROFESIONES.md`.
 - Las estadísticas se eligen **al azar de todo el conjunto de estadísticas** del juego (ataque físico o mágico, defensa, resistencias, precisión…).
 - La **cantidad de estadísticas** (3, 4, 5…) depende de la **calidad del objeto** y del **nivel de la profesión de encantamiento** de quien encanta.
 - Referencia (MIR4): bloque "Propiedades adicionales" del objeto, con cada estadística extra y su grado.
@@ -1096,7 +1100,7 @@ Queda para más adelante:
 - **Juego automático**: qué objetos exactos se restringen en automático; valores de la experiencia de descanso.
 - **Teletransporte y zonas**: precios por zona; si dentro del círculo protegido de las zonas PvP se puede atacar hacia fuera (propuesta: no se puede atacar ni ser atacado); sistema de reputación con facciones.
 - **Muerte y karma**: sistema de karma y pérdida de objetos (juego avanzado).
-- **Profesiones**: valores de la curva de oro por cambio; si una subclase de Recolector (nivel 60) da acceso al inventor.
+- **Profesiones**: valores de la curva de oro por cambio; bonificaciones exclusivas del Recolector como inventor.
 - **Bonus de moneda** por tamaño de grupo: valores.
 - **Bandas** (se desbloquean en el nivel 40 o 60): reglas de reparto de experiencia, moneda y botín.
 - **Subclases** (desde el nivel 60): nivel de cada subclase, qué se comparte, límite de subclases.

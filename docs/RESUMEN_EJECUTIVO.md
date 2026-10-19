@@ -50,7 +50,7 @@ Vista rápida del proyecto. El detalle de cada decisión está en `docs/DISENO_B
 - Objetos que se consumen al registrar; entradas que piden más piezas y más desarrollo; crece cada temporada.
 
 **Profesiones**
-- 6 principales (2 activas; se cambian con coste progresivo sin perder progreso): sastre, peletero, herrero, joyero, encantamiento, inventor (exclusivo de la rama Recolector). Las seis fabrican piedras potenciadas y pacificadas; solo el inventor, santificadas. Sin tala ni alquimia.
+- 6 principales (2 activas; se cambian con coste progresivo sin perder progreso): sastre, peletero, herrero, joyero, encantamiento, inventor (abierto a todos; el Recolector tendrá bonificaciones extra). Las seis fabrican piedras potenciadas y pacificadas con un objeto intermedio de cualquier profesión; solo el inventor, santificadas. El herrero fabrica todas las armas; encantamiento, papiros en blanco que luego se inscriben. Sin tala ni alquimia.
 - 5 secundarias (todas): cocinero, desollador, minero, herborista, pesca.
 - **Recolección**: 10 s por recogida de base; la velocidad de recolección es general y cada 100 % reduce el tiempo a la mitad. Minería y herboristería suben por puntos como en WoW y a 100 puntos dan +25 % cada una. Las vetas enriquecidas piden 50 puntos, dan el material del grado más alto de la temporada y se recogen 1–3 veces. La energía no tiene profesión.
 - **Fabricación**: a 100 puntos de una profesión, el tiempo de sus recetas se reduce a la mitad (el máximo).
