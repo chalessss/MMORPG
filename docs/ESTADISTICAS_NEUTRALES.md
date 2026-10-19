@@ -168,6 +168,14 @@ Lectura:
 
 - Las profesiones de recolección suben **como en WoW**: según la veta o la planta que se recoja, se gana o no un punto de habilidad. Al llegar a **100 puntos** se obtiene su +25 % de velocidad de recolección.
 - Con más puntos se pueden recoger vetas de más calidad. Por ejemplo, las **vetas enriquecidas** piden **50 puntos** de la profesión: 50 de minería para minerales, 50 de herboristería para hierbas.
-- Una veta de minerales puede dar materiales distintos (acero, aleaciones, lingotes, piedras o fragmentos de algún material…). Las **enriquecidas** dan materiales de grado **raro** (no común ni poco común); una veta **épica**, de grado épico.
+- Una veta de minerales puede dar materiales distintos (acero, aleaciones, lingotes, piedras o fragmentos de algún material…).
+- Las **vetas enriquecidas** dan el material del **grado más alto que exista en la temporada** y en **mayor cantidad**. Ejemplo: una veta de estaño normal da 1 lingote de estaño poco común; una enriquecida, 4 lingotes de estaño **raro** en la Temporada 2 (donde el raro es el grado más alto), y **épicos** en la Temporada 3, cuando llega el equipo épico.
+- Las enriquecidas solo se pueden recoger **1, 2 o 3 veces** (no cientos de veces como las vetas de MIR4).
 - **La energía es distinta**: se acumula como el cobre, no tiene materiales distintos ni vetas enriquecidas, y la puede recoger cualquiera. Cada punto de energía da una **cantidad que depende de su calidad**.
+
+### 7.3 Velocidad de fabricación (decidido)
+
+- Funciona **igual que la velocidad de recolección gratuita** de minería y herboristería: al llegar a **100 puntos** en una profesión de fabricación (encantamiento, joyería, peletería, herrería…), se recibe un **bonus de especialización**: las recetas de esa profesión se fabrican **un 50 % más rápido**.
+- Así se iguala la velocidad de fabricación con la de recolección.
+- Por confirmar: si se aplica con la misma fórmula que la recolección (con +50 % el tiempo queda en el 71 %) o si "un 50 % más rápido" significa fabricar en dos tercios del tiempo (67 %) o en la mitad.
 
