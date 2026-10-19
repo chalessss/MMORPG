@@ -120,9 +120,14 @@ Lectura:
 - Hay un **máximo de tiempo acumulado** (por ejemplo, 8 horas). Al gastarlo, lo que más conviene es recargarlo haciendo otras cosas: **recolectar**, **fabricar con una profesión** u otras acciones; quizá también **estando desconectado**, como en WoW.
 - En combate se muestra la experiencia base y, entre paréntesis, la extra; un panel detalla cada fuente.
 
-### 6.3 Preguntas abiertas
+### 6.3 Reglas completas (decidido)
 
-- **Sin potenciación activa**, ¿las demás fuentes (joyería, códice…) siguen dando su %, o solo se recibe la experiencia base?
-- **Máximo acumulado**: ¿8 horas es el valor o un ejemplo?
-- **¿Se recarga también desconectado?** ¿Y cuánto tiempo carga cada acción (recolectar, fabricar…)?
-- **Píldoras de potenciación**: ¿existen y de dónde salen (profesión, NPC, tienda premium)?
+- **Sin potenciación activa**, las demás fuentes (joyería, códice, espíritus…) **siguen sumando su %**; solo se pierde el +100 % de la potenciación.
+- **Máximo acumulado: 8 horas.** Coincide con el máximo de juego automático: son las horas en las que conviene dejar al personaje cazando solo. Cuando se acaban, se sigue ganando experiencia pero perdiendo una parte importante; para recuperarla hay que recargar.
+- **Recarga:**
+  - **Desconectado**: **1 segundo de potenciación por cada segundo** de desconexión.
+  - **Recolectando y fabricando**: cada acción suma una **cantidad exacta** de potenciación, igual al **tiempo base** de esa acción. Si minar una veta tarda 10 s de base, suma 10 s aunque la **velocidad de recolección** la haya bajado a 6–7 s. Así, recolectar más rápido carga la potenciación más deprisa.
+  - **Objetivo** (hacia el final de la Temporada 1): recolectando o fabricando durante **la mitad del tiempo** (unas 4 horas) se recuperan las 8 horas. Los tiempos base de recolección y el ritmo esperado se calibrarán en el capítulo de recursos/profesiones.
+  - Si alguien se pone todo el equipo de velocidad de recolección (por ejemplo, un inventor) y baja una veta a 3–4 s, no es un problema: recogerá más rápido y cargará más potenciación, que normalmente no usará porque quien vive de recolectar apenas caza.
+- **Sin píldoras de potenciación** (decidido): en MIR4 se pueden acumular hasta tres días de vigor con píldoras y dejar el personaje cazando solo esos tres días, lo que parece injusto. Aquí la única forma de recargar es desconectarse, recolectar o fabricar.
+- **Objetivo de diseño:** que mientras se sube de nivel la gente **pare a recolectar**. Al llegar al nivel 20 deben tener materiales para fabricar **dos o tres objetos**, y al subir del 20 al 40 tendrán que recolectar los materiales de las zonas nuevas para poder fabricar al llegar al 40. En el nivel máximo la potenciación ya no importa.
