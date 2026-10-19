@@ -5,7 +5,7 @@ Vista rápida del proyecto. El detalle de cada decisión está en `docs/DISENO_B
 ## Estado actual
 
 - **Fase**: diseño general terminado y **capítulo de estadísticas de la Temporada 1 cerrado** (con simuladores de balance en `herramientas/simulador/`). Todavía no hay proyecto de Unreal.
-- **Siguiente sesión**: capítulo de **profesiones**.
+- **En curso**: capítulo de **profesiones** (`docs/PROFESIONES.md`).
 - **Forma de trabajo**: la primera conversación fijó los parámetros generales; a partir de ahora se trabaja **un capítulo de detalle por sesión**.
 
 ## Lo que está definido
@@ -83,7 +83,7 @@ Vista rápida del proyecto. El detalle de cada decisión está en `docs/DISENO_B
 
 **Capítulos de detalle** (uno por sesión):
 1. ~~**Estadísticas**~~ — **cerrado para la Temporada 1** (`docs/ESTADISTICAS.md`, `docs/ESTADISTICAS_NIVEL_20.md`, `docs/ESTADISTICAS_NEUTRALES.md`; resumen en `docs/RESUMEN_ESTADISTICAS.md`). Para la Temporada 2: neutrales de PvP, botín y jefes, primer balance PvP y crecimiento por nivel desde el 20.
-2. **Profesiones** (siguiente sesión).
+2. **Profesiones** — en curso (`docs/PROFESIONES.md`).
 3. Personajes → habilidades (incluye las cantidades de curas, escudos y recursos secundarios).
 4. Mapas (incluye guerra de territorios, asedios, cementerios, élites y conglomerados).
 5. Recursos (tiempos base de recolección).

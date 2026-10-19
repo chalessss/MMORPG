@@ -44,6 +44,7 @@ Implicaciones técnicas:
 - `docs/RESUMEN_ESTADISTICAS.md`: resumen ejecutivo del capítulo de estadísticas (**cerrado para la Temporada 1**; detalle en `docs/ESTADISTICAS.md`; simulador en `herramientas/simulador/`). Parte 1: niveles 1–19 con las clases de inicio.
 - `docs/ESTADISTICAS_NIVEL_20.md`: parte 2 del capítulo de estadísticas — nivel 20 y estadísticas finales con la especialización 1 (cerrada; ficha en la sección 2; simulador `herramientas/simulador/simular20.py`).
 - `docs/ESTADISTICAS_NEUTRALES.md`: parte 3 del capítulo de estadísticas — neutrales (cerrada para la Temporada 1; las de la Temporada 2, más adelante).
+- `docs/PROFESIONES.md`: capítulo de profesiones (en curso): punto de partida, incoherencias detectadas, mapa de materiales y preguntas abiertas.
 - `docs/SEGURIDAD.md`: seguridad, antitrampas y antibots (alertas silenciosas con tres informes, sanciones, contracargos, retraso del mercado).
 - `docs/HOJA_DE_RUTA.md`: fases del proyecto y decisiones pendientes.
 - Forma de trabajo: la primera conversación fijó los parámetros generales de todos los sistemas; ahora se trabaja **un capítulo de detalle por sesión** (estadísticas, personajes/habilidades, mapas, recursos, objetos, profesiones, contenido por temporada).
