@@ -93,3 +93,10 @@ Lectura:
   - **Niveles 1–19** (`simular.py --niveles`): casi nada. Nadie muere; los cuerpo a cuerpo tardan un 1–3 % más entre los niveles 10 y 14 y beben más pociones de vida entre el 10 y el 17 (por ejemplo, en el nivel 14 la espada larga pasa de 307 a 648 pociones cada 1.000 mobs).
   - **Nivel 20**: el Luchador ya no aguanta 12 mobs a la vez, el Asesino muere 8 veces con 6, el grupo de 5 no puede con 12 élites y la mazmorra con adds de élite ya no se supera. Con mobs normales en grupo casi no cambia.
 - **Es intencionado**: los grupos grandes de mobs solo llegan en el nivel 20, y los élites fuertes piden antes fabricar equipo y empezar por bandas con **élites de solo ×2**. Los personajes llegan débiles al 20 y tienen que optimizar recursos, hacer pausas y aprender a juntar mobs. El **Combatiente** debe ser el primero en llegar a tener resistencias suficientes para pelear solo con el equipo básico.
+
+## 5. Daño a monstruos (decidido)
+
+- **Porcentaje** que se suma al daño de cada golpe blanco y de cada habilidad contra **monstruos** (no contra jefes: para ellos llegará "daño a jefes" en la Temporada 2). Ejemplo: con un 1 %, un golpe de 300 contra un mob hace 303.
+- **Temporada 1 (niveles 1–20)**: con el equipo normal se llega a **un 15 %**; como **máximo un 20 %** sumando todo el equipo, y solo con objetos concretos o encantamientos concretos.
+- Se controla con **porcentajes planos** en el equipo y, en temporadas siguientes, con **multiplicadores de vida de los mobs**: si alguien llega, por ejemplo, a un 200 %, la vida de los mobs debe subir lo suficiente para que no mueran de un golpe, sin olvidar que habrá jugadores con muy poco daño a monstruos que también tienen que poder matarlos.
+- Efecto aproximado: un 15 % de daño a monstruos acelera la caza en algo menos de un 15 % (el daño que sobra al rematar cada mob se pierde).
