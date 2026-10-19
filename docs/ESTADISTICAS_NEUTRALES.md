@@ -220,6 +220,7 @@ Con esto quedan vistas todas las neutrales de la Temporada 1.
 ## 9. Puntuación de poder (se calibra en el capítulo de objetos)
 
 - **Sin clasificación por nivel** (decidido): el nivel tiene tope y todos llegarán al máximo. Queda la clasificación por **poder** (además de la de códice y las de clanes).
+- **Clasificación de poder por clase** (decidido): se podrá filtrar por especialización. Si alguna estadística queda algo desbalanceada y da más poder sin dar más daño, no importa, porque cada clase se compara con las de su misma clase.
 - **La calibración del poder se hace en el capítulo de objetos** (decidido), cuando existan los equipos ideales:
   - Para cada especialización se monta su **equipo perfecto**: todas las piezas posibles, con todas las mejoras perfectas, eligiendo lo que más rinda para su clase. Ese personaje marca el **poder máximo**.
   - **Cada estadística da un poder distinto según la especialización**, en función de lo que le sirve. Por ejemplo, al Combatiente la STR le daría unos 10 puntos de poder, la AGI 3 y la INT 1.

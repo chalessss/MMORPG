@@ -883,7 +883,8 @@ Solo se clasifica lo que se puede medir de forma objetiva:
 
 - **Sin clasificación por nivel** (decidido): el nivel tiene tope en cada temporada y todos acabarán en el máximo, así que no tendría sentido (en MIR4 funciona porque el nivel no tiene tope).
 - **Honor (PvP)**: pendiente; se decidirá con el capítulo de PvP.
-- *Propuesta por confirmar*: filtros por clase y por servidor.
+- **Clasificación por clase** (decidido): la clasificación de poder se puede filtrar por clase o especialización (ver solo los Combatientes, los Atacantes, los Invocadores…). Como cada estadística dará un poder distinto según la especialización, comparar entre clases distintas puede engañar; dentro de cada clase sí sirve para ver quién está más fuerte.
+- *Propuesta por confirmar*: filtro por servidor.
 
 ### 3.29 Misiones (decidido en lo general)
 
